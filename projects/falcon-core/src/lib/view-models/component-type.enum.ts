@@ -30,3 +30,8 @@ export const enum Appearance {
     Fill = "fill",
     Outline = "outline"
 }
+
+export const enum ComponentPosition {
+    horizontal = 0,
+    vertical = 1
+  }

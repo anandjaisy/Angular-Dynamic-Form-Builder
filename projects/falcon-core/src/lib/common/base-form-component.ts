@@ -1,5 +1,4 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {EventEmitter} from "@angular/core";
 import { Observable } from 'rxjs';
 import { ComponentType } from '../view-models/component-type.enum';
 import { IMeta } from '../view-models/imeta';
@@ -7,9 +6,9 @@ export abstract class BaseFormComponent<T> {
     public form: FormGroup;
     protected abstract defineForm(): void;
     protected abstract getDatasource(): Observable<T>;
-    protected abstract submitDatasource(model: T): EventEmitter<T>;
+    protected abstract submitDatasource(model: T): Observable<T>;
     public dataSource: T = null;
-    public regConfig: IMeta[] = [];
+    public controlsConfig: IMeta[] = [];
     get value() {
       return this.form.value;
     }
@@ -25,7 +24,6 @@ export abstract class BaseFormComponent<T> {
         }
       }
 
-
       private validateAllFormFields(formGroup: FormGroup) {
         Object.keys(formGroup.controls).forEach(field => {
           const control = formGroup.get(field);
@@ -33,9 +31,9 @@ export abstract class BaseFormComponent<T> {
         });
       }
 
-      public createControl() {
+      public createControls() {
         const group = this.fb.group({});
-        this.regConfig.forEach(field => {
+        this.controlsConfig.forEach(field => {
           if (field.componentType === ComponentType.Button) return;
           const control = this.fb.control(
             field.value,
@@ -55,5 +53,13 @@ export abstract class BaseFormComponent<T> {
           return Validators.compose(validList);
         }
         return null;
+      }
+
+      public reset(defaultValues?: any) {
+        this.form.reset(defaultValues);
+      }
+
+      resetFieldErrors(name: string): void {
+        this.form.get(name).setErrors(null);
       }
 }

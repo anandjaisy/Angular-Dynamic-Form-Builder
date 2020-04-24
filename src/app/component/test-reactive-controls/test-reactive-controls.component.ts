@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { IMeta } from 'projects/falcon-core/src/lib/view-models/imeta';
-import { ComponentType, InputTypes, Appearance } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, ComponentPosition } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
-
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-test-reactive-controls',
@@ -17,15 +16,16 @@ export class TestReactiveControlsComponent extends BaseFormComponent<any> implem
   }
   
   protected defineForm(): void { 
-    this.regConfig = [
+    this.controlsConfig = [
       {
         componentStyle: {
-          name : "Label Name",
+          name : "User Name",
           appearance : Appearance.Outline,
           placeHolder : "Place holder",
           prefix : {isIcon: true, text: "explore"},
           suffix: {isIcon: false, text: ".00"},
-          hint : "testing"
+          hint : "testing",
+          componentPosition : ComponentPosition.horizontal
         },
         componentType: ComponentType.TextBox,
         attrType: InputTypes.Text,
@@ -42,20 +42,39 @@ export class TestReactiveControlsComponent extends BaseFormComponent<any> implem
             message: "Accept only text"
           }
         ]
+      },
+       {
+        componentStyle: {
+          name : "Password",
+          appearance : Appearance.Outline,
+          placeHolder : "Place holder",
+          componentPosition : ComponentPosition.vertical
+        },
+        componentType: ComponentType.TextBox,
+        attrType: InputTypes.Password,
+        formControlName: "password",
+        validations: [
+          {
+            name: "required",
+            validator: Validators.required,
+            message: "Name Required"
+          }
+        ]
       }
     ];
   }
 
 
   ngOnInit(): void {
-    this.form = this.createControl();
+    this.form = this.createControls();
   }
 
-  protected getDatasource(): import("rxjs").Observable<any> {
-    throw new Error("Method not implemented.");
+  protected getDatasource(): Observable<any> {
+    return of();
   }
-  protected submitDatasource(model: any): import("@angular/core").EventEmitter<any> {
-    throw new Error("Method not implemented.");
+  protected submitDatasource(model: any): Observable<any> {
+    console.log(model);
+    return of(model);
   }
 
 

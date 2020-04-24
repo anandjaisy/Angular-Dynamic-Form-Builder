@@ -1,2 +1,4 @@
-<ng-container *ngFor="let field of fields;" dynamicField [field]="field" [group]="form">
-</ng-container>
+<div fxLayout="column wrap" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="center center">
+    <ng-container *ngFor="let field of fields;" dynamicField [field]="field" [group]="form">
+    </ng-container>
+</div>

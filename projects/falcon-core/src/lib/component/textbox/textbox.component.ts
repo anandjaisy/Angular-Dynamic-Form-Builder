@@ -3,7 +3,7 @@ import { IMeta } from '../../view-models/imeta';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'lib-textbox',
+  selector: 'falcon-textbox',
   templateUrl: './textbox.component.html',
   styleUrls: ['./textbox.component.css']
 })

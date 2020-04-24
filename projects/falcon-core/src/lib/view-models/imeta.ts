@@ -1,5 +1,5 @@
 import { IValidator } from './ivalidator';
-import {ComponentType, Appearance} from './component-type.enum';
+import {ComponentType, Appearance, ComponentPosition} from './component-type.enum';
 import { from } from 'rxjs';
 export interface IMeta {
   componentStyle?: IComponentStyle;
@@ -13,6 +13,7 @@ export interface IMeta {
 }
 
 export interface IComponentStyle {
+  componentPosition?: ComponentPosition; 
   name : string;
   appearance : Appearance;
   placeHolder? : string;
@@ -26,3 +27,5 @@ export interface ISuffixPrefixConfig {
   isIcon : boolean;
   text : string;
 }
+
+
