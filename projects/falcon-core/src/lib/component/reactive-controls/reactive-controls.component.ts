@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, ViewEncapsulation } from '@angular/core';
 import { IMeta } from '../../view-models/imeta';
 import { FormGroup,Validators, FormBuilder } from '@angular/forms';
 import { ComponentType } from '../../view-models/component-type.enum';
@@ -12,9 +12,10 @@ import { BaseFormComponent } from '../../common/base-form-component';
 export class ReactiveControlsComponent implements OnInit {
   
   @Input() form: FormGroup;
-  @Input() fields: IMeta[] = [];
+  @Input() fields: IMeta;
   constructor() { 
   }
   ngOnInit(): void {
+    console.log(this.fields);
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, ComponentPosition } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, ComponentPosition, AlignmentLayoutDirection } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 
@@ -16,52 +16,62 @@ export class TestReactiveControlsComponent extends BaseFormComponent<any> implem
   }
   
   protected defineForm(): void { 
-    this.controlsConfig = [
+    this.controlsConfig =
       {
-        componentStyle: {
-          name : "User Name",
-          appearance : Appearance.Outline,
-          placeHolder : "Place holder",
-          prefix : {isIcon: true, text: "explore"},
-          suffix: {isIcon: false, text: ".00"},
-          hint : "testing",
-          componentPosition : ComponentPosition.horizontal
+        layoutConfig : {
+          layoutDirection: ComponentPosition.Row,
+          fxLayoutGap : "10px",
+          alignmentLayoutDirectionHorizontal : AlignmentLayoutDirection.SpaceBetween,
+          alignmentLayoutDirectionVertical : AlignmentLayoutDirection.SpaceBetween
         },
-        componentType: ComponentType.TextBox,
-        attrType: InputTypes.Text,
-        formControlName: "name",
-        validations: [
-          {
-            name: "required",
-            validator: Validators.required,
-            message: "Name Required"
+        componentConfig:[{
+          componentProperty: {
+            name : "User Name",
+            appearance : Appearance.Outline,
+            placeHolder : "Place holder",
+            prefix : {isIcon: true, text: "explore"},
+            suffix: {isIcon: false, text: ".00"},
+            hint : "testing",
+            attrType: InputTypes.Text,
           },
-          {
-            name: "pattern",
-            validator: Validators.pattern("^[a-zA-Z]+$"),
-            message: "Accept only text"
-          }
-        ]
-      },
-       {
-        componentStyle: {
-          name : "Password",
-          appearance : Appearance.Outline,
-          placeHolder : "Place holder",
-          componentPosition : ComponentPosition.vertical
+          componentType: ComponentType.TextBox,
+          formControlName: "name",
+          validations: [
+            {
+              name: "required",
+              validator: Validators.required,
+              message: "Name Required"
+            },
+            {
+              name: "pattern",
+              validator: Validators.pattern("^[a-zA-Z]+$"),
+              message: "Accept only text"
+            }
+          ]
         },
-        componentType: ComponentType.TextBox,
-        attrType: InputTypes.Password,
-        formControlName: "password",
-        validations: [
-          {
-            name: "required",
-            validator: Validators.required,
-            message: "Name Required"
-          }
-        ]
+        {
+          componentProperty: {
+            name : "Password",
+            appearance : Appearance.Outline,
+            placeHolder : "Place holder",
+            attrType: InputTypes.Password,
+          },
+          componentType: ComponentType.TextBox,
+          formControlName: "name",
+          validations: [
+            {
+              name: "required",
+              validator: Validators.required,
+              message: "Name Required"
+            },
+            {
+              name: "pattern",
+              validator: Validators.pattern("^[a-zA-Z]+$"),
+              message: "Accept only text"
+            }
+          ]
+        }]
       }
-    ];
   }
 
 

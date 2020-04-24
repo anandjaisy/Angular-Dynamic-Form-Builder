@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IMeta } from '../../view-models/imeta';
+import { IComponentConfig } from '../../view-models/imeta';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./textbox.component.css']
 })
 export class TextboxComponent implements OnInit {
-  field: IMeta;
+  field: IComponentConfig;
   group: FormGroup;
   constructor() { }
 

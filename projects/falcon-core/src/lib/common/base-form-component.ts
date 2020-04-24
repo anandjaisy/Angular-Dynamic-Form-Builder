@@ -8,7 +8,7 @@ export abstract class BaseFormComponent<T> {
     protected abstract getDatasource(): Observable<T>;
     protected abstract submitDatasource(model: T): Observable<T>;
     public dataSource: T = null;
-    public controlsConfig: IMeta[] = [];
+    public controlsConfig: IMeta;
     get value() {
       return this.form.value;
     }
@@ -33,7 +33,7 @@ export abstract class BaseFormComponent<T> {
 
       public createControls() {
         const group = this.fb.group({});
-        this.controlsConfig.forEach(field => {
+        this.controlsConfig.componentConfig.forEach(field => {
           if (field.componentType === ComponentType.Button) return;
           const control = this.fb.control(
             field.value,

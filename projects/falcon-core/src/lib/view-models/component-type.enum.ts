@@ -5,7 +5,7 @@ export const enum ComponentType {
     DatePicker = 3,
     Radio = 4,
     Checkbox = 5,
-    Button =6
+    Button = 6
 }
 
 export const enum InputTypes {
@@ -32,6 +32,16 @@ export const enum Appearance {
 }
 
 export const enum ComponentPosition {
-    horizontal = 0,
-    vertical = 1
-  }
+    Row = "row",
+    Column = "column"
+}
+
+export const enum AlignmentLayoutDirection {
+    None = "none",
+    Start = "start",
+    Center = "center",
+    End = "end",
+    SpaceAround = "space-around",
+    SpaceBetween = "space-between",
+    SpaceEvenly ="space-evenly"
+}

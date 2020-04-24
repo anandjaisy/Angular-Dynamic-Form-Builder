@@ -1,14 +1,14 @@
-<mat-form-field [appearance]="field.componentStyle.appearance" [formGroup]="group">
-    <mat-label>{{field.componentStyle.name}}</mat-label>
+<mat-form-field [appearance]="field.componentProperty.appearance" [formGroup]="group">
+    <mat-label>{{field.componentProperty.name}}</mat-label>
 
-    <input matInput [formControlName]="field.formControlName" [placeholder]="field.componentStyle.placeHolder" [type]="field.attrType">
+    <input matInput [formControlName]="field.formControlName" [placeholder]="field.componentProperty.placeHolder" [type]="field?.componentProperty?.attrType">
 
 
-    <span matPrefix [ngClass]="{'material-icons': field?.componentStyle?.prefix?.isIcon}">{{field?.componentStyle?.prefix?.text}}</span>
-    <span matSuffix [ngClass]="{'material-icons': field?.componentStyle?.suffix?.isIcon}">{{field?.componentStyle?.suffix?.text}}</span> 
+    <span matPrefix [ngClass]="{'material-icons': field?.componentProperty?.prefix?.isIcon}">{{field?.componentProperty?.prefix?.text}}</span>
+    <span matSuffix [ngClass]="{'material-icons': field?.componentProperty?.suffix?.isIcon}">{{field?.componentProperty?.suffix?.text}}</span> 
 
     
-    <mat-hint>{{field.componentStyle.hint}}</mat-hint>
+    <mat-hint>{{field.componentProperty.hint}}</mat-hint>
 
     <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
         <mat-error *ngIf="group.get(field.formControlName).hasError(validation.name)">{{validation.message}}</mat-error>

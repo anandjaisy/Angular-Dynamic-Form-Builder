@@ -1,4 +1,9 @@
-<div fxLayout="column wrap" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="center center">
-    <ng-container *ngFor="let field of fields;" dynamicField [field]="field" [group]="form">
+<div [fxLayout]="fields.layoutConfig.layoutDirection" fxLayout="wrap" fxLayout.xs="column"
+    [fxLayoutGap]="fields.layoutConfig.fxLayoutGap"
+    [fxLayoutAlign]="fields.layoutConfig.alignmentLayoutDirectionHorizontal"
+    [fxLayoutAlign]="fields.layoutConfig.alignmentLayoutDirectionVertical">
+
+    <ng-container *ngFor="let field of fields.componentConfig;" dynamicField [field]="field" [group]="form">
     </ng-container>
+    
 </div>

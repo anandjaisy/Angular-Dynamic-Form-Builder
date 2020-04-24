@@ -1,14 +1,14 @@
 import { Directive } from '@angular/core';
 import {ComponentFactoryResolver,Input,OnInit,ViewContainerRef} from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import { IMeta } from '../view-models/imeta';
+import {IComponentConfig } from '../view-models/imeta';
 import { ConstantValues } from '../view-models/constant-values';
 
 @Directive({
   selector: "[dynamicField]"
 })
 export class ReactiveFieldDirective implements OnInit{
-  @Input() field: IMeta;
+  @Input() field: IComponentConfig;
   @Input() group: FormGroup;
   componentRef: any;
   constructor(
