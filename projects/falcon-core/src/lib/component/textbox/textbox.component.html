@@ -1,0 +1,16 @@
+<mat-form-field [appearance]="field.componentStyle.appearance" [formGroup]="group">
+    <mat-label>{{field.componentStyle.name}}</mat-label>
+
+    <input matInput [formControlName]="field.formControlName" [placeholder]="field.componentStyle.placeHolder" [type]="field.attrType">
+
+
+    <span matPrefix [ngClass]="{'material-icons': field?.componentStyle?.prefix?.isIcon}">{{field?.componentStyle?.prefix?.text}}</span>
+    <span matSuffix [ngClass]="{'material-icons': field?.componentStyle?.suffix?.isIcon}">{{field?.componentStyle?.suffix?.text}}</span> 
+
+    
+    <mat-hint>{{field.componentStyle.hint}}</mat-hint>
+
+    <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+        <mat-error *ngIf="group.get(field.formControlName).hasError(validation.name)">{{validation.message}}</mat-error>
+    </ng-container>
+</mat-form-field>

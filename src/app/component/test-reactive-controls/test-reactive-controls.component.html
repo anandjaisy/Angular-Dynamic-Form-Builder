@@ -1,0 +1,7 @@
+<form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <reactive-controls [fields]="regConfig" [form]="form"></reactive-controls>
+    <button mat-button>click</button>
+</form>
+
+
+value = {{ form?.value | json }}

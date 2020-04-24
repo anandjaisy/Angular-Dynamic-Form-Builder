@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -92,6 +93,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +125,50 @@
           }
         }
       }
-    }},
-  "defaultProject": "project-falcon"
+    },
+    "falcon-core": {
+      "projectType": "library",
+      "root": "projects/falcon-core",
+      "sourceRoot": "projects/falcon-core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/falcon-core/tsconfig.lib.json",
+            "project": "projects/falcon-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/falcon-core/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/falcon-core/src/test.ts",
+            "tsConfig": "projects/falcon-core/tsconfig.spec.json",
+            "karmaConfig": "projects/falcon-core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/falcon-core/tsconfig.lib.json",
+              "projects/falcon-core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "project-falcon",
+  "cli": {
+    "analytics": false
+  }
 }
