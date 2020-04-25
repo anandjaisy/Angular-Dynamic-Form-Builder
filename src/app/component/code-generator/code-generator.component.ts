@@ -8,11 +8,12 @@ import { IMeta } from 'projects/falcon-core/src/lib/view-models/imeta';
 })
 export class CodeGeneratorComponent implements OnInit {
   @Input() tsConfig: string;
+  @Input() htmlConfig: string;
+  @Input() cssConfig: string;
   code : any;
   constructor() { }
 
   ngOnInit(): void {
-    this.code = `${this.tsConfig}`;
   }
 
 }

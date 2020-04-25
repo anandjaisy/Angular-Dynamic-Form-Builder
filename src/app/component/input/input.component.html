@@ -30,10 +30,10 @@
                     <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
                 </form>
                 <div fxLayout="row" fxLayoutAlign="center center">
-                    <pre>{{form?.value | json}}</pre>
+                    <pre><code [highlight]="form?.value | json"></code></pre>
                 </div>
             </div>
-            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="controlsConfig"></app-code-generator>
+            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig" [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
 
         </mat-card-content>
 

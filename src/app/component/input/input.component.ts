@@ -4,7 +4,8 @@ import { ComponentType, InputTypes, Appearance, ComponentPosition, AlignmentLayo
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { IGenericHttpClient } from 'projects/falcon-core/src/public-api';
-import { GenericHttpClientService } from 'projects/falcon-core/src/lib/service/generic-http-client.service';
+import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
+import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 
 @Component({
   selector: 'app-input',
@@ -13,6 +14,7 @@ import { GenericHttpClientService } from 'projects/falcon-core/src/lib/service/g
 })
 export class InputComponent extends BaseFormComponent<any> implements OnInit {
   public codeGeneratorEnable: boolean = false;
+  public angularCodeTemplateViewModel : AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
   constructor(fb: FormBuilder, private igenericHttpClient: IGenericHttpClient<any>) {
     super(fb);
     this.defineForm();
@@ -83,9 +85,8 @@ export class InputComponent extends BaseFormComponent<any> implements OnInit {
   }
 
   codeGeneratorClick() {
-    this.igenericHttpClient.GenericHttpGet("/component/input.component.html").subscribe(item => {
-      console.log(item);
-    });
+    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.FormFieldAppearanceVariant_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.FormFieldAppearanceVariant_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
 }

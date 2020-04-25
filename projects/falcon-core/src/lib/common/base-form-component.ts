@@ -69,7 +69,7 @@ export abstract class BaseFormComponent<T>{
     * Create the reactive form controls
     * @returns Groups of controls added to the form builder.
   */
-  public createControls() {
+   protected createControls() {
     const group = this.fb.group({});
     this.controlsConfig.componentConfig.forEach(field => {
       if (field.componentType === ComponentType.Button) return;

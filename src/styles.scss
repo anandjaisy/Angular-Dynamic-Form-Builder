@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~highlight.js/styles/googlecode.css';
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .container {
@@ -26,3 +27,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .blurText {
     color: #797777;
   }
+  
+  
