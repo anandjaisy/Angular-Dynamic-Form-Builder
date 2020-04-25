@@ -16,8 +16,8 @@ import { SelectComponent } from './component/select/select.component';
 import { SliderComponent } from './component/slider/slider.component';
 import { SlideToggleComponent } from './component/slide-toggle/slide-toggle.component';
 import { ButtonIndicatorComponent } from './component/button-indicator/button-indicator.component';
-
-
+import { CodeGeneratorComponent } from './component/code-generator/code-generator.component';
+import {HighlightModule,HIGHLIGHT_OPTIONS,HighlightOptions} from "ngx-highlightjs";
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,15 +31,22 @@ import { ButtonIndicatorComponent } from './component/button-indicator/button-in
     SelectComponent,
     SliderComponent,
     SlideToggleComponent,
-    ButtonIndicatorComponent
+    ButtonIndicatorComponent,
+    CodeGeneratorComponent
   ],
   imports:[
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FalconCoreModule
+    FalconCoreModule,
+    HighlightModule
   ],
-  providers: [],
+  providers: [{
+    provide: HIGHLIGHT_OPTIONS,
+    useValue: <HighlightOptions>{
+      lineNumbers: true
+    }
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

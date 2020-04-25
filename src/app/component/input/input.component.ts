@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { ComponentType, InputTypes, Appearance, ComponentPosition, AlignmentLayoutDirection } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
+import { IGenericHttpClient } from 'projects/falcon-core/src/public-api';
+import { GenericHttpClientService } from 'projects/falcon-core/src/lib/service/generic-http-client.service';
 
 @Component({
   selector: 'app-input',
@@ -10,69 +12,62 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent extends BaseFormComponent<any> implements OnInit {
-
-  constructor(fb : FormBuilder) {
+  public codeGeneratorEnable: boolean = false;
+  constructor(fb: FormBuilder, private igenericHttpClient: IGenericHttpClient<any>) {
     super(fb);
     this.defineForm();
   }
 
-  protected defineForm(): void { 
+  protected defineForm(): void {
     this.controlsConfig =
+    {
+      layoutConfig: {
+        layoutDirection: ComponentPosition.Row,
+        fxLayoutGap: "10px",
+        alignmentLayoutDirectionHorizontal: AlignmentLayoutDirection.SpaceAround,
+        alignmentLayoutDirectionVertical: AlignmentLayoutDirection.SpaceAround
+      },
+      componentConfig: [{
+        componentProperty: {
+          name: "Legacy form field",
+          appearance: Appearance.Legacy,
+          placeHolder: "Legacy form field",
+          attrType: InputTypes.Text
+        },
+        componentType: ComponentType.TextBox,
+        formControlName: "LegacyFormField"
+      },
       {
-        layoutConfig : {
-          layoutDirection: ComponentPosition.Row,
-          fxLayoutGap : "10px",
-          alignmentLayoutDirectionHorizontal : AlignmentLayoutDirection.SpaceBetween,
-          alignmentLayoutDirectionVertical : AlignmentLayoutDirection.SpaceBetween
+        componentProperty: {
+          name: "Standard form field",
+          appearance: Appearance.Standard,
+          placeHolder: "Standard form field",
+          attrType: InputTypes.Text
         },
-        componentConfig:[{
-          componentProperty: {
-            name : "User Name",
-            appearance : Appearance.Outline,
-            placeHolder : "Place holder",
-            prefix : {isIcon: true, text: "explore"},
-            suffix: {isIcon: false, text: ".00"},
-            hint : "testing",
-            attrType: InputTypes.Text,
-          },
-          componentType: ComponentType.TextBox,
-          formControlName: "name",
-          validations: [
-            {
-              name: "required",
-              validator: Validators.required,
-              message: "Name Required"
-            },
-            {
-              name: "pattern",
-              validator: Validators.pattern("^[a-zA-Z]+$"),
-              message: "Accept only text"
-            }
-          ]
+        componentType: ComponentType.TextBox,
+        formControlName: "standardFormField"
+      },
+      {
+        componentProperty: {
+          name: "Fill form field",
+          appearance: Appearance.Fill,
+          placeHolder: "Fill form field",
+          attrType: InputTypes.Text
         },
-        {
-          componentProperty: {
-            name : "Password *",
-            appearance : Appearance.Outline,
-            placeHolder : "Place holder",
-            attrType: InputTypes.Password,
-          },
-          componentType: ComponentType.TextBox,
-          formControlName: "password",
-          validations: [
-            {
-              name: "required",
-              validator: Validators.required,
-              message: "Name Required"
-            },
-            {
-              name: "pattern",
-              validator: Validators.pattern("^[a-zA-Z]+$"),
-              message: "Accept only text"
-            }
-          ]
-        }]
-      }
+        componentType: ComponentType.TextBox,
+        formControlName: "fillFormField"
+      },
+      {
+        componentProperty: {
+          name: "Outline form field",
+          appearance: Appearance.Outline,
+          placeHolder: "Outline form field",
+          attrType: InputTypes.Text
+        },
+        componentType: ComponentType.TextBox,
+        formControlName: "outlineFormField"
+      }]
+    }
   }
 
   ngOnInit(): void {
@@ -87,5 +82,10 @@ export class InputComponent extends BaseFormComponent<any> implements OnInit {
     return of(model);
   }
 
-
+  codeGeneratorClick() {
+    this.igenericHttpClient.GenericHttpGet("/component/input.component.html").subscribe(item => {
+      console.log(item);
+    });
+    this.codeGeneratorEnable = !this.codeGeneratorEnable;
+  }
 }

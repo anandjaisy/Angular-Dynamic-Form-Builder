@@ -5,18 +5,36 @@
                 <mat-icon>arrow_back</mat-icon>
             </a>
             <h2>Input component</h2>
-            <button mat-mini-fab color="#8c8b8b" aria-label="Example icon button with a delete icon">
-                <mat-icon>code</mat-icon>
-            </button>
+            <h2></h2>
         </div>
 
         <mat-divider></mat-divider>
         <mat-card-content>
-            <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-                <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
-                <button mat-button>click</button>
-            </form>
-            value = {{ form?.value | json }}
+            <div style="margin-top: 40px">
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                        <h1>Form field appearance variants</h1>
+                        <button mat-mini-fab color="#8c8b8b" aria-label="Example icon button with a delete icon" (click)="codeGeneratorClick()">
+                            <mat-icon>code</mat-icon>
+                        </button>
+                    </div>
+                    <p class="blurText">The mat-form-field supports 4 different appearance variants which can be set via
+                        the appearance input. The legacy appearance is the default style that the mat-form-field has
+                        traditionally had. It shows the input box with an underline underneath it. The standard
+                        appearance is a slightly updated version of the legacy appearance that has spacing that is more
+                        consistent with the fill and outline appearances. The fill appearance displays the form field
+                        with a filled background box in addition to the underline. Finally the outline appearance shows
+                        the form field with a border all the way around, not just an underline.</p>
+                </div>
+                <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+                    <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
+                </form>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <pre>{{form?.value | json}}</pre>
+                </div>
+            </div>
+            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="controlsConfig"></app-code-generator>
+
         </mat-card-content>
 
     </mat-card>
