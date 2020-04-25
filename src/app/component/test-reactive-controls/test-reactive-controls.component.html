@@ -1,7 +1,63 @@
-<form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-    <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
-    <button mat-button>click</button>
-</form>
+<div fxLayout="row wrap" class="container">
+    <a [routerLink]="'/auto-complete'">
+        <mat-card style="width: 230px; margin-right:22px; margin-bottom: 22px;">
+            <h1>Auto complete</h1>
+            <h5 style="color: #797777;">Suggests relevant options as the user types in the input control.</h5>
+        </mat-card>
+    </a>
+    <a [routerLink]="'/checkbox'">
+        <mat-card style="width: 230px; margin-right:22px; margin-bottom: 22px;">
+            <h1>Check box</h1>
+            <h5 style="color: #797777;">Captures boolean input with an optional indeterminate mode.</h5>
+        </mat-card>
+    </a>
+    <a [routerLink]="'/datepicker'">
+        <mat-card style="width: 230px; margin-right:22px; margin-bottom: 22px;">
+            <h1>Date picker</h1>
+            <h5 style="color: #797777;">Captures dates, agnostic about their internal representation.</h5>
+        </mat-card>
+    </a>
+    <a [routerLink]="'/form-field'">
+        <mat-card style="width: 230px; margin-right:22px; margin-bottom: 22px;">
+            <h1>Form field</h1>
+            <h5 style="color: #797777;">Wraps input fields so they are displayed consistently.</h5>
+        </mat-card>
+    </a>
+    <a [routerLink]="'/input'">
+        <mat-card style="width: 230px; margin-right:22px; margin-bottom: 22px;">
+            <h1>Input</h1>
+            <h5 style="color: #797777;">Enables native inputs to be used within a Form field.</h5>
+        </mat-card>
+    </a>
+    <a [routerLink]="'/radio'">
+        <mat-card style="width: 230px; margin-right:22px; margin-bottom: 22px;">
+            <h1>Radio button</h1>
+            <h5 style="color: #797777;">Allows the user to select one option from a group.</h5>
+        </mat-card>
+    </a>
+    <a [routerLink]="'/select'">
+        <mat-card style="width: 230px; margin-right:22px; margin-bottom: 22px;">
+            <h1>Select</h1>
+            <h5 style="color: #797777;">Allows the user to select one or more options using a dropdown.</h5>
+        </mat-card>
+    </a>
+    <a [routerLink]="'/slider'">
+        <mat-card style="width: 230px; margin-right:22px; margin-bottom: 22px;">
+            <h1>Slider</h1>
+            <h5 style="color: #797777;">Allows the user to input a value by dragging along a slider.</h5>
+        </mat-card>
+    </a>
+    <a [routerLink]="'/slide-toggle'">
+        <mat-card style="width: 230px; margin-right:22px; margin-bottom: 22px;">
+            <h1>Slide toggle</h1>
+            <h5 style="color: #797777;">Captures boolean values as a clickable and draggable switch.</h5>
+        </mat-card>
+    </a>
+    <a [routerLink]="'/button-indicator'">
+        <mat-card style="width: 230px; margin-right:22px; margin-bottom: 22px;">
+            <h1>Buttons & Indicators</h1>
+            <h5 style="color: #797777;">Buttons, toggles, status and progress indicators.</h5>
+        </mat-card>
+    </a>
 
-
-value = {{ form?.value | json }}
+</div>
