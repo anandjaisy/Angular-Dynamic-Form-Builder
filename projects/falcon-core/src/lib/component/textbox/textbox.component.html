@@ -1,13 +1,17 @@
-<mat-form-field [appearance]="field.componentProperty.appearance" [formGroup]="group" [floatLabel]="field.componentProperty.floatLabel">
-    <mat-label>{{field.componentProperty.name}}</mat-label>
+<mat-form-field [appearance]="field.componentProperty.appearance" [formGroup]="group"
+    [floatLabel]="field.componentProperty.floatLabel" [ngClass]="field.componentProperty.groupCss">
+    <mat-label>{{field.componentProperty.label}}</mat-label>
 
-    <input matInput [formControlName]="field.formControlName" [placeholder]="field.componentProperty.placeHolder" [type]="field?.componentProperty?.attrType">
+    <input matInput [formControlName]="field.formControlName" [placeholder]="field.componentProperty.placeHolder"
+        [type]="field?.componentProperty?.attrType" [ngClass]="field.componentProperty.componentCss">
 
 
-    <span matPrefix [ngClass]="{'material-icons': field?.componentProperty?.prefix?.isIcon}">{{field?.componentProperty?.prefix?.text}}</span>
-    <span matSuffix [ngClass]="{'material-icons': field?.componentProperty?.suffix?.isIcon}">{{field?.componentProperty?.suffix?.text}}</span> 
+    <span matPrefix
+        [ngClass]="{'material-icons': field?.componentProperty?.prefix?.isIcon}">{{field?.componentProperty?.prefix?.text}}</span>
+    <span matSuffix
+        [ngClass]="{'material-icons': field?.componentProperty?.suffix?.isIcon}">{{field?.componentProperty?.suffix?.text}}</span>
 
-    
+
     <mat-hint>{{field.componentProperty.hint}}</mat-hint>
 
     <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">

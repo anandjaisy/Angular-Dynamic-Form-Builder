@@ -13,7 +13,6 @@ export class TextboxComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.field);
   }
 
 }

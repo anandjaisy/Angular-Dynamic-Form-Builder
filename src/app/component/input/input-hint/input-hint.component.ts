@@ -30,7 +30,7 @@ export class InputHintComponent extends BaseFormComponent<any> implements OnInit
       },
       componentConfig: [{
         componentProperty: {
-          name: "Legacy form field HINT",
+          label: "Legacy form field HINT",
           appearance: Appearance.Legacy,
           placeHolder: "Form field HINT",
           attrType: InputTypes.Text,
@@ -41,7 +41,7 @@ export class InputHintComponent extends BaseFormComponent<any> implements OnInit
       },
       {
         componentProperty: {
-          name: "Outline form field HINT",
+          label: "Outline form field HINT",
           appearance: Appearance.Outline,
           placeHolder: "Outline form field HINT",
           attrType: InputTypes.Text,

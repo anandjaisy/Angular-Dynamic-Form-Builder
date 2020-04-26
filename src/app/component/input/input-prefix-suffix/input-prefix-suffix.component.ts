@@ -31,7 +31,7 @@ export class InputPrefixSuffixComponent extends BaseFormComponent<any> implement
       },
       componentConfig: [{
         componentProperty: {
-          name: "Prefix Icon",
+          label: "Prefix Icon",
           appearance: Appearance.Legacy,
           placeHolder: "Required Validation *",
           attrType: InputTypes.Text,
@@ -45,7 +45,7 @@ export class InputPrefixSuffixComponent extends BaseFormComponent<any> implement
       },
       {
         componentProperty: {
-          name: "Suffix Number",
+          label: "Suffix Number",
           appearance: Appearance.Standard,
           placeHolder: "Suffix Icon",
           attrType: InputTypes.Text,
@@ -59,7 +59,7 @@ export class InputPrefixSuffixComponent extends BaseFormComponent<any> implement
       },
       {
         componentProperty: {
-          name: "Prefix & Suffix icon",
+          label: "Prefix & Suffix icon",
           appearance: Appearance.Outline,
           placeHolder: "Prefix & Suffix icon",
           attrType: InputTypes.Text,

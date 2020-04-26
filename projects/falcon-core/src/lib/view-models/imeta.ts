@@ -7,15 +7,18 @@ export interface IMeta {
 }
 
 export interface IComponentProperty {
-  name : string;
+  label? : string;
   attrType?: string | any;
-  appearance : Appearance;
+  appearance? : Appearance;
   placeHolder? : string;
   suffix? : ISuffixPrefixConfig;
   prefix? : ISuffixPrefixConfig;
   hint? : string;
-  css? : string;
+  componentCss? : string;
+  groupCss? : string;
   floatLabel? : Floatinglabel;
+  options? : string[];
+  value? : string;
 }
 
 export interface ISuffixPrefixConfig {
@@ -29,7 +32,6 @@ export interface IComponentConfig {
   componentType?: ComponentType;
   options?: string[];
   collections?: any;
-  value?: any;
   validations?: IValidator[];
 }
 export interface ILayoutConfig {

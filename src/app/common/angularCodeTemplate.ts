@@ -17,5 +17,9 @@ export class AngularCodeTemplate {
     public static FormFieldPrefixSuffix_HTML_KEY: string = "/input/input-prefix-suffix/input-prefix-suffix.component.html"
 
     //End of input
-    
+
+    //Radio button
+    public static Radios_TS_KEY: string = "/radio/radio.component.ts";
+    public static Radio_HTML_KEY: string = "/radio/radio.component.html"
+    //End of Radio button
 }

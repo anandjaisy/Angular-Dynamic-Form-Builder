@@ -31,7 +31,7 @@ export class InputErrorComponent extends BaseFormComponent<any> implements OnIni
       },
       componentConfig: [{
         componentProperty: {
-          name: "Required Validation *",
+          label: "Required Validation *",
           appearance: Appearance.Legacy,
           placeHolder: "Required Validation *",
           attrType: InputTypes.Text
@@ -47,7 +47,7 @@ export class InputErrorComponent extends BaseFormComponent<any> implements OnIni
       },
       {
         componentProperty: {
-          name: "Pattern Validation *",
+          label: "Pattern Validation *",
           appearance: Appearance.Outline,
           placeHolder: "Pattern Validation *",
           attrType: InputTypes.Text
@@ -66,7 +66,7 @@ export class InputErrorComponent extends BaseFormComponent<any> implements OnIni
       },
       {
         componentProperty: {
-          name: "Required & Pattern Validation *",
+          label: "Required & Pattern Validation *",
           appearance: Appearance.Outline,
           placeHolder: "Required & Pattern Validation *",
           attrType: InputTypes.Text
@@ -95,7 +95,7 @@ export class InputErrorComponent extends BaseFormComponent<any> implements OnIni
       },
       {
         componentProperty: {
-          name: "Custom Validation *",
+          label: "Custom Validation *",
           appearance: Appearance.Outline,
           placeHolder: "Custom Validation",
           attrType: InputTypes.Text

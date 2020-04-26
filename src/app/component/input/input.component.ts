@@ -30,7 +30,7 @@ export class InputComponent extends BaseFormComponent<any> implements OnInit {
       },
       componentConfig: [{
         componentProperty: {
-          name: "Legacy form field",
+          label: "Legacy form field",
           appearance: Appearance.Legacy,
           placeHolder: "Legacy form field",
           attrType: InputTypes.Text
@@ -40,7 +40,7 @@ export class InputComponent extends BaseFormComponent<any> implements OnInit {
       },
       {
         componentProperty: {
-          name: "Standard form field",
+          label: "Standard form field",
           appearance: Appearance.Standard,
           placeHolder: "Standard form field",
           attrType: InputTypes.Text
@@ -50,7 +50,7 @@ export class InputComponent extends BaseFormComponent<any> implements OnInit {
       },
       {
         componentProperty: {
-          name: "Fill form field",
+          label: "Fill form field",
           appearance: Appearance.Fill,
           placeHolder: "Fill form field",
           attrType: InputTypes.Text
@@ -60,7 +60,7 @@ export class InputComponent extends BaseFormComponent<any> implements OnInit {
       },
       {
         componentProperty: {
-          name: "Outline form field",
+          label: "Outline form field",
           appearance: Appearance.Outline,
           placeHolder: "Outline form field",
           attrType: InputTypes.Text

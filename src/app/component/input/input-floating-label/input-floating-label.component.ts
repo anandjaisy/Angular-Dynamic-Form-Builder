@@ -30,7 +30,7 @@ export class InputFloatingLabelComponent extends BaseFormComponent<any> implemen
       },
       componentConfig: [{
         componentProperty: {
-          name: "Floating label ALWAYS",
+          label: "Floating label ALWAYS",
           appearance: Appearance.Legacy,
           placeHolder: "Floating label ALWAYS",
           attrType: InputTypes.Text,
@@ -41,7 +41,7 @@ export class InputFloatingLabelComponent extends BaseFormComponent<any> implemen
       },
       {
         componentProperty: {
-          name: "Floating label AUTO",
+          label: "Floating label AUTO",
           appearance: Appearance.Outline,
           placeHolder: "Floating label AUTO",
           attrType: InputTypes.Text,

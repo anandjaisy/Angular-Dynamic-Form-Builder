@@ -1,1 +1,48 @@
-<p>radio works!</p>
+<div class="container">
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+            <a mat-mini-fab color="accent" routerLink="..">
+                <mat-icon>arrow_back</mat-icon>
+            </a>
+            <h2>Radio component</h2>
+            <h2></h2>
+        </div>
+
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <div style="margin-top: 40px">
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                        <h1>Radio groups</h1>
+                        <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+                    </div>
+                    <h2>Radio-button label</h2>
+                    <p class="blurText">The radio-button label is provided as the content to the <strong
+                            class="text-format">mat-radio-button</strong> element. The label
+                        can be positioned before or after the radio-button by setting the <strong
+                            class="text-format">labelPosition</strong> property to
+                        <strong class="text-format">'before'</strong> or <strong class="text-format">'after'</strong>.
+                    </p>
+
+                    <h2>Radio groups</h2>
+                    <p>Radio-buttons should typically be placed inside of an <strong
+                            class="text-format">mat-radio-group</strong> unless the DOM structure
+                        would make that impossible (e.g., radio-buttons inside of table cells). The radio-group has
+                        a <strong class="text-format">value</strong> property that reflects the currently selected
+                        radio-button inside of the group.</p>
+                </div>
+                <br><br>
+                <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+                    <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
+                </form>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <pre><code [highlight]="form?.value | json"></code></pre>
+                </div>
+            </div>
+            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+                [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+
+        </mat-card-content>
+
+    </mat-card>
+</div>

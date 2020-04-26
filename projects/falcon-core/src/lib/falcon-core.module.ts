@@ -10,9 +10,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { IGenericHttpClient } from './service/igeneric-http-client';
 import { GenericHttpClientService } from './service/generic-http-client.service';
 import { appSettingsFactory, AppSettingServiceService } from './service/app-setting-service.service';
+import { RadioComponent } from './component/radio/radio.component';
+import { TextAreaComponent } from './component/text-area/text-area.component';
+import { SelectComponent } from './component/select/select.component';
+import { DatePickerComponent } from './component/date-picker/date-picker.component';
+import { CheckboxComponent } from './component/checkbox/checkbox.component';
+import { ButtonComponent } from './component/button/button.component';
 
 @NgModule({
-  declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent],
+  declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent],
   imports: [AngularMaterialModule,CommonModule,FormsModule,ReactiveFormsModule,FlexLayoutModule,HttpClientModule
   ],
   exports: [AngularMaterialModule,ReactiveControlsComponent,TextboxComponent,CommonModule,FormsModule,ReactiveFormsModule,FlexLayoutModule],
