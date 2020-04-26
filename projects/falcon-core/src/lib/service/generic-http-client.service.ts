@@ -7,7 +7,7 @@ import { IAppSettingViewModel } from '../view-models/IAppsettingViewModel';
 @Injectable()
 export class GenericHttpClientService<T> implements IGenericHttpClient<T>{
   private baseUrl: string;
-  constructor(private httpClientModule: HttpClient, private appSettingServiceService: AppSettingServiceService) {
+  constructor(private httpClient: HttpClient, private appSettingServiceService: AppSettingServiceService) {
     this.baseUrl = this.appSettingServiceService.getAppsettingValue<IAppSettingViewModel>().baseUrl;
   }
   /**
@@ -26,7 +26,7 @@ export class GenericHttpClientService<T> implements IGenericHttpClient<T>{
   */
   public GenericHttpPost(_postViewModel: T, destinationUrl: string): Observable<T> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    return this.httpClientModule.post<T>(this.baseUrl + destinationUrl, _postViewModel, { headers });
+    return this.httpClient.post<T>(this.baseUrl + destinationUrl, _postViewModel, { headers });
   }
   /**
     * @description
@@ -44,7 +44,7 @@ export class GenericHttpClientService<T> implements IGenericHttpClient<T>{
   */
   public GenericHttpPut(_postViewModel: T, destinationUrl: string): Observable<T> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    return this.httpClientModule.put<T>(this.baseUrl + destinationUrl, _postViewModel, { headers });
+    return this.httpClient.put<T>(this.baseUrl + destinationUrl, _postViewModel, { headers });
   }
   /**
     * @description
@@ -63,7 +63,7 @@ export class GenericHttpClientService<T> implements IGenericHttpClient<T>{
   */
   public GenericHttpPostAndResponse<TE>(postViewModel: TE, destinationUrl: string): Observable<T> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    return this.httpClientModule.post<T>(this.baseUrl + destinationUrl, postViewModel, { headers });
+    return this.httpClient.post<T>(this.baseUrl + destinationUrl, postViewModel, { headers });
   }
   /**
     * @description
@@ -82,7 +82,7 @@ export class GenericHttpClientService<T> implements IGenericHttpClient<T>{
   */
   public GenericHttpPutAndResponse<TE>(postViewModel: TE, destinationUrl: string): Observable<T> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    return this.httpClientModule.put<T>(this.baseUrl + destinationUrl, postViewModel, { headers });
+    return this.httpClient.put<T>(this.baseUrl + destinationUrl, postViewModel, { headers });
   }
   /**
     * @description
@@ -100,7 +100,7 @@ export class GenericHttpClientService<T> implements IGenericHttpClient<T>{
   */
   public GenericHttpGet(destinationUrl: string): Observable<T> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.httpClientModule.get<T>(this.baseUrl + destinationUrl, { headers });
+    return this.httpClient.get<T>(this.baseUrl + destinationUrl, { headers });
   }
   /**
     * @description
@@ -118,7 +118,7 @@ export class GenericHttpClientService<T> implements IGenericHttpClient<T>{
   */
   public GenericHttpDelete(destinationUrl: string): Observable<T> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.httpClientModule.delete<T>(this.baseUrl + destinationUrl, { headers });
+    return this.httpClient.delete<T>(this.baseUrl + destinationUrl, { headers });
   }
 
 }

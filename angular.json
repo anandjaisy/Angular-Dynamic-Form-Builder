@@ -67,7 +67,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "project-falcon:build"
+            "browserTarget": "project-falcon:build",
+            "ssl": true,
+            "sslKey": "src/assets/sslcertificate/server.key",
+            "sslCert": "src/assets/sslcertificate/server.crt"
           },
           "configurations": {
             "production": {
