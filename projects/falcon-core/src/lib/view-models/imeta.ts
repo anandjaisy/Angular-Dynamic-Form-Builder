@@ -18,7 +18,7 @@ export interface IComponentProperty {
   groupCss? : string;
   floatLabel? : Floatinglabel;
   options? : string[];
-  value? : string;
+  value? : string | any;
 }
 
 export interface ISuffixPrefixConfig {

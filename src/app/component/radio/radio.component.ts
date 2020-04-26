@@ -30,11 +30,12 @@ export class RadioComponent extends BaseFormComponent<any> implements OnInit {
       },
       componentConfig: [{
         componentProperty: {
-          label: "Positon BEFORE (css=radio-group-column)",
+          label: "Positon BEFORE (css=radio-group-column) (with prefilled value)",
           options : ['Option 1', 'Option 2'],
           groupCss: "radio-group-column",
           componentCss : "radio-button",
-          appearance : Appearance.Before
+          appearance : Appearance.Before,
+          value : 'Option 1'
         },
         componentType: ComponentType.Radio,
         formControlName: "basicRadios",

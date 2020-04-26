@@ -18,8 +18,11 @@ export class AngularCodeTemplate {
 
     //End of input
 
-    //Radio button
+    //Radio button and checkbox 
     public static Radios_TS_KEY: string = "/radio/radio.component.ts";
     public static Radio_HTML_KEY: string = "/radio/radio.component.html"
-    //End of Radio button
+
+    public static CheckBox_TS_KEY: string = "/checkbox/checkbox.component.ts";
+    public static CheckBox_HTML_KEY: string = "/checkbox/checkbox.component.html"
+    //End of Radio & check box
 }

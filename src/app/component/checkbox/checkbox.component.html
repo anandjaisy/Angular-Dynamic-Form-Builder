@@ -1,1 +1,41 @@
-<p>checkbox works!</p>
+<div class="container">
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+            <a mat-mini-fab color="accent" routerLink="..">
+                <mat-icon>arrow_back</mat-icon>
+            </a>
+            <h2>Checkbox component</h2>
+            <h2></h2>
+        </div>
+
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <div style="margin-top: 40px">
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                        <h1>Checkbox</h1>
+                        <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+                    </div>
+                    <h2>Checkbox label</h2>
+                    <p class="blurText">The checkbox label is provided as the content to the <strong
+                            class="text-format">mat-checkbox</strong> element. The label
+                        can be positioned before or after the checkbox by setting the <strong
+                            class="text-format">labelPosition</strong> property to
+                        <strong class="text-format">'before'</strong> or <strong class="text-format">'after'</strong>.
+                    </p>
+                </div>
+                <br><br>
+                <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+                    <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
+                </form>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <pre><code [highlight]="form?.value | json"></code></pre>
+                </div>
+            </div>
+            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+                [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+
+        </mat-card-content>
+
+    </mat-card>
+</div>
