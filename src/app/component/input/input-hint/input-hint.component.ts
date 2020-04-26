@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ComponentType, InputTypes, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
@@ -7,12 +7,12 @@ import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplate
 import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+  selector: 'app-input-hint',
+  templateUrl: './input-hint.component.html',
+  styleUrls: ['./input-hint.component.scss']
 })
-export class InputComponent extends BaseFormComponent<any> implements OnInit {
-  public codeGeneratorEnable: boolean = false;
+export class InputHintComponent extends BaseFormComponent<any> implements OnInit {
+  codeGeneratorEnable: boolean = false;
   public angularCodeTemplateViewModel : AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
   constructor(fb: FormBuilder) {
     super(fb);
@@ -30,43 +30,25 @@ export class InputComponent extends BaseFormComponent<any> implements OnInit {
       },
       componentConfig: [{
         componentProperty: {
-          name: "Legacy form field",
+          name: "Legacy form field HINT",
           appearance: Appearance.Legacy,
-          placeHolder: "Legacy form field",
-          attrType: InputTypes.Text
+          placeHolder: "Form field HINT",
+          attrType: InputTypes.Text,
+          hint :"Legacy form field HINT"
         },
         componentType: ComponentType.TextBox,
-        formControlName: "LegacyFormField"
+        formControlName: "legacyFormFieldHint"
       },
       {
         componentProperty: {
-          name: "Standard form field",
-          appearance: Appearance.Standard,
-          placeHolder: "Standard form field",
-          attrType: InputTypes.Text
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "standardFormField"
-      },
-      {
-        componentProperty: {
-          name: "Fill form field",
-          appearance: Appearance.Fill,
-          placeHolder: "Fill form field",
-          attrType: InputTypes.Text
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "fillFormField"
-      },
-      {
-        componentProperty: {
-          name: "Outline form field",
+          name: "Outline form field HINT",
           appearance: Appearance.Outline,
-          placeHolder: "Outline form field",
-          attrType: InputTypes.Text
+          placeHolder: "Outline form field HINT",
+          attrType: InputTypes.Text,
+          hint: "Outline form field HINT"
         },
         componentType: ComponentType.TextBox,
-        formControlName: "outlineFormField"
+        formControlName: "OutlineFormFieldHINT"
       }]
     }
   }
@@ -82,10 +64,10 @@ export class InputComponent extends BaseFormComponent<any> implements OnInit {
     console.log(model);
     return of(model);
   }
-
   buttonClickEvent() {
-    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.FormFieldAppearanceVariant_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.FormFieldAppearanceVariant_HTML_KEY;
+    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.FormFieldHint_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.FormFieldHint_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
+
 }

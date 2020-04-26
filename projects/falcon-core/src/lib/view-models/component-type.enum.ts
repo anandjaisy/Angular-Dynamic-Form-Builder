@@ -45,3 +45,7 @@ export const enum AlignmentLayoutDirection {
     SpaceBetween = "space-between",
     SpaceEvenly ="space-evenly"
 }
+export const enum Floatinglabel {
+    Auto = "auto",
+    Always = "always"
+}

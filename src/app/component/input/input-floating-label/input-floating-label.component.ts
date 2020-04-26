@@ -7,12 +7,12 @@ import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplate
 import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+  selector: 'app-input-floating-label',
+  templateUrl: './input-floating-label.component.html',
+  styleUrls: ['./input-floating-label.component.scss']
 })
-export class InputComponent extends BaseFormComponent<any> implements OnInit {
-  public codeGeneratorEnable: boolean = false;
+export class InputFloatingLabelComponent extends BaseFormComponent<any> implements OnInit {
+  codeGeneratorEnable: boolean = false;
   public angularCodeTemplateViewModel : AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
   constructor(fb: FormBuilder) {
     super(fb);
@@ -30,43 +30,25 @@ export class InputComponent extends BaseFormComponent<any> implements OnInit {
       },
       componentConfig: [{
         componentProperty: {
-          name: "Legacy form field",
+          name: "Floating label ALWAYS",
           appearance: Appearance.Legacy,
-          placeHolder: "Legacy form field",
-          attrType: InputTypes.Text
+          placeHolder: "Floating label ALWAYS",
+          attrType: InputTypes.Text,
+          floatLabel: Floatinglabel.Always
         },
         componentType: ComponentType.TextBox,
-        formControlName: "LegacyFormField"
+        formControlName: "floatingLabelAlways"
       },
       {
         componentProperty: {
-          name: "Standard form field",
-          appearance: Appearance.Standard,
-          placeHolder: "Standard form field",
-          attrType: InputTypes.Text
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "standardFormField"
-      },
-      {
-        componentProperty: {
-          name: "Fill form field",
-          appearance: Appearance.Fill,
-          placeHolder: "Fill form field",
-          attrType: InputTypes.Text
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "fillFormField"
-      },
-      {
-        componentProperty: {
-          name: "Outline form field",
+          name: "Floating label AUTO",
           appearance: Appearance.Outline,
-          placeHolder: "Outline form field",
-          attrType: InputTypes.Text
+          placeHolder: "Floating label AUTO",
+          attrType: InputTypes.Text,
+          floatLabel: Floatinglabel.Auto
         },
         componentType: ComponentType.TextBox,
-        formControlName: "outlineFormField"
+        formControlName: "floatingLabelAuto"
       }]
     }
   }
@@ -82,10 +64,10 @@ export class InputComponent extends BaseFormComponent<any> implements OnInit {
     console.log(model);
     return of(model);
   }
-
   buttonClickEvent() {
-    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.FormFieldAppearanceVariant_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.FormFieldAppearanceVariant_HTML_KEY;
+    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.FormFieldFloatingLabel_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.FormFieldFloatingLabel_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
+
 }

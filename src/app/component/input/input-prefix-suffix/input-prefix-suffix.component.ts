@@ -1,19 +1,20 @@
 import { Component, OnInit, } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ComponentType, InputTypes, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
 import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
+import { CustomValidator } from 'src/app/common/validations';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+  selector: 'app-input-prefix-suffix',
+  templateUrl: './input-prefix-suffix.component.html',
+  styleUrls: ['./input-prefix-suffix.component.scss']
 })
-export class InputComponent extends BaseFormComponent<any> implements OnInit {
-  public codeGeneratorEnable: boolean = false;
-  public angularCodeTemplateViewModel : AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
+export class InputPrefixSuffixComponent extends BaseFormComponent<any> implements OnInit {
+  codeGeneratorEnable: boolean = false;
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
   constructor(fb: FormBuilder) {
     super(fb);
     this.defineForm();
@@ -30,43 +31,49 @@ export class InputComponent extends BaseFormComponent<any> implements OnInit {
       },
       componentConfig: [{
         componentProperty: {
-          name: "Legacy form field",
+          name: "Prefix Icon",
           appearance: Appearance.Legacy,
-          placeHolder: "Legacy form field",
-          attrType: InputTypes.Text
+          placeHolder: "Required Validation *",
+          attrType: InputTypes.Text,
+          prefix : {
+            isIcon: true,
+            text: "sentiment_satisfied_alt"
+          }
         },
         componentType: ComponentType.TextBox,
-        formControlName: "LegacyFormField"
+        formControlName: "prefixIcon"
       },
       {
         componentProperty: {
-          name: "Standard form field",
+          name: "Suffix Number",
           appearance: Appearance.Standard,
-          placeHolder: "Standard form field",
-          attrType: InputTypes.Text
+          placeHolder: "Suffix Icon",
+          attrType: InputTypes.Text,
+          suffix: {
+            isIcon : false,
+            text : ".00"
+          }
         },
         componentType: ComponentType.TextBox,
-        formControlName: "standardFormField"
+        formControlName: "suffixIcon"
       },
       {
         componentProperty: {
-          name: "Fill form field",
-          appearance: Appearance.Fill,
-          placeHolder: "Fill form field",
-          attrType: InputTypes.Text
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "fillFormField"
-      },
-      {
-        componentProperty: {
-          name: "Outline form field",
+          name: "Prefix & Suffix icon",
           appearance: Appearance.Outline,
-          placeHolder: "Outline form field",
-          attrType: InputTypes.Text
+          placeHolder: "Prefix & Suffix icon",
+          attrType: InputTypes.Text,
+          prefix : {
+            isIcon : true,
+            text : "euro"
+          },
+          suffix : {
+            isIcon: true,
+            text : "done"
+          }
         },
         componentType: ComponentType.TextBox,
-        formControlName: "outlineFormField"
+        formControlName: "prefixandSuffixIcon"
       }]
     }
   }
@@ -82,10 +89,10 @@ export class InputComponent extends BaseFormComponent<any> implements OnInit {
     console.log(model);
     return of(model);
   }
-
   buttonClickEvent() {
-    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.FormFieldAppearanceVariant_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.FormFieldAppearanceVariant_HTML_KEY;
+    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.FormFieldPrefixSuffix_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.FormFieldPrefixSuffix_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
+
 }

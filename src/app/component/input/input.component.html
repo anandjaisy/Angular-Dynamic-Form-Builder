@@ -14,16 +14,19 @@
                 <div>
                     <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
                         <h1>Form field appearance variants</h1>
-                        <button mat-mini-fab color="#8c8b8b" aria-label="Example icon button with a delete icon" (click)="codeGeneratorClick()">
-                            <mat-icon>code</mat-icon>
-                        </button>
+                        <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
                     </div>
                     <p class="blurText">The mat-form-field supports 4 different appearance variants which can be set via
                         the appearance input. The legacy appearance is the default style that the mat-form-field has
-                        traditionally had. It shows the input box with an underline underneath it. The standard
-                        appearance is a slightly updated version of the legacy appearance that has spacing that is more
-                        consistent with the fill and outline appearances. The fill appearance displays the form field
-                        with a filled background box in addition to the underline. Finally the outline appearance shows
+                        traditionally had. It shows the input box with an underline underneath it. The <strong
+                            class="text-format">standard</strong>
+                        appearance is a slightly updated version of the <strong class="text-format">legacy</strong>
+                        appearance that has spacing that is more
+                        consistent with the <strong class="text-format">fill</strong> and <strong
+                            class="text-format">outline</strong> appearances. The <strong
+                            class="text-format">fill</strong> appearance displays the form field
+                        with a filled background box in addition to the underline. Finally the <strong
+                            class="text-format">outline</strong> appearance shows
                         the form field with a border all the way around, not just an underline.</p>
                 </div>
                 <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
@@ -33,10 +36,19 @@
                     <pre><code [highlight]="form?.value | json"></code></pre>
                 </div>
             </div>
-            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig" [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+                [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
 
         </mat-card-content>
 
     </mat-card>
 
+    <br>
+    <app-input-floating-label></app-input-floating-label>
+    <br>
+    <app-input-hint></app-input-hint>
+    <br>
+    <app-input-error></app-input-error>
+    <br>
+    <app-input-prefix-suffix></app-input-prefix-suffix>
 </div>

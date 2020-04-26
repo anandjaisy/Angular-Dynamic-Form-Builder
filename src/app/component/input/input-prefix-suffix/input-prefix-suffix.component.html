@@ -1,0 +1,26 @@
+<mat-card>
+
+    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+        <h1>Prefix & suffix</h1>
+        <h2></h2>
+        <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+    </div>
+    <mat-card-content>
+        <p class="blurText">Custom content can be included before and after the input tag, as a prefix or suffix. It
+            will be included within the visual container that wraps the form control as per the Material specification.
+        </p>
+        <p class="blurText">Adding the <strong class="text-format">matPrefix</strong> directive to an element inside the <strong class="text-format">mat-form-field</strong> will designate it
+        as the prefix. Similarly, adding <strong class="text-format">matSuffix</strong> will designate it as the suffix.</p>
+        <div style="margin-top: 40px">
+            <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+                <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
+            </form>
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <pre><code [highlight]="form?.value | json"></code></pre>
+            </div>
+        </div>
+
+        <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+            [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+    </mat-card-content>
+</mat-card>

@@ -1,5 +1,5 @@
 import { IValidator } from './ivalidator';
-import {ComponentType, Appearance, ComponentPosition, AlignmentLayoutDirection} from './component-type.enum';
+import {ComponentType, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel} from './component-type.enum';
 import { from } from 'rxjs';
 export interface IMeta {
   layoutConfig?: ILayoutConfig;
@@ -13,8 +13,9 @@ export interface IComponentProperty {
   placeHolder? : string;
   suffix? : ISuffixPrefixConfig;
   prefix? : ISuffixPrefixConfig;
-  hint? : string
-  css? : string
+  hint? : string;
+  css? : string;
+  floatLabel? : Floatinglabel;
 }
 
 export interface ISuffixPrefixConfig {

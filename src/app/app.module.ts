@@ -18,6 +18,11 @@ import { SlideToggleComponent } from './component/slide-toggle/slide-toggle.comp
 import { ButtonIndicatorComponent } from './component/button-indicator/button-indicator.component';
 import { CodeGeneratorComponent } from './component/code-generator/code-generator.component';
 import {HighlightModule,HIGHLIGHT_OPTIONS,HighlightOptions} from "ngx-highlightjs";
+import { InputFloatingLabelComponent } from './component/input/input-floating-label/input-floating-label.component';
+import { CodeButtonComponent } from './common/component/code-button/code-button.component';
+import { InputHintComponent } from './component/input/input-hint/input-hint.component';
+import { InputErrorComponent } from './component/input/input-error/input-error.component';
+import { InputPrefixSuffixComponent } from './component/input/input-prefix-suffix/input-prefix-suffix.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +37,12 @@ import {HighlightModule,HIGHLIGHT_OPTIONS,HighlightOptions} from "ngx-highlightj
     SliderComponent,
     SlideToggleComponent,
     ButtonIndicatorComponent,
-    CodeGeneratorComponent
+    CodeGeneratorComponent,
+    InputFloatingLabelComponent,
+    CodeButtonComponent,
+    InputHintComponent,
+    InputErrorComponent,
+    InputPrefixSuffixComponent
   ],
   imports:[
     BrowserModule,
