@@ -27,5 +27,8 @@ export class AngularCodeTemplate {
 
     public static CheckBox_TS_KEY: string = "/checkbox/checkbox.component.ts";
     public static CheckBox_HTML_KEY: string = "/checkbox/checkbox.component.html"
+
+    public static SlideToggle_TS_KEY: string = "/slide-toggle/slide-toggle.component.ts";
+    public static SlideToggle_HTML_KEY: string = "/slide-toggle/slide-toggle.component.html"
     //End of Radio & check box
 }

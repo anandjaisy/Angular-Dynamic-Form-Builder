@@ -38,6 +38,9 @@ export declare interface IComponentProperty {
   floatLabel?: Floatinglabel;
   options?: string[];
   value?: string | any;
+  checked?: string;
+  disabled? : string;
+  color? : string;
   textAreaProperty?: ITextAreaProperty;
 }
 /**
@@ -121,5 +124,4 @@ export declare interface ITextAreaProperty {
   rows?: number;
   cols?: number
 }
-
 

@@ -1,0 +1,7 @@
+<div [ngClass]="field.componentProperty.groupCss" [formGroup]="group">
+    <mat-slide-toggle [labelPosition]="field.componentProperty.appearance"
+        [ngClass]="field.componentProperty.componentCss" [formControlName]="field.formControlName" [color]="field.componentProperty.color"
+        [checked]="field.componentProperty.checked" [disabled]="field.componentProperty.disabled">
+        {{field.componentProperty.label}}
+    </mat-slide-toggle>
+</div>

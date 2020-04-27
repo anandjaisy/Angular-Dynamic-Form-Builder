@@ -1,4 +1,5 @@
 <div [ngClass]="field.componentProperty.groupCss" [formGroup]="group">
-    <mat-checkbox [labelPosition]="field.componentProperty.appearance" [formControlName]="field.formControlName">
+    <mat-checkbox [disabled]="field.componentProperty.disabled" [color]="field.componentProperty.color"
+        [labelPosition]="field.componentProperty.appearance" [formControlName]="field.formControlName">
         {{field.componentProperty.label}}</mat-checkbox>
 </div>
