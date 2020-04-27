@@ -1,0 +1,44 @@
+<div class="container">
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+            <a mat-mini-fab color="accent" routerLink="..">
+                <mat-icon>arrow_back</mat-icon>
+            </a>
+            <h2>Text Area component</h2>
+            <h2></h2>
+        </div>
+
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <div style="margin-top: 40px">
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                        <h1>Text Area</h1>
+                        <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+                    </div>
+                    <p class="blurText">
+                        The <strong class="text-format">text-field</strong> package provides useful utilities for
+                        working with text input fields such as
+                        <strong class="text-format">input</strong> and <strong class="text-format">textarea</strong></p>
+                    <h1>Automatically resizing a <strong class="text-format">textarea</strong></h1>
+                    <p class="blurText">
+                        The cdkTextareaAutosize directive can be applied to any <strong
+                            class="text-format">Textarea</strong> to make it automatically resize to fit its content.
+                        The minimum and maximum number of rows to expand to can be set via the <strong
+                            class="text-format">cdkAutosizeMinRows</strong> and
+                        <strong class="text-format">cdkAutosizeMaxRows</strong> properties respectively.
+                    </p>
+                </div>
+                <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+                    <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
+                </form>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <pre><code [highlight]="form?.value | json"></code></pre>
+                </div>
+            </div>
+            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+                [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+
+        </mat-card-content>
+    </mat-card>
+</div>

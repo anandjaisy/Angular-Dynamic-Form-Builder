@@ -11,6 +11,7 @@ import { SelectComponent } from './component/select/select.component';
 import { SliderComponent } from './component/slider/slider.component';
 import { SlideToggleComponent } from './component/slide-toggle/slide-toggle.component';
 import { ButtonIndicatorComponent } from './component/button-indicator/button-indicator.component';
+import { TextAreaComponent } from './component/text-area/text-area.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'select', component: SelectComponent},
   {path: 'slider', component: SliderComponent},
   {path: 'slide-toggle', component: SlideToggleComponent},
-  {path: 'button-indicator', component: ButtonIndicatorComponent}
+  {path: 'button-indicator', component: ButtonIndicatorComponent},
+  {path: 'text-area', component: TextAreaComponent}
 ];
 
 @NgModule({

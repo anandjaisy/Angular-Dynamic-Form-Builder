@@ -16,6 +16,9 @@ export class AngularCodeTemplate {
     public static FormFieldPrefixSuffix_TS_KEY: string = "/input/input-prefix-suffix/input-prefix-suffix.component.ts";
     public static FormFieldPrefixSuffix_HTML_KEY: string = "/input/input-prefix-suffix/input-prefix-suffix.component.html"
 
+    public static FormTextArea_TS_KEY: string = "/text-area/text-area.component.ts";
+    public static FormTextArea_HTML_KEY: string = "/text-area/text-area.component.html"
+
     //End of input
 
     //Radio button and checkbox 

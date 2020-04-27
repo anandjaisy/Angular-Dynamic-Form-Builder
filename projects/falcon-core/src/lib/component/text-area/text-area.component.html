@@ -1,1 +1,24 @@
-<p>text-area works!</p>
+<mat-form-field [appearance]="field.componentProperty.appearance" [formGroup]="group"
+    [floatLabel]="field.componentProperty.floatLabel" [ngClass]="field.componentProperty.groupCss">
+    <mat-label>{{field.componentProperty.label}}</mat-label>
+
+    <textarea matInput [formControlName]="field.formControlName" [placeholder]="field.componentProperty.placeHolder"
+        [ngClass]="field.componentProperty.componentCss"
+        [cdkTextareaAutosize]="field.componentProperty.textAreaProperty.cdkTextareaAutosize"
+        [cdkAutosizeMinRows]="field.componentProperty.textAreaProperty.cdkAutosizeMinRows"
+        [cdkAutosizeMaxRows]="field.componentProperty.textAreaProperty.cdkAutosizeMaxRows"
+        [rows]="field.componentProperty.textAreaProperty.rows"
+        [cols]="field.componentProperty.textAreaProperty.cols"></textarea>
+
+    <span matPrefix
+        [ngClass]="{'material-icons': field?.componentProperty?.prefix?.isIcon}">{{field?.componentProperty?.prefix?.text}}</span>
+    <span matSuffix
+        [ngClass]="{'material-icons': field?.componentProperty?.suffix?.isIcon}">{{field?.componentProperty?.suffix?.text}}</span>
+
+
+    <mat-hint>{{field.componentProperty.hint}}</mat-hint>
+
+    <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+        <mat-error *ngIf="group.get(field.formControlName).hasError(validation.name)">{{validation.message}}</mat-error>
+    </ng-container>
+</mat-form-field>

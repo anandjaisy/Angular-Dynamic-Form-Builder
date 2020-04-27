@@ -23,6 +23,7 @@ import { CodeButtonComponent } from './common/component/code-button/code-button.
 import { InputHintComponent } from './component/input/input-hint/input-hint.component';
 import { InputErrorComponent } from './component/input/input-error/input-error.component';
 import { InputPrefixSuffixComponent } from './component/input/input-prefix-suffix/input-prefix-suffix.component';
+import { TextAreaComponent } from './component/text-area/text-area.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { InputPrefixSuffixComponent } from './component/input/input-prefix-suffi
     CodeButtonComponent,
     InputHintComponent,
     InputErrorComponent,
-    InputPrefixSuffixComponent
+    InputPrefixSuffixComponent,
+    TextAreaComponent
   ],
   imports:[
     BrowserModule,

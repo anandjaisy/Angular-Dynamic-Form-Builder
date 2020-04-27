@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { IComponentConfig } from '../../view-models/imeta';
 @Component({
-  selector: 'lib-radio',
+  selector: 'falcon-radio',
   templateUrl: './radio.component.html',
   styleUrls: ['./radio.component.css']
 })
