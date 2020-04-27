@@ -31,8 +31,8 @@ export class CheckboxComponent extends BaseFormComponent<any> implements OnInit 
       componentConfig: [{
         componentProperty: {
           label: "Basic checkboxes BEFORE (with checked)",
-          appearance : Appearance.Before,
-          value : true
+          appearance: Appearance.Before,
+          value: true
         },
         componentType: ComponentType.Checkbox,
         formControlName: "basicCheckboxesBEFORE",
@@ -40,13 +40,13 @@ export class CheckboxComponent extends BaseFormComponent<any> implements OnInit 
       {
         componentProperty: {
           label: "Basic checkboxes AFTER",
-          appearance : Appearance.After,
-          value : false
+          appearance: Appearance.After,
+          value: false
         },
         componentType: ComponentType.Checkbox,
         formControlName: "basicCheckboxesAFTER"
       }
-    ]
+      ]
     }
   }
 

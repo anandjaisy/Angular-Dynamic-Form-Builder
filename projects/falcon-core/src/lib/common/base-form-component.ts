@@ -73,7 +73,7 @@ export abstract class BaseFormComponent<T>{
     this.controlsConfig.componentConfig.forEach(field => {
       if (field.componentType === ComponentType.Button) return;
       const control = this.fb.control(
-        field.componentProperty.value,
+        {value: field.componentProperty.value, disabled: field.componentProperty.disabled},
         this.bindValidations(field.validations || [])
       );
       group.addControl(field.formControlName, control);

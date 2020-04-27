@@ -1,7 +1,6 @@
-<div [ngClass]="field.componentProperty.groupCss" [formGroup]="group">
-    <mat-slider [ngClass]="field.componentProperty.componentCss" [formControlName]="field.formControlName"
-        [color]="field.componentProperty.color" [disabled]="field.componentProperty.disabled"
-        [invert]="field.componentProperty.sliderProperty.invert" [disabled]="field.componentProperty.disabled"
+<div [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss" [formGroup]="group">
+    <mat-slider [ngStyle]="field.componentProperty.componentStyle" [ngClass]="field.componentProperty.componentCss" [formControlName]="field.formControlName"
+        [color]="field.componentProperty.color" [invert]="field.componentProperty.sliderProperty.invert"
         [max]="field.componentProperty.sliderProperty.max" [min]="field.componentProperty.sliderProperty.min"
         [step]="field.componentProperty.sliderProperty.step" [ngClass]="field.componentProperty.componentCss"
         [thumbLabel]="field.componentProperty.sliderProperty.thumbLabel"

@@ -1,9 +1,11 @@
 <mat-form-field [appearance]="field.componentProperty.appearance" [formGroup]="group"
-    [floatLabel]="field.componentProperty.floatLabel" [ngClass]="field.componentProperty.groupCss">
+    [floatLabel]="field.componentProperty.floatLabel" [ngStyle]="field.componentProperty.groupStyle"
+    [ngClass]="field.componentProperty.groupCss">
     <mat-label>{{field.componentProperty.label}}</mat-label>
 
     <input matInput [formControlName]="field.formControlName" [placeholder]="field.componentProperty.placeHolder"
-        [type]="field?.componentProperty?.attrType" [ngClass]="field.componentProperty.componentCss">
+        [type]="field?.componentProperty?.attrType" [ngStyle]="field.componentProperty.componentStyle"
+        [ngClass]="field.componentProperty.componentCss">
 
 
     <span matPrefix

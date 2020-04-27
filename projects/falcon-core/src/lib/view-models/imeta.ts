@@ -1,5 +1,5 @@
 import { IValidator } from './ivalidator';
-import { ComponentType, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel } from './component-type.enum';
+import { ComponentType, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel ,InputTypes} from './component-type.enum';
 /**
  * @description
  * Interface use for setting the component meta.
@@ -27,19 +27,21 @@ export declare interface IMeta {
  */
 export declare interface IComponentProperty {
   label?: string;
-  attrType?: string | any;
+  attrType?: string | InputTypes;
   appearance?: Appearance;
   placeHolder?: string;
   suffix?: ISuffixPrefixConfig;
   prefix?: ISuffixPrefixConfig;
   hint?: string;
   componentCss?: string;
+  componentStyle?: any;
   groupCss?: string;
+  groupStyle?: any;
   floatLabel?: Floatinglabel;
   options?: string[];
   value?: string | any;
   checked?: string;
-  disabled?: string;
+  disabled?: boolean;
   color?: string;
   textAreaProperty?: ITextAreaProperty;
   sliderProperty?: ISliderProperty;

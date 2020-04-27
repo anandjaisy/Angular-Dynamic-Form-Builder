@@ -1,8 +1,9 @@
-<div [ngClass]="field.componentProperty.groupCss" [formGroup]="group">
+<div [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss" [formGroup]="group">
     <label class="radio-label-padding">{{field.componentProperty.label}}</label>
-    <mat-radio-group aria-labelledby="radio-group-label" [labelPosition]="field.componentProperty.appearance" [formControlName]="field.formControlName"
+    <mat-radio-group aria-labelledby="radio-group-label" [labelPosition]="field.componentProperty.appearance"
+        [formControlName]="field.formControlName" [ngStyle]="field.componentProperty.componentStyle"
         [ngClass]="field.componentProperty.groupCss">
-        <mat-radio-button [ngClass]="field.componentProperty.componentCss" *ngFor="let item of field.componentProperty.options"
-            [value]="item">{{item}}</mat-radio-button>
+        <mat-radio-button [ngClass]="field.componentProperty.componentCss"
+            *ngFor="let item of field.componentProperty.options" [value]="item">{{item}}</mat-radio-button>
     </mat-radio-group>
 </div>

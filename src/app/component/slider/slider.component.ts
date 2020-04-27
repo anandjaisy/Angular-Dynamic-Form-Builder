@@ -30,11 +30,93 @@ export class SliderComponent extends BaseFormComponent<any> implements OnInit {
       },
       componentConfig: [{
         componentProperty: {
+          label: "Value",
+          appearance : Appearance.Standard,
+          attrType: InputTypes.Number,
+          value : 0
+        },
+        componentType: ComponentType.TextBox,
+        formControlName: "value"
+      },
+      {
+        componentProperty: {
+          label: "Min Value",
+          appearance : Appearance.Standard,
+          attrType: InputTypes.Number,
+          value : 0
+        },
+        componentType: ComponentType.TextBox,
+        formControlName: "minValue"
+      },
+      {
+        componentProperty: {
+          label: "Max value",
+          appearance : Appearance.Standard,
+          attrType: InputTypes.Number,
+          value : 100
+        },
+        componentType: ComponentType.TextBox,
+        formControlName: "maxvalue"
+      },
+      {
+        componentProperty: {
+          label: "Step size",
+          appearance : Appearance.Standard,
+          attrType: InputTypes.Number,
+          value : 1
+        },
+        componentType: ComponentType.TextBox,
+        formControlName: "stepSize"
+      },
+      {
+        componentProperty: {
+          label: "Show ticks",
+          groupStyle : {'margin-top': '40px'}
+        },
+        componentType: ComponentType.Checkbox,
+        formControlName: "showTicks"
+      },
+      {
+        componentProperty: {
+          label: "Show thumb label",
+          groupStyle : {'margin-top': '40px'}
+        },
+        componentType: ComponentType.Checkbox,
+        formControlName: "showThumbLabel"
+      },
+      {
+        componentProperty: {
+          label: "Vertical",
+          groupStyle : {'margin-top': '40px'}
+        },
+        componentType: ComponentType.Checkbox,
+        formControlName: "vertical"
+      },
+      {
+        componentProperty: {
+          label: "Inverted",
+          groupStyle : {'margin-top': '40px'}
+        },
+        componentType: ComponentType.Checkbox,
+        formControlName: "inverted"
+      },
+      {
+        componentProperty: {
+          label: "Disabled",
+          groupStyle : {'margin-top': '40px'}
+        },
+        componentType: ComponentType.Checkbox,
+        formControlName: "disabled"
+      },
+      {
+        componentProperty: {
           color : "primary",
+          groupStyle : {'margin-top': '40px', 'width':'30em'},
+          componentStyle : {'width':'100%'},
           sliderProperty: {
-            invert : true,
-            thumbLabel : true,
-            vertical : true,
+            invert : false,
+            thumbLabel : false,
+            vertical : false,
             min : 0,
             max : 100,
             step : 1,
