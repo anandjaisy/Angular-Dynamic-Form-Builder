@@ -1,0 +1,11 @@
+<div [ngClass]="field.componentProperty.groupCss" [formGroup]="group">
+    <mat-slider [ngClass]="field.componentProperty.componentCss" [formControlName]="field.formControlName"
+        [color]="field.componentProperty.color" [disabled]="field.componentProperty.disabled"
+        [invert]="field.componentProperty.sliderProperty.invert" [disabled]="field.componentProperty.disabled"
+        [max]="field.componentProperty.sliderProperty.max" [min]="field.componentProperty.sliderProperty.min"
+        [step]="field.componentProperty.sliderProperty.step" [ngClass]="field.componentProperty.componentCss"
+        [thumbLabel]="field.componentProperty.sliderProperty.thumbLabel"
+        [tickInterval]="field.componentProperty.sliderProperty.thumbLabel"
+        [vertical]="field.componentProperty.sliderProperty.vertical">
+    </mat-slider>
+</div>

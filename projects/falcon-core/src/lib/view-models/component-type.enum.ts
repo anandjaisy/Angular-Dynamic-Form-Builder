@@ -14,7 +14,8 @@ export const enum ComponentType {
     Radio = 4,
     Checkbox = 5,
     Button = 6,
-    SlideToggle = 7
+    SlideToggle = 7,
+    Slider = 8
 }
 /**
  * @description

@@ -1,1 +1,37 @@
-<p>slider works!</p>
+<div class="container">
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+            <a mat-mini-fab color="accent" routerLink="..">
+                <mat-icon>arrow_back</mat-icon>
+            </a>
+            <h2>Slider component</h2>
+            <h2></h2>
+        </div>
+
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <div style="margin-top: 40px">
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                        <h1>Slider</h1>
+                        <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+                    </div>
+                    <p class="blurText">
+
+                        By default the minimum value of the slider is <strong class="text-format">0</strong>, the maximum value is <strong class="text-format">100</strong>,, and the thumb moves
+                        in increments of <strong class="text-format">1</strong>. These values can be changed by setting the <strong class="text-format">min, max, and step attributes</strong>
+                        respectively. The initial value is set to the minimum value unless otherwise specified.
+                    </p>
+                </div>
+                <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+                    <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
+                </form>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <pre><code [highlight]="form?.value | json"></code></pre>
+                </div>
+            </div>
+            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+                [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -30,5 +30,8 @@ export class AngularCodeTemplate {
 
     public static SlideToggle_TS_KEY: string = "/slide-toggle/slide-toggle.component.ts";
     public static SlideToggle_HTML_KEY: string = "/slide-toggle/slide-toggle.component.html"
+
+    public static Slider_TS_KEY: string = "/slider/slider.component.ts";
+    public static Slider_HTML_KEY: string = "/slider/slider.component.html"
     //End of Radio & check box
 }

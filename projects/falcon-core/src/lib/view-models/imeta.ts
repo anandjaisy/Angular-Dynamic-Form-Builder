@@ -39,9 +39,10 @@ export declare interface IComponentProperty {
   options?: string[];
   value?: string | any;
   checked?: string;
-  disabled? : string;
-  color? : string;
+  disabled?: string;
+  color?: string;
   textAreaProperty?: ITextAreaProperty;
+  sliderProperty?: ISliderProperty;
 }
 /**
  * @description
@@ -125,3 +126,28 @@ export declare interface ITextAreaProperty {
   cols?: number
 }
 
+/**
+ * @description
+ * Interface use for setting the Mat Slider Property.
+ * @usageNotes
+ * ```ts
+ *       componentProperty: {
+ *        sliderProperty : {
+ *          invert : true,
+ *          step : 1,
+ *          thumbLabel : false,
+ *          vertical : true,
+ *          horizontal : false
+ *        }
+ *      }
+ * ```
+ */
+export declare interface ISliderProperty {
+  invert?: boolean;
+  thumbLabel?: boolean;
+  vertical? :boolean;
+  min? : number,
+  max? : number,
+  step? : number,
+  tickInterval?: string | number
+}

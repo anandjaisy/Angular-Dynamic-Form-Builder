@@ -17,9 +17,10 @@ import { DatePickerComponent } from './component/date-picker/date-picker.compone
 import { CheckboxComponent } from './component/checkbox/checkbox.component';
 import { ButtonComponent } from './component/button/button.component';
 import { SlideToggleComponent } from './component/slide-toggle/slide-toggle.component';
+import { SliderComponent } from './component/slider/slider.component';
 
 @NgModule({
-  declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent],
+  declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent],
   imports: [AngularMaterialModule,CommonModule,FormsModule,ReactiveFormsModule,FlexLayoutModule,HttpClientModule
   ],
   exports: [AngularMaterialModule,ReactiveControlsComponent,TextboxComponent,CommonModule,FormsModule,ReactiveFormsModule,FlexLayoutModule],
