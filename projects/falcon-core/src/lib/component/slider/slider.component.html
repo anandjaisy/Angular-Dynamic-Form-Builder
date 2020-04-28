@@ -1,4 +1,5 @@
 <div [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss" [formGroup]="group">
+    <mat-label>{{field.componentProperty.label}}</mat-label>
     <mat-slider [ngStyle]="field.componentProperty.componentStyle" [ngClass]="field.componentProperty.componentCss" [formControlName]="field.formControlName"
         [color]="field.componentProperty.color" [invert]="field.componentProperty.sliderProperty.invert"
         [max]="field.componentProperty.sliderProperty.max" [min]="field.componentProperty.sliderProperty.min"

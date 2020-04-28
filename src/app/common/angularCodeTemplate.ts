@@ -48,8 +48,12 @@ export class AngularCodeTemplate {
     public static Button_Toggle_HTML_KEY: string = "/button-toggle/button-toggle.component.html"
     //End of button
 
-    //progress bar
+    //progress bar/spinner
     public static ProgressBar_TS_KEY: string = "/progress-bar/progress-bar.component.ts";
     public static ProgressBar_HTML_KEY: string = "/progress-bar/progress-bar.component.html"
+
+    public static ProgressSpinner_TS_KEY: string = "/progress-spinner/progress-spinner.component.ts";
+    public static ProgressSpinner_HTML_KEY: string = "/progress-spinner/progress-spinner.component.html"
+
     //End of progress bar
 }
