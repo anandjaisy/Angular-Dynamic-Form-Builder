@@ -1,1 +1,26 @@
-<p>button works!</p>
+<div  [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
+<ng-container [ngSwitch]="field.componentProperty.attrType">
+    <button [color]="field.componentProperty.color" mat-button *ngSwitchCase="buttonTypes.Basic">
+        {{field.componentProperty.label}}
+    </button>
+    <button [color]="field.componentProperty.color" mat-raised-button *ngSwitchCase="buttonTypes.Raised">
+        {{field.componentProperty.label}}
+    </button>
+    <button [color]="field.componentProperty.color" mat-stroked-button *ngSwitchCase="buttonTypes.Stroked">
+        {{field.componentProperty.label}}
+    </button>
+    <button [color]="field.componentProperty.color" mat-flat-button *ngSwitchCase="buttonTypes.Flat">
+        {{field.componentProperty.label}}
+    </button>
+    <button [color]="field.componentProperty.color" mat-icon-button [attr.aria-label]="field.componentProperty.label" *ngSwitchCase="buttonTypes.Icon">
+        <mat-icon>{{field.componentProperty.label}}</mat-icon>
+    </button>
+    <button [color]="field.componentProperty.color" mat-fab [attr.aria-label]="field.componentProperty.label" *ngSwitchCase="buttonTypes.FAB">
+        <mat-icon>{{field.componentProperty.label}}</mat-icon>
+    </button>
+    <button [color]="field.componentProperty.color" mat-mini-fab [attr.aria-label]="field.componentProperty.label" *ngSwitchCase="buttonTypes.MiniFAB">
+        <mat-icon>{{field.componentProperty.label}}</mat-icon>
+    </button>
+    <a mat-button *ngSwitchCase="buttonTypes.Link" routerLink="[]">{{field.componentProperty.label}}</a>
+</ng-container>
+</div>

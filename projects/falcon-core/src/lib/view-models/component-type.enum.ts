@@ -56,6 +56,27 @@ export const enum InputTypes {
 }
 /**
  * @description
+ * Enum use for setting the button attribute Types.
+ * @usageNotes
+ * ```ts
+ *      componentProperty: {
+ *        attrType: InputTypes.Text
+ *      }
+ * ```
+ */
+export enum ButtonTypes {
+    Basic = 0,
+    Raised = 1,
+    Stroked = 2,
+    Flat = 3,
+    Icon = 4,
+    FAB = 5,
+    MiniFAB = 6,
+    Link = 7
+}
+
+/**
+ * @description
  * Enum use for Appearance of the control.
  * @usageNotes
  * Before and After property should be only use for Checkbox and Radio button

@@ -5,7 +5,7 @@ import { ReactiveControlsComponent } from './component/reactive-controls/reactiv
 import { AngularMaterialModule } from './module/angular-material/angular-material.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { IGenericHttpClient } from './service/igeneric-http-client';
 import { GenericHttpClientService } from './service/generic-http-client.service';
@@ -21,11 +21,11 @@ import { SliderComponent } from './component/slider/slider.component';
 
 @NgModule({
   declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent],
-  imports: [AngularMaterialModule,CommonModule,FormsModule,ReactiveFormsModule,FlexLayoutModule,HttpClientModule
+  imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule
   ],
-  exports: [AngularMaterialModule,ReactiveControlsComponent,TextboxComponent,CommonModule,FormsModule,ReactiveFormsModule,FlexLayoutModule],
+  exports: [AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent],
   providers: [
-    { provide: IGenericHttpClient, useClass: GenericHttpClientService },{ provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingServiceService], multi: true },
+    { provide: IGenericHttpClient, useClass: GenericHttpClientService }, { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingServiceService], multi: true },
   ]
 })
 export class FalconCoreModule { }

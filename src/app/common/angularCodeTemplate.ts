@@ -34,4 +34,14 @@ export class AngularCodeTemplate {
     public static Slider_TS_KEY: string = "/slider/slider.component.ts";
     public static Slider_HTML_KEY: string = "/slider/slider.component.html"
     //End of Radio & check box
+
+    //select
+    public static Select_TS_KEY: string = "/select/select.component.ts";
+    public static Select_HTML_KEY: string = "/select/select.component.html"
+    //End of select
+
+    // Button
+    public static Button_TS_KEY: string = "/button-indicator/button-indicator.component.ts";
+    public static Button_HTML_KEY: string = "/button-indicator/button-indicator.component.html"
+    //End of button
 }

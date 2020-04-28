@@ -24,6 +24,9 @@ import { InputHintComponent } from './component/input/input-hint/input-hint.comp
 import { InputErrorComponent } from './component/input/input-error/input-error.component';
 import { InputPrefixSuffixComponent } from './component/input/input-prefix-suffix/input-prefix-suffix.component';
 import { TextAreaComponent } from './component/text-area/text-area.component';
+import { ButtonToggleComponent } from './component/button-toggle/button-toggle.component';
+import { ProgressSpinnerComponent } from './component/progress-spinner/progress-spinner.component';
+import { ProgressBarComponent } from './component/progress-bar/progress-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +47,10 @@ import { TextAreaComponent } from './component/text-area/text-area.component';
     InputHintComponent,
     InputErrorComponent,
     InputPrefixSuffixComponent,
-    TextAreaComponent
+    TextAreaComponent,
+    ButtonToggleComponent,
+    ProgressSpinnerComponent,
+    ProgressBarComponent
   ],
   imports:[
     BrowserModule,
