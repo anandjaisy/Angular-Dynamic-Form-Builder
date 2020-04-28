@@ -61,6 +61,9 @@ export class AngularCodeTemplate {
     public static BottomSheet_TS_KEY: string = "/bottom-sheet/bottom-sheet.component.ts";
     public static BottomSheet_HTML_KEY: string = "/bottom-sheet/bottom-sheet.component.html"
 
+    public static Snackbar_TS_KEY: string = "/snackbar/snackbar.component.ts";
+    public static Snackbar_HTML_KEY: string = "/snackbar/snackbar.component.html"
+
     
     //End of Modal snak bar
 }

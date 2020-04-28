@@ -28,6 +28,7 @@ import { ButtonToggleComponent } from './component/button-toggle/button-toggle.c
 import { ProgressSpinnerComponent } from './component/progress-spinner/progress-spinner.component';
 import { ProgressBarComponent } from './component/progress-bar/progress-bar.component';
 import { ExampleBottomSheetComponent } from './component/bottom-sheet/bottom-sheet.component';
+import { SnackbarComponent } from './component/snackbar/snackbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ import { ExampleBottomSheetComponent } from './component/bottom-sheet/bottom-she
     ButtonToggleComponent,
     ProgressSpinnerComponent,
     ProgressBarComponent,
-    ExampleBottomSheetComponent
+    ExampleBottomSheetComponent,
+    SnackbarComponent
   ],
   imports:[
     BrowserModule,
