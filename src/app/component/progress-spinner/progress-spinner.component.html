@@ -1,1 +1,38 @@
-<p>progress-spinner works!</p>
+<div class="container">
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+            <a mat-mini-fab color="accent" routerLink="..">
+                <mat-icon>arrow_back</mat-icon>
+            </a>
+            <h2>Progress Spinner component</h2>
+            <h2></h2>
+        </div>
+
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <div style="margin-top: 40px">
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                        <h1>Progress Spinner</h1>
+                        <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+                    </div>
+                    <p class="blurText">
+                        <strong class="text-format">mat-progress-spinner</strong> and <strong
+                            class="text-format">mat-spinner</strong> are a circular indicators of progress and activity.
+                    </p>
+                </div>
+                <h1>Progress mode</h1>
+                <h3> Determinate</h3>
+                <p class="blurText">Standard progress indicator, fills from 0% to 100%</p>
+                <falcon-progress-spinner [mode]="'determinate'" [value]="40"></falcon-progress-spinner>
+                <br><br>
+                <h3> Indeterminate</h3>
+                <p class="blurText">Indicates that something is happening without conveying a discrete progress</p>
+                <falcon-progress-spinner [diameter]="60" [mode]="'indeterminate'" [value]="40" [color]="'accent'"></falcon-progress-spinner>
+            </div>
+            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+                [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+        </mat-card-content>
+
+    </mat-card>
+</div>

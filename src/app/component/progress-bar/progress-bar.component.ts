@@ -16,7 +16,7 @@ export class ProgressBarComponent implements OnInit {
   }
   buttonClickEvent() {
     this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.ProgressBar_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.ProgressBar_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.ProgressBar_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
 
