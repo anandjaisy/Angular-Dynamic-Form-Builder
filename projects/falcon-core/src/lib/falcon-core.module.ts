@@ -19,12 +19,14 @@ import { ButtonComponent } from './component/button/button.component';
 import { SlideToggleComponent } from './component/slide-toggle/slide-toggle.component';
 import { SliderComponent } from './component/slider/slider.component';
 import { ButtonToggleComponent } from './component/button-toggle/button-toggle.component';
+import { ProgressBarComponent } from './component/progress-bar/progress-bar.component';
+import { ProgressSpinnerComponent } from './component/progress-spinner/progress-spinner.component';
 
 @NgModule({
-  declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ButtonToggleComponent],
+  declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent],
   imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule
   ],
-  exports: [AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent],
+  exports: [AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,ProgressBarComponent,ProgressSpinnerComponent],
   providers: [
     { provide: IGenericHttpClient, useClass: GenericHttpClientService }, { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingServiceService], multi: true },
   ]

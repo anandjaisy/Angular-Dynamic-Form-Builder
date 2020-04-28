@@ -1,1 +1,57 @@
-<p>progress-bar works!</p>
+<div class="container">
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+            <a mat-mini-fab color="accent" routerLink="..">
+                <mat-icon>arrow_back</mat-icon>
+            </a>
+            <h2>Progress Bar component</h2>
+            <h2></h2>
+        </div>
+
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <div style="margin-top: 40px">
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                        <h1>Progress mode</h1>
+                        <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+                    </div>
+                    <p class="blurText">
+                        <strong class="text-format">mat-progress-bar</strong> is a horizontal progress-bar for
+                        indicating progress and activity.
+                    </p>
+                    <p class="blurText">
+                        The progress-bar supports four modes: <strong class="text-format">determinate</strong>, <strong
+                            class="text-format">indeterminate</strong>, <strong class="text-format">buffer</strong> and
+                        <strong class="text-format">query</strong>.
+                        is a horizontal progress-bar for
+                        indicating progress and activity.
+                    </p>
+                </div>
+                <br>
+                <h3> Determinate</h3>
+                <p class="blurText">Operations where the percentage of the operation complete is known should use the
+                    determinate indicator.</p>
+                <falcon-progress-bar [mode]="'determinate'" [value]="'40'"></falcon-progress-bar>
+                <br><br>
+                <h3> Indeterminate</h3>
+                <p class="blurText">Operations where the user is asked to wait while something finishes and it’s not
+                    necessary to indicate how long it will take should use the indeterminate indicator.</p>
+                <falcon-progress-bar [mode]="'indeterminate'"></falcon-progress-bar>
+                <br><br>
+                <h3>Buffer with color</h3>
+                <p class="blurText">Operations where the user wants to indicate some activity or loading from the
+                    server, use the buffer indicator.</p>
+                <falcon-progress-bar [mode]="'buffer'" [color]="'accent'"></falcon-progress-bar>
+                <br><br>
+                <h3>Query</h3>
+                <p class="blurText">For situations where the user wants to indicate pre-loading (until the loading can
+                    actually be made), use the query indicator.</p>
+                <falcon-progress-bar [mode]="'query'"></falcon-progress-bar>
+            </div>
+            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+                [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+        </mat-card-content>
+
+    </mat-card>
+</div>

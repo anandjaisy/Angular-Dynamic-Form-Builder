@@ -71,8 +71,8 @@ export class ButtonToggleComponent extends BaseFormComponent<any> implements OnI
   }
 
   buttonClickEvent() {
-    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Select_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Select_HTML_KEY;
+    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Button_Toggle_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Button_Toggle_TS_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
 }

@@ -43,5 +43,13 @@ export class AngularCodeTemplate {
     // Button
     public static Button_TS_KEY: string = "/button-indicator/button-indicator.component.ts";
     public static Button_HTML_KEY: string = "/button-indicator/button-indicator.component.html"
+
+    public static Button_Toggle_TS_KEY: string = "/button-toggle/button-toggle.component.ts";
+    public static Button_Toggle_HTML_KEY: string = "/button-toggle/button-toggle.component.html"
     //End of button
+
+    //progress bar
+    public static ProgressBar_TS_KEY: string = "/progress-bar/progress-bar.component.ts";
+    public static ProgressBar_HTML_KEY: string = "/progress-bar/progress-bar.component.html"
+    //End of progress bar
 }
