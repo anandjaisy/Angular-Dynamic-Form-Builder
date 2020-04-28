@@ -24,7 +24,9 @@
                     </p>
                 </div>
                 <br>
-                <p>You have received a file called "cat-picture.jpeg".</p>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <pre><code [highlight]="response | json"></code></pre>
+                </div>
 
                 <button mat-raised-button (click)="openBottomSheet()">Open file</button>
             </div>

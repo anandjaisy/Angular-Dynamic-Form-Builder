@@ -12,6 +12,7 @@ import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 export class ExampleBottomSheetComponent implements OnInit {
   public codeGeneratorEnable: boolean = false;
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
+  response : string;
   constructor(private _bottomSheet: MatBottomSheet) { }
 
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class ExampleBottomSheetComponent implements OnInit {
     const bottomSheetRef = this._bottomSheet.open(BottomSheetComponent, { data });
     bottomSheetRef.afterDismissed().subscribe((data) => {
       console.log(data);
+      this.response = data;
     });
   }
 
