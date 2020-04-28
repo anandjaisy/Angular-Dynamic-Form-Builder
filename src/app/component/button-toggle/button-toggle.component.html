@@ -1,1 +1,41 @@
-<p>button-toggle works!</p>
+<div class="container">
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+            <a mat-mini-fab color="accent" routerLink="..">
+                <mat-icon>arrow_back</mat-icon>
+            </a>
+            <h2>Button Toggle component</h2>
+            <h2></h2>
+        </div>
+
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <div style="margin-top: 40px">
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                        <h1>Select</h1>
+                        <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+                    </div>
+                    <h2>Button Toggle</h2>
+                    <p class="blurText">
+                        <strong class="text-format">mat-button-toggle</strong> are on/off toggles with the appearance of
+                        a button. These toggles can be
+                        configured to behave as either radio-buttons or checkboxes. While they can be standalone,
+                        they are typically part of a <strong class="text-format">mat-button-toggle-group</strong>.
+                    </p>
+                </div>
+                <br><br>
+                <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+                    <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
+                </form>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <pre><code [highlight]="form?.value | json"></code></pre>
+                </div>
+            </div>
+            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+                [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+
+        </mat-card-content>
+
+    </mat-card>
+</div>

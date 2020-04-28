@@ -1,0 +1,10 @@
+<div [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss" [formGroup]="group">
+    <mat-button-toggle-group [formControlName]="field.formControlName" [appearance]="field.componentProperty.appearance"
+        [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss"
+        [attr.aria-label]="field.componentProperty.label">
+        <mat-button-toggle *ngFor="let item of field.componentProperty.options" [value]="item.value"
+            [ngStyle]="field.componentProperty.componentStyle">
+            {{item.viewValue}}
+        </mat-button-toggle>
+    </mat-button-toggle-group>
+</div>

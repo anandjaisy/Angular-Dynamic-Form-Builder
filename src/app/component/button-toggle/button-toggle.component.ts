@@ -1,15 +1,79 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { ComponentType, InputTypes, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
+import { Observable, of } from 'rxjs';
+import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
+import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 
 @Component({
   selector: 'app-button-toggle',
   templateUrl: './button-toggle.component.html',
   styleUrls: ['./button-toggle.component.scss']
 })
-export class ButtonToggleComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class ButtonToggleComponent extends BaseFormComponent<any> implements OnInit {
+  public codeGeneratorEnable: boolean = false;
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
+  constructor(fb: FormBuilder) {
+    super(fb);
+    this.defineForm();
   }
 
+  protected defineForm(): void {
+    this.controlsConfig =
+    {
+      layoutConfig: {
+        layoutDirection: ComponentPosition.Column,
+        fxLayoutGap: "10px",
+        alignmentLayoutDirectionHorizontal: AlignmentLayoutDirection.SpaceAround,
+        alignmentLayoutDirectionVertical: AlignmentLayoutDirection.SpaceAround
+      },
+      componentConfig: [{
+        componentProperty: {
+          options: [{ value: 'Bold', viewValue: 'Bold' },
+          { value: 'Italic', viewValue: 'Italic' },
+          { value: 'Underline', viewValue: 'Underline' }],
+          appearance: Appearance.Standard
+        },
+        componentType: ComponentType.ButtonToggle,
+        formControlName: "basicButtonToggle",
+      },
+      {
+        componentProperty: {
+          label: "Multiple selection",
+          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+          { value: 'Bellsprout', viewValue: 'Bellsprout' },
+          { value: 'Mushroom', viewValue: 'Mushroom' },
+          { value: 'Onion', viewValue: 'Onion' },
+          { value: 'Pepperoni', viewValue: 'Pepperoni' },
+          { value: 'Sausage', viewValue: 'Sausage' },
+          { value: 'Tomato', viewValue: 'Tomato' }],
+          appearance: Appearance.Legacy,
+          groupStyle : {'margin-top': '20px'}
+        },
+        componentType: ComponentType.ButtonToggle,
+        formControlName: "legecyButtonToggle"
+      }
+      ]
+    }
+  }
+
+  ngOnInit(): void {
+    this.form = this.createControls();
+  }
+
+  protected getDatasource(): Observable<any> {
+    return of();
+  }
+  protected submitDatasource(model: any): Observable<any> {
+    console.log(model);
+    return of(model);
+  }
+
+  buttonClickEvent() {
+    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Select_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Select_HTML_KEY;
+    this.codeGeneratorEnable = !this.codeGeneratorEnable;
+  }
 }
+
