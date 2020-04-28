@@ -29,6 +29,7 @@ import { ProgressSpinnerComponent } from './component/progress-spinner/progress-
 import { ProgressBarComponent } from './component/progress-bar/progress-bar.component';
 import { ExampleBottomSheetComponent } from './component/bottom-sheet/bottom-sheet.component';
 import { SnackbarComponent } from './component/snackbar/snackbar.component';
+import { ModalDialogComponent } from './component/modal-dialog/modal-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import { SnackbarComponent } from './component/snackbar/snackbar.component';
     ProgressSpinnerComponent,
     ProgressBarComponent,
     ExampleBottomSheetComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    ModalDialogComponent
   ],
   imports:[
     BrowserModule,

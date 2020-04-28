@@ -23,19 +23,23 @@ import { ProgressBarComponent } from './component/progress-bar/progress-bar.comp
 import { ProgressSpinnerComponent } from './component/progress-spinner/progress-spinner.component';
 import { BottomSheetComponent } from './component/bottom-sheet/bottom-sheet.component';
 import { DeleteDialogComponent } from './component/delete-dialog/delete-dialog.component';
-
 @NgModule({
-  declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DeleteDialogComponent],
+  declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent,
+    SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,
+    ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DeleteDialogComponent],
   imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule
   ],
   exports: [
-    AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ProgressBarComponent, ProgressSpinnerComponent,BottomSheetComponent
+    AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule,
+    ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent,
+    CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ProgressBarComponent, ProgressSpinnerComponent,
+    BottomSheetComponent,DeleteDialogComponent
   ],
   entryComponents: [
-    BottomSheetComponent
+    BottomSheetComponent, DeleteDialogComponent
   ],
   providers: [
-    { provide: IGenericHttpClient, useClass: GenericHttpClientService }, 
+    { provide: IGenericHttpClient, useClass: GenericHttpClientService },
     { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingServiceService], multi: true }
   ]
 })

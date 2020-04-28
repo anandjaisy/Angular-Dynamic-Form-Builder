@@ -15,9 +15,9 @@ import { TextAreaComponent } from './component/text-area/text-area.component';
 import { ButtonToggleComponent } from './component/button-toggle/button-toggle.component';
 import { ProgressBarComponent } from './component/progress-bar/progress-bar.component';
 import { ProgressSpinnerComponent } from './component/progress-spinner/progress-spinner.component';
-import { DeleteDialogComponent } from 'projects/falcon-core/src/lib/component/delete-dialog/delete-dialog.component';
 import { ExampleBottomSheetComponent } from './component/bottom-sheet/bottom-sheet.component';
 import { SnackbarComponent } from './component/snackbar/snackbar.component';
+import { ModalDialogComponent } from './component/modal-dialog/modal-dialog.component';
 
 
 const routes: Routes = [
@@ -38,7 +38,7 @@ const routes: Routes = [
   {path: 'progress-bar', component: ProgressBarComponent},
   {path: 'bottom-sheet', component: ExampleBottomSheetComponent},
   {path: 'snackbar', component: SnackbarComponent},
-  {path: 'dialog', component: DeleteDialogComponent}
+  {path: 'dialog', component: ModalDialogComponent}
 ];
 
 @NgModule({

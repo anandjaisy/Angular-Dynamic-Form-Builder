@@ -1,1 +1,12 @@
-<p>delete-dialog works!</p>
+<h1 mat-dialog-title>Delete</h1>
+<div mat-dialog-content>
+  Are you sure you want to delete
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-between" style="margin-top: 18px;">
+  <button mat-button [mat-dialog-close]="" cdkFocusInitial>Cancel</button>
+  <button mat-raised-button [color]="'warn'" [mat-dialog-close]="data">
+    <mat-icon>delete</mat-icon>
+    Delete
+  </button>
+</div>

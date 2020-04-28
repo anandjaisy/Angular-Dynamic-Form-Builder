@@ -64,6 +64,7 @@ export class AngularCodeTemplate {
     public static Snackbar_TS_KEY: string = "/snackbar/snackbar.component.ts";
     public static Snackbar_HTML_KEY: string = "/snackbar/snackbar.component.html"
 
-    
+    public static Delete_Dialog_TS_KEY: string = "/modal-dialog/modal-dialog.component.ts";
+    public static Delete_Dialog_HTML_KEY: string = "/modal-dialog/modal-dialog.component.html"
     //End of Modal snak bar
 }
