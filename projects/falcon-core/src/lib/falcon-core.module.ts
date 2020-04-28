@@ -21,14 +21,23 @@ import { SliderComponent } from './component/slider/slider.component';
 import { ButtonToggleComponent } from './component/button-toggle/button-toggle.component';
 import { ProgressBarComponent } from './component/progress-bar/progress-bar.component';
 import { ProgressSpinnerComponent } from './component/progress-spinner/progress-spinner.component';
+import { BottomSheetComponent } from './component/bottom-sheet/bottom-sheet.component';
+import { DeleteDialogComponent } from './component/delete-dialog/delete-dialog.component';
+import { SnackBarComponent } from './component/snack-bar/snack-bar.component';
 
 @NgModule({
-  declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent],
+  declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DeleteDialogComponent, SnackBarComponent],
   imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule
   ],
-  exports: [AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,ProgressBarComponent,ProgressSpinnerComponent],
+  exports: [
+    AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ProgressBarComponent, ProgressSpinnerComponent,BottomSheetComponent
+  ],
+  entryComponents: [
+    BottomSheetComponent
+  ],
   providers: [
-    { provide: IGenericHttpClient, useClass: GenericHttpClientService }, { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingServiceService], multi: true },
+    { provide: IGenericHttpClient, useClass: GenericHttpClientService }, 
+    { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingServiceService], multi: true }
   ]
 })
 export class FalconCoreModule { }

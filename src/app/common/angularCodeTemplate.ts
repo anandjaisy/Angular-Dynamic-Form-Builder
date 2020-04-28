@@ -56,4 +56,11 @@ export class AngularCodeTemplate {
     public static ProgressSpinner_HTML_KEY: string = "/progress-spinner/progress-spinner.component.html"
 
     //End of progress bar
+
+    //Modal and snak bar
+    public static BottomSheet_TS_KEY: string = "/bottom-sheet/bottom-sheet.component.ts";
+    public static BottomSheet_HTML_KEY: string = "/bottom-sheet/bottom-sheet.component.html"
+
+    
+    //End of Modal snak bar
 }
