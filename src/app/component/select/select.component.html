@@ -1,1 +1,51 @@
-<p>select works!</p>
+<div class="container">
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+            <a mat-mini-fab color="accent" routerLink="..">
+                <mat-icon>arrow_back</mat-icon>
+            </a>
+            <h2>select component</h2>
+            <h2></h2>
+        </div>
+
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <div style="margin-top: 40px">
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                        <h1>Select</h1>
+                        <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+                    </div>
+                    <h2>Radio-button label</h2>
+                    <p class="blurText">To add options to the select, add <strong
+                            class="text-format">mat-option</strong> elements to the <strong
+                            class="text-format">mat-select</strong>. Each <strong
+                            class="text-format">mat-option</strong>
+                        has a value property that can be used to set the value that will be selected if the
+                        user chooses this option. The content of the <strong class="text-format">mat-option</strong> is
+                        what will be shown to
+                        the user.
+                    </p>
+
+                    <h2>Multiple selection</h2>
+                    <p class="blurText">
+                        <strong class="text-format">mat-select</strong> defaults to single-selection mode, but can be
+                        configured to allow multiple
+                        selection by setting the <strong class="text-format">multiple</strong> property.
+                    </p>
+                </div>
+                <br><br>
+                <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+                    <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
+                </form>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <pre><code [highlight]="form?.value | json"></code></pre>
+                </div>
+            </div>
+            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+                [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+
+        </mat-card-content>
+
+    </mat-card>
+</div>

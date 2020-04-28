@@ -19,6 +19,18 @@ export const enum ComponentType {
 }
 /**
  * @description
+ * Enum use for setting the True and false Flag.
+ * @usageNotes
+ * ```ts
+ *      multiple: TrueFalse.False
+ * ```
+ */
+export const enum TrueFalse {
+    False,
+    True
+}
+/**
+ * @description
  * Enum use for setting the attribute Types.
  * @usageNotes
  * ```ts
@@ -53,12 +65,23 @@ export const enum InputTypes {
  * ```
  */
 export const enum Appearance {
+    /**
+        * @usageNotes Should be only use for input, textbox, and select
+    */
     Legacy = "legacy",
     Standard = "standard",
     Fill = "fill",
     Outline = "outline",
+    /**
+        * @usageNotes Should be only use for label position
+    */
     Before = "before",
-    After = "after"
+    After = "after",
+    /**
+        * @usageNotes Should be only use for select
+    */
+    Multiple = "true",
+
 }
 /**
  * @description
@@ -88,7 +111,7 @@ export const enum AlignmentLayoutDirection {
     End = "end",
     SpaceAround = "space-around",
     SpaceBetween = "space-between",
-    SpaceEvenly ="space-evenly"
+    SpaceEvenly = "space-evenly"
 }
 /**
  * @description

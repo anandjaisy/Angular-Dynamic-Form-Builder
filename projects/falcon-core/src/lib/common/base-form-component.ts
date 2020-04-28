@@ -68,12 +68,12 @@ export abstract class BaseFormComponent<T>{
     * Create the reactive form controls
     * @returns Groups of controls added to the form builder.
   */
-   protected createControls() {
+  protected createControls() {
     const group = this.fb.group({});
     this.controlsConfig.componentConfig.forEach(field => {
       if (field.componentType === ComponentType.Button) return;
       const control = this.fb.control(
-        {value: field.componentProperty.value, disabled: field.componentProperty.disabled},
+        { value: field.componentProperty.value, disabled: field.componentProperty.disabled },
         this.bindValidations(field.validations || [])
       );
       group.addControl(field.formControlName, control);
@@ -121,5 +121,62 @@ export abstract class BaseFormComponent<T>{
   */
   get value() {
     return this.form.value;
+  }
+  /**
+    * @description
+    * Updating parts of the data model.
+    * Use the patchValue() method to replace any properties defined in the object that have changed in the form model.
+    * @returns Form controls values.
+    * @param value The object that matches the structure of the group.
+    * @param options Configuration options that determine how the control propagates changes and
+    * emits events after the value is patched.
+    * `onlySelf`: When true, each change only affects this control and not its parent. Default is
+    * true.
+    * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+    * `valueChanges`
+    *  @usageNotes
+    * The following snippet shows how a component can implement this abstract class to
+    * define its own initialization method.
+    * ```ts
+    *   this.form.patchValue({
+    *     name: 'Todd Motto',
+    *     event: {
+    *       title: 'AngularCamp 2016',
+    *       location: 'Barcelona, Spain'
+    *     }
+    *   });
+    * ```
+    */
+  protected patchValue(value: { [key: string]: any; }, options?: { onlySelf?: boolean; emitEvent?: boolean; }) {
+    return this.form.patchValue(value, options);
+  }
+
+  /**
+    * @description
+    * Updating parts of the data model.
+    * Use the setValue() method to set a new value for an individual control. The setValue() method strictly adheres to the structure of the form group and replaces the entire value for the control.
+    * @returns Form controls values.
+    * @param value The object that matches the structure of the group.
+    * @param options Configuration options that determine how the control propagates changes and
+    * emits events after the value is patched.
+    * `onlySelf`: When true, each change only affects this control and not its parent. Default is
+    * true.
+    * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+    * `valueChanges`
+    *  @usageNotes
+    * The following snippet shows how a component can implement this abstract class to
+    * define its own initialization method.
+    * ```ts
+    *   this.form.setValue({
+    *     name: 'Todd Motto',
+    *     event: {
+    *       title: 'AngularCamp 2016',
+    *       location: 'Barcelona, Spain'
+    *     }
+    *   });
+    * ```
+    */
+  protected setValue(value: { [key: string]: any; }, options?: { onlySelf?: boolean; emitEvent?: boolean; }) {
+    return this.form.setValue(value, options);
   }
 }

@@ -1,5 +1,5 @@
 import { IValidator } from './ivalidator';
-import { ComponentType, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel ,InputTypes} from './component-type.enum';
+import { ComponentType, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel, InputTypes, TrueFalse } from './component-type.enum';
 /**
  * @description
  * Interface use for setting the component meta.
@@ -38,13 +38,13 @@ export declare interface IComponentProperty {
   groupCss?: string;
   groupStyle?: any;
   floatLabel?: Floatinglabel;
-  options?: string[];
+  options?: IOptions[] | any;
   value?: string | any;
-  checked?: string;
   disabled?: boolean;
   color?: string;
   textAreaProperty?: ITextAreaProperty;
   sliderProperty?: ISliderProperty;
+  selectProperty? : ISelectOptions;
 }
 /**
  * @description
@@ -147,9 +147,38 @@ export declare interface ITextAreaProperty {
 export declare interface ISliderProperty {
   invert?: boolean;
   thumbLabel?: boolean;
-  vertical? :boolean;
-  min? : number,
-  max? : number,
-  step? : number,
+  vertical?: boolean;
+  min?: number,
+  max?: number,
+  step?: number,
   tickInterval?: string | number
+}
+/**
+ * @description
+ * Interface use for setting the options meta.
+ * @usageNotes
+ * ```ts
+ *       componentProperty: {
+ *        options: [{key : 'key-1', value : 'value-1'}];
+ *      }
+ * ```
+ */
+export declare interface IOptions {
+  viewValue: string;
+  value: any;
+}
+
+/**
+ * @description
+ * Interface use for setting the options meta for select control.
+ * @usageNotes
+ * ```ts
+ *       componentProperty: {
+ *        selectProperty: {multiple : true};
+ *      }
+ * ```
+ */
+export declare interface ISelectOptions {
+  single?: boolean;
+  multiple?: boolean;
 }
