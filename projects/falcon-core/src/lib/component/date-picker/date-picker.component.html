@@ -1,1 +1,17 @@
-<p>date-picker works!</p>
+<mat-form-field [appearance]="field.componentProperty.appearance" [formGroup]="group"
+    [floatLabel]="field.componentProperty.floatLabel" [ngStyle]="field.componentProperty.groupStyle"
+    [ngClass]="field.componentProperty.groupCss">
+    <mat-label>{{field.componentProperty.label}}</mat-label>
+    <input matInput [matDatepicker]="picker" [formControlName]="field.formControlName"
+        [placeholder]="field.componentProperty.placeHolder" [type]="field?.componentProperty?.attrType"
+        [ngStyle]="field.componentProperty.componentStyle" [ngClass]="field.componentProperty.componentCss"
+        [required]="group.get(field.formControlName).errors !== null && group.get(field.formControlName).errors.required">
+    <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-icon matDatepickerToggleIcon *ngIf="field?.componentProperty?.suffix?.isIcon">keyboard_arrow_down</mat-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-hint>{{field.componentProperty.hint}}</mat-hint>
+    <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+        <mat-error *ngIf="group.get(field.formControlName).hasError(validation.name)">{{validation.message}}</mat-error>
+    </ng-container>
+</mat-form-field>

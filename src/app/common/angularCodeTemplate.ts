@@ -67,4 +67,9 @@ export class AngularCodeTemplate {
     public static Delete_Dialog_TS_KEY: string = "/modal-dialog/modal-dialog.component.ts";
     public static Delete_Dialog_HTML_KEY: string = "/modal-dialog/modal-dialog.component.html"
     //End of Modal snak bar
+
+    //Date Picker
+    public static Date_picker_TS_KEY: string = "/datepicker/datepicker.component.ts";
+    public static Date_picker_HTML_KEY: string = "/datepicker/datepicker.component.html"
+    // End of Date Picker
 }

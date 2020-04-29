@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { IComponentConfig } from '../../view-models/imeta';
 
 @Component({
   selector: 'lib-date-picker',
@@ -6,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./date-picker.component.css']
 })
 export class DatePickerComponent implements OnInit {
-
+  @Input() field: IComponentConfig;
+  @Input() group: FormGroup;
   constructor() { }
 
   ngOnInit(): void {
