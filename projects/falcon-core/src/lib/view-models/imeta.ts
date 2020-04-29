@@ -1,5 +1,5 @@
 import { IValidator } from './ivalidator';
-import { ComponentType, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel, InputTypes, TrueFalse, ButtonTypes } from './component-type.enum';
+import { ComponentType, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel, InputTypes } from './component-type.enum';
 /**
  * @description
  * Interface use for setting the component meta.
@@ -27,7 +27,7 @@ export declare interface IMeta {
  */
 export declare interface IComponentProperty {
   label?: string;
-  attrType?: string | InputTypes | ButtonTypes;
+  attrType?: string | InputTypes;
   appearance?: Appearance;
   placeHolder?: string;
   suffix?: ISuffixPrefixConfig;

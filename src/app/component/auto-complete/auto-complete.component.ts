@@ -1,5 +1,5 @@
 import { Component, OnInit, } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ComponentType, InputTypes, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';

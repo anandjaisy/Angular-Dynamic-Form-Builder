@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { IComponentConfig } from '../../view-models/imeta';
-import { ButtonTypes } from '../../view-models/component-type.enum';
+import { Appearance } from '../../view-models/component-type.enum';
 
 @Component({
   selector: 'falcon-button',
@@ -9,12 +9,16 @@ import { ButtonTypes } from '../../view-models/component-type.enum';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent implements OnInit {
-  buttonTypes = ButtonTypes
+  buttonTypes = Appearance
   @Input() field: IComponentConfig;
   @Input() group: FormGroup;
+  @Output() btnClick = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+  childBtnClick() {
+    this.btnClick.emit("Button Click Event");
   }
 
 }

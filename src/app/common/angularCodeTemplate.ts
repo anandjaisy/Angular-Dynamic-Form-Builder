@@ -77,4 +77,9 @@ export class AngularCodeTemplate {
     public static Date_picker_TS_KEY: string = "/datepicker/datepicker.component.ts";
     public static Date_picker_HTML_KEY: string = "/datepicker/datepicker.component.html"
     // End of Date Picker
+
+    // Form Field
+    public static Form_Field_TS_KEY: string = "/orm-field/orm-field.component.ts";
+    public static Form_Field_HTML_KEY: string = "/orm-field/orm-field.component.html"
+    // End of Form Field
 }

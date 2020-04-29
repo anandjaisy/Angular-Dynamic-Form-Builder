@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel, ButtonTypes } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, ComponentPosition, AlignmentLayoutDirection, Appearance } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
@@ -13,7 +13,7 @@ import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 })
 export class ButtonIndicatorComponent extends BaseFormComponent<any> implements OnInit {
   public codeGeneratorEnable: boolean = false;
-  htmlButtonConfig = {componentProperty: {label: "Basic",attrType: ButtonTypes.Raised, color:"primary"},componentType: ComponentType.Button,formControlName: "Basic"}
+  htmlButtonConfig = {componentProperty: {label: "Basic",appearance: Appearance.Raised, color:"primary"},componentType: ComponentType.Button,formControlName: "Basic"}
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
   constructor(fb: FormBuilder) {
     super(fb);
@@ -33,7 +33,7 @@ export class ButtonIndicatorComponent extends BaseFormComponent<any> implements 
       componentConfig: [{
         componentProperty: {
           label: "Basic",
-          attrType: ButtonTypes.Basic
+          appearance: Appearance.Basic
         },
         componentType: ComponentType.Button,
         formControlName: "Basic",
@@ -41,7 +41,7 @@ export class ButtonIndicatorComponent extends BaseFormComponent<any> implements 
       {
         componentProperty: {
           label: "Raised",
-          attrType: ButtonTypes.Raised,
+          appearance: Appearance.Raised,
           color: 'accent'
         },
         componentType: ComponentType.Button,
@@ -50,7 +50,7 @@ export class ButtonIndicatorComponent extends BaseFormComponent<any> implements 
       {
         componentProperty: {
           label: "Stroked",
-          attrType: ButtonTypes.Stroked,
+          appearance: Appearance.Stroked,
           color: 'primary'
         },
         componentType: ComponentType.Button,
@@ -59,7 +59,7 @@ export class ButtonIndicatorComponent extends BaseFormComponent<any> implements 
       {
         componentProperty: {
           label: "explore",
-          attrType: ButtonTypes.Icon,
+          appearance: Appearance.Icon,
           disabled : true
         },
         componentType: ComponentType.Button,
@@ -68,7 +68,7 @@ export class ButtonIndicatorComponent extends BaseFormComponent<any> implements 
       {
         componentProperty: {
           label: "delete",
-          attrType: ButtonTypes.FAB,
+          appearance: Appearance.FAB,
           color: 'warn'
         },
         componentType: ComponentType.Button,
@@ -77,7 +77,7 @@ export class ButtonIndicatorComponent extends BaseFormComponent<any> implements 
       {
         componentProperty: {
           label: "thumb_up",
-          attrType: ButtonTypes.MiniFAB,
+          appearance: Appearance.MiniFAB,
           color: 'primary'
         },
         componentType: ComponentType.Button,
@@ -86,7 +86,7 @@ export class ButtonIndicatorComponent extends BaseFormComponent<any> implements 
       {
         componentProperty: {
           label: "Link",
-          attrType: ButtonTypes.Link
+          appearance: Appearance.Link
         },
         componentType: ComponentType.Button,
         formControlName: "link"

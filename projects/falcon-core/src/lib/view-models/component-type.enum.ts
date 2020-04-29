@@ -54,29 +54,13 @@ export const enum InputTypes {
     Text = "text",
     Time = "time",
     Url = "url",
-    Week = "week"
+    Week = "week",
+    /**
+        * @usageNotes Should be only use for Buttom
+    */
+    Button = "button",
+    Submit = "submit"
 }
-/**
- * @description
- * Enum use for setting the button attribute Types.
- * @usageNotes
- * ```ts
- *      componentProperty: {
- *        attrType: InputTypes.Text
- *      }
- * ```
- */
-export enum ButtonTypes {
-    Basic = 0,
-    Raised = 1,
-    Stroked = 2,
-    Flat = 3,
-    Icon = 4,
-    FAB = 5,
-    MiniFAB = 6,
-    Link = 7
-}
-
 /**
  * @description
  * Enum use for Appearance of the control.
@@ -87,7 +71,7 @@ export enum ButtonTypes {
  *          only use Appearance Before and After
  * ```
  */
-export const enum Appearance {
+export enum Appearance {
     /**
         * @usageNotes Should be only use for input, textbox, and select
     */
@@ -105,6 +89,17 @@ export const enum Appearance {
     */
     Multiple = "true",
 
+    /**
+        * @usageNotes Should be only use for Buttom
+    */
+    Basic = 0,
+    Raised = 1,
+    Stroked = 2,
+    Flat = 3,
+    Icon = 4,
+    FAB = 5,
+    MiniFAB = 6,
+    Link = 7
 }
 /**
  * @description

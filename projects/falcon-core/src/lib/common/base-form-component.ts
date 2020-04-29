@@ -1,7 +1,7 @@
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ComponentType } from '../view-models/component-type.enum';
-import { IMeta } from '../view-models/imeta';
+import { IMeta, IComponentConfig } from '../view-models/imeta';
 /**
  * @description
  * Base form component initialized to create form controls, set validation, submit.
@@ -178,5 +178,54 @@ export abstract class BaseFormComponent<T>{
     */
   protected setValue(value: { [key: string]: any; }, options?: { onlySelf?: boolean; emitEvent?: boolean; }) {
     return this.form.setValue(value, options);
+  }
+  /**
+   * @description
+   * Dynamically remove the form control.
+   * @param index Index of item.
+   * @usageNotes
+   * The following snippet shows how to remove the form control from Froup Group
+   * ```ts
+   *    removeControl(1);
+   * ```
+   */
+  protected removeControl(index: number) {
+      this.form.removeControl(this.controlsConfig.componentConfig[index].formControlName);
+      this.controlsConfig.componentConfig.splice(index, 1);
+  }
+  /**
+   * @description
+   * Dynamically add the form control.
+   * @param configToAdd Configuration of the form control.
+   *  @usageNotes
+   * The following snippet shows how a component can implement this abstract class to
+   * define its own initialization method.
+   * ```ts
+   *   var configToadd = {
+   *    componentProperty: {
+   *      label: "Outline Auto complete",
+   *      options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+   *      { value: 'Bellsprout', viewValue: 'Bellsprout' },
+   *      { value: 'Mushroom', viewValue: 'Mushroom' },
+   *      { value: 'Onion', viewValue: 'Onion' },
+   *      { value: 'Pepperoni', viewValue: 'Pepperoni' },
+   *      { value: 'Sausage', viewValue: 'Sausage' },
+   *      { value: 'Tomato', viewValue: 'Tomato' }],
+   *      appearance: Appearance.Outline,
+   *      color: 'accent'
+   *    },
+   *    componentType: ComponentType.AutoComplete,
+   *    formControlName: "test"
+   *  };
+   *  this.addControl(configToadd);
+   * ```
+   */
+  protected addControl(configToAdd: IComponentConfig[]) {
+    configToAdd.forEach(configToAdd => {
+      this.form.addControl(configToAdd.formControlName,
+        new FormControl({ value: configToAdd.componentProperty.value, disabled: configToAdd.componentProperty.disabled },
+          this.bindValidations(configToAdd.validations)));
+      this.controlsConfig.componentConfig.push(configToAdd);
+    });
   }
 }
