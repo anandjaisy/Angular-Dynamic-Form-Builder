@@ -1,4 +1,4 @@
-# Angular Dynamic Forms Builder
+# Angular Dynamic Form Builder
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
 
@@ -27,9 +27,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ### Running the seed or final project
 
-* To get started with the seed project, [clone this repo](https://github.com/toddmotto/angular-dynamic-forms/tree/seed).
-
-* To run the final project, [clone this repo](https://github.com/toddmotto/angular-dynamic-forms).
+* To get started with the seed project and to run the final project, [clone this repo](https://github.com/anandjaisy/Angular-Dynamic-Form-Builder.git).
 
 Once you've cloned the repo, install all the dependencies by running:
 
