@@ -5,7 +5,8 @@
 
     <input matInput [formControlName]="field.formControlName" [placeholder]="field.componentProperty.placeHolder"
         [type]="field?.componentProperty?.attrType" [ngStyle]="field.componentProperty.componentStyle"
-        [ngClass]="field.componentProperty.componentCss">
+        [ngClass]="field.componentProperty.componentCss"
+        [required]="group.get(field.formControlName).errors !== null && group.get(field.formControlName).errors.required">
 
 
     <span matPrefix
