@@ -8,7 +8,12 @@ import { ButtonComponent } from '../component/button/button.component';
 import { SlideToggleComponent } from '../component/slide-toggle/slide-toggle.component';
 import { SliderComponent } from '../component/slider/slider.component';
 import { ButtonToggleComponent } from '../component/button-toggle/button-toggle.component';
+import { AutoCompleteComponent } from '../component/auto-complete/auto-complete.component';
 
 export class ConstantValues {
-    public static ComponentMapper = [TextboxComponent, TextAreaComponent, SelectComponent, DatePickerComponent, RadioComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ButtonToggleComponent];
+    public static ComponentMapper = 
+    [
+        TextboxComponent, TextAreaComponent, SelectComponent, DatePickerComponent, RadioComponent, CheckboxComponent, 
+        ButtonComponent, SlideToggleComponent, SliderComponent, ButtonToggleComponent, AutoCompleteComponent
+    ];
 }

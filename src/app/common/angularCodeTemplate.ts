@@ -19,6 +19,11 @@ export class AngularCodeTemplate {
     public static FormTextArea_TS_KEY: string = "/text-area/text-area.component.ts";
     public static FormTextArea_HTML_KEY: string = "/text-area/text-area.component.html"
 
+    //Auto complete
+
+    public static Auto_Complete_TS_KEY: string = "/auto-complete/auto-complete.component.ts";
+    public static Auto_Complete_HTML_KEY: string = "/auto-complete/auto-complete.component.html"
+
     //End of input
 
     //Radio button and checkbox 

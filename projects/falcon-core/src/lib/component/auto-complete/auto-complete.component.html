@@ -1,0 +1,17 @@
+<mat-form-field [appearance]="field.componentProperty.appearance" [formGroup]="group"
+    [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
+    <mat-label>{{field.componentProperty.label}}</mat-label>
+    <input matInput [formControl]="autoCompleteControl" [formControlName]="field.formControlName" [placeholder]="field.componentProperty.placeHolder"
+        [type]="field?.componentProperty?.attrType" [ngStyle]="field.componentProperty.componentStyle"
+        [ngClass]="field.componentProperty.componentCss" [matAutocomplete]="auto"
+        [required]="group.get(field.formControlName).errors !== null && group.get(field.formControlName).errors.required">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)='optionSelected($event.option.value)'>
+        <mat-option *ngFor="let item of filteredOptions | async" [value]="item.value">
+            {{item.viewValue}}
+        </mat-option>
+    </mat-autocomplete>
+    <mat-hint>{{field.componentProperty.hint}}</mat-hint>
+    <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+        <mat-error *ngIf="group.get(field.formControlName).hasError(validation.name)">{{validation.message}}</mat-error>
+    </ng-container>
+</mat-form-field>

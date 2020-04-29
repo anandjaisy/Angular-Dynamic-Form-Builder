@@ -16,7 +16,8 @@ export const enum ComponentType {
     Button = 6,
     SlideToggle = 7,
     Slider = 8,
-    ButtonToggle = 9
+    ButtonToggle = 9,
+    AutoComplete = 10
 }
 /**
  * @description

@@ -23,10 +23,12 @@ import { ProgressBarComponent } from './component/progress-bar/progress-bar.comp
 import { ProgressSpinnerComponent } from './component/progress-spinner/progress-spinner.component';
 import { BottomSheetComponent } from './component/bottom-sheet/bottom-sheet.component';
 import { DeleteDialogComponent } from './component/delete-dialog/delete-dialog.component';
+import { AutoCompleteComponent } from './component/auto-complete/auto-complete.component';
 @NgModule({
   declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent,
     SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,
-    ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DeleteDialogComponent],
+    ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DeleteDialogComponent, 
+    AutoCompleteComponent],
   imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule
   ],
   exports: [
