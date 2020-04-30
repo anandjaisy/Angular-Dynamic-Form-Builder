@@ -36,7 +36,10 @@ Once you've cloned the repo, install all the dependencies by running:
 ```bash
 npm install
 ```
-
+After installing dependencies build the falcon-core library
+```bash
+ng build falcon-core
+```
 You can then dive straight into coding by running:
 
 ```bash
