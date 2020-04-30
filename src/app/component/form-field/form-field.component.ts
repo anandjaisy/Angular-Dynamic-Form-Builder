@@ -31,6 +31,7 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
       layoutConfig: {
         layoutDirection: ComponentPosition.Row,
         fxLayoutGap: "10px",
+        fxFlex: "50",
         alignmentLayoutDirectionHorizontal: AlignmentLayoutDirection.Center,
         alignmentLayoutDirectionVertical: AlignmentLayoutDirection.Center
       },

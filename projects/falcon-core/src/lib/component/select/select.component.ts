@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { IComponentConfig } from '../../view-models/imeta';
 
 @Component({
-  selector: 'lib-select',
+  selector: 'falcon-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css']
 })

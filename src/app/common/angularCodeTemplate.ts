@@ -79,7 +79,7 @@ export class AngularCodeTemplate {
     // End of Date Picker
 
     // Form Field
-    public static Form_Field_TS_KEY: string = "/orm-field/orm-field.component.ts";
-    public static Form_Field_HTML_KEY: string = "/orm-field/orm-field.component.html"
+    public static Form_Field_TS_KEY: string = "/form-field/form-field.component.ts";
+    public static Form_Field_HTML_KEY: string = "/form-field/form-field.component.html"
     // End of Form Field
 }

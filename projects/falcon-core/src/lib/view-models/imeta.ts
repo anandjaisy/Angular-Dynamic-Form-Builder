@@ -100,6 +100,7 @@ export declare interface IComponentConfig {
  */
 export declare interface ILayoutConfig {
   fxLayoutGap?: string;
+  fxFlex? : string | any;
   layoutDirection?: ComponentPosition;
   alignmentLayoutDirectionHorizontal?: AlignmentLayoutDirection
   alignmentLayoutDirectionVertical?: AlignmentLayoutDirection
