@@ -25,7 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Angular Dynamic Forms
 
-* Check the demo [Demo](https://anandjaisy.github.io/Angular-Dynamic-Form-Builder/). 
+* Check the [Demo](https://anandjaisy.github.io/Angular-Dynamic-Form-Builder/). 
 
 ### Running the seed or final project
 
