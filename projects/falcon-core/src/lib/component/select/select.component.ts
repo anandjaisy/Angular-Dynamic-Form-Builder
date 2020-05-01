@@ -5,7 +5,7 @@ import { IComponentConfig } from '../../view-models/imeta';
 @Component({
   selector: 'falcon-select',
   templateUrl: './select.component.html',
-  styleUrls: ['./select.component.css']
+  styleUrls: ['./select.component.scss','../../common/style.scss']
 })
 export class SelectComponent implements OnInit {
   field: IComponentConfig;

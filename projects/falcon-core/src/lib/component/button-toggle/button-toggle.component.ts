@@ -5,7 +5,7 @@ import { IComponentConfig } from '../../view-models/imeta';
 @Component({
   selector: 'lib-button-toggle',
   templateUrl: './button-toggle.component.html',
-  styleUrls: ['./button-toggle.component.css']
+  styleUrls: ['./button-toggle.component.scss']
 })
 export class ButtonToggleComponent implements OnInit {
   @Input() field: IComponentConfig;

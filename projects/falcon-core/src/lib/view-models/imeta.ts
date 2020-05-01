@@ -1,5 +1,5 @@
 import { IValidator } from './ivalidator';
-import { ComponentType, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel, InputTypes } from './component-type.enum';
+import { ComponentType, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel, InputTypes } from './component-type.enum';
 /**
  * @description
  * Interface use for setting the component meta.
@@ -77,7 +77,7 @@ export declare interface ISuffixPrefixConfig {
  * @usageNotes
  * ```ts
  *       layoutConfig: {
- *      layoutDirection: ComponentPosition.Row,
+ *      fxLayout: FxLayout.Row,
  *    }
  * ```
  */
@@ -90,20 +90,49 @@ export declare interface IComponentConfig {
 /**
  * @description
  * Interface use for setting the Layout Config.
+ * @param fxLayout Defines the flow order of child items within a flexbox container.
+ * @param fxLayoutGap Defines if child items within a flexbox container should have a gap.
+ * @param alignmentLayoutDirectionHorizontal Defines how flexbox items are aligned according to both the main-axis and the cross-axis, within a flexbox container.
+ * @param alignmentLayoutDirectionVertical Defines how flexbox items are aligned according to both the main-axis and the cross-axis, within a flexbox container.
+ * @param fxFlex This markup specifies the resizing of its host element within a flexbox container flow.
+ * @param fxFlexOrder Defines the order of a flexbox item.
+ * @param fxFlexAlign Works like fxLayoutAlign, but applies only to a single flexbox item, instead of all of them.
+ * @param fxFlexFill Maximizes width and height of element in a layout container.
+ * @param fxShow This markup specifies if its host element should be displayed (or not).
+ * @param fxHide This markup specifies if its host element should NOT be displayed.
+ * @param ngClass Enhances the ngClass directives with class changes based on mediaQuery activations.
+ * @param ngStyle Enhances the ngStyle directive with style updates based on mediaQuery activations.
  * @usageNotes
  * ```ts
  *       layoutConfig: {
+ *        fxLayout: FxLayout.Row
+ *        fxLayoutGap: "10px"
  *        textAreaProperty: AlignmentLayoutDirection.SpaceAround,
  *        alignmentLayoutDirectionVertical: AlignmentLayoutDirection.SpaceAround
+ *        fxFlex: "10"
+ *        fxFlexOrder: "2"
+ *        fxFlexAlign: "center"
+ *        fxFlexFill: "fxFlexFill"
+ *        fxShow : true
+ *        fxHide : true
+ *        ngClass: {'fxClass-sm': hasStyle}
+ *        ngStyle: {'font-size.px': 10, color: 'blue'}
  *    }
  * ```
  */
 export declare interface ILayoutConfig {
+  fxLayout?: FxLayout;
   fxLayoutGap?: string;
+  fxLayoutAlignHorizontal?: AlignmentLayoutDirection;
+  fxLayoutAlignVertical?: AlignmentLayoutDirection;
   fxFlex? : string | any;
-  layoutDirection?: ComponentPosition;
-  alignmentLayoutDirectionHorizontal?: AlignmentLayoutDirection
-  alignmentLayoutDirectionVertical?: AlignmentLayoutDirection
+  fxFlexOrder?: string;
+  fxFlexAlign?: string;
+  fxFlexFill?: string;
+  fxShow?: boolean;
+  fxHide?: boolean;
+  ngClass?: string;
+  ngStyle?: string;
 }
 /**
  * @description

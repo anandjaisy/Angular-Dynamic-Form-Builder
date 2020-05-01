@@ -4,7 +4,7 @@ import { IComponentConfig } from '../../view-models/imeta';
 @Component({
   selector: 'falcon-checkbox',
   templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.css']
+  styleUrls: ['./checkbox.component.scss']
 })
 export class CheckboxComponent implements OnInit {
   field: IComponentConfig;

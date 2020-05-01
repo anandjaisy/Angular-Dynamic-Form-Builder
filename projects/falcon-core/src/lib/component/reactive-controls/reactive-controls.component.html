@@ -1,8 +1,7 @@
-<div [fxLayout]="fields.layoutConfig.layoutDirection + ' wrap'" fxLayout.xs="column"
-    [fxLayoutGap]="fields.layoutConfig.fxLayoutGap"
-    [fxLayoutAlign]="fields.layoutConfig.alignmentLayoutDirectionHorizontal + ' ' + fields.layoutConfig.alignmentLayoutDirectionVertical">
-
-    <ng-container *ngFor="let field of fields.componentConfig;" dynamicField [field]="field" [group]="form">
-    </ng-container>
-    
+<div [fxLayout]="fields.layoutConfig.fxLayout + ' wrap'" fxLayout.xs="column"
+    [fxLayoutGap]="fields.layoutConfig.fxLayoutGap != undefined ? fields.layoutConfig.fxLayoutGap : '0'"
+    [fxLayoutAlign]="fields.layoutConfig.fxLayoutAlignHorizontal + ' ' + fields.layoutConfig.fxLayoutAlignVertical">
+    <div [fxFlex]="fields.layoutConfig.fxFlex" *ngFor="let field of fields.componentConfig;">
+        <ng-container reactiveField [field]="field" [group]="form"></ng-container>
+    </div>
 </div>

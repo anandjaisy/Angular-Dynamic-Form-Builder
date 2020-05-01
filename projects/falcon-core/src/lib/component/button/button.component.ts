@@ -6,7 +6,7 @@ import { Appearance } from '../../view-models/component-type.enum';
 @Component({
   selector: 'falcon-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css']
+  styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent implements OnInit {
   buttonTypes = Appearance

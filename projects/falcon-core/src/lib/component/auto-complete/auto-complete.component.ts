@@ -7,7 +7,7 @@ import { IOptions } from '../../view-models/imeta'
 @Component({
   selector: 'lib-auto-complete',
   templateUrl: './auto-complete.component.html',
-  styleUrls: ['./auto-complete.component.css']
+  styleUrls: ['./auto-complete.component.scss','../../common/style.scss']
 })
 export class AutoCompleteComponent implements OnInit {
   @Input() field: IComponentConfig;
@@ -17,8 +17,6 @@ export class AutoCompleteComponent implements OnInit {
   filteredOptions: Observable<IOptions[]>;
 
   ngOnInit() {
-    console.log(this.field);
-    console.log(this.group);
     this.filteredOptions = this.autoCompleteControl.valueChanges.pipe(startWith(''),map(value => this._filter(value)));
   }
 

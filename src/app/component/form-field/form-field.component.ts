@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, ComponentPosition, AlignmentLayoutDirection } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
@@ -29,11 +29,11 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
     this.controlsConfig =
     {
       layoutConfig: {
-        layoutDirection: ComponentPosition.Row,
+        fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
-        fxFlex: "50",
-        alignmentLayoutDirectionHorizontal: AlignmentLayoutDirection.Center,
-        alignmentLayoutDirectionVertical: AlignmentLayoutDirection.Center
+        fxFlex: "40",
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.Start,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None
       },
       componentConfig: [
       {

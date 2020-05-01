@@ -5,7 +5,7 @@ import {IComponentConfig } from '../view-models/imeta';
 import { ConstantValues } from '../view-models/constant-values';
 
 @Directive({
-  selector: "[dynamicField]"
+  selector: "[reactiveField]"
 })
 export class ReactiveFieldDirective implements OnInit{
   @Input() field: IComponentConfig;

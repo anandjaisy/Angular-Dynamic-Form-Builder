@@ -4,7 +4,7 @@ import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 @Component({
   selector: 'falcon-bottom-sheet',
   templateUrl: './bottom-sheet.component.html',
-  styleUrls: ['./bottom-sheet.component.css']
+  styleUrls: ['./bottom-sheet.component.scss','../../common/style.scss']
 })
 export class BottomSheetComponent implements OnInit {
 

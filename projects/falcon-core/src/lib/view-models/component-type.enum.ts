@@ -103,13 +103,13 @@ export enum Appearance {
 }
 /**
  * @description
- * Enum use for positioning the component.
+ * Defines the flow order of child items within a flexbox container.
  * @usageNotes
  * ```ts
- *       layoutDirection: ComponentPosition.Row
+ *       layoutDirection: FxLayout.Row
  * ```
  */
-export const enum ComponentPosition {
+export const enum FxLayout {
     Row = "row",
     Column = "column"
 }

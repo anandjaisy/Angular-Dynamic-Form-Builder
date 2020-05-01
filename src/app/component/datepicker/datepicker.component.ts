@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, ComponentPosition, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
@@ -23,10 +23,10 @@ export class DatepickerComponent extends BaseFormComponent<any> implements OnIni
     this.controlsConfig =
     {
       layoutConfig: {
-        layoutDirection: ComponentPosition.Row,
+        fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
-        alignmentLayoutDirectionHorizontal: AlignmentLayoutDirection.SpaceAround,
-        alignmentLayoutDirectionVertical: AlignmentLayoutDirection.SpaceAround
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
       },
       componentConfig: [{
         componentProperty: {
