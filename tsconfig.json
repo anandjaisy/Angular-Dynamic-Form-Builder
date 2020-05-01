@@ -16,9 +16,8 @@
       "dom"
     ],
     "paths": {
-      "falcon-core": [
-        "dist/falcon-core/falcon-core",
-        "dist/falcon-core"
+      "@falcon/core": [
+        "dist/@falcon-ng/core"
       ]
     }
   },

@@ -129,7 +129,7 @@
         }
       }
     },
-    "falcon-core": {
+    "@falcon-ng/core": {
       "projectType": "library",
       "root": "projects/falcon-core",
       "sourceRoot": "projects/falcon-core/src",
