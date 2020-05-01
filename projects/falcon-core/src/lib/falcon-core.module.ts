@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { IGenericHttpClient } from './service/igeneric-http-client';
-import { GenericHttpClientService } from './service/generic-http-client.service';
+import { GenericHttpClient } from './service/generic-http-client';
 import { appSettingsFactory, AppSettingServiceService } from './service/app-setting-service.service';
 import { RadioComponent } from './component/radio/radio.component';
 import { TextAreaComponent } from './component/text-area/text-area.component';
@@ -41,7 +41,7 @@ import { AutoCompleteComponent } from './component/auto-complete/auto-complete.c
     BottomSheetComponent, DeleteDialogComponent
   ],
   providers: [
-    { provide: IGenericHttpClient, useClass: GenericHttpClientService },
+    { provide: IGenericHttpClient, useClass: GenericHttpClient },
     { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingServiceService], multi: true }
   ]
 })
