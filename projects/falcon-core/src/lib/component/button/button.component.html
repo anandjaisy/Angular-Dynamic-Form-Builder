@@ -1,10 +1,10 @@
 <div  [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
 <ng-container [ngSwitch]="field.componentProperty.appearance">
     <button (click)="childBtnClick()" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-button *ngSwitchCase="buttonTypes.Basic">
-        {{field.componentProperty.label}}<mat-icon style="margin-bottom: 1px;">{{field?.componentProperty?.suffix?.text}}</mat-icon>
+        {{field.componentProperty.label}}<mat-icon *ngIf="field?.componentProperty?.suffix?.isIcon" style="margin-bottom: 1px;">{{field?.componentProperty?.suffix?.text}}</mat-icon>
     </button>
     <button (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-raised-button *ngSwitchCase="buttonTypes.Raised">
-        {{field.componentProperty.label}}<mat-icon style="margin-bottom: 1px;">{{field?.componentProperty?.suffix?.text}}</mat-icon>
+        {{field.componentProperty.label}}<mat-icon *ngIf="field?.componentProperty?.suffix?.isIcon" style="margin-bottom: 1px;">{{field?.componentProperty?.suffix?.text}}</mat-icon>
     </button>
     <button (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-stroked-button *ngSwitchCase="buttonTypes.Stroked">
         {{field.componentProperty.label}}

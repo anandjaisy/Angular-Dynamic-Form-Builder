@@ -37,7 +37,7 @@ export class FormFieldExampleComponent extends BaseFormComponent<any> implements
           { value: 'Old', viewValue: 'Old' }],
           value: "All",
           appearance: Appearance.Standard,
-          fxFlexChildLayout: { fxFlex: "100" },
+          fxFlexChildLayout: { fxFlex: "100", fxFlexAlign:"center" },
           labelStyle: { 'font-size': '24px' },
           groupStyle : {'text-align': 'center'}
         },
@@ -186,7 +186,8 @@ export class FormFieldExampleComponent extends BaseFormComponent<any> implements
           label: "Show me 23455 cars",
           appearance: Appearance.Raised,
           color: 'primary',
-          suffix : {isIcon: true, text: "navigate_next"}
+          suffix : {isIcon: true, text: "navigate_next"},
+          fxFlexChildLayout : {fxFlexAlign : "center"}
         },
         componentType: ComponentType.Button,
         formControlName: "Raised"

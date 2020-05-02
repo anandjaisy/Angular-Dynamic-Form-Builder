@@ -4,6 +4,8 @@
     <div *ngFor="let field of fields.componentConfig;"
         [fxFlex]="field?.componentProperty?.fxFlexChildLayout?.fxFlex != undefined ? field?.componentProperty?.fxFlexChildLayout?.fxFlex:'0 0 auto'"
         [fxFlex.xs]="field?.componentProperty?.fxFlexChildLayout?.fxFlex_xs"
+        [fxFlexAlign]="field?.componentProperty?.fxFlexChildLayout?.fxFlexAlign"
+        [fxFlex.xs]="field?.componentProperty?.fxFlexChildLayout?.fxFlex_xs"
         [fxFlex.sm]="field?.componentProperty?.fxFlexChildLayout?.fxFlex_sm">
         <ng-container reactiveField [field]="field" [group]="form"></ng-container>
     </div>
