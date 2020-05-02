@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { IComponentConfig } from '../../view-models/imeta';
 
 @Component({
-  selector: 'lib-button-toggle',
+  selector: 'falcon-button-toggle',
   templateUrl: './button-toggle.component.html',
   styleUrls: ['./button-toggle.component.scss']
 })

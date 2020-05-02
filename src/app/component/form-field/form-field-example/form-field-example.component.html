@@ -1,0 +1,32 @@
+<mat-card>
+
+    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+        <h1>Form field example</h1>
+        <h2></h2>
+        <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <br>
+        <div fxLayout="row" fxLayoutAlign="space-between">
+            <button mat-raised-button color="accent">Sell my car</button>
+            <button mat-raised-button>Manage Ad</button>
+        </div>
+        <br>
+        <br>
+        <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+            <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
+        </form>
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <pre><code [highlight]="form?.value | json"></code></pre>
+        </div>
+        <br>
+        <div fxLayout="row" fxLayoutAlign="space-between">
+            <a mat-button routerLink=".">End of year clearance</a>
+            <a mat-button routerLink=".">Offer</a>
+        </div>
+        <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+            [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+    </mat-card-content>
+</mat-card>

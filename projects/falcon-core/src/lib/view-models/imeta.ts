@@ -35,6 +35,8 @@ export declare interface IComponentProperty {
   hint?: string;
   componentCss?: string;
   componentStyle?: any;
+  labelStyle?: any;
+  labelCss?: string;
   groupCss?: string;
   groupStyle?: any;
   floatLabel?: Floatinglabel;
@@ -44,7 +46,8 @@ export declare interface IComponentProperty {
   color?: string;
   textAreaProperty?: ITextAreaProperty;
   sliderProperty?: ISliderProperty;
-  selectProperty? : ISelectOptions;
+  selectProperty?: ISelectOptions;
+  fxFlexChildLayout?: IfxFlexChildLayout;
 }
 /**
  * @description
@@ -94,29 +97,27 @@ export declare interface IComponentConfig {
  * @param fxLayoutGap Defines if child items within a flexbox container should have a gap.
  * @param alignmentLayoutDirectionHorizontal Defines how flexbox items are aligned according to both the main-axis and the cross-axis, within a flexbox container.
  * @param alignmentLayoutDirectionVertical Defines how flexbox items are aligned according to both the main-axis and the cross-axis, within a flexbox container.
- * @param fxFlex This markup specifies the resizing of its host element within a flexbox container flow.
- * @param fxFlexOrder Defines the order of a flexbox item.
- * @param fxFlexAlign Works like fxLayoutAlign, but applies only to a single flexbox item, instead of all of them.
- * @param fxFlexFill Maximizes width and height of element in a layout container.
- * @param fxShow This markup specifies if its host element should be displayed (or not).
- * @param fxHide This markup specifies if its host element should NOT be displayed.
- * @param ngClass Enhances the ngClass directives with class changes based on mediaQuery activations.
- * @param ngStyle Enhances the ngStyle directive with style updates based on mediaQuery activations.
+ * @param gdAlignColumns Aligns the items column-wise.
+ * @param gdAlignRows Aligns the items row-wise.
+ * @param gdAuto Controls the auto placement for the grid.
+ * @param gdAreas Describes the areas the grid contains.
+ * @param gdColumns Defines the line names and track sizing functions of the grid columns.
+ * @param gdRows Defines the line names and track sizing functions of the grid rows.
+ * @param gdGap Defines the gap between grid items.
  * @usageNotes
  * ```ts
  *       layoutConfig: {
- *        fxLayout: FxLayout.Row
- *        fxLayoutGap: "10px"
+ *        fxLayout: FxLayout.Row,
+ *        fxLayoutGap: "10px",
  *        textAreaProperty: AlignmentLayoutDirection.SpaceAround,
- *        alignmentLayoutDirectionVertical: AlignmentLayoutDirection.SpaceAround
- *        fxFlex: "10"
- *        fxFlexOrder: "2"
- *        fxFlexAlign: "center"
- *        fxFlexFill: "fxFlexFill"
- *        fxShow : true
- *        fxHide : true
- *        ngClass: {'fxClass-sm': hasStyle}
- *        ngStyle: {'font-size.px': 10, color: 'blue'}
+ *        alignmentLayoutDirectionVertical: AlignmentLayoutDirection.SpaceAround,
+ *        gdAlignColumns: "start stretch",
+ *        gdAlignRows: "start stretch",
+ *        gdAreas: "area1 | area2 | area3",
+ *        gdColumns: "60px 60px",
+ *        gdRows : "60px 60px",
+ *        gdGap : "60px 60px",
+ *        gdAuto : "row dense"
  *    }
  * ```
  */
@@ -125,15 +126,81 @@ export declare interface ILayoutConfig {
   fxLayoutGap?: string;
   fxLayoutAlignHorizontal?: AlignmentLayoutDirection;
   fxLayoutAlignVertical?: AlignmentLayoutDirection;
-  fxFlex? : string | any;
+  gdAlignColumns?: AlignmentLayoutDirection;
+  gdAlignRows?: AlignmentLayoutDirection;
+  gdAreas?: string;
+  gdAuto?: string;
+  gdColumns?: string;
+  gdRows?: string;
+  gdGap?: string;
+}
+
+/**
+ * @description
+ * Interface use for CSS stylings for a DOM element nested within a DOM container.
+ * @param fxFlex This markup specifies the resizing of its host element within a flexbox container flow.
+ * @param fxFlexOrder Defines the order of a flexbox item.
+ * @param fxFlexAlign Works like fxLayoutAlign, but applies only to a single flexbox item, instead of all of them.
+ * @param fxFlexOffset Offset a flexbox item in its parent container flow layout.
+ * @param fxFlexFill Maximizes width and height of element in a layout container.
+ * @param fxShow This markup specifies if its host element should be displayed (or not).
+ * @param fxHide This markup specifies if its host element should NOT be displayed.
+ * @param ngClass Enhances the ngClass directives with class changes based on mediaQuery activations.
+ * @param ngStyle Enhances the ngStyle directive with style updates based on mediaQuery activations.
+ * @param fxFlex_xs screen and (max-width: 599px).
+ * @param fxFlex_sm screen and (min-width: 600px) and (max-width: 959px).
+ * @param fxFlex_md screen and (min-width: 960px) and (max-width: 1279px).
+ * @param fxFlex_lg screen and (min-width: 1280px) and (max-width: 1919px).
+ * @param fxFlex_xl screen and (min-width: 1920px) and (max-width: 5000px).
+ * @param fxFlex_lt_sm screen and (max-width: 599px).
+ * @param fxFlex_lt_md screen and (max-width: 959px).
+ * @param fxFlex_lt_lg screen and (max-width: 1279px).
+ * @param fxFlex_lt_xl screen and (max-width: 1919px).
+ * @param fxFlex_gt_xs screen and (min-width: 600px).
+ * @param fxFlex_gt_sm screen and (min-width: 960px).
+ * @param fxFlex_gt_md screen and (min-width: 1280px).
+ * @param fxFlex_gt_lg screen and (min-width: 1920px).
+ * @usageNotes
+ * ```ts
+ *       layoutConfig: {
+ *        fxFlex: "10",
+ *        fxFlexOrder: "2",
+ *        fxFlexAlign: "center",
+ *        fxFlexFill: "fxFlexFill",
+ *        fxFlexOffset: "20px"
+ *        fxShow : true,
+ *        fxHide : true,
+ *        ngClass: {'fxClass-sm': hasStyle},
+ *        ngStyle: {'font-size.px': 10, color: 'blue'}
+ *    }
+ * ```
+ */
+export declare interface IfxFlexChildLayout {
+  fxFlex?: string | any;
   fxFlexOrder?: string;
+  fxFlexOffset?: string;
   fxFlexAlign?: string;
   fxFlexFill?: string;
   fxShow?: boolean;
   fxHide?: boolean;
   ngClass?: string;
   ngStyle?: string;
+  fxFlex_xs?: string;
+  fxFlex_sm?: string;
+  fxFlex_md?: string;
+  fxFlex_lg?: string;
+  fxFlex_xl?: string;
+  fxFlex_lt_sm?: string;
+  fxFlex_lt_md?: string;
+  fxFlex_lt_lg?: string;
+  fxFlex_lt_xl?: string;
+  fxFlex_gt_xs?: string;
+  fxFlex_gt_sm?: string;
+  fxFlex_gt_md?: string;
+  fxFlex_gt_lg?: string;
 }
+
+
 /**
  * @description
  * Interface use for setting the TextArea Property.

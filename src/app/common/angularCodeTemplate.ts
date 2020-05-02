@@ -81,5 +81,8 @@ export class AngularCodeTemplate {
     // Form Field
     public static Form_Field_TS_KEY: string = "/form-field/form-field.component.ts";
     public static Form_Field_HTML_KEY: string = "/form-field/form-field.component.html"
+
+    public static Form_Field_Example_TS_KEY: string = "/form-field-example/form-field-example.component.ts";
+    public static Form_Field__Example_HTML_KEY: string = "/form-field-example/form-field-example.component.html"
     // End of Form Field
 }

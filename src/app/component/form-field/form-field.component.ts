@@ -31,9 +31,8 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
       layoutConfig: {
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
-        fxFlex: "40",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.Start,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.None
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.Center
       },
       componentConfig: [
       {
@@ -47,7 +46,7 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
           { value: 'Sausage', viewValue: 'Sausage' },
           { value: 'Tomato', viewValue: 'Tomato' }],
           appearance: Appearance.Outline,
-          color: 'accent'
+          color: 'accent',
         },
         componentType: ComponentType.Select,
         formControlName: `selectComponent${this.counter}`
@@ -75,7 +74,8 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
         { value: 'Sausage', viewValue: 'Sausage' },
         { value: 'Tomato', viewValue: 'Tomato' }],
         appearance: Appearance.Outline,
-        color: 'accent'
+        color: 'accent',
+        
       },
       componentType: ComponentType.Select,
       formControlName: `selectComponent${this.counter}`,

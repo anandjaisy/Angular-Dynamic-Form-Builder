@@ -30,6 +30,7 @@ import { ProgressBarComponent } from './component/progress-bar/progress-bar.comp
 import { ExampleBottomSheetComponent } from './component/bottom-sheet/bottom-sheet.component';
 import { SnackbarComponent } from './component/snackbar/snackbar.component';
 import { ModalDialogComponent } from './component/modal-dialog/modal-dialog.component';
+import { FormFieldExampleComponent } from './component/form-field/form-field-example/form-field-example.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,8 @@ import { ModalDialogComponent } from './component/modal-dialog/modal-dialog.comp
     ProgressBarComponent,
     ExampleBottomSheetComponent,
     SnackbarComponent,
-    ModalDialogComponent
+    ModalDialogComponent,
+    FormFieldExampleComponent
   ],
   imports:[
     BrowserModule,
