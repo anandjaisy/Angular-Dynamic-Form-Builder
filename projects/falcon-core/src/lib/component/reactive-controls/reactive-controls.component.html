@@ -1,7 +1,8 @@
-<div [fxLayout]="fields.layoutConfig.fxLayout + ' wrap'" fxLayout.xs="column"
+<div [fxLayout]="fields?.layoutConfig?.fxLayout + ' wrap'" fxLayout.xs="start column"
     [fxLayoutGap]="fields.layoutConfig.fxLayoutGap != undefined ? fields.layoutConfig.fxLayoutGap : '0'"
     [fxLayoutAlign]="fields.layoutConfig.fxLayoutAlignHorizontal + ' ' + fields.layoutConfig.fxLayoutAlignVertical">
-    <div *ngFor="let field of fields.componentConfig;" [fxFlex]="field?.componentProperty?.fxFlexChildLayout?.fxFlex != undefined ? field?.componentProperty?.fxFlexChildLayout?.fxFlex:'0 0 auto'"
+    <div *ngFor="let field of fields.componentConfig;"
+        [fxFlex]="field?.componentProperty?.fxFlexChildLayout?.fxFlex != undefined ? field?.componentProperty?.fxFlexChildLayout?.fxFlex:'0 0 auto'"
         [fxFlex.xs]="field?.componentProperty?.fxFlexChildLayout?.fxFlex_xs"
         [fxFlex.sm]="field?.componentProperty?.fxFlexChildLayout?.fxFlex_sm">
         <ng-container reactiveField [field]="field" [group]="form"></ng-container>

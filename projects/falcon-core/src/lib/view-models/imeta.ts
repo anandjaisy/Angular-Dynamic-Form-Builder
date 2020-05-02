@@ -97,6 +97,13 @@ export declare interface IComponentConfig {
  * @param fxLayoutGap Defines if child items within a flexbox container should have a gap.
  * @param alignmentLayoutDirectionHorizontal Defines how flexbox items are aligned according to both the main-axis and the cross-axis, within a flexbox container.
  * @param alignmentLayoutDirectionVertical Defines how flexbox items are aligned according to both the main-axis and the cross-axis, within a flexbox container.
+ * @param fxLayoutAlign_lt_sm To extend the static API with responsive features, we will first associate specific breakpoint aliases with mediaQuery values (screen and (max-width: 599px)).
+ * @param fxLayoutAlign_lt_md To extend the static API with responsive features, we will first associate specific breakpoint aliases with mediaQuery values (screen and (max-width: 959px)).
+ * @param fxLayoutAlign_lt_xl To extend the static API with responsive features, we will first associate specific breakpoint aliases with mediaQuery values (screen and (max-width: 1279px)).
+ * @param fxLayoutAlign_gt_xs To extend the static API with responsive features, we will first associate specific breakpoint aliases with mediaQuery values (screen and (max-width: 1919px)).
+ * @param fxLayoutAlign_gt_sm To extend the static API with responsive features, we will first associate specific breakpoint aliases with mediaQuery values (screen and (min-width: 600px)).
+ * @param fxLayoutAlign_gt_md To extend the static API with responsive features, we will first associate specific breakpoint aliases with mediaQuery values (screen and (min-width: 960px)).
+ * @param fxLayoutAlign_gt_lg To extend the static API with responsive features, we will first associate specific breakpoint aliases with mediaQuery values (screen and (min-width: 1280px)).
  * @param gdAlignColumns Aligns the items column-wise.
  * @param gdAlignRows Aligns the items row-wise.
  * @param gdAuto Controls the auto placement for the grid.
@@ -126,6 +133,14 @@ export declare interface ILayoutConfig {
   fxLayoutGap?: string;
   fxLayoutAlignHorizontal?: AlignmentLayoutDirection;
   fxLayoutAlignVertical?: AlignmentLayoutDirection;
+  fxLayoutAlign_lt_sm?: AlignmentLayoutDirection;
+  fxLayoutAlign_lt_md?: AlignmentLayoutDirection;
+  fxLayoutAlign_lt_lg?: AlignmentLayoutDirection;
+  fxLayoutAlign_lt_xl?: AlignmentLayoutDirection;
+  fxLayoutAlign_gt_xs?: AlignmentLayoutDirection;
+  fxLayoutAlign_gt_sm?: AlignmentLayoutDirection;
+  fxLayoutAlign_gt_md?: AlignmentLayoutDirection;
+  fxLayoutAlign_gt_lg?: AlignmentLayoutDirection;
   gdAlignColumns?: AlignmentLayoutDirection;
   gdAlignRows?: AlignmentLayoutDirection;
   gdAreas?: string;

@@ -15,11 +15,13 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
   counter: number = 0;
   public codeGeneratorEnable: boolean = false;
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
-  AddButtonConfig = { componentProperty: { 
-    label: "Add", appearance: Appearance.Raised, color: "primary", componentStyle: { 'float': 'right'} }, 
-    componentType: ComponentType.Button, formControlName: "add" 
+  AddButtonConfig = {
+    componentProperty: {
+      label: "Add", appearance: Appearance.Raised, color: "primary", componentStyle: { 'float': 'right' }
+    },
+    componentType: ComponentType.Button, formControlName: "add"
   };
-  DeleteButtonConfig = { componentProperty: { label: "Delete", appearance: Appearance.Raised, color: "warn", componentStyle: { 'float': 'right','margin-left':'3px' } , attrType : InputTypes.Button}, componentType: ComponentType.Button, formControlName: "remove" };
+  DeleteButtonConfig = { componentProperty: { label: "Delete", appearance: Appearance.Raised, color: "warn", componentStyle: { 'float': 'right', 'margin-left': '3px' }, attrType: InputTypes.Button }, componentType: ComponentType.Button, formControlName: "remove" };
   constructor(fb: FormBuilder) {
     super(fb);
     this.defineForm();
@@ -32,25 +34,26 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.Center
+        fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
+        fxLayoutAlign_lt_sm: AlignmentLayoutDirection.Start
       },
       componentConfig: [
-      {
-        componentProperty: {
-          label: "Select Component",
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }],
-          appearance: Appearance.Outline,
-          color: 'accent',
-        },
-        componentType: ComponentType.Select,
-        formControlName: `selectComponent${this.counter}`
-      }      ]
+        {
+          componentProperty: {
+            label: "Select Component",
+            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+            { value: 'Bellsprout', viewValue: 'Bellsprout' },
+            { value: 'Mushroom', viewValue: 'Mushroom' },
+            { value: 'Onion', viewValue: 'Onion' },
+            { value: 'Pepperoni', viewValue: 'Pepperoni' },
+            { value: 'Sausage', viewValue: 'Sausage' },
+            { value: 'Tomato', viewValue: 'Tomato' }],
+            appearance: Appearance.Outline,
+            color: 'accent',
+          },
+          componentType: ComponentType.Select,
+          formControlName: `selectComponent${this.counter}`
+        }]
     }
   }
 
@@ -75,7 +78,7 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
         { value: 'Tomato', viewValue: 'Tomato' }],
         appearance: Appearance.Outline,
         color: 'accent',
-        
+
       },
       componentType: ComponentType.Select,
       formControlName: `selectComponent${this.counter}`,
@@ -84,9 +87,9 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
     this.addControl(configToadd);
     return of(model);
   }
-  RemoveComponentclick($event){
+  RemoveComponentclick($event) {
     this.removeControl(this.counter);
-    this.counter = this.counter-1;
+    this.counter = this.counter - 1;
   }
 
   buttonClickEvent() {
