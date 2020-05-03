@@ -2,6 +2,8 @@
  * Public API Surface of falcon-core
  */
 
+import { from } from 'rxjs';
+
  /*
  * Public API Surface of falcon-core-module
  */
@@ -31,8 +33,17 @@ export * from './lib/component/progress-spinner/progress-spinner.component';
 export * from './lib/component/bottom-sheet/bottom-sheet.component';
 export * from './lib/component/button-toggle/button-toggle.component';
 export * from './lib/component/button/button.component';
+export * from './lib/common/base-form-component';
 
  /*
  * Public API Surface of falcon core module directive
  */
 export * from './lib/directive/reactive-field.directive';
+export * from './lib/module/angular-material/angular-material.module'
+
+/*
+ * Public API Surface of falcon core View Models
+ */
+export * from './lib/view-models/IAppsettingViewModel'
+export * from './lib/view-models/component-type.enum'
+export * from './lib/view-models/imeta'

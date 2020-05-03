@@ -71,7 +71,7 @@ export const enum InputTypes {
  *          only use Appearance Before and After
  * ```
  */
-export enum Appearance {
+export const enum Appearance {
     /**
         * @usageNotes Should be only use for input, textbox, and select
     */

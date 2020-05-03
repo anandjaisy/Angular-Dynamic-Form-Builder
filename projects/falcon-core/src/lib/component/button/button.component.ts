@@ -9,7 +9,6 @@ import { Appearance } from '../../view-models/component-type.enum';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent implements OnInit {
-  buttonTypes = Appearance
   @Input() field: IComponentConfig;
   @Input() group: FormGroup;
   @Output() btnClick = new EventEmitter<string>();
