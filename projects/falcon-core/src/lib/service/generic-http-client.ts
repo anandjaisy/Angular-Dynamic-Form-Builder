@@ -2,12 +2,12 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { IGenericHttpClient } from './igeneric-http-client';
 import { Injectable } from '@angular/core';
-import { AppSettingServiceService } from './app-setting-service.service';
-import { IAppSettingViewModel } from '../view-models/IAppsettingViewModel';
+import { AppSettingService } from './appsetting.service';
+import { IAppSettingViewModel } from '../view-models/iappsetting-view-model';
 @Injectable()
 export class GenericHttpClient<T> implements IGenericHttpClient<T>{
   private baseUrl: string;
-  constructor(private httpClient: HttpClient, private appSettingServiceService: AppSettingServiceService) {
+  constructor(private httpClient: HttpClient, private appSettingServiceService: AppSettingService) {
     this.baseUrl = this.appSettingServiceService.getAppsettingValue<IAppSettingViewModel>().baseUrl;
   }
   /**

@@ -44,6 +44,6 @@ export * from './lib/module/angular-material/angular-material.module'
 /*
  * Public API Surface of falcon core View Models
  */
-export * from './lib/view-models/IAppsettingViewModel'
+export * from './lib/view-models/iappsetting-view-model'
 export * from './lib/view-models/component-type.enum'
 export * from './lib/view-models/imeta'

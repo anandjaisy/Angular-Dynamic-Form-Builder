@@ -9,7 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { IGenericHttpClient } from './service/igeneric-http-client';
 import { GenericHttpClient } from './service/generic-http-client';
-import { appSettingsFactory, AppSettingServiceService } from './service/app-setting-service.service';
+import { appSettingsFactory, AppSettingService } from './service/appsetting.service';
 import { RadioComponent } from './component/radio/radio.component';
 import { TextAreaComponent } from './component/text-area/text-area.component';
 import { SelectComponent } from './component/select/select.component';
@@ -24,11 +24,15 @@ import { ProgressSpinnerComponent } from './component/progress-spinner/progress-
 import { BottomSheetComponent } from './component/bottom-sheet/bottom-sheet.component';
 import { DeleteDialogComponent } from './component/delete-dialog/delete-dialog.component';
 import { AutoCompleteComponent } from './component/auto-complete/auto-complete.component';
+import { authServiceFactory, AuthService } from './service/open-id/auth.service';
+import { environment } from 'src/environments/environment';
+import { EnvironmentViewModel } from './view-models/environment-view-model';
+import { AuthCallbackComponent } from './component/auth-callback/auth-callback.component';
 @NgModule({
   declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent,
     SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,
     ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DeleteDialogComponent, 
-    AutoCompleteComponent],
+    AutoCompleteComponent, AuthCallbackComponent],
   imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule
   ],
   exports: [
@@ -41,8 +45,10 @@ import { AutoCompleteComponent } from './component/auto-complete/auto-complete.c
     BottomSheetComponent, DeleteDialogComponent
   ],
   providers: [
+    { provide: EnvironmentViewModel, useValue: environment },
     { provide: IGenericHttpClient, useClass: GenericHttpClient },
-    { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingServiceService], multi: true }
+    { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingService], multi: true },
+    { provide: APP_INITIALIZER, useFactory: authServiceFactory, deps: [AuthService,AppSettingService, EnvironmentViewModel], multi: true }
   ]
 })
 export class FalconCoreModule { }

@@ -19,11 +19,40 @@ Run `ng test @falcon-ng/core` to execute the unit tests via [Karma](https://karm
 
 ## In Development
 * During development the best way to consume library is using `npm link`
-* `cd dist/@falcon-ng`
-* `npm link`
+    ``` 
+        cd dist/@falcon-ng
+        npm link
+    ```
 * We can link an Angular project to this library from anywhere on local machine. From the project root folder:
-* `npm link @falcon-ng`
+    ``` 
+        npm link @falcon-ng       
+    ```
 * If we now build the library with the watch flag `ng build @falcon-ng/core --watch`, and at the same time run `ng serve -o` to another   project in another terminal window.
 * This will allow us to develop an application and (one or more) linked libraries simultaneously, and see the app recompile with each modification to the library’s source code.
-* add `preserveSymlinks = true` to the angular.json located at the other project ` {"architect": {"build": {"builder": "@angular-devkit/build-angular:browser","options": {"preserveSymlinks": true}}}} `
+* add `preserveSymlinks = true` to the angular.json located at the other project 
+    ``` 
+        {
+            "architect": 
+                {
+                    "build": 
+                        {
+                            "builder": "@angular-devkit/build-angular:browser",
+                            "options": {
+                                "preserveSymlinks": true
+                                }
+                        }
+                }
+        } 
+    ```
+* Add falcol core module to the project 
+    ``` 
+    import { FalconCoreModule } from '@falcon-ng/core';
 
+        @NgModule({
+            declarations: [],
+            imports:[
+                FalconCoreModule
+            ],
+            bootstrap: [AppComponent]
+        })
+    ```

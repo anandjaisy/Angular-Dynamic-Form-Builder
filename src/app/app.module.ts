@@ -31,6 +31,8 @@ import { ExampleBottomSheetComponent } from './component/bottom-sheet/bottom-she
 import { SnackbarComponent } from './component/snackbar/snackbar.component';
 import { ModalDialogComponent } from './component/modal-dialog/modal-dialog.component';
 import { FormFieldExampleComponent } from './component/form-field/form-field-example/form-field-example.component';
+import { environment } from 'src/environments/environment';
+import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/view-models/environment-view-model';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,12 +69,9 @@ import { FormFieldExampleComponent } from './component/form-field/form-field-exa
     FalconCoreModule,
     HighlightModule
   ],
-  providers: [{
-    provide: HIGHLIGHT_OPTIONS,
-    useValue: <HighlightOptions>{
-      lineNumbers: true
-    }
-  }],
+  providers: [
+    {provide: HIGHLIGHT_OPTIONS,useValue: <HighlightOptions>{lineNumbers: true}},
+    { provide: EnvironmentViewModel, useValue: environment }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
