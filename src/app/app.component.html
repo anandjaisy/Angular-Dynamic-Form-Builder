@@ -1,12 +1,22 @@
-<mat-toolbar color="primary">
-  Reusable Form Builder and Angular Components
-  <falcon-button (btnClick)="Signclick()" [field]="htmlButtonConfig"></falcon-button>
+<mat-toolbar color="primary" class="example-toolbar">
+  <div class="content" fxLayout="row" fxLayoutAlign="space-between" style="width: 100%;">
+    <div>
+      <h1 class="example-app-name">Reusable Form Builder and Angular Components</h1>
+    </div>
+    <div>
+      <falcon-button *ngIf="!authService.isLoggedIn(); else elseBlock" (btnClick)="SignInclick()" [field]="signInButtonConfig">
+      </falcon-button>
+      <ng-template #elseBlock>
+        <falcon-button (btnClick)="SignOutclick()" [field]="signOutButtonConfig"></falcon-button>
+      </ng-template>
+    </div>
+  </div>
 </mat-toolbar>
+
 
 <router-outlet></router-outlet>
 <br>
-<div
- fxLayout="row" fxLayoutAlign="space-around" style="box-shadow: 0px 2px 1px #cac2c2, 0px -1px 5px #dad5d5;">
+<div fxLayout="row" fxLayoutAlign="space-around" style="box-shadow: 0px 2px 1px #cac2c2, 0px -1px 5px #dad5d5;">
   <h4 style="margin: 20px;">Angular Material</h4>
   <h5 style="margin: 20px;">Current Version: 0.0.1</h5>
   <h5 style="margin: 20px;">Powered by Falcon ©{{currentYear}}.</h5>

@@ -2,22 +2,27 @@ import { Injectable } from '@angular/core';
 import { User, UserManager, UserManagerSettings } from 'oidc-client';
 import { AppSettingService } from '../appsetting.service';
 import { EnvironmentViewModel } from '../../view-models/environment-view-model';
+import { Observable, Subject, from, timer } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  static USER_LOADED_EVENT = "USER_LOADED";
+  static USER_UNLOADED_EVENT = "USER_UNLOADED";
+
   private initialized: boolean = false;
   private userManager: UserManager;
   private user: User = null;
   public settings: UserManagerSettings;
 
-
-  constructor() {}
+  constructor() { }
 
   async initialize(environment: EnvironmentViewModel): Promise<void> {
     if (this.initialized) return;
     this.settings = this.getClientSettings(environment);
     this.userManager = new UserManager(this.settings);
+    this.userManager.events.addUserLoaded(user => { this.user = user; });
+    this.user = await this.userManager.getUser();
     this.initialized = true;
   }
 
@@ -42,15 +47,15 @@ export class AuthService {
 
   async startAuthentication(returnUrl: string): Promise<void> {
     await this.userManager.clearStaleState();
-    await this.userManager.signinRedirect({data: {returnUrl: returnUrl}}).catch(err => {
+    await this.userManager.signinRedirect({ data: { returnUrl: returnUrl } }).catch(err => {
       //this.$log.debug("IdSvr sign in failed", err);
       return err;
     });
   }
 
   async completeAuthentication(): Promise<Oidc.User> {
-    let user =  await new Promise<Oidc.User>((resolve, reject) => {
-      this.userManager.signinRedirectCallback().then(user => {resolve(user)}).catch(error=>{reject(error);});
+    let user = await new Promise<Oidc.User>((resolve, reject) => {
+      this.userManager.signinRedirectCallback().then(user => { resolve(user) }).catch(error => { reject(error); });
     });
     this.user = user;
     return this.user;
@@ -95,7 +100,7 @@ export class AuthService {
     });
   }
 }
-export function authServiceFactory(authService: AuthService, appSettings: AppSettingService, environment : EnvironmentViewModel) {
+export function authServiceFactory(authService: AuthService, appSettings: AppSettingService, environment: EnvironmentViewModel) {
   return async () => {
     await appSettings.isServiceReady();
     await authService.initialize(environment);
