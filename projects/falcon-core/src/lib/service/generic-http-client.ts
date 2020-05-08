@@ -1,10 +1,11 @@
-import { HttpClient, HttpHeaders, HttpRequest, HttpEventType, HttpEvent } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpRequest, HttpEventType, HttpEvent, HttpResponse, HttpErrorResponse } from "@angular/common/http";
 import { Observable, from } from 'rxjs';
 import { IGenericHttpClient } from './igeneric-http-client';
 import { Injectable } from '@angular/core';
 import { HttpMethod } from '../view-models/component-type.enum'
 import { IRequestOptions } from '../view-models/interface';
 import { EnvironmentViewModel } from '../view-models/environment-view-model';
+import { retry } from 'rxjs/operators';
 @Injectable()
 export class GenericHttpClient<T> implements IGenericHttpClient<T>{
 
@@ -104,7 +105,6 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
     return Observable.create((observer: any) => {
       this.httpClient.request<T>(new HttpRequest(method, this.environment.baseUrl + url, options)).subscribe(
         (response: any) => {
-          observer.next(response.body);
           const responsTye = response as HttpEvent<any>
           switch (responsTye.type) {
             case HttpEventType.Sent:
@@ -118,6 +118,7 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
               console.log(`Download in progress! ${kbLoaded}Kb loaded`);
               break;
             case HttpEventType.Response:
+              observer.next(response.body);
               console.log('😺 Done!', responsTye.body);
           }
         },

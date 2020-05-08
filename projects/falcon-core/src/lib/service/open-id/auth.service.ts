@@ -3,6 +3,7 @@ import { User, UserManager, UserManagerSettings } from 'oidc-client';
 import { AppSettingService } from '../appsetting.service';
 import { EnvironmentViewModel } from '../../view-models/environment-view-model';
 import { Observable, Subject, from, timer } from 'rxjs';
+import { LoggerService } from '../logger.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +16,7 @@ export class AuthService {
   private user: User = null;
   public settings: UserManagerSettings;
 
-  constructor() { }
+  constructor(private logger: LoggerService) { }
 
   async initialize(environment: EnvironmentViewModel): Promise<void> {
     if (this.initialized) return;
@@ -46,6 +47,7 @@ export class AuthService {
   }
 
   async startAuthentication(returnUrl: string): Promise<void> {
+    this.logger.info("[AuthService] startAuthentication", returnUrl);
     await this.userManager.clearStaleState();
     await this.userManager.signinRedirect({ data: { returnUrl: returnUrl } }).catch(err => {
       //this.$log.debug("IdSvr sign in failed", err);
@@ -54,6 +56,7 @@ export class AuthService {
   }
 
   async completeAuthentication(): Promise<Oidc.User> {
+    this.logger.info("[AuthService] completeAuthentication");
     let user = await new Promise<Oidc.User>((resolve, reject) => {
       this.userManager.signinRedirectCallback().then(user => { resolve(user) }).catch(error => { reject(error); });
     });
@@ -93,16 +96,22 @@ export class AuthService {
 
   async isServiceReady(): Promise<boolean> {
     return new Promise(async (resolve, reject) => {
-      if (this.initialized)
-        resolve(true)
-      else
-        reject(false)
+      if (this.initialized) {
+        this.logger.info("[AuthService] isServiceReady", true);
+        resolve(true);
+      }
+      else {
+        this.logger.info("[AuthService] isServiceReady", false);
+        reject(false);
+      }
     });
   }
 }
 export function authServiceFactory(authService: AuthService, appSettings: AppSettingService, environment: EnvironmentViewModel) {
   return async () => {
-    await appSettings.isServiceReady();
-    await authService.initialize(environment);
+    appSettings.isServiceReady.subscribe(item => {
+      if (item)
+        authService.initialize(environment);
+    });
   }
 };

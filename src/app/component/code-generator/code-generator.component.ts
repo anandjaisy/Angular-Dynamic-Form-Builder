@@ -12,7 +12,7 @@ export class CodeGeneratorComponent implements OnInit {
   @Input() tsConfig: string;
   @Input() htmlConfig: string;
   @Input() cssConfig: string;
-  code : string;
+  code: string;
 
   templateToLoad: TemplateRef<any>;
   @ViewChild('lazyLoadingTemplate', { static: true }) lazyLoadingTemplate: TemplateRef<any>;
@@ -41,24 +41,24 @@ export class CodeGeneratorComponent implements OnInit {
 
   private loadHtmlFromServer() {
     this.templateToLoad = this.lazyLoadingTemplate;
-    this.igenericHttpClient.Get(this.htmlConfig,{responseType: 'text'}).subscribe(data => {
+    this.igenericHttpClient.Get(this.htmlConfig, { responseType: 'text' }).subscribe(data => {
       this.code = `${data}`;
       this.templateToLoad = this.codeTemplate;
-      }, error => {
-        console.log(error);
-        this.templateToLoad = this.codeTemplate;
-      });
+    }, error => {
+      console.log(error);
+      this.templateToLoad = this.codeTemplate;
+    });
   }
   private loadTSFromServer() {
     this.templateToLoad = this.lazyLoadingTemplate;
-   
-    this.igenericHttpClient.Get(this.tsConfig, {responseType: 'text'}).subscribe(data => {
+
+    this.igenericHttpClient.Get(this.tsConfig, { responseType: 'text' }).subscribe(data => {
       this.code = `${data}`;
       this.templateToLoad = this.codeTemplate;
-      }, error => {
-        console.log(error);
-        this.templateToLoad = this.codeTemplate;
-      });
+    }, error => {
+      console.log(error);
+      this.templateToLoad = this.codeTemplate;
+    });
   }
   private loadCSSFromServer() {
     this.templateToLoad = this.lazyLoadingTemplate;

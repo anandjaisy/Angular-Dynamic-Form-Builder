@@ -14,6 +14,7 @@ export * from './lib/module/angular-material/angular-material.module';
  * Public API Surface of falcon core module service
  */
 export * from './lib/service/igeneric-http-client';
+export * from './lib/service/logger.service';
 
  /*
  * Public API Surface of falcon core module component

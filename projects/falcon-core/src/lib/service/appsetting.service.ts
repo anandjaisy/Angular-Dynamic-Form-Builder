@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject, Observable,from } from 'rxjs';
+import { Subject, Observable, from } from 'rxjs';
+import { LoggerService } from './logger.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,10 +10,11 @@ export class AppSettingService {
   private listeners: Object;
   initialized: boolean = false;;
   private eventsSubject: Subject<any>;
+  public isServiceReady: Subject<boolean> = new Subject<boolean>();
   private events: Observable<any>;
   private appSettings;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private logger: LoggerService) {
     this.listeners = {};
     this.eventsSubject = new Subject<any>();
 
@@ -25,23 +27,15 @@ export class AppSettingService {
           }
         }
       });
-
-   }
+  }
 
   async load() {
     if (this.initialized) return;
     let data = await this.http.get('/assets/appsetting.json').toPromise();
     this.appSettings = data;
     this.initialized = true;
-  }
-
-  async isServiceReady(): Promise<boolean> {
-    return new Promise(async (resolve, reject) => {
-      if (this.initialized)
-        resolve(true)
-      else
-        resolve(false)
-    });
+    this.isServiceReady.next(this.initialized);
+    this.logger.info("[AppSettingService] load --> isServiceReady", this.initialized);
   }
 
   on(name, listener) {

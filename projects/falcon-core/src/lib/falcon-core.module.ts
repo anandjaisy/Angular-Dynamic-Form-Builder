@@ -27,6 +27,7 @@ import { AutoCompleteComponent } from './component/auto-complete/auto-complete.c
 import { authServiceFactory, AuthService } from './service/open-id/auth.service';
 import { EnvironmentViewModel } from './view-models/environment-view-model';
 import { AuthCallbackComponent } from './component/auth-callback/auth-callback.component';
+import { loggerServiceFactory, LoggerService } from './service/logger.service';
 @NgModule({
   declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent,
     SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,
@@ -45,7 +46,8 @@ import { AuthCallbackComponent } from './component/auth-callback/auth-callback.c
   providers: [
     { provide: IGenericHttpClient, useClass: GenericHttpClient },
     { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingService], multi: true },
-    { provide: APP_INITIALIZER, useFactory: authServiceFactory, deps: [AuthService, AppSettingService, EnvironmentViewModel], multi: true }
+    { provide: APP_INITIALIZER, useFactory: authServiceFactory, deps: [AuthService, AppSettingService, EnvironmentViewModel], multi: true },
+    { provide: APP_INITIALIZER, useFactory: loggerServiceFactory, deps: [LoggerService, AppSettingService], multi: true }
   ]
 })
 export class FalconCoreModule {
