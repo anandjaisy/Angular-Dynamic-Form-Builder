@@ -1,18 +1,14 @@
-import { HttpClient, HttpHeaders, HttpRequest } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpRequest, HttpEventType, HttpEvent } from "@angular/common/http";
 import { Observable, from } from 'rxjs';
 import { IGenericHttpClient } from './igeneric-http-client';
 import { Injectable } from '@angular/core';
-import { AppSettingService } from './appsetting.service';
-import { IAppSettingViewModel } from '../view-models/iappsetting-view-model';
 import { HttpMethod } from '../view-models/component-type.enum'
 import { IRequestOptions } from '../view-models/interface';
 import { EnvironmentViewModel } from '../view-models/environment-view-model';
 @Injectable()
 export class GenericHttpClient<T> implements IGenericHttpClient<T>{
-  private baseUrl: string;
-  constructor(private httpClient: HttpClient, private environment: EnvironmentViewModel) {
-    this.baseUrl = this.environment.baseUrl;
-  }
+
+  constructor(private httpClient: HttpClient, private environment: EnvironmentViewModel) { }
   /**
     * @description
     * Generic Http post method to post the view model and bind the return view model
@@ -106,10 +102,24 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
     */
   private request<T>(method: string, url: string, options?: IRequestOptions): Observable<T> {
     return Observable.create((observer: any) => {
-      this.httpClient.request<T>(new HttpRequest(method, this.baseUrl + url, options)).subscribe(
-        (response) => {
-          observer.next(response);
-          observer.complete();
+      this.httpClient.request<T>(new HttpRequest(method, this.environment.baseUrl + url, options)).subscribe(
+        (response: any) => {
+          observer.next(response.body);
+          const responsTye = response as HttpEvent<any>
+          switch (responsTye.type) {
+            case HttpEventType.Sent:
+              console.log('Request sent!');
+              break;
+            case HttpEventType.ResponseHeader:
+              console.log('Response header received!');
+              break;
+            case HttpEventType.DownloadProgress:
+              const kbLoaded = Math.round(responsTye.loaded / 1024);
+              console.log(`Download in progress! ${kbLoaded}Kb loaded`);
+              break;
+            case HttpEventType.Response:
+              console.log('😺 Done!', responsTye.body);
+          }
         },
         (error) => {
           switch (error.status) {

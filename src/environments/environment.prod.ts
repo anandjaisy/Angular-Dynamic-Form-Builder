@@ -1,7 +1,6 @@
 import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/view-models/environment-view-model';
 
 class EnvironmentImpl implements EnvironmentViewModel {
-  baseUrl: "string";
   production = true;
   openID = {
     authority: "https://monashunidev.oktapreview.com/oauth2/auspadhq6vhMx4wbe0h7",
@@ -10,7 +9,8 @@ class EnvironmentImpl implements EnvironmentViewModel {
     silentRedirectUri: "https://localhost:44307/assets/silent-renew.html",
     responseType: "code",
     scope: "openid profile email"
-  }
+  };
+  baseUrl= "https://raw.githubusercontent.com/anandjaisy/androidCodeTemplates/master";
 }
 
 export const environment = new EnvironmentImpl();
