@@ -66,12 +66,11 @@ import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/view-models/e
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FalconCoreModule,
+    FalconCoreModule.forRoot(environment),
     HighlightModule
   ],
   providers: [
-    {provide: HIGHLIGHT_OPTIONS,useValue: <HighlightOptions>{lineNumbers: true}},
-    { provide: EnvironmentViewModel, useValue: environment }],
+    {provide: HIGHLIGHT_OPTIONS,useValue: <HighlightOptions>{lineNumbers: true}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

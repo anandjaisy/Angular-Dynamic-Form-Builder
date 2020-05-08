@@ -1,6 +1,7 @@
 export abstract class EnvironmentViewModel {
     abstract readonly production: boolean;
-    abstract readonly openID: IOpenIdViewModel;
+    abstract readonly openID?: IOpenIdViewModel;
+    abstract readonly baseUrl?: string;
 }
 
 

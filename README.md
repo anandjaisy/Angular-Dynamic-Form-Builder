@@ -11,7 +11,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build 
-Run `ng build falcon-ng/core` to build the falcon library.
+Run `ng build @falcon-ng/core` to build the falcon library.
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
@@ -38,7 +38,7 @@ npm install
 ```
 After installing dependencies build the falcon-core library
 ```bash
-ng build falcon-ng/core
+ng build @falcon-ng/core
 ```
 You can then dive straight into coding by running:
 

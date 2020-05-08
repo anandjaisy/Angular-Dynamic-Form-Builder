@@ -1,4 +1,4 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule, APP_INITIALIZER, ModuleWithProviders } from '@angular/core';
 import { ReactiveFieldDirective } from './directive/reactive-field.directive';
 import { TextboxComponent } from './component/textbox/textbox.component';
 import { ReactiveControlsComponent } from './component/reactive-controls/reactive-controls.component';
@@ -25,30 +25,34 @@ import { BottomSheetComponent } from './component/bottom-sheet/bottom-sheet.comp
 import { DeleteDialogComponent } from './component/delete-dialog/delete-dialog.component';
 import { AutoCompleteComponent } from './component/auto-complete/auto-complete.component';
 import { authServiceFactory, AuthService } from './service/open-id/auth.service';
-import { environment } from 'src/environments/environment';
 import { EnvironmentViewModel } from './view-models/environment-view-model';
 import { AuthCallbackComponent } from './component/auth-callback/auth-callback.component';
 @NgModule({
   declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent,
     SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,
-    ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DeleteDialogComponent, 
+    ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DeleteDialogComponent,
     AutoCompleteComponent, AuthCallbackComponent],
-  imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule
-  ],
+  imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule],
   exports: [
     AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule,
     ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent,
     CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ProgressBarComponent, ProgressSpinnerComponent,
-    BottomSheetComponent,DeleteDialogComponent
+    BottomSheetComponent, DeleteDialogComponent
   ],
   entryComponents: [
     BottomSheetComponent, DeleteDialogComponent
   ],
   providers: [
-    { provide: EnvironmentViewModel, useValue: environment },
     { provide: IGenericHttpClient, useClass: GenericHttpClient },
     { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingService], multi: true },
-    { provide: APP_INITIALIZER, useFactory: authServiceFactory, deps: [AuthService,AppSettingService, EnvironmentViewModel], multi: true }
+    { provide: APP_INITIALIZER, useFactory: authServiceFactory, deps: [AuthService, AppSettingService, EnvironmentViewModel], multi: true }
   ]
 })
-export class FalconCoreModule { }
+export class FalconCoreModule {
+    public static forRoot(environment: any): ModuleWithProviders {
+      return {
+        ngModule: FalconCoreModule,
+        providers: [{ provide: EnvironmentViewModel, useValue: environment }]
+      };
+    }
+}

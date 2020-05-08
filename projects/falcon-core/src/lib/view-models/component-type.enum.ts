@@ -145,3 +145,36 @@ export const enum Floatinglabel {
     Auto = "auto",
     Always = "always"
 }
+
+/**
+ * @description
+ * Enum use for setting HTTP method.
+ * @usageNotes
+ * ```ts
+ *      this.genericHttpClientService.Delete(this.deleteUserUrl).subscribe(item => {}, error => {});
+ * ```
+ */
+export const enum HttpMethod {
+    Get = "GET",
+    Post = "POST",
+    Put = "PUT",
+    Patch = "PATCH",
+    Delete = "DELETE",
+}
+/**
+ * @description
+ * Enum use for setting HTTP method.
+ * @usageNotes
+ * ```ts
+ *      this.logger.debug("Test Mixed Parameters",true, false, "Paul", "Smith");
+ * ```
+ */
+export const enum LogLevel {
+    All = 0,
+    Debug = 1,
+    Info = 2,
+    Warn = 3,
+    Error = 4,
+    Fatal = 5,
+    Off = 6
+}

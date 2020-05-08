@@ -1,6 +1,7 @@
 import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/view-models/environment-view-model';
 
 class EnvironmentImpl implements EnvironmentViewModel {
+  baseUrl: "string";
   production = false;
   openID = {
     authority: "https://dev-816623.okta.com/oauth2/ausawbhoeWkYeqy644x6",
