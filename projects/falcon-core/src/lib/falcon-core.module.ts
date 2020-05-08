@@ -38,7 +38,7 @@ import { loggerServiceFactory, LoggerService } from './service/logger.service';
     AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule,
     ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent,
     CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ProgressBarComponent, ProgressSpinnerComponent,
-    BottomSheetComponent, DeleteDialogComponent
+    BottomSheetComponent, DeleteDialogComponent,AuthCallbackComponent
   ],
   entryComponents: [
     BottomSheetComponent, DeleteDialogComponent

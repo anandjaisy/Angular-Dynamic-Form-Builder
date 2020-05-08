@@ -15,6 +15,8 @@ export * from './lib/module/angular-material/angular-material.module';
  */
 export * from './lib/service/igeneric-http-client';
 export * from './lib/service/logger.service';
+export * from './lib/service/open-id/auth.service';
+export * from './lib/service/open-id/auth-guard.service';
 
  /*
  * Public API Surface of falcon core module component
@@ -35,6 +37,7 @@ export * from './lib/component/bottom-sheet/bottom-sheet.component';
 export * from './lib/component/button-toggle/button-toggle.component';
 export * from './lib/component/button/button.component';
 export * from './lib/common/base-form-component';
+export * from './lib/component/auth-callback/auth-callback.component';
 
  /*
  * Public API Surface of falcon core module directive
