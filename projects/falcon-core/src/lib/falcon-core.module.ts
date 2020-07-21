@@ -51,7 +51,7 @@ import { loggerServiceFactory, LoggerService } from './service/logger.service';
   ]
 })
 export class FalconCoreModule {
-    public static forRoot(environment: any): ModuleWithProviders {
+    public static forRoot(environment: any): ModuleWithProviders<FalconCoreModule> {
       return {
         ngModule: FalconCoreModule,
         providers: [{ provide: EnvironmentViewModel, useValue: environment }]
