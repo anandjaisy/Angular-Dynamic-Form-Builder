@@ -8,7 +8,8 @@ class EnvironmentImpl implements EnvironmentViewModel {
     redirect_uri: "https://localhost:4200/auth-callback",
     post_logout_redirect_uri: "https://localhost:4200",
     response_type: "code",
-    scope : "openid profile email"
+    scope : "openid profile email",
+    silent_redirect_uri: `https://localhost:4200/assets/silent-callback.html`
   };
   baseUrl= "https://raw.githubusercontent.com/anandjaisy/androidCodeTemplates/master";
 }
