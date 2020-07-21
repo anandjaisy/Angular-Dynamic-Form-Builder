@@ -4,12 +4,14 @@
   "peerDependencies": {
     "@angular/common": "^9.1.4",
     "@angular/core": "^9.1.4",
-    "tslib": "^1.10.0",
     "@angular/material": "^9.2.2",
     "@angular/animations": "^9.1.4",
     "@angular/cdk": "^9.2.2",
     "@angular/flex-layout": "^9.0.0-beta.29",
     "oidc-client": "^1.10.1",
     "babel-polyfill": "^6.26.0"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
   }
 }
