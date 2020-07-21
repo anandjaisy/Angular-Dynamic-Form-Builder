@@ -25,7 +25,7 @@
     "babel-polyfill": "^6.26.0",
     "ngx-highlightjs": "^4.1.0-beta",
     "oidc-client": "^1.10.1",
-    "rxjs": "~6.5.4",
+    "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
