@@ -29,6 +29,7 @@ import { EnvironmentViewModel } from './view-models/environment-view-model';
 import { AuthCallbackComponent } from './component/auth-callback/auth-callback.component';
 import { loggerServiceFactory, LoggerService } from './service/logger.service';
 import { SnackBarComponent } from './component/snack-bar/snack-bar.component';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent,
     SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,
@@ -48,7 +49,8 @@ import { SnackBarComponent } from './component/snack-bar/snack-bar.component';
     { provide: IGenericHttpClient, useClass: GenericHttpClient },
     { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingService], multi: true },
     { provide: APP_INITIALIZER, useFactory: authServiceFactory, deps: [AuthService, AppSettingService, EnvironmentViewModel], multi: true },
-    { provide: APP_INITIALIZER, useFactory: loggerServiceFactory, deps: [LoggerService, AppSettingService], multi: true }
+    { provide: APP_INITIALIZER, useFactory: loggerServiceFactory, deps: [LoggerService, AppSettingService], multi: true },
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 5000}}
   ]
 })
 export class FalconCoreModule {

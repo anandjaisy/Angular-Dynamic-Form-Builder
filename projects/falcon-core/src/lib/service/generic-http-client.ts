@@ -135,23 +135,23 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
           switch (error.status) {
             case HttpStatusCode.FORBIDDEN:
               //observer.complete();
-              this._snackBar.open('Access to the requested resource is forbidden.', 'Forbidden', { duration: 5 * 1000 });
+              this._snackBar.open('Access to the requested resource is forbidden.', 'Forbidden');
               observer.error(error);
               break;
             case HttpStatusCode.BAD_REQUEST:
-              this._snackBar.open('Server cannot or will not process the request', 'Bad Request', { duration: 5 * 1000 });
+              this._snackBar.open('Server cannot or will not process the request', 'Bad Request');
               observer.error(error);
               break;
             case HttpStatusCode.UNAUTHORIZED:
-              this._snackBar.open('Request has not been applied because it lacks valid authentication credentials', 'Unauthorized', { duration: 5 * 1000 });
+              this._snackBar.open('Request has not been applied because it lacks valid authentication credentials', 'Unauthorized');
               observer.error(error);
               break;
             case HttpStatusCode.INTERNAL_SERVER_ERROR:
-              this._snackBar.open('Server encountered an unexpected condition', 'Internal server error', { duration: 5 * 1000 });
+              this._snackBar.open('Server encountered an unexpected condition', 'Internal server error');
               observer.error(error);
               break;
             default:
-              this._snackBar.open('Default', 'Default', { duration: 5 * 1000 });
+              this._snackBar.open('Default', 'Default');
               observer.error(error);
               break;
           }
