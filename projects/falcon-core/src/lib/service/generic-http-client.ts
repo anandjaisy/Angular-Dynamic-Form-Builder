@@ -5,11 +5,15 @@ import { Injectable } from '@angular/core';
 import { HttpMethod } from '../view-models/component-type.enum'
 import { IRequestOptions } from '../view-models/interface';
 import { EnvironmentViewModel } from '../view-models/environment-view-model';
-import { retry } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { LoggerService } from "./logger.service";
+import { ComponentType } from '../view-models/component-type.enum';
+import { HttpStatusCode } from "../view-models/HttpStatusCodeEnum";
 @Injectable()
 export class GenericHttpClient<T> implements IGenericHttpClient<T>{
 
-  constructor(private httpClient: HttpClient, private environment: EnvironmentViewModel) { }
+  constructor(private httpClient: HttpClient, private environment: EnvironmentViewModel,
+    private _snackBar: MatSnackBar, private logger: LoggerService) { }
   /**
     * @description
     * Generic Http post method to post the view model and bind the return view model
@@ -27,7 +31,7 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
     *      });
     * ```
   */
-  public Post(destinationUrl: string, options?: IRequestOptions): Observable<T> {
+  public Post(destinationUrl: string, options?: IRequestOptions | any): Observable<T> {
     return this.request<T>(HttpMethod.Post, destinationUrl, options);
   }
   /**
@@ -47,7 +51,7 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
     *      });
     * ```
   */
-  public Put(destinationUrl: string, options?: IRequestOptions): Observable<T> {
+  public Put(destinationUrl: string, options?: IRequestOptions | any): Observable<T> {
     return this.request<T>(HttpMethod.Put, destinationUrl, options);
   }
   /**
@@ -66,7 +70,7 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
     *      });
     * ```
   */
-  public Get(destinationUrl: string, options?: IRequestOptions): Observable<T> {
+  public Get(destinationUrl: string, options?: IRequestOptions | any): Observable<T> {
     return this.request<T>(HttpMethod.Get, destinationUrl, options);
   }
   /**
@@ -85,7 +89,7 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
     *      });
     * ```
   */
-  public Delete(destinationUrl: string, options?: IRequestOptions): Observable<T> {
+  public Delete(destinationUrl: string, options?: IRequestOptions | any): Observable<T> {
     return this.request<T>(HttpMethod.Delete, destinationUrl, options);
   }
   /**
@@ -103,31 +107,51 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
     */
   private request<T>(method: string, url: string, options?: IRequestOptions): Observable<T> {
     return Observable.create((observer: any) => {
-      this.httpClient.request<T>(new HttpRequest(method, this.environment.baseUrl + url, options)).subscribe(
+      let destinationUrl = "";
+      if (this.environment.baseUrl != undefined)
+        destinationUrl = (this.environment.baseUrl) + url
+      else
+        destinationUrl = url
+      this.httpClient.request<T>(new HttpRequest(method, destinationUrl, options)).subscribe(
         (response: any) => {
           const responsTye = response as HttpEvent<any>
           switch (responsTye.type) {
             case HttpEventType.Sent:
-              console.log('Request sent!');
+              this.logger.info("Http Client : Sent ->", "Request sent!");
               break;
             case HttpEventType.ResponseHeader:
-              console.log('Response header received!');
+              this.logger.info("Http Client : ResponseHeader ->", "Response header received!");
               break;
             case HttpEventType.DownloadProgress:
               const kbLoaded = Math.round(responsTye.loaded / 1024);
-              console.log(`Download in progress! ${kbLoaded}Kb loaded`);
+              this.logger.info("Http Client : DownloadProgress ->", `Download in progress! ${kbLoaded}Kb loaded`);
               break;
             case HttpEventType.Response:
               observer.next(response.body);
-              console.log('😺 Done!', responsTye.body);
+              this.logger.info("Http Client : Response -> 😺 Done!", responsTye.body);
           }
         },
         (error) => {
           switch (error.status) {
-            case 403:
-              observer.complete();
+            case HttpStatusCode.FORBIDDEN:
+              //observer.complete();
+              this._snackBar.open('Access to the requested resource is forbidden.', 'Forbidden', { duration: 5 * 1000 });
+              observer.error(error);
+              break;
+            case HttpStatusCode.BAD_REQUEST:
+              this._snackBar.open('Server cannot or will not process the request', 'Bad Request', { duration: 5 * 1000 });
+              observer.error(error);
+              break;
+            case HttpStatusCode.UNAUTHORIZED:
+              this._snackBar.open('Request has not been applied because it lacks valid authentication credentials', 'Unauthorized', { duration: 5 * 1000 });
+              observer.error(error);
+              break;
+            case HttpStatusCode.INTERNAL_SERVER_ERROR:
+              this._snackBar.open('Server encountered an unexpected condition', 'Internal server error', { duration: 5 * 1000 });
+              observer.error(error);
               break;
             default:
+              this._snackBar.open('Default', 'Default', { duration: 5 * 1000 });
               observer.error(error);
               break;
           }

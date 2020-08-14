@@ -12,14 +12,14 @@ export abstract class IGenericHttpClient<T> {
     * @usageNotes
     * The following snippet shows how to use this method
     * ```ts
-    *    this.genericHttpService.Post(post-view-model,post_url").subscribe(data => {
+    *    this.genericHttpService.Post(post_url,post-view-model").subscribe(data => {
     *        console.log('data is not success');
     *      }, error => {
     *      console.log(error);
     *      });
     * ```
     */
-    abstract Post(destinationUrl: string, options?: IRequestOptions): Observable<T>;
+    abstract Post(destinationUrl: string, options?: IRequestOptions| any): Observable<T>;
     /**
     * @description
     * Generic Http put method to post the view model and bind the return view model
@@ -29,14 +29,14 @@ export abstract class IGenericHttpClient<T> {
     * @usageNotes
     * The following snippet shows how to use this method
     * ```ts
-    *    this.genericHttpService.Put(post-view-model,put_url).subscribe(data => {
+    *    this.genericHttpService.Put(put_url,post-view-model).subscribe(data => {
     *        console.log('data is not success');
     *      }, error => {
     *      console.log(error);
     *      });
     * ```
     */
-    abstract Put(destinationUrl: string, options?: IRequestOptions): Observable<T>;
+    abstract Put(destinationUrl: string, options?: IRequestOptions| any): Observable<T>;
     /**
     * @description
     * Generic Http GET method to Get the response and bind to the view model
@@ -53,7 +53,7 @@ export abstract class IGenericHttpClient<T> {
     *      });
     * ```
     */
-    abstract Get(destinationUrl: string, options?: IRequestOptions): Observable<T>;
+    abstract Get(destinationUrl: string, options?: IRequestOptions| any): Observable<T>;
     /**
     * @description
     * Generic Http Delete method to Delete the item and bind the return view model
@@ -70,5 +70,5 @@ export abstract class IGenericHttpClient<T> {
     *      });
     * ```
     */
-    abstract Delete(destinationUrl: string, options?: IRequestOptions): Observable<T>;
+    abstract Delete(destinationUrl: string, options?: IRequestOptions| any): Observable<T>;
 }

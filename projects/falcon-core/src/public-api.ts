@@ -38,6 +38,7 @@ export * from './lib/component/button-toggle/button-toggle.component';
 export * from './lib/component/button/button.component';
 export * from './lib/common/base-form-component';
 export * from './lib/component/auth-callback/auth-callback.component';
+export * from './lib/component/snack-bar/snack-bar.component';
 
  /*
  * Public API Surface of falcon core module directive
