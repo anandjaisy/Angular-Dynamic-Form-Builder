@@ -9,8 +9,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoggerService } from "./logger.service";
 import { ComponentType } from '../view-models/component-type.enum';
 import { HttpStatusCode } from "../view-models/HttpStatusCodeEnum";
+import { SnackbarViewModel } from "../view-models/snack-bar-viewmodel";
 @Injectable()
 export class GenericHttpClient<T> implements IGenericHttpClient<T>{
+  private snackBarViewModel: SnackbarViewModel = new SnackbarViewModel();
 
   constructor(private httpClient: HttpClient, private environment: EnvironmentViewModel,
     private _snackBar: MatSnackBar, private logger: LoggerService) { }
@@ -135,26 +137,33 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
           switch (error.status) {
             case HttpStatusCode.FORBIDDEN:
               //observer.complete();
-              this._snackBar.open('Access to the requested resource is forbidden.', 'Forbidden');
+              this.snackBarViewModel.messageText = 'Access to the requested resource is forbidden.';
+              this.snackBarViewModel.actionText = 'Forbidden';
               observer.error(error);
               break;
             case HttpStatusCode.BAD_REQUEST:
-              this._snackBar.open('Server cannot or will not process the request', 'Bad Request');
+              this.snackBarViewModel.messageText = 'Server cannot or will not process the request.';
+              this.snackBarViewModel.actionText = 'Bad Request';
               observer.error(error);
               break;
             case HttpStatusCode.UNAUTHORIZED:
-              this._snackBar.open('Request has not been applied because it lacks valid authentication credentials', 'Unauthorized');
+              this.snackBarViewModel.messageText = 'Request has not been applied because it lacks valid authentication credentials.';
+              this.snackBarViewModel.actionText = 'Unauthorized';
               observer.error(error);
               break;
             case HttpStatusCode.INTERNAL_SERVER_ERROR:
-              this._snackBar.open('Server encountered an unexpected condition', 'Internal server error');
+              this.snackBarViewModel.messageText = 'Server encountered an unexpected condition.';
+              this.snackBarViewModel.actionText = 'Internal server error';
               observer.error(error);
               break;
             default:
-              this._snackBar.open('Default', 'Default');
+              this.snackBarViewModel.messageText = 'Default';
+              this.snackBarViewModel.actionText = 'Default';
               observer.error(error);
               break;
           }
+          if (this.environment.snackBarEnable != undefined && this.environment.snackBarEnable)
+            this._snackBar.open(this.snackBarViewModel.messageText, this.snackBarViewModel.actionText);
         }
       );
     });

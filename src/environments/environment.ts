@@ -12,6 +12,7 @@ class EnvironmentImpl implements EnvironmentViewModel {
     silent_redirect_uri: `https://localhost:4200/assets/silent-callback.html`
   };
   baseUrl= "https://raw.githubusercontent.com/anandjaisy/androidCodeTemplates/master";
+  snackBarEnable = true;
 }
 
 export const environment = new EnvironmentImpl();

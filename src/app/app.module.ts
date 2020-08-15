@@ -33,6 +33,7 @@ import { ModalDialogComponent } from './component/modal-dialog/modal-dialog.comp
 import { FormFieldExampleComponent } from './component/form-field/form-field-example/form-field-example.component';
 import { environment } from 'src/environments/environment';
 import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/view-models/environment-view-model';
+import { ChipsComponent } from './component/chips/chips.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/view-models/e
     ExampleBottomSheetComponent,
     SnackbarComponent,
     ModalDialogComponent,
-    FormFieldExampleComponent
+    FormFieldExampleComponent,
+    ChipsComponent
   ],
   imports:[
     BrowserModule,

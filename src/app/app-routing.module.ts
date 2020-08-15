@@ -19,6 +19,7 @@ import { ExampleBottomSheetComponent } from './component/bottom-sheet/bottom-she
 import { SnackbarComponent } from './component/snackbar/snackbar.component';
 import { ModalDialogComponent } from './component/modal-dialog/modal-dialog.component';
 import { AuthCallbackComponent } from 'projects/falcon-core/src/lib/component/auth-callback/auth-callback.component';
+import { ChipsComponent } from './component/chips/chips.component';
 
 
 const routes: Routes = [
@@ -40,7 +41,8 @@ const routes: Routes = [
   {path: 'progress-bar', component: ProgressBarComponent},
   {path: 'bottom-sheet', component: ExampleBottomSheetComponent},
   {path: 'snackbar', component: SnackbarComponent},
-  {path: 'dialog', component: ModalDialogComponent}
+  {path: 'dialog', component: ModalDialogComponent},
+  {path: 'chips', component: ChipsComponent}
 ];
 
 @NgModule({
