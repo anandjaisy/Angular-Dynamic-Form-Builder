@@ -31,7 +31,7 @@ export class AppSettingService {
 
   async load() {
     if (this.initialized) return;
-    let data = await this.http.get('Angular-Dynamic-Form-Builder/assets/appsetting.json').toPromise();
+    let data = await this.http.get('assets/appsetting.json').toPromise();
     this.appSettings = data;
     this.initialized = true;
     this.isServiceReady.next(this.initialized);
