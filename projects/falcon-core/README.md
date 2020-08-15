@@ -56,3 +56,10 @@ Run `ng test @falcon-ng/core` to execute the unit tests via [Karma](https://karm
             bootstrap: [AppComponent]
         })
     ```
+## Publish code to GitHub
+        
+        ng build --prod --output-path docs --base-href /<project_name>/
+
+        Example --> ng build --prod --output-path docs --baseHref=”https://anandjaisy.github.io/Angular-Dynamic-Form-Builder/”
+* Reference - https://angular.io/guide/deployment
+        
