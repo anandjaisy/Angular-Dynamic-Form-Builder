@@ -49,6 +49,10 @@ export class AngularCodeTemplate {
     public static Button_TS_KEY: string = "/button-indicator/button-indicator.component.ts";
     public static Button_HTML_KEY: string = "/button-indicator/button-indicator.component.html"
 
+    // Button
+    public static Chips_TS_KEY: string = "/chips/chips.component.ts";
+    public static Chips_HTML_KEY: string = "/chips/chips.component.html"
+
     public static Button_Toggle_TS_KEY: string = "/button-toggle/button-toggle.component.ts";
     public static Button_Toggle_HTML_KEY: string = "/button-toggle/button-toggle.component.html"
     //End of button

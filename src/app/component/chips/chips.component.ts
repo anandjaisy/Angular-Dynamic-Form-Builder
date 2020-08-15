@@ -33,8 +33,8 @@ export class ChipsComponent extends BaseFormComponent<any> implements OnInit {
   }
 
   buttonClickEvent() {
-    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Button_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Button_HTML_KEY;
+    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Chips_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Chips_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
 
