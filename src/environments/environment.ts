@@ -11,7 +11,7 @@ class EnvironmentImpl implements EnvironmentViewModel {
     scope : "openid profile email",
     silent_redirect_uri: `https://localhost:4200/assets/silent-callback.html`
   };
-  baseUrl= "https://raw.githubusercontent.com/anandjaisy/androidCodeTemplates/master";
+  baseUrl= "https://raw.githubusercontent.com/anandjaisy/Angular-Dynamic-Form-Builder/master/src/app/component";
   snackBarEnable = true;
 }
 
