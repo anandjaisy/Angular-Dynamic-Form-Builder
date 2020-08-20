@@ -36,7 +36,7 @@ export abstract class BaseFormComponent<T>{
   protected abstract submitDatasource(model: T): Observable<T>;
   public dataSource: T = null;
   public controlsConfig: IMeta;
-
+  public showLoading: boolean = false;
   constructor(private fb: FormBuilder) {
   }
   /**
@@ -71,15 +71,28 @@ export abstract class BaseFormComponent<T>{
   protected createControls() {
     const group = this.fb.group({});
     this.controlsConfig.componentConfig.forEach(field => {
-      if (field.componentType === ComponentType.Button) return;
-      const control = this.fb.control(
-        { value: field.componentProperty.value, disabled: field.componentProperty.disabled },
-        this.bindValidations(field.validations || [])
-      );
-      group.addControl(field.formControlName, control);
+      this.bindControl(field, group);
+      field.nextedLayoutConfig?.componentConfig.forEach(field => {
+        this.bindControl(field, group);
+      });
     });
     return group;
   }
+  /**
+      * @description
+      * Private method to bind the form control.
+      * @param field field to bind.
+      * @param group group to add.
+  */
+  private bindControl(field, group) {
+    if (field.componentType === ComponentType.Button) return;
+    const control = this.fb.control(
+      { value: field.componentProperty.value, disabled: field.componentProperty.disabled },
+      this.bindValidations(field.validations || [])
+    );
+    group.addControl(field.formControlName, control);
+  }
+
   /**
     * @description
     * Private method to bind the validation to the form controls on form submit.

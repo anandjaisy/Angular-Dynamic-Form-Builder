@@ -1,8 +1,5 @@
-<div [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
-    <ng-container>
-        <mat-chip-list aria-label="Fish selection">
-            <mat-chip color="{{field.componentProperty.color}}" selected>{{field.componentProperty.label}}</mat-chip>
-        </mat-chip-list>
-
-    </ng-container>
-</div>
+<ng-container>
+    <mat-chip-list aria-label="Fish selection">
+        <mat-chip color="{{field.componentProperty.color}}" selected>{{field.componentProperty.label}}</mat-chip>
+    </mat-chip-list>
+</ng-container>

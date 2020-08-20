@@ -34,6 +34,8 @@ import { FormFieldExampleComponent } from './component/form-field/form-field-exa
 import { environment } from 'src/environments/environment';
 import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/view-models/environment-view-model';
 import { ChipsComponent } from './component/chips/chips.component';
+import { ChildLayoutComponent } from './component/form-field/form-layout-child-layout/child-layout.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +64,8 @@ import { ChipsComponent } from './component/chips/chips.component';
     SnackbarComponent,
     ModalDialogComponent,
     FormFieldExampleComponent,
-    ChipsComponent
+    ChipsComponent,
+    ChildLayoutComponent
   ],
   imports:[
     BrowserModule,

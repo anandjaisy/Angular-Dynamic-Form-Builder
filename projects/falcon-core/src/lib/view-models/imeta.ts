@@ -10,7 +10,7 @@ import { ComponentType, Appearance, FxLayout, AlignmentLayoutDirection, Floating
  */
 export declare interface IMeta {
   layoutConfig?: ILayoutConfig;
-  componentConfig?: IComponentConfig[]
+  componentConfig?: IComponentConfig[];
 }
 /**
  * @description
@@ -89,6 +89,7 @@ export declare interface IComponentConfig {
   formControlName?: string;
   componentType?: ComponentType;
   validations?: IValidator[];
+  nextedLayoutConfig?: IMeta;
 }
 /**
  * @description
