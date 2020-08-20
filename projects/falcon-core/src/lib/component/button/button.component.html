@@ -21,6 +21,7 @@
     <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-mini-fab [attr.aria-label]="field.componentProperty.label" *ngSwitchCase="6">
         <mat-icon>{{field.componentProperty.label}}</mat-icon>
     </button>
-    <a mat-button *ngSwitchCase="7" [ngStyle]="field.componentProperty.componentStyle" routerLink="[]">{{field.componentProperty.label}}</a>
+    <a mat-stroked-button *ngSwitchCase="7" [ngStyle]="field.componentProperty.componentStyle" routerLink="[]">{{field.componentProperty.label}}</a>
+    <a mat-stroked-button *ngSwitchCase="8" [ngStyle]="field.componentProperty.componentStyle" href="{{field.componentProperty.value}}">{{field.componentProperty.label}}</a>
 </ng-container>
 </div>

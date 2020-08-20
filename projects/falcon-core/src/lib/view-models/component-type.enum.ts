@@ -100,7 +100,8 @@ export const enum Appearance {
     Icon = 4,
     FAB = 5,
     MiniFAB = 6,
-    Link = 7
+    routeLink = 7,
+    routeHref = 8
 }
 /**
  * @description

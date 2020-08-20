@@ -86,10 +86,19 @@ export class ButtonIndicatorComponent extends BaseFormComponent<any> implements 
       {
         componentProperty: {
           label: "Link",
-          appearance: Appearance.Link
+          appearance: Appearance.routeLink
         },
         componentType: ComponentType.Button,
         formControlName: "link"
+      },
+      {
+        componentProperty: {
+          label: "href",
+          appearance: Appearance.routeHref,
+          value: '/Account/Login'
+        },
+        componentType: ComponentType.Button,
+        formControlName: "linkHref"
       }
       ]
     }
