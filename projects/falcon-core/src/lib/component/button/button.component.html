@@ -1,27 +1,27 @@
 <div  [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
 <ng-container [ngSwitch]="field.componentProperty.appearance">
-    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-button *ngSwitchCase="0">
+    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [color]="field.componentProperty.color" [ngClass]="field.componentProperty.componentCss" [ngStyle]="field.componentProperty.componentStyle" mat-button *ngSwitchCase="0">
         {{field.componentProperty.label}}<mat-icon *ngIf="field?.componentProperty?.suffix?.isIcon" style="margin-bottom: 1px;">{{field?.componentProperty?.suffix?.text}}</mat-icon>
     </button>
-    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-raised-button *ngSwitchCase="1">
+    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [ngClass]="field.componentProperty.componentCss" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-raised-button *ngSwitchCase="1">
         {{field.componentProperty.label}}<mat-icon *ngIf="field?.componentProperty?.suffix?.isIcon" style="margin-bottom: 1px;">{{field?.componentProperty?.suffix?.text}}</mat-icon>
     </button>
-    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-stroked-button *ngSwitchCase="2">
+    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [ngClass]="field.componentProperty.componentCss" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-stroked-button *ngSwitchCase="2">
         {{field.componentProperty.label}}
     </button>
-    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-flat-button *ngSwitchCase="3">
+    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [ngClass]="field.componentProperty.componentCss" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-flat-button *ngSwitchCase="3">
         {{field.componentProperty.label}}
     </button>
-    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-icon-button [attr.aria-label]="field.componentProperty.label" *ngSwitchCase="4">
+    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [ngClass]="field.componentProperty.componentCss" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-icon-button [attr.aria-label]="field.componentProperty.label" *ngSwitchCase="4">
         <mat-icon>{{field.componentProperty.label}}</mat-icon>
     </button>
-    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-fab [attr.aria-label]="field.componentProperty.label" *ngSwitchCase="5">
+    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [ngClass]="field.componentProperty.componentCss" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-fab [attr.aria-label]="field.componentProperty.label" *ngSwitchCase="5">
         <mat-icon>{{field.componentProperty.label}}</mat-icon>
     </button>
-    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-mini-fab [attr.aria-label]="field.componentProperty.label" *ngSwitchCase="6">
+    <button [disabled]="field.componentProperty.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [ngClass]="field.componentProperty.componentCss" [color]="field.componentProperty.color" [ngStyle]="field.componentProperty.componentStyle" mat-mini-fab [attr.aria-label]="field.componentProperty.label" *ngSwitchCase="6">
         <mat-icon>{{field.componentProperty.label}}</mat-icon>
     </button>
-    <a mat-stroked-button *ngSwitchCase="7" [ngStyle]="field.componentProperty.componentStyle" routerLink="[]">{{field.componentProperty.label}}</a>
-    <a mat-stroked-button *ngSwitchCase="8" [ngStyle]="field.componentProperty.componentStyle" href="{{field.componentProperty.value}}">{{field.componentProperty.label}}</a>
+    <a mat-stroked-button *ngSwitchCase="7" [ngClass]="field.componentProperty.componentCss" [ngStyle]="field.componentProperty.componentStyle" routerLink="[]">{{field.componentProperty.label}}</a>
+    <a mat-stroked-button *ngSwitchCase="8" [ngClass]="field.componentProperty.componentCss" [ngStyle]="field.componentProperty.componentStyle" href="{{field.componentProperty.value}}">{{field.componentProperty.label}}</a>
 </ng-container>
 </div>

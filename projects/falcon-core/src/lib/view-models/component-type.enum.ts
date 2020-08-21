@@ -76,6 +76,7 @@ export const enum Appearance {
     /**
         * @usageNotes Should be only use for input, textbox, and select
     */
+    Plain = "plain",
     Legacy = "legacy",
     Standard = "standard",
     Fill = "fill",

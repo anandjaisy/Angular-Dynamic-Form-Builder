@@ -56,6 +56,23 @@ export class AutoCompleteComponent extends BaseFormComponent<any> implements OnI
         },
         componentType: ComponentType.AutoComplete,
         formControlName: "OutlineAutoComplete"
+      },
+      {
+        componentProperty: {
+          label: "Plain input autocomplete",
+          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+          { value: 'Bellsprout', viewValue: 'Bellsprout' },
+          { value: 'Mushroom', viewValue: 'Mushroom' },
+          { value: 'Onion', viewValue: 'Onion' },
+          { value: 'Pepperoni', viewValue: 'Pepperoni' },
+          { value: 'Sausage', viewValue: 'Sausage' },
+          { value: 'Tomato', viewValue: 'Tomato' }],
+          appearance: Appearance.Plain,
+          color: 'accent',
+          placeHolder : "Plan text"
+        },
+        componentType: ComponentType.AutoComplete,
+        formControlName: "plaininputautocomplete"
       }
       ]
     }
