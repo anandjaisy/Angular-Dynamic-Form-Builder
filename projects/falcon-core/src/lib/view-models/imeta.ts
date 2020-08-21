@@ -132,6 +132,7 @@ export declare interface IComponentConfig {
 export declare interface ILayoutConfig {
   fxLayout?: FxLayout;
   fxLayoutGap?: string;
+  fxLayout_xs?: string;
   fxLayoutAlignHorizontal?: AlignmentLayoutDirection;
   fxLayoutAlignVertical?: AlignmentLayoutDirection;
   fxLayoutAlign_lt_sm?: AlignmentLayoutDirection;

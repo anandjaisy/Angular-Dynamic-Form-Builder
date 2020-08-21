@@ -1,4 +1,4 @@
-<div [fxLayout]="fields?.layoutConfig?.fxLayout + ' wrap'" fxLayout.xs="start column"
+<div [fxLayout]="fields?.layoutConfig?.fxLayout + ' wrap'" fxLayout.xs="start + fields?.layoutConfig?.fxLayout_xs != undefined ? fields?.layoutConfig?.fxLayout_xs : 'column'"
     [fxLayoutGap.gt-xs]="fields.layoutConfig.fxLayoutGap != undefined ? fields.layoutConfig.fxLayoutGap : '0'"
     [fxLayoutAlign]="fields.layoutConfig.fxLayoutAlignHorizontal + ' ' + fields.layoutConfig.fxLayoutAlignVertical">
     <div *ngFor="let field of fields.componentConfig;"
