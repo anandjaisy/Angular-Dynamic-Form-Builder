@@ -20,6 +20,7 @@ import { SnackbarComponent } from './component/snackbar/snackbar.component';
 import { ModalDialogComponent } from './component/modal-dialog/modal-dialog.component';
 import { AuthCallbackComponent } from 'projects/falcon-core/src/lib/component/auth-callback/auth-callback.component';
 import { ChipsComponent } from './component/chips/chips.component';
+import { TableComponent } from './component/table/table.component';
 
 
 const routes: Routes = [
@@ -42,7 +43,8 @@ const routes: Routes = [
   {path: 'bottom-sheet', component: ExampleBottomSheetComponent},
   {path: 'snackbar', component: SnackbarComponent},
   {path: 'dialog', component: ModalDialogComponent},
-  {path: 'chips', component: ChipsComponent}
+  {path: 'chips', component: ChipsComponent},
+  {path: 'tables', component: TableComponent}
 ];
 
 @NgModule({

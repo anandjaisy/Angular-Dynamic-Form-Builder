@@ -1,0 +1,37 @@
+<div class="container">
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+            <a mat-mini-fab color="accent" routerLink="..">
+                <mat-icon>arrow_back</mat-icon>
+            </a>
+        </div>
+
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <div style="margin-top: 40px">
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                        <h1>Mat table</h1>
+                        <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+                    </div>
+                    <p class="blurText">
+                        The <strong class="text-format">mat-table</strong> provides a Material Design styled data-table
+                        that can be used to display rows of data.
+                    </p>
+                    <p class="blurText">
+                        This table builds on the foundation of the CDK data-table and uses a similar interface for its
+                        data input and template, except that its element and attribute selectors will be prefixed with
+                        mat- instead of cdk-. For more information on the interface and a detailed look at how the table
+                        is implemented
+                    </p>
+                </div>
+                <br>
+                <falcon-table [matTableConfig]="matTableConfig"></falcon-table>
+            </div>
+            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+                [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+        </mat-card-content>
+    </mat-card>
+    <app-table-filter></app-table-filter>
+    <app-table-pagination></app-table-pagination>
+</div>

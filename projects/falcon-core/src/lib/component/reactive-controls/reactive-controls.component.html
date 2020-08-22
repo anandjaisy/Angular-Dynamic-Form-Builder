@@ -1,4 +1,5 @@
-<div [fxLayout]="fields?.layoutConfig?.fxLayout + ' wrap'" fxLayout.xs="start + fields?.layoutConfig?.fxLayout_xs != undefined ? fields?.layoutConfig?.fxLayout_xs : 'column'"
+<div [fxLayout]="fields?.layoutConfig?.fxLayout + ' wrap'"
+    fxLayout.xs="start + fields?.layoutConfig?.fxLayout_xs != undefined ? fields?.layoutConfig?.fxLayout_xs : 'column'"
     [fxLayoutGap.gt-xs]="fields.layoutConfig.fxLayoutGap != undefined ? fields.layoutConfig.fxLayoutGap : '0'"
     [fxLayoutAlign]="fields.layoutConfig.fxLayoutAlignHorizontal + ' ' + fields.layoutConfig.fxLayoutAlignVertical">
     <div *ngFor="let field of fields.componentConfig;"
@@ -10,11 +11,11 @@
         <ng-container reactiveField [field]="field" [group]="form"></ng-container>
 
         <div [fxLayout]="field?.nextedLayoutConfig?.layoutConfig?.fxLayout + ' wrap'" fxLayout.xs="start column"
-        [fxLayoutGap.gt-xs]="field?.nextedLayoutConfig?.layoutConfig.fxLayoutGap != undefined ? field?.nextedLayoutConfig?.layoutConfig.fxLayoutGap : '0'"
-        [fxLayoutAlign]="field?.nextedLayoutConfig?.layoutConfig.fxLayoutAlignHorizontal + ' ' + field?.nextedLayoutConfig?.layoutConfig.fxLayoutAlignVertical">
-        <div fxFlex *ngFor="let field of field?.nextedLayoutConfig?.componentConfig;">
-            <ng-container reactiveField [field]="field" [group]="form"></ng-container>
+            [fxLayoutGap.gt-xs]="field?.nextedLayoutConfig?.layoutConfig.fxLayoutGap != undefined ? field?.nextedLayoutConfig?.layoutConfig.fxLayoutGap : '0'"
+            [fxLayoutAlign]="field?.nextedLayoutConfig?.layoutConfig.fxLayoutAlignHorizontal + ' ' + field?.nextedLayoutConfig?.layoutConfig.fxLayoutAlignVertical">
+            <div fxFlex *ngFor="let field of field?.nextedLayoutConfig?.componentConfig;">
+                <ng-container reactiveField [field]="field" [group]="form"></ng-container>
+            </div>
         </div>
-    </div>
     </div>
 </div>
