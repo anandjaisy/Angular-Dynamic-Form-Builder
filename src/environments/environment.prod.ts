@@ -10,7 +10,7 @@ class EnvironmentImpl implements EnvironmentViewModel {
     responseType: "code",
     scope: "openid profile email"
   };
-  baseUrl= "https://raw.githubusercontent.com/anandjaisy/androidCodeTemplates/master";
+  baseUrl= "https://raw.githubusercontent.com/anandjaisy/Angular-Dynamic-Form-Builder/master/src/app/component";
 }
 
 export const environment = new EnvironmentImpl();
