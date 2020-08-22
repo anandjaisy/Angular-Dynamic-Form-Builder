@@ -65,5 +65,9 @@ export declare interface MatTableConfig {
   columns?: MatTable[];
   dataSource?: any;
   filter?: boolean;
+  paginationConfig?: MatTablePaginationConfig;
+}
+export declare interface MatTablePaginationConfig {
   pagination?: boolean;
+  pageSizeOptions?: number[];
 }

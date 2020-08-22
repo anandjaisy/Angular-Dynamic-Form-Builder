@@ -45,12 +45,11 @@ export class TableFilterComponent implements OnInit {
   ngOnInit(): void {
     this.matTableConfig.columns = this.columns;
     this.matTableConfig.filter = true;
-    this.matTableConfig.pagination = false;
     this.matTableConfig.dataSource = this.dataSource;
   }
   buttonClickEvent() {
-    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Table_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Table_HTML_KEY;
+    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Table_FILTER_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Table_FILTER_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
 }

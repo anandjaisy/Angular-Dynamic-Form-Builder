@@ -44,7 +44,6 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     this.matTableConfig.columns = this.columns;
     this.matTableConfig.filter = false;
-    this.matTableConfig.pagination = false;
     this.matTableConfig.dataSource = this.dataSource;
   }
 
