@@ -76,11 +76,11 @@ export class AngularCodeTemplate {
     public static Table_TS_KEY: string = "/table/table.component.ts";
     public static Table_HTML_KEY: string = "/table/table.component.html"
 
-    public static Table_FILTER_TS_KEY: string = "/table-filter/table-filter.component.ts";
-    public static Table_FILTER_HTML_KEY: string = "/table-filter/table-filter.component.html"
+    public static Table_FILTER_TS_KEY: string = "/table/table-filter/table-filter.component.ts";
+    public static Table_FILTER_HTML_KEY: string = "/table/table-filter/table-filter.component.html"
 
-    public static Table_PAGINATION_TS_KEY: string = "/table-pagination/table-pagination.component.ts";
-    public static Table_PAGINATION_HTML_KEY: string = "/table-pagination/table-pagination.component.html"
+    public static Table_PAGINATION_TS_KEY: string = "/table/table-pagination/table-pagination.component.ts";
+    public static Table_PAGINATION_HTML_KEY: string = "/table/table-pagination/table-pagination.component.html"
 
     public static Delete_Dialog_TS_KEY: string = "/modal-dialog/modal-dialog.component.ts";
     public static Delete_Dialog_HTML_KEY: string = "/modal-dialog/modal-dialog.component.html"
