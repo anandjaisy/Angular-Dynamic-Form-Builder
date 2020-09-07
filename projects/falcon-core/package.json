@@ -4,9 +4,9 @@
   "peerDependencies": {
     "@angular/common": "^10.1.0",
     "@angular/core": "^10.1.0",
-    "@angular/material": "^10.1.0",
-    "@angular/animations": "^10.0.4",
-    "@angular/cdk": "^10.1.0",
+    "@angular/material": "^10.2.0",
+    "@angular/animations": "^10.1.0",
+    "@angular/cdk": "^10.2.0",
     "@angular/flex-layout": "^10.0.0-beta.32",
     "oidc-client": "^1.10.1",
     "babel-polyfill": "^6.26.0"
