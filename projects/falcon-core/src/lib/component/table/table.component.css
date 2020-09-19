@@ -1,6 +1,12 @@
 table {
+  text-align: center !important;
   width: 100%;
 }
 .mat-form-field {
   font-size: 14px;
+}
+
+:host ::ng-deep .mat-sort-header-container {
+  display: flex;
+  justify-content: center;
 }

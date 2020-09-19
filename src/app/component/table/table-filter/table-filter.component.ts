@@ -30,9 +30,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./table-filter.component.scss']
 })
 export class TableFilterComponent implements OnInit {
+  public displayedColumns = ['action'];
   public codeGeneratorEnable: boolean = false;
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
-  matTableConfig: MatTableConfig={};
+  matTableConfig: MatTableConfig = {};
   columns: MatTable[] = [
     { columnDef: 'position', header: 'No.', cell: (element: any) => `${element.position}` },
     { columnDef: 'name', header: 'Name', cell: (element: any) => `${element.name}` },
@@ -46,10 +47,19 @@ export class TableFilterComponent implements OnInit {
     this.matTableConfig.columns = this.columns;
     this.matTableConfig.filter = true;
     this.matTableConfig.dataSource = this.dataSource;
+    this.matTableConfig.actionButton = { edit: false, delete: true };
   }
   buttonClickEvent() {
     this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Table_FILTER_TS_KEY;
     this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Table_FILTER_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
+  }
+  editRowEvent($event) {
+    console.log('Event from parent edit');
+    console.log($event);
+  }
+  deleteRowEvent($event) {
+    console.log('Event from parent edit');
+    console.log($event);
   }
 }

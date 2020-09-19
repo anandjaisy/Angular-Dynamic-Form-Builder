@@ -3,6 +3,7 @@ import { MatTableConfig } from '../../view-models/interface';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'falcon-table',
@@ -13,15 +14,16 @@ export class TableComponent implements OnInit {
   @Input() matTableConfig: MatTableConfig;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
-  displayedColumns: any;
   @Output()pageEvent = new EventEmitter<PageEvent>();
+  @Input()displayedColumns: string[];
+  @Output() editRowEvent = new EventEmitter<any>();
+  @Output() deleteRowEvent = new EventEmitter<any>();
 
-
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    this.displayedColumns = this.matTableConfig.columns.map(c => c.columnDef);
+    const cols = this.matTableConfig.columns.map(c => c.columnDef);
+    this.displayedColumns.unshift(...cols);
   }
   ngAfterViewInit() {
     setTimeout(() => {
@@ -40,7 +42,15 @@ export class TableComponent implements OnInit {
   }
 
   public page(e: any) {
-    this.pageEvent.emit(e)
+    this.pageEvent.emit(e);
+  }
+
+  public editRow($item: any){
+    this.editRowEvent.next($item);
+  }
+
+  public deleteRow($item: any){
+    this.deleteRowEvent.next($item);
   }
 
 }

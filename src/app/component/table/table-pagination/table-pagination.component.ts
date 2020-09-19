@@ -42,7 +42,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./table-pagination.component.scss']
 })
 export class TablePaginationComponent implements OnInit {
-
+  public displayedColumns = ['action'];
   public codeGeneratorEnable: boolean = false;
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
   matTableConfig: MatTableConfig = {};
@@ -60,6 +60,7 @@ export class TablePaginationComponent implements OnInit {
     this.matTableConfig.filter = true;
     this.matTableConfig.paginationConfig = { pagination: true, pageSizeOptions: [10, 50, 100] };
     this.matTableConfig.dataSource = this.dataSource;
+    this.matTableConfig.actionButton = { edit: true, delete: true };
   }
   buttonClickEvent() {
     this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Table_PAGINATION_TS_KEY;
@@ -67,9 +68,23 @@ export class TablePaginationComponent implements OnInit {
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
   page($event) {
+    this.matTableConfig.progressBar = true;
     console.log($event);
     this._snackBar.open(JSON.stringify($event), "", {
       duration: 5000,
     });
+
+    setTimeout(() => {
+      this.matTableConfig.progressBar = false;
+  }, 1000);
+  }
+
+  editRowEvent($event) {
+    console.log('Event from parent edit');
+    console.log($event);
+  }
+  deleteRowEvent($event) {
+    console.log('Event from parent edit');
+    console.log($event);
   }
 }

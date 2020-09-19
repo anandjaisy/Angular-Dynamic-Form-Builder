@@ -24,7 +24,7 @@
                     </p>
                 </div>
                 <br>
-                <falcon-table [matTableConfig]="matTableConfig" (pageEvent)="page($event)"></falcon-table>
+                <falcon-table [matTableConfig]="matTableConfig" [displayedColumns]="displayedColumns" (editRowEvent)="editRowEvent($event)" (deleteRowEvent)="deleteRowEvent($event)"></falcon-table>
             </div>
             <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
                 [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>

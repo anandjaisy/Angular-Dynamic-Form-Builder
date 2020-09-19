@@ -66,8 +66,22 @@ export declare interface MatTableConfig {
   dataSource?: any;
   filter?: boolean;
   paginationConfig?: MatTablePaginationConfig;
+  progressBar?: boolean;
+  actionButton?: TableButtonAction;
 }
+/**
+ * @description
+ * Interface use for mat table pagination configuration.
+ */
 export declare interface MatTablePaginationConfig {
   pagination?: boolean;
   pageSizeOptions?: number[];
+}
+/**
+ * @description
+ * Interface use for mat table action button configuration.
+ */
+export declare interface TableButtonAction {
+  edit: boolean;
+  delete: boolean;
 }

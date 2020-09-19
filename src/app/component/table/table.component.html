@@ -26,7 +26,8 @@
                     </p>
                 </div>
                 <br>
-                <falcon-table [matTableConfig]="matTableConfig"></falcon-table>
+                <falcon-table [matTableConfig]="matTableConfig" [displayedColumns]="displayedColumns">
+                </falcon-table>
             </div>
             <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
                 [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
