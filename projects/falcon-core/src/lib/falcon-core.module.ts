@@ -42,7 +42,8 @@ import { TableComponent } from './component/table/table.component';
     AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule,
     ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent,
     CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ProgressBarComponent, ProgressSpinnerComponent,
-    BottomSheetComponent, DeleteDialogComponent,AuthCallbackComponent,SnackBarComponent,ChipsComponent,TableComponent
+    BottomSheetComponent, DeleteDialogComponent, AuthCallbackComponent, SnackBarComponent, ChipsComponent, TableComponent,
+    ButtonToggleComponent, AutoCompleteComponent
   ],
   entryComponents: [
     BottomSheetComponent, DeleteDialogComponent
@@ -52,14 +53,14 @@ import { TableComponent } from './component/table/table.component';
     { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingService], multi: true },
     { provide: APP_INITIALIZER, useFactory: authServiceFactory, deps: [AuthService, AppSettingService, EnvironmentViewModel], multi: true },
     { provide: APP_INITIALIZER, useFactory: loggerServiceFactory, deps: [LoggerService, AppSettingService], multi: true },
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 5000}}
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 5000 } }
   ]
 })
 export class FalconCoreModule {
-    public static forRoot(environment: any): ModuleWithProviders<FalconCoreModule> {
-      return {
-        ngModule: FalconCoreModule,
-        providers: [{ provide: EnvironmentViewModel, useValue: environment }]
-      };
-    }
+  public static forRoot(environment: any): ModuleWithProviders<FalconCoreModule> {
+    return {
+      ngModule: FalconCoreModule,
+      providers: [{ provide: EnvironmentViewModel, useValue: environment }]
+    };
+  }
 }

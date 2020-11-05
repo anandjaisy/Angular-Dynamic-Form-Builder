@@ -38,6 +38,7 @@ import { ChildLayoutComponent } from './component/form-field/form-layout-child-l
 import { TableComponent } from './component/table/table.component';
 import { TableFilterComponent } from './component/table/table-filter/table-filter.component';
 import { TablePaginationComponent } from './component/table/table-pagination/table-pagination.component';
+import { ButtonToggleHtmlComponent } from './component/button-toggle/button-toggle-html/button-toggle-html.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { TablePaginationComponent } from './component/table/table-pagination/tab
     ChildLayoutComponent,
     TableComponent,
     TableFilterComponent,
-    TablePaginationComponent
+    TablePaginationComponent,
+    ButtonToggleHtmlComponent
   ],
   imports:[
     BrowserModule,

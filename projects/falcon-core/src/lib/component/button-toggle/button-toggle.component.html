@@ -1,11 +1,11 @@
-<div [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss" [formGroup]="group">
-    <mat-label [ngStyle]="field.componentProperty.labelStyle" [ngClass]="field.componentProperty.labelCss">
-        {{field.componentProperty.label}}</mat-label>
-    <mat-button-toggle-group [formControlName]="field.formControlName" [appearance]="field.componentProperty.appearance"
-        [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss"
-        [attr.aria-label]="field.componentProperty.label" class="botton-toggle">
-        <mat-button-toggle *ngFor="let item of field.componentProperty.options" [value]="item.value"
-            [ngStyle]="field.componentProperty.componentStyle">
+<div [ngStyle]="field.componentProperty?.groupStyle" [ngClass]="field?.componentProperty?.groupCss" [attr.formGroup]="group != undefined ? group : null">
+    <mat-label [ngStyle]="field?.componentProperty?.labelStyle" [ngClass]="field?.componentProperty?.labelCss">
+        {{field?.componentProperty?.label}}</mat-label>
+    <mat-button-toggle-group [attr.formControlName]="field?.formControlName != undefined ? field?.formControlName : null" [appearance]="field?.componentProperty?.appearance"
+        [ngStyle]="field?.componentProperty?.groupStyle" [ngClass]="field?.componentProperty?.groupCss"
+        [attr.aria-label]="field?.componentProperty?.label" class="botton-toggle" (change)="toggleChange($event)">
+        <mat-button-toggle *ngFor="let item of field?.componentProperty?.options" [value]="item?.value"
+            [ngStyle]="field?.componentProperty?.componentStyle">
             {{item.viewValue}}
         </mat-button-toggle>
     </mat-button-toggle-group>

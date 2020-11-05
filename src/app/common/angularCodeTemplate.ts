@@ -55,6 +55,8 @@ export class AngularCodeTemplate {
 
     public static Button_Toggle_TS_KEY: string = "/button-toggle/button-toggle.component.ts";
     public static Button_Toggle_HTML_KEY: string = "/button-toggle/button-toggle.component.html"
+    public static Button_Toggle_OnHtml_TS_KEY: string = "/button-toggle/button-toggle-html/button-toggle-html.component.ts";
+    public static Button_Toggle_OnHtml_HTML_KEY: string = "/button-toggle/button-toggle-html/button-toggle-html.component.html"
     //End of button
 
     //progress bar/spinner

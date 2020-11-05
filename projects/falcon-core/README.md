@@ -16,6 +16,18 @@ Run `ng test @falcon-ng/core` to execute the unit tests via [Karma](https://karm
 
 ## In Production
 * Add the dependencies to the project `npm i @falcon-ng/core`
+    ### Publish to NPM 
+    * `ng build @falcon-ng/core --prod`
+    * `npm login`
+    * From the project root folder: `cd dist/@falcon-ng/core`
+    * `npm publish --access public` access public is for free version
+    ### To unplish the package from NPM
+    * `npm unpublish @falcon-ng/core@<version>`
+    * If publish error or previous version try the below command
+        ```
+        npm unpublish --force package@0.0.1
+        npm publish --force
+        ```
 
 ## In Development
 * During development the best way to consume library is using `npm link`
