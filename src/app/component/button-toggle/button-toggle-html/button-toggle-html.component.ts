@@ -13,10 +13,12 @@ export class ButtonToggleHtmlComponent implements OnInit {
   htmlButtonToggleConfig =
     {
       componentProperty: {
-        options: [{ value: 'Bold', viewValue: 'Bold' },
-        { value: 'Italic', viewValue: 'Italic' },
-        { value: 'Underline', viewValue: 'Underline' }],
-        appearance: Appearance.Standard
+        options: [{ value: 'Bold', viewValue: 'Bold', icon: 'format_bold' },
+        { value: 'Italic', viewValue: 'Italic', icon: 'format_italic' },
+        { value: 'Underline', viewValue: 'Underline', icon: 'format_underlined' }],
+        appearance: Appearance.Standard,
+        groupCss: 'w-100',
+        componentCss: 'w-100'
       },
       componentType: ComponentType.ButtonToggle
     };

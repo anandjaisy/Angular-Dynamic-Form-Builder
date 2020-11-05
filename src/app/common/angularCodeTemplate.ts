@@ -29,6 +29,8 @@ export class AngularCodeTemplate {
     //Radio button and checkbox 
     public static Radios_TS_KEY: string = "/radio/radio.component.ts";
     public static Radio_HTML_KEY: string = "/radio/radio.component.html"
+    public static Radios_OnHtml_TS_KEY: string = "/radio-html/radio-html.component.ts";
+    public static Radio_OnHtml_HTML_KEY: string = "/radio-html/radio-html.component.html"
 
     public static CheckBox_TS_KEY: string = "/checkbox/checkbox.component.ts";
     public static CheckBox_HTML_KEY: string = "/checkbox/checkbox.component.html"

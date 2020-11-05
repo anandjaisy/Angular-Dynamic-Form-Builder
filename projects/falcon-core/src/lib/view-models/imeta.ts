@@ -273,13 +273,14 @@ export declare interface ISliderProperty {
  * @usageNotes
  * ```ts
  *       componentProperty: {
- *        options: [{key : 'key-1', value : 'value-1'}];
+ *        options: [{key : 'key-1', value : 'value-1', icon: 'material_icon'}];
  *      }
  * ```
  */
 export declare interface IOptions {
   viewValue: string;
   value: any;
+  icon: string;
 }
 
 /**

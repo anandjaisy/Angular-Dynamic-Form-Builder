@@ -39,6 +39,7 @@ import { TableComponent } from './component/table/table.component';
 import { TableFilterComponent } from './component/table/table-filter/table-filter.component';
 import { TablePaginationComponent } from './component/table/table-pagination/table-pagination.component';
 import { ButtonToggleHtmlComponent } from './component/button-toggle/button-toggle-html/button-toggle-html.component';
+import { RadioHtmlComponent } from './component/radio/radio-html/radio-html.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { ButtonToggleHtmlComponent } from './component/button-toggle/button-togg
     TableComponent,
     TableFilterComponent,
     TablePaginationComponent,
-    ButtonToggleHtmlComponent
+    ButtonToggleHtmlComponent,
+    RadioHtmlComponent
   ],
   imports:[
     BrowserModule,
