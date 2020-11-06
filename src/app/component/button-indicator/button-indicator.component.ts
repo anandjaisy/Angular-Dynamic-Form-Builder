@@ -13,7 +13,14 @@ import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 })
 export class ButtonIndicatorComponent extends BaseFormComponent<any> implements OnInit {
   public codeGeneratorEnable: boolean = false;
-  htmlButtonConfig = {componentProperty: {label: "Basic",appearance: Appearance.Raised, color:"primary"},componentType: ComponentType.Button,formControlName: "Basic"}
+  htmlButtonConfig = {
+    componentProperty: {
+      label: "Basic", appearance: Appearance.Raised, color: "primary",
+      componentCss: 'w-100',
+      componentStyle: { width: '100%' }
+    },
+    componentType: ComponentType.Button, formControlName: "Basic"
+  }
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
   constructor(fb: FormBuilder) {
     super(fb);
@@ -21,7 +28,7 @@ export class ButtonIndicatorComponent extends BaseFormComponent<any> implements 
   }
 
   protected defineForm(): void {
-    
+
     this.controlsConfig =
     {
       layoutConfig: {
@@ -60,7 +67,7 @@ export class ButtonIndicatorComponent extends BaseFormComponent<any> implements 
         componentProperty: {
           label: "explore",
           appearance: Appearance.Icon,
-          disabled : true
+          disabled: true
         },
         componentType: ComponentType.Button,
         formControlName: "Icon"
