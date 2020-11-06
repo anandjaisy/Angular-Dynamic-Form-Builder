@@ -1,11 +1,11 @@
-<mat-form-field [appearance]="field.componentProperty.appearance" [formGroup]="group"
-    [floatLabel]="field.componentProperty.floatLabel" [ngStyle]="field.componentProperty.groupStyle"
-    [ngClass]="field.componentProperty.groupCss">
-    <mat-label>{{field.componentProperty.label}}</mat-label>
-    <mat-select [multiple]="field.componentProperty.selectProperty?.multiple"
-        [formControlName]="field.formControlName" [placeholder]="field.componentProperty.placeHolder"
-        [ngStyle]="field.componentProperty.componentStyle" [ngClass]="field.componentProperty.componentCss">
-        <mat-option *ngFor="let item of field.componentProperty.options" [value]="item.value">
+<mat-form-field [appearance]="field?.componentProperty?.appearance" [formGroup]="group"
+    [floatLabel]="field?.componentProperty?.floatLabel" [ngStyle]="field?.componentProperty?.groupStyle"
+    [ngClass]="field?.componentProperty?.groupCss">
+    <mat-label>{{field?.componentProperty?.label}}</mat-label>
+    <mat-select [multiple]="field?.componentProperty?.selectProperty?.multiple" (selectionChange)="selectChange($event)"
+        [formControlName]="field?.formControlName != undefined ? field?.formControlName : 'default'" [placeholder]="field?.componentProperty?.placeHolder"
+        [ngStyle]="field?.componentProperty?.componentStyle" [ngClass]="field?.componentProperty?.componentCss">
+        <mat-option *ngFor="let item of field?.componentProperty?.options" [value]="item.value">
             {{item.viewValue}}
         </mat-option>
     </mat-select>

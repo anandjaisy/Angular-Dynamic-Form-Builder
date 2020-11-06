@@ -40,6 +40,7 @@ import { TableFilterComponent } from './component/table/table-filter/table-filte
 import { TablePaginationComponent } from './component/table/table-pagination/table-pagination.component';
 import { ButtonToggleHtmlComponent } from './component/button-toggle/button-toggle-html/button-toggle-html.component';
 import { RadioHtmlComponent } from './component/radio/radio-html/radio-html.component';
+import { SelectHtmlComponent } from './component/select/select-html/select-html.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { RadioHtmlComponent } from './component/radio/radio-html/radio-html.comp
     TableFilterComponent,
     TablePaginationComponent,
     ButtonToggleHtmlComponent,
-    RadioHtmlComponent
+    RadioHtmlComponent,
+    SelectHtmlComponent
   ],
   imports:[
     BrowserModule,

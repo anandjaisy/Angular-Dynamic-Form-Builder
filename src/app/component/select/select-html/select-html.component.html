@@ -1,0 +1,15 @@
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+
+            <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                <h1>Select on html</h1>
+                <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+            </div>
+            <falcon-select [field]="selectOnHtmlConfig" (selectionChange)="selectionChange($event)"></falcon-select>
+            <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+                [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+
+        </mat-card-content>
+    </mat-card>
+</div>

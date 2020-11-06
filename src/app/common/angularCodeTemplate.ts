@@ -45,6 +45,8 @@ export class AngularCodeTemplate {
     //select
     public static Select_TS_KEY: string = "/select/select.component.ts";
     public static Select_HTML_KEY: string = "/select/select.component.html"
+    public static Select_OnHtml_TS_KEY: string = "/select/select-html/select-html.component.ts";
+    public static Select_OnHtml_HTML_KEY: string = "/select/select-html/select-html.component.html"
     //End of select
 
     // Button

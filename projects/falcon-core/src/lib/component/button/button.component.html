@@ -7,10 +7,10 @@
         <mat-icon *ngIf="field?.componentProperty?.suffix?.isIcon" style="margin-bottom: 1px;">{{field?.componentProperty?.suffix?.text}}</mat-icon>&nbsp;{{field.componentProperty.label}}
     </button>
     <button [disabled]="field?.componentProperty?.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [ngClass]="field?.componentProperty?.componentCss" [color]="field?.componentProperty?.color" [ngStyle]="field?.componentProperty?.componentStyle" mat-stroked-button *ngSwitchCase="2">
-        {{field.componentProperty.label}}
+        <mat-icon *ngIf="field?.componentProperty?.suffix?.isIcon" style="margin-bottom: 1px;">{{field?.componentProperty?.suffix?.text}}</mat-icon>&nbsp;{{field.componentProperty.label}}
     </button>
     <button [disabled]="field?.componentProperty?.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [ngClass]="field?.componentProperty?.componentCss" [color]="field?.componentProperty?.color" [ngStyle]="field?.componentProperty?.componentStyle" mat-flat-button *ngSwitchCase="3">
-        {{field.componentProperty.label}}
+        <mat-icon *ngIf="field?.componentProperty?.suffix?.isIcon" style="margin-bottom: 1px;">{{field?.componentProperty?.suffix?.text}}</mat-icon>&nbsp;{{field.componentProperty.label}}
     </button>
     <button [disabled]="field?.componentProperty?.disabled" (click)="childBtnClick()" [type]="field?.componentProperty?.attrType" [ngClass]="field?.componentProperty?.componentCss" [color]="field.componentProperty?.color" [ngStyle]="field?.componentProperty?.componentStyle" mat-icon-button [attr.aria-label]="field.componentProperty.label" *ngSwitchCase="4">
         <mat-icon>{{field.componentProperty.label}}</mat-icon>
