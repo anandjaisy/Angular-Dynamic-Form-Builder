@@ -11,7 +11,7 @@
         class="botton-toggle" (change)="toggleChange($event)">
         <mat-button-toggle *ngFor="let item of field?.componentProperty?.options" [value]="item?.value"
             [ngStyle]="field?.componentProperty?.componentStyle" [ngClass]="field?.componentProperty?.componentCss">
-            <mat-icon aria-hidden="false" aria-label="item icon" *ngIf="item?.icon != undefined">{{item?.icon}}</mat-icon>
+            <mat-icon [ngClass]="item?.class" aria-hidden="false" aria-label="item icon" *ngIf="item?.icon != undefined">{{item?.icon}}</mat-icon>
             {{item.viewValue | titlecase}}
         </mat-button-toggle>
     </mat-button-toggle-group>

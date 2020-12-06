@@ -281,6 +281,7 @@ export declare interface IOptions {
   viewValue: string;
   value: any;
   icon: string;
+  class: string;
 }
 
 /**
