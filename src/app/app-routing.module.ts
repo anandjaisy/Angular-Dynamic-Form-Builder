@@ -21,7 +21,7 @@ import { ModalDialogComponent } from './component/modal-dialog/modal-dialog.comp
 import { AuthCallbackComponent } from 'projects/falcon-core/src/lib/component/auth-callback/auth-callback.component';
 import { ChipsComponent } from './component/chips/chips.component';
 import { TableComponent } from './component/table/table.component';
-import { PaginationComponent } from './component/pagination/pagination.component';
+import { AppPaginationComponent } from './component/pagination/app-pagination.component';
 
 
 const routes: Routes = [
@@ -46,7 +46,7 @@ const routes: Routes = [
   {path: 'dialog', component: ModalDialogComponent},
   {path: 'chips', component: ChipsComponent},
   {path: 'tables', component: TableComponent},
-  {path: 'pagination', component: PaginationComponent}
+  {path: 'pagination', component: AppPaginationComponent}
 ];
 
 @NgModule({

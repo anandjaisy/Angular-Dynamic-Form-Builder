@@ -32,18 +32,19 @@ import { SnackBarComponent } from './component/snack-bar/snack-bar.component';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { ChipsComponent } from './component/chips/chips.component';
 import { TableComponent } from './component/table/table.component';
+import { PaginationComponent } from './component/pagination/pagination.component';
 @NgModule({
   declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent,
     SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,
     ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DeleteDialogComponent,
-    AutoCompleteComponent, AuthCallbackComponent, SnackBarComponent, ChipsComponent, TableComponent],
+    AutoCompleteComponent, AuthCallbackComponent, SnackBarComponent, ChipsComponent, TableComponent, PaginationComponent],
   imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule],
   exports: [
     AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule,
     ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent,
     CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ProgressBarComponent, ProgressSpinnerComponent,
     BottomSheetComponent, DeleteDialogComponent, AuthCallbackComponent, SnackBarComponent, ChipsComponent, TableComponent,
-    ButtonToggleComponent, AutoCompleteComponent
+    ButtonToggleComponent, AutoCompleteComponent, PaginationComponent
   ],
   entryComponents: [
     BottomSheetComponent, DeleteDialogComponent

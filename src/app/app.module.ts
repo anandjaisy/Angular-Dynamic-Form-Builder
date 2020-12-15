@@ -41,7 +41,7 @@ import { TablePaginationComponent } from './component/table/table-pagination/tab
 import { ButtonToggleHtmlComponent } from './component/button-toggle/button-toggle-html/button-toggle-html.component';
 import { RadioHtmlComponent } from './component/radio/radio-html/radio-html.component';
 import { SelectHtmlComponent } from './component/select/select-html/select-html.component';
-import { PaginationComponent } from './component/pagination/pagination.component';
+import { AppPaginationComponent } from './component/pagination/app-pagination.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +79,7 @@ import { PaginationComponent } from './component/pagination/pagination.component
     ButtonToggleHtmlComponent,
     RadioHtmlComponent,
     SelectHtmlComponent,
-    PaginationComponent
+    AppPaginationComponent
   ],
   imports:[
     BrowserModule,

@@ -20,18 +20,10 @@
                         The Pagination component enables the user to select a specific page from a range of pages.</p>
                 </div>
                 <div style="margin-top: 40px">
-                    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [appearance]="'standard'" (change)="receiveBtnChange($event.value)">
-                        <mat-button-toggle value="previous">
-                            <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_left</mat-icon>
-                        </mat-button-toggle>
-                        <mat-button-toggle [value]="item" *ngFor="let item of paginationSize;"><strong>{{item}}</strong></mat-button-toggle>
-                        <mat-button-toggle value="next">
-                            <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_right</mat-icon>
-                        </mat-button-toggle>
-                      </mat-button-toggle-group>
+                    <falcon-pagination [totalPage]="totalPage" [pageSize]="pageSize" (paginationEvent)="paginationEvent($event)"></falcon-pagination>
                 </div>
             </div>
-            
+
 
         </mat-card-content>
 

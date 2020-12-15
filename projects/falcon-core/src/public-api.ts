@@ -41,7 +41,7 @@ export * from './lib/component/auth-callback/auth-callback.component';
 export * from './lib/component/snack-bar/snack-bar.component';
 export * from './lib/component/chips/chips.component';
 export * from './lib/component/table/table.component';
-
+export * from './lib/component/pagination/pagination.component';
  /*
  * Public API Surface of falcon core module directive
  */
