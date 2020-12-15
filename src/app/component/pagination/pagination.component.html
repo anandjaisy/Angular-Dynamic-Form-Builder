@@ -1,0 +1,39 @@
+<div class="container">
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+            <a mat-mini-fab color="accent" routerLink="..">
+                <mat-icon>arrow_back</mat-icon>
+            </a>
+            <h2>Pagination</h2>
+            <h2></h2>
+        </div>
+
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <div style="margin-top: 40px">
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                        <h1>Pagination</h1>
+                        <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+                    </div>
+                    <p class="blurText">
+                        The Pagination component enables the user to select a specific page from a range of pages.</p>
+                </div>
+                <div style="margin-top: 40px">
+                    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [appearance]="'standard'" (change)="receiveBtnChange($event.value)">
+                        <mat-button-toggle value="previous">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_left</mat-icon>
+                        </mat-button-toggle>
+                        <mat-button-toggle [value]="item" *ngFor="let item of paginationSize;"><strong>{{item}}</strong></mat-button-toggle>
+                        <mat-button-toggle value="next">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_right</mat-icon>
+                        </mat-button-toggle>
+                      </mat-button-toggle-group>
+                </div>
+            </div>
+            
+
+        </mat-card-content>
+
+    </mat-card>
+</div>

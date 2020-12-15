@@ -107,4 +107,9 @@ export class AngularCodeTemplate {
     public static Form_Nexted_Field_Example_TS_KEY: string = "/form-layout-child-layout/child-layout.component.ts";
     public static Form_Nexted_Field__Example_HTML_KEY: string = "/form-layout-child-layout/child-layout.component.html"
     // End of Form Field
+
+    //pagination
+    public static Pagination_TS_KEY: string = "/pagination/pagination.component.ts";
+    public static Pagination_HTML_KEY: string = "/pagination/pagination.component.html"
+    // End of Pagination
 }
