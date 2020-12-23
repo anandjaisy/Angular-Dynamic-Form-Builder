@@ -5,6 +5,7 @@ import { EnvironmentViewModel } from '../../view-models/environment-view-model';
 import { Observable, Subject, from, timer } from 'rxjs';
 import { LoggerService } from '../logger.service';
 import { BehaviorSubject } from 'rxjs';
+import { TokenHelperService } from './TokenHelperService';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,27 +18,11 @@ export class AuthService {
   private user: User = null;
   public settings: UserManagerSettings;
 
-  private authState$ = new BehaviorSubject(false);
-  private authenticated: boolean = false;
-  private accessToken: string;
+  private accessToken: Object;
+  private signingOut: boolean = false;
 
-  constructor(private logger: LoggerService) {
-    this._isAuthenticated().then(state => {
+  constructor(private logger: LoggerService, private tokenHelperService: TokenHelperService) {
 
-      this.authState$.next(state);
-
-      this.authState$.subscribe((authenticated: boolean) => {
-
-        this.authenticated = authenticated;
-        this.accessToken = '';
-
-        if (this.authenticated) {
-          this.setAccessToken();
-        }
-
-      });
-
-    });
   }
 
   async initialize(environment: EnvironmentViewModel): Promise<void> {
@@ -45,6 +30,41 @@ export class AuthService {
     this.settings = this.getClientSettings(environment);
     this.userManager = new UserManager(this.settings);
     this.userManager.events.addUserLoaded(user => { this.user = user; });
+
+
+    this.userManager.events.addAccessTokenExpiring(() => {
+      this.logger.info("IdSvr token expiring", new Date());
+    });
+
+    this.userManager.events.addAccessTokenExpired(() => {
+      this.logger.info("IdSvr token expired", new Date());
+      this.logout(false);
+    });
+
+    this.userManager.events.addSilentRenewError(e => {
+      this.logger.warning("IdSvr silent renew error", e.message, new Date());
+      this.logout(false);
+    });
+
+    this.userManager.events.addUserLoaded(user => {
+      this.logger.info("IdSvr user session is ready", new Date());
+      this.accessToken = this.tokenHelperService.getPayloadFromToken(user.access_token, false);
+      this.user = user;
+    });
+
+    this.userManager.events.addUserUnloaded(() => {
+      this.logger.info("IdSvr user session has ended", new Date());
+
+      if (!this.signingOut) {
+        this.startAuthentication(window.location.pathname + window.location.search);
+      }
+    });
+
+    this.userManager.events.addUserSignedOut(() => {
+      this.logger.info("IdSvr user signed out", new Date());
+      this.logout(false);
+    });
+
     this.user = await this.userManager.getUser();
     this.initialized = true;
   }
@@ -69,16 +89,8 @@ export class AuthService {
     return `${this.user.token_type} ${this.user.access_token}`;
   }
 
-  public getAccessToken(): string {
-    return this.accessToken;
-  }
-  
-  private setAccessToken() {
-    this.accessToken = this.user.access_token;
-  }
-
-  private async _isAuthenticated(): Promise<boolean> {
-    return this.user !== null && !this.user.expired;
+  getAccessToken(): any {
+    return this.accessToken || this.tokenHelperService.getPayloadFromToken(this.user.access_token, false);;
   }
 
   async startAuthentication(returnUrl: string): Promise<void> {
@@ -107,7 +119,13 @@ export class AuthService {
     return this.userManager.signinSilent();
   }
 
-  public logout(): Promise<void> {
+  public logout(signoutRedirect?: boolean): Promise<void> {
+
+    if (signoutRedirect === undefined || signoutRedirect !== false) {
+      this.signingOut = true;
+      signoutRedirect = true;
+    }
+    
     return this.userManager.signoutRedirect();
   }
 
