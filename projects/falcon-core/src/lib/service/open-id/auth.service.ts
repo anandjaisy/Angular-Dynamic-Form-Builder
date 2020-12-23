@@ -86,7 +86,8 @@ export class AuthService {
   }
 
   public getAuthorizationHeaderValue(): string {
-    return `${this.user.token_type} ${this.user.access_token}`;
+    if (this.user != null)
+      return `${this.user.token_type} ${this.user.access_token}`;
   }
 
   getAccessToken(): any {
@@ -125,7 +126,7 @@ export class AuthService {
       this.signingOut = true;
       signoutRedirect = true;
     }
-    
+
     return this.userManager.signoutRedirect();
   }
 
