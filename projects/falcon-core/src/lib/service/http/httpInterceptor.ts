@@ -15,7 +15,7 @@ export class HttpFalconInterceptor implements HttpInterceptor {
 
         request = request.clone({
             setHeaders: {
-                Authorization: `Bearer ${this.authService.getAuthorizationHeaderValue()}`
+                Authorization: `Bearer ${this.authService.getAccessToken()}`
             }
         });
         return next.handle(request);

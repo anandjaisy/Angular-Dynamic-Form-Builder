@@ -4,6 +4,7 @@ import { AppSettingService } from '../appsetting.service';
 import { EnvironmentViewModel } from '../../view-models/environment-view-model';
 import { Observable, Subject, from, timer } from 'rxjs';
 import { LoggerService } from '../logger.service';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +17,28 @@ export class AuthService {
   private user: User = null;
   public settings: UserManagerSettings;
 
-  constructor(private logger: LoggerService) { }
+  private authState$ = new BehaviorSubject(false);
+  private authenticated: boolean = false;
+  private accessToken: string;
+
+  constructor(private logger: LoggerService) {
+    this._isAuthenticated().then(state => {
+
+      this.authState$.next(state);
+
+      this.authState$.subscribe((authenticated: boolean) => {
+
+        this.authenticated = authenticated;
+        this.accessToken = '';
+
+        if (this.authenticated) {
+          this.setAccessToken();
+        }
+
+      });
+
+    });
+  }
 
   async initialize(environment: EnvironmentViewModel): Promise<void> {
     if (this.initialized) return;
@@ -42,8 +64,21 @@ export class AuthService {
   public getClaims(): any {
     return this.user.profile;
   }
+
   public getAuthorizationHeaderValue(): string {
     return `${this.user.token_type} ${this.user.access_token}`;
+  }
+
+  public getAccessToken(): string {
+    return this.accessToken;
+  }
+  
+  private setAccessToken() {
+    this.accessToken = this.user.access_token;
+  }
+
+  private async _isAuthenticated(): Promise<boolean> {
+    return this.user !== null && !this.user.expired;
   }
 
   async startAuthentication(returnUrl: string): Promise<void> {
