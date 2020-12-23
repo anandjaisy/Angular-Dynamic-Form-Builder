@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { PaginationComponent } from './falcon-pagination.component';
+import { PaginationComponent } from './pagination.component';
 
 describe('FalconPaginationComponent', () => {
   let component: PaginationComponent;

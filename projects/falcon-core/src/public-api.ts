@@ -13,10 +13,11 @@ export * from './lib/module/angular-material/angular-material.module';
  /*
  * Public API Surface of falcon core module service
  */
-export * from './lib/service/igeneric-http-client';
+export * from './lib/service/http/igeneric-http-client';
 export * from './lib/service/logger.service';
 export * from './lib/service/open-id/auth.service';
 export * from './lib/service/open-id/auth-guard.service';
+export * from './lib/service/http/httpInterceptor';
 
  /*
  * Public API Surface of falcon core module component

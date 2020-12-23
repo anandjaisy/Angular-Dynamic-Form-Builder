@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { IRequestOptions } from '../view-models/interface';
+import { IRequestOptions } from '../../view-models/interface';
 @Injectable()
 export abstract class IGenericHttpClient<T> {
     /**
