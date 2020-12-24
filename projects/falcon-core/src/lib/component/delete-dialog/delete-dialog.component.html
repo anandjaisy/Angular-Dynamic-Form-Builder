@@ -1,11 +1,12 @@
 <h1 mat-dialog-title>Delete</h1>
 <mat-divider></mat-divider>
-<div mat-dialog-content>
-  Are you sure you want to delete
+<div mat-dialog-content class="margin-top-bottom">
+  <span class="mat-h2">Are you sure you want to delete ?</span>
 </div>
 <mat-divider></mat-divider>
-<div fxLayout="row" fxLayoutAlign="space-end" style="margin-top: 18px;">
-  <button mat-button [mat-dialog-close]="" cdkFocusInitial>Cancel</button>
+<br>
+<div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+  <button mat-raised-button [mat-dialog-close]="" cdkFocusInitial>Cancel</button>
   <button mat-raised-button [color]="'warn'" [mat-dialog-close]="data">
     Delete
   </button>
