@@ -11,7 +11,6 @@ import { catchError } from "rxjs/internal/operators";
 export class HttpFalconInterceptor implements HttpInterceptor {
     constructor(public authService: AuthService, private logger: LoggerService) { }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
         // Get the auth token from the service.
         const authToken = this.authService.getAuthorizationHeaderValue();
         this.logger.info("Auth bearer token ", authToken);
@@ -19,6 +18,7 @@ export class HttpFalconInterceptor implements HttpInterceptor {
         if (authToken) {
             request = request.clone({
                 setHeaders: {
+                    'Content-Type':  'application/json',
                     Authorization: authToken
                 }
             });
