@@ -109,6 +109,7 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
       * ```
     */
   private request<T>(method: string, url: string, options?: IRequestOptions): Observable<T> {
+    options.headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     return Observable.create((observer: any) => {
       let destinationUrl = '';
       if (this.environment.baseUrl != undefined)
