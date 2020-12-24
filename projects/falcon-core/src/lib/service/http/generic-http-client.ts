@@ -10,7 +10,9 @@ import { LoggerService } from '../logger.service';
 import { ComponentType } from '../../view-models/component-type.enum';
 import { HttpStatusCode } from '../../view-models/HttpStatusCodeEnum';
 import { SnackbarViewModel } from '../../view-models/snack-bar-viewmodel';
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class GenericHttpClient<T> implements IGenericHttpClient<T>{
   private snackBarViewModel: SnackbarViewModel = new SnackbarViewModel();
   private isHttpError: boolean = false;
@@ -108,8 +110,7 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
       *    this.request<T>(HttpMethod.Delete, destinationUrl, options);
       * ```
     */
-  private request<T>(method: string, url: string, options?: IRequestOptions): Observable<T> {
-    options.headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+  private request<T>(method: string, url: string, options?: IRequestOptions | { headers: { 'Content-Type', 'application/json; charset=utf-8' } }): Observable<T> {
     return Observable.create((observer: any) => {
       let destinationUrl = '';
       if (this.environment.baseUrl != undefined)
