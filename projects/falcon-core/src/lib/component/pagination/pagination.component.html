@@ -2,7 +2,7 @@
     <span class="mat-h3">Page {{currentPage}} of {{totalPage}}</span>
     <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
         <mat-button-toggle value="bold" *ngFor="let item of paginationSize; index as i;"
-            (change)="receiveBtnChange(item)">
+            (change)="receiveBtnChange(item)" [checked]="firstLoad && i ==0">
             &nbsp;&nbsp; <span class="mat-h3">{{item}}</span>&nbsp;&nbsp;
         </mat-button-toggle>
     </mat-button-toggle-group>

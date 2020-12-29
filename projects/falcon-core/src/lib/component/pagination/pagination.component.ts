@@ -15,16 +15,19 @@ export class PaginationComponent implements OnInit {
   private start: number;
   private end: number;
   currentPage: number = 1;
+  firstLoad: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.firstLoad = true;
     this.paginationSize = [...Array.from({ length: (this.totalPage < this.pageSize ? this.totalPage : this.pageSize) }, (_, i) => i + 1)];
     if (this.paginationSize.length == this.totalPage)
       this.nextDisable = true;
   }
 
   receiveBtnChange($event) {
+    this.firstLoad = false;
     this.currentPage = $event;
     if ($event == this.totalPage)
       this.nextDisable = true;
