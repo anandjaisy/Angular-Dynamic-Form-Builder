@@ -25,8 +25,8 @@ Run `ng test @falcon-ng/core` to execute the unit tests via [Karma](https://karm
     * `npm unpublish @falcon-ng/core@<version>`
     * If publish error or previous version try the below command
         ```
-        npm unpublish --force package@0.0.1
-        npm publish --force
+        npm unpublish --force @falcon-ng/core@0.0.1
+        npm publish --force --access public
         ```
 
 ## In Development
