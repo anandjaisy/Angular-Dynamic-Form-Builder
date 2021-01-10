@@ -26,7 +26,6 @@ import { DeleteDialogComponent } from './component/delete-dialog/delete-dialog.c
 import { AutoCompleteComponent } from './component/auto-complete/auto-complete.component';
 import { authServiceFactory, AuthService } from './service/open-id/auth.service';
 import { EnvironmentViewModel } from './view-models/environment-view-model';
-import { AuthCallbackComponent } from './component/auth-callback/auth-callback.component';
 import { loggerServiceFactory, LoggerService } from './service/logger.service';
 import { SnackBarComponent } from './component/snack-bar/snack-bar.component';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
@@ -37,13 +36,13 @@ import { PaginationComponent } from './component/pagination/pagination.component
   declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent,
     SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,
     ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DeleteDialogComponent,
-    AutoCompleteComponent, AuthCallbackComponent, SnackBarComponent, ChipsComponent, TableComponent, PaginationComponent],
+    AutoCompleteComponent, SnackBarComponent, ChipsComponent, TableComponent, PaginationComponent],
   imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule],
   exports: [
     AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule,
     ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent,
     CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ProgressBarComponent, ProgressSpinnerComponent,
-    BottomSheetComponent, DeleteDialogComponent, AuthCallbackComponent, SnackBarComponent, ChipsComponent, TableComponent,
+    BottomSheetComponent, DeleteDialogComponent, SnackBarComponent, ChipsComponent, TableComponent,
     ButtonToggleComponent, AutoCompleteComponent, PaginationComponent
   ],
   entryComponents: [

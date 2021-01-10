@@ -33,27 +33,27 @@ export class AuthService {
 
 
     this.userManager.events.addAccessTokenExpiring(() => {
-      this.logger.info("IdSvr token expiring", new Date());
+      this.logger.info("IdSvr token expiring " + new Date().toLocaleString());
     });
 
     this.userManager.events.addAccessTokenExpired(() => {
-      this.logger.info("IdSvr token expired", new Date());
+      this.logger.info("IdSvr token expired " + new Date().toLocaleString());
       this.logout(false);
     });
 
     this.userManager.events.addSilentRenewError(e => {
-      this.logger.warning("IdSvr silent renew error", e.message, new Date());
+      this.logger.error("IdSvr silent renew error " + e.message + new Date().toLocaleString());
       this.logout(false);
     });
 
     this.userManager.events.addUserLoaded(user => {
-      this.logger.info("IdSvr user session is ready", new Date());
+      this.logger.info("IdSvr user session is ready " + new Date().toLocaleString());
       this.accessToken = this.tokenHelperService.getPayloadFromToken(user.access_token, false);
       this.user = user;
     });
 
     this.userManager.events.addUserUnloaded(() => {
-      this.logger.info("IdSvr user session has ended", new Date());
+      this.logger.info("IdSvr user session has ended " + new Date().toLocaleString());
 
       if (!this.signingOut) {
         this.startAuthentication(window.location.pathname + window.location.search);
@@ -61,7 +61,7 @@ export class AuthService {
     });
 
     this.userManager.events.addUserSignedOut(() => {
-      this.logger.info("IdSvr user signed out", new Date());
+      this.logger.info("IdSvr user signed out " + new Date().toLocaleString());
       this.logout(false);
     });
 
@@ -142,8 +142,9 @@ export class AuthService {
       loadUserInfo: true,
       monitorSession: true,
       silent_redirect_uri: environment.openID.silent_redirect_uri,
+      automaticSilentRenew: environment.openID.automaticSilentRenew,
       accessTokenExpiringNotificationTime: 20, //default 60
-      checkSessionInterval: 5000, //default 2000
+      checkSessionInterval: 2000, //default 2000
       silentRequestTimeout: 20000,
     };
   }

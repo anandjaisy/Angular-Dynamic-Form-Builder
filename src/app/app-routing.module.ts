@@ -18,14 +18,13 @@ import { ProgressSpinnerComponent } from './component/progress-spinner/progress-
 import { ExampleBottomSheetComponent } from './component/bottom-sheet/bottom-sheet.component';
 import { SnackbarComponent } from './component/snackbar/snackbar.component';
 import { ModalDialogComponent } from './component/modal-dialog/modal-dialog.component';
-import { AuthCallbackComponent } from 'projects/falcon-core/src/lib/component/auth-callback/auth-callback.component';
 import { ChipsComponent } from './component/chips/chips.component';
 import { TableComponent } from './component/table/table.component';
 import { AppPaginationComponent } from './component/pagination/app-pagination.component';
 
 
 const routes: Routes = [
-  {path: 'auth-callback', component: AuthCallbackComponent},
+//  {path: 'auth-callback', component: AuthCallbackComponent},
   {path: '', component: TestReactiveControlsComponent},
   {path: 'input', component: InputComponent},
   {path: 'auto-complete', component: AutoCompleteComponent},
