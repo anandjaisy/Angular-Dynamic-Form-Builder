@@ -45,12 +45,12 @@ export class SelectComponent extends BaseFormComponent<any> implements OnInit {
           options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
           { value: 'Bellsprout', viewValue: 'Bellsprout' },
           { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
+          { value: 'Onion', viewValue: 'Onion', disabled: true },
           { value: 'Pepperoni', viewValue: 'Pepperoni' },
           { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }],
+          { value: 'Tomato', viewValue: 'Tomato', disabled: false }],
           appearance: Appearance.Outline,
-          selectProperty: {multiple : true},
+          selectProperty: { multiple: true },
           color: 'accent'
         },
         componentType: ComponentType.Select,
@@ -62,6 +62,9 @@ export class SelectComponent extends BaseFormComponent<any> implements OnInit {
 
   ngOnInit(): void {
     this.form = this.createControls();
+    setTimeout(() => {
+      this.patchValue({multipleMatSelect: [this.controlsConfig.componentConfig[1].componentProperty.options[6].disabled = true]})
+    }, 10000)
   }
 
   protected getDatasource(): Observable<any> {

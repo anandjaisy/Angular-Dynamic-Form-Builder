@@ -82,6 +82,6 @@ export declare interface MatTablePaginationConfig {
  * Interface use for mat table action button configuration.
  */
 export declare interface TableButtonAction {
-  edit: boolean;
-  delete: boolean;
+  edit?: boolean;
+  delete?: boolean;
 }

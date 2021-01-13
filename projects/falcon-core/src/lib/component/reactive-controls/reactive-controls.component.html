@@ -3,7 +3,7 @@
     [fxLayoutGap.gt-xs]="fields.layoutConfig.fxLayoutGap != undefined ? fields.layoutConfig.fxLayoutGap : '0'"
     [fxLayoutAlign]="fields.layoutConfig.fxLayoutAlignHorizontal + ' ' + fields.layoutConfig.fxLayoutAlignVertical">
     <div *ngFor="let field of fields.componentConfig;"
-        [fxFlex]="field?.componentProperty?.fxFlexChildLayout?.fxFlex != undefined ? field?.componentProperty?.fxFlexChildLayout?.fxFlex:'0 0 auto'"
+        [fxFlex]="field?.componentProperty?.fxFlexChildLayout?.fxFlex != undefined ? field?.componentProperty?.fxFlexChildLayout?.fxFlex:''"
         [fxFlex.xs]="field?.componentProperty?.fxFlexChildLayout?.fxFlex_xs"
         [fxFlexAlign]="field?.componentProperty?.fxFlexChildLayout?.fxFlexAlign"
         [fxFlex.xs]="field?.componentProperty?.fxFlexChildLayout?.fxFlex_xs"

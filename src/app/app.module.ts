@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestReactiveControlsComponent } from './component/test-reactive-controls/test-reactive-controls.component';
-import { FalconCoreModule } from 'projects/falcon-core/src/public-api';
+import { FalconCoreModule, HttpFalconInterceptor } from 'projects/falcon-core/src/public-api';
 import { InputComponent } from './component/input/input.component';
 import { AutoCompleteComponent } from './component/auto-complete/auto-complete.component';
 import { CheckboxComponent } from './component/checkbox/checkbox.component';
@@ -17,7 +17,7 @@ import { SliderComponent } from './component/slider/slider.component';
 import { SlideToggleComponent } from './component/slide-toggle/slide-toggle.component';
 import { ButtonIndicatorComponent } from './component/button-indicator/button-indicator.component';
 import { CodeGeneratorComponent } from './component/code-generator/code-generator.component';
-import {HighlightModule,HIGHLIGHT_OPTIONS,HighlightOptions} from "ngx-highlightjs";
+import { HighlightModule, HIGHLIGHT_OPTIONS, HighlightOptions } from "ngx-highlightjs";
 import { InputFloatingLabelComponent } from './component/input/input-floating-label/input-floating-label.component';
 import { CodeButtonComponent } from './common/component/code-button/code-button.component';
 import { InputHintComponent } from './component/input/input-hint/input-hint.component';
@@ -38,6 +38,11 @@ import { ChildLayoutComponent } from './component/form-field/form-layout-child-l
 import { TableComponent } from './component/table/table.component';
 import { TableFilterComponent } from './component/table/table-filter/table-filter.component';
 import { TablePaginationComponent } from './component/table/table-pagination/table-pagination.component';
+import { ButtonToggleHtmlComponent } from './component/button-toggle/button-toggle-html/button-toggle-html.component';
+import { RadioHtmlComponent } from './component/radio/radio-html/radio-html.component';
+import { SelectHtmlComponent } from './component/select/select-html/select-html.component';
+import { AppPaginationComponent } from './component/pagination/app-pagination.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -71,9 +76,13 @@ import { TablePaginationComponent } from './component/table/table-pagination/tab
     ChildLayoutComponent,
     TableComponent,
     TableFilterComponent,
-    TablePaginationComponent
+    TablePaginationComponent,
+    ButtonToggleHtmlComponent,
+    RadioHtmlComponent,
+    SelectHtmlComponent,
+    AppPaginationComponent
   ],
-  imports:[
+  imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -81,7 +90,9 @@ import { TablePaginationComponent } from './component/table/table-pagination/tab
     HighlightModule
   ],
   providers: [
-    {provide: HIGHLIGHT_OPTIONS,useValue: <HighlightOptions>{lineNumbers: true}}],
+    { provide: HIGHLIGHT_OPTIONS, useValue: <HighlightOptions>{ lineNumbers: true } },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpFalconInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

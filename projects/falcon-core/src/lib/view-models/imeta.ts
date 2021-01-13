@@ -270,16 +270,20 @@ export declare interface ISliderProperty {
 /**
  * @description
  * Interface use for setting the options meta.
+ * Disable is used for select option values
  * @usageNotes
  * ```ts
  *       componentProperty: {
- *        options: [{key : 'key-1', value : 'value-1'}];
+ *        options: [{key : 'key-1', value : 'value-1', icon: 'material_icon', disabled: true}];
  *      }
  * ```
  */
 export declare interface IOptions {
   viewValue: string;
   value: any;
+  icon: string;
+  class: string;
+  disabled? : boolean;
 }
 
 /**

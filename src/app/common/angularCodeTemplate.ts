@@ -29,6 +29,8 @@ export class AngularCodeTemplate {
     //Radio button and checkbox 
     public static Radios_TS_KEY: string = "/radio/radio.component.ts";
     public static Radio_HTML_KEY: string = "/radio/radio.component.html"
+    public static Radios_OnHtml_TS_KEY: string = "/radio-html/radio-html.component.ts";
+    public static Radio_OnHtml_HTML_KEY: string = "/radio-html/radio-html.component.html"
 
     public static CheckBox_TS_KEY: string = "/checkbox/checkbox.component.ts";
     public static CheckBox_HTML_KEY: string = "/checkbox/checkbox.component.html"
@@ -43,6 +45,8 @@ export class AngularCodeTemplate {
     //select
     public static Select_TS_KEY: string = "/select/select.component.ts";
     public static Select_HTML_KEY: string = "/select/select.component.html"
+    public static Select_OnHtml_TS_KEY: string = "/select/select-html/select-html.component.ts";
+    public static Select_OnHtml_HTML_KEY: string = "/select/select-html/select-html.component.html"
     //End of select
 
     // Button
@@ -55,6 +59,8 @@ export class AngularCodeTemplate {
 
     public static Button_Toggle_TS_KEY: string = "/button-toggle/button-toggle.component.ts";
     public static Button_Toggle_HTML_KEY: string = "/button-toggle/button-toggle.component.html"
+    public static Button_Toggle_OnHtml_TS_KEY: string = "/button-toggle/button-toggle-html/button-toggle-html.component.ts";
+    public static Button_Toggle_OnHtml_HTML_KEY: string = "/button-toggle/button-toggle-html/button-toggle-html.component.html"
     //End of button
 
     //progress bar/spinner
@@ -101,4 +107,9 @@ export class AngularCodeTemplate {
     public static Form_Nexted_Field_Example_TS_KEY: string = "/form-layout-child-layout/child-layout.component.ts";
     public static Form_Nexted_Field__Example_HTML_KEY: string = "/form-layout-child-layout/child-layout.component.html"
     // End of Form Field
+
+    //pagination
+    public static Pagination_TS_KEY: string = "/pagination/pagination.component.ts";
+    public static Pagination_HTML_KEY: string = "/pagination/pagination.component.html"
+    // End of Pagination
 }

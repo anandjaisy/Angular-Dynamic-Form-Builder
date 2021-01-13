@@ -1,12 +1,18 @@
-<div [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss" [formGroup]="group">
-    <mat-label [ngStyle]="field.componentProperty.labelStyle" [ngClass]="field.componentProperty.labelCss">
-        {{field.componentProperty.label}}</mat-label>
-    <mat-button-toggle-group [formControlName]="field.formControlName" [appearance]="field.componentProperty.appearance"
-        [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss"
-        [attr.aria-label]="field.componentProperty.label" class="botton-toggle">
-        <mat-button-toggle *ngFor="let item of field.componentProperty.options" [value]="item.value"
-            [ngStyle]="field.componentProperty.componentStyle">
-            {{item.viewValue}}
+<div [ngStyle]="field.componentProperty?.groupStyle" [ngClass]="field?.componentProperty?.groupCss"
+    [formGroup]="group">
+    <mat-label [ngStyle]="field?.componentProperty?.labelStyle" [ngClass]="field?.componentProperty?.labelCss"
+        *ngIf="field?.componentProperty?.label != undefined">
+        {{field?.componentProperty?.label | titlecase}}
+    </mat-label>
+    <mat-button-toggle-group
+        [formControlName]="field?.formControlName != undefined ? field?.formControlName : 'default'"
+        [appearance]="field?.componentProperty?.appearance" [ngStyle]="field?.componentProperty?.groupStyle"
+        [ngClass]="field?.componentProperty?.groupCss" [attr.aria-label]="field?.componentProperty?.label"
+        class="botton-toggle" (change)="toggleChange($event)">
+        <mat-button-toggle *ngFor="let item of field?.componentProperty?.options" [value]="item?.value"
+            [ngStyle]="field?.componentProperty?.componentStyle" [ngClass]="field?.componentProperty?.componentCss">
+            <mat-icon [ngClass]="item?.class" aria-hidden="false" aria-label="item icon" *ngIf="item?.icon != undefined">{{item?.icon}}</mat-icon>
+            {{item.viewValue | titlecase}}
         </mat-button-toggle>
     </mat-button-toggle-group>
 </div>

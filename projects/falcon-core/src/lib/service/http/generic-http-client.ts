@@ -1,18 +1,21 @@
-import { HttpClient, HttpHeaders, HttpRequest, HttpEventType, HttpEvent, HttpResponse, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpRequest, HttpEventType, HttpEvent, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable, from } from 'rxjs';
 import { IGenericHttpClient } from './igeneric-http-client';
 import { Injectable } from '@angular/core';
-import { HttpMethod } from '../view-models/component-type.enum'
-import { IRequestOptions } from '../view-models/interface';
-import { EnvironmentViewModel } from '../view-models/environment-view-model';
+import { HttpMethod } from '../../view-models/component-type.enum';
+import { IRequestOptions } from '../../view-models/interface';
+import { EnvironmentViewModel } from '../../view-models/environment-view-model';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { LoggerService } from "./logger.service";
-import { ComponentType } from '../view-models/component-type.enum';
-import { HttpStatusCode } from "../view-models/HttpStatusCodeEnum";
-import { SnackbarViewModel } from "../view-models/snack-bar-viewmodel";
-@Injectable()
+import { LoggerService } from '../logger.service';
+import { ComponentType } from '../../view-models/component-type.enum';
+import { HttpStatusCode } from '../../view-models/HttpStatusCodeEnum';
+import { SnackbarViewModel } from '../../view-models/snack-bar-viewmodel';
+@Injectable({
+  providedIn: 'root'
+})
 export class GenericHttpClient<T> implements IGenericHttpClient<T>{
   private snackBarViewModel: SnackbarViewModel = new SnackbarViewModel();
+  private isHttpError: boolean = false;
 
   constructor(private httpClient: HttpClient, private environment: EnvironmentViewModel,
     private _snackBar: MatSnackBar, private logger: LoggerService) { }
@@ -109,7 +112,7 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
     */
   private request<T>(method: string, url: string, options?: IRequestOptions): Observable<T> {
     return Observable.create((observer: any) => {
-      let destinationUrl = "";
+      let destinationUrl = '';
       if (this.environment.baseUrl != undefined)
         destinationUrl = (this.environment.baseUrl) + url
       else
@@ -119,50 +122,46 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
           const responsTye = response as HttpEvent<any>
           switch (responsTye.type) {
             case HttpEventType.Sent:
-              this.logger.info("Http Client : Sent ->", "Request sent!");
+              this.logger.info('Http Client : Sent ->', 'Request sent!');
               break;
             case HttpEventType.ResponseHeader:
-              this.logger.info("Http Client : ResponseHeader ->", "Response header received!");
+              this.logger.info('Http Client : ResponseHeader ->', 'Response header received!');
               break;
             case HttpEventType.DownloadProgress:
               const kbLoaded = Math.round(responsTye.loaded / 1024);
-              this.logger.info("Http Client : DownloadProgress ->", `Download in progress! ${kbLoaded}Kb loaded`);
+              this.logger.info('Http Client : DownloadProgress ->', `Download in progress! ${kbLoaded}Kb loaded`);
               break;
             case HttpEventType.Response:
               observer.next(response.body);
-              this.logger.info("Http Client : Response -> 😺 Done!", responsTye.body);
+              this.logger.info('Http Client : Response -> 😺 Done!', responsTye.body);
           }
         },
         (error) => {
           switch (error.status) {
             case HttpStatusCode.FORBIDDEN:
-              //observer.complete();
+              // observer.complete();
               this.snackBarViewModel.messageText = 'Access to the requested resource is forbidden.';
               this.snackBarViewModel.actionText = 'Forbidden';
-              observer.error(error);
+              this.isHttpError = true;
               break;
             case HttpStatusCode.BAD_REQUEST:
               this.snackBarViewModel.messageText = 'Server cannot or will not process the request.';
               this.snackBarViewModel.actionText = 'Bad Request';
-              observer.error(error);
+              this.isHttpError = true;
               break;
             case HttpStatusCode.UNAUTHORIZED:
               this.snackBarViewModel.messageText = 'Request has not been applied because it lacks valid authentication credentials.';
               this.snackBarViewModel.actionText = 'Unauthorized';
-              observer.error(error);
+              this.isHttpError = true;
               break;
             case HttpStatusCode.INTERNAL_SERVER_ERROR:
               this.snackBarViewModel.messageText = 'Server encountered an unexpected condition.';
               this.snackBarViewModel.actionText = 'Internal server error';
-              observer.error(error);
-              break;
-            default:
-              this.snackBarViewModel.messageText = 'Default';
-              this.snackBarViewModel.actionText = 'Default';
-              observer.error(error);
+              this.isHttpError = true;
               break;
           }
-          if (this.environment.snackBarEnable != undefined && this.environment.snackBarEnable)
+          observer.error(error);
+          if ((this.environment.snackBarEnable != undefined && this.environment.snackBarEnable) && this.isHttpError)
             this._snackBar.open(this.snackBarViewModel.messageText, this.snackBarViewModel.actionText);
         }
       );

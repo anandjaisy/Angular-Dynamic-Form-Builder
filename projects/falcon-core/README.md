@@ -16,6 +16,18 @@ Run `ng test @falcon-ng/core` to execute the unit tests via [Karma](https://karm
 
 ## In Production
 * Add the dependencies to the project `npm i @falcon-ng/core`
+    ### Publish to NPM 
+    * `ng build @falcon-ng/core --prod`
+    * `npm login`
+    * From the project root folder: `cd dist/@falcon-ng/core`
+    * `npm publish --access public` access public is for free version
+    ### To unplish the package from NPM
+    * `npm unpublish @falcon-ng/core@<version>`
+    * If publish error or previous version try the below command
+        ```
+        npm unpublish --force @falcon-ng/core@0.0.1
+        npm publish --force --access public
+        ```
 
 ## In Development
 * During development the best way to consume library is using `npm link`
@@ -25,7 +37,7 @@ Run `ng test @falcon-ng/core` to execute the unit tests via [Karma](https://karm
     ```
 * We can link an Angular project to this library from anywhere on local machine. From the project root folder:
     ``` 
-        npm link @falcon-ng/core       
+        npm link @falcon-ng/core
     ```
 * If we now build the library with the watch flag `ng build @falcon-ng/core --watch`, and at the same time run `ng serve -o` to another   project in another terminal window.
 * This will allow us to develop an application and (one or more) linked libraries simultaneously, and see the app recompile with each modification to the library’s source code.

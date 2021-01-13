@@ -1,9 +1,12 @@
-<div [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss" [formGroup]="group">
-    <label class="radio-label-padding">{{field.componentProperty.label}}</label>
-    <mat-radio-group [attr.aria-label]="field.componentProperty.label" [labelPosition]="field.componentProperty.appearance"
-        [formControlName]="field.formControlName" [ngStyle]="field.componentProperty.componentStyle"
-        [ngClass]="field.componentProperty.groupCss">
-        <mat-radio-button [ngClass]="field.componentProperty.componentCss"
-            *ngFor="let item of field.componentProperty.options" [value]="item">{{item}}</mat-radio-button>
+<div [ngStyle]="field?.componentProperty?.groupStyle" [ngClass]="field?.componentProperty?.groupCss"
+    [formGroup]="group">
+    <label class="radio-label-padding">{{field?.componentProperty?.label | titlecase}}</label>
+    <mat-radio-group [attr.aria-label]="field?.componentProperty?.label"
+        [labelPosition]="field?.componentProperty?.appearance"
+        [formControlName]="field?.formControlName != undefined ? field?.formControlName : 'default'"
+        [ngStyle]="field?.componentProperty?.componentStyle" [ngClass]="field?.componentProperty?.groupCss"
+        (change)="radioGroupChangeEvent($event)">
+        <mat-radio-button [ngClass]="field?.componentProperty?.componentCss"
+            *ngFor="let item of field?.componentProperty?.options" [value]="item">{{item | titlecase}}</mat-radio-button>
     </mat-radio-group>
 </div>

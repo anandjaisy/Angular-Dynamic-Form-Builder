@@ -1,0 +1,15 @@
+
+<mat-card>
+
+    <mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                <h1>Botton toggle on HTML</h1>
+                <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+            </div>
+            <falcon-button-toggle [field]="htmlButtonToggleConfig" (toggleGroupChange)="toggleChange($event)"></falcon-button-toggle>
+        <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
+            [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
+
+    </mat-card-content>
+
+</mat-card>
