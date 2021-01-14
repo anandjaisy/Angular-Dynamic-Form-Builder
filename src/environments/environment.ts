@@ -3,15 +3,16 @@ import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/view-models/e
 class EnvironmentImpl implements EnvironmentViewModel {
   production = true;
   openID = {
-    authority: "https://falconidentityserver.azurewebsites.net",
-    client_id: "Local",
-    redirect_uri: "https://falconidentityserver.azurewebsites.net/auth-callback",
-    silent_redirect_uri: "https://falconidentityserver.azurewebsites.net/assets/silent-renew.html",
-    response_type: "code",
-    scope: "openid profile email",
+    authority: 'https://falconidentityserver.azurewebsites.net',
+    client_id: 'Fete_Bird_UI',
+    redirect_uri: 'http://localhost:4200/auth-callback',
+    silent_redirect_uri: 'http://localhost:4200/assets/silent-renew.html',
+    post_logout_redirect_uri: 'http://localhost:4200',
+    response_type: 'code',
+    scope: 'openid profile email',
     automaticSilentRenew: true
   };
-  baseUrl= "https://falconidentityserver.azurewebsites.net";
+  baseUrl = 'http://localhost:8080';
   snackBarEnable = true;
 }
 

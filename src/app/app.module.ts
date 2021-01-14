@@ -43,6 +43,7 @@ import { RadioHtmlComponent } from './component/radio/radio-html/radio-html.comp
 import { SelectHtmlComponent } from './component/select/select-html/select-html.component';
 import { AppPaginationComponent } from './component/pagination/app-pagination.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthCallbackComponent } from './component/auth-callback/auth-callback.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     ButtonToggleHtmlComponent,
     RadioHtmlComponent,
     SelectHtmlComponent,
-    AppPaginationComponent
+    AppPaginationComponent,
+    AuthCallbackComponent
   ],
   imports: [
     BrowserModule,
