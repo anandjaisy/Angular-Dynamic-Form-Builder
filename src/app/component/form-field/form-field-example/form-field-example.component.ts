@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
 import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 import { CustomValidator } from 'src/app/common/validations';
+import { IGenericHttpClient } from 'projects/falcon-core/src/public-api';
 
 @Component({
   selector: 'app-form-field-example',
@@ -15,7 +16,7 @@ import { CustomValidator } from 'src/app/common/validations';
 export class FormFieldExampleComponent extends BaseFormComponent<any> implements OnInit {
   codeGeneratorEnable: boolean = false;
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private iGenericHttpClient: IGenericHttpClient<any>) {
     super(fb);
     this.defineForm();
   }
@@ -204,6 +205,7 @@ export class FormFieldExampleComponent extends BaseFormComponent<any> implements
   }
   protected submitDatasource(model: any): Observable<any> {
     console.log(model);
+    this.iGenericHttpClient.Post("/api/v1/category", model).subscribe();
     return of(model);
   }
   buttonClickEvent() {

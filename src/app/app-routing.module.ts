@@ -21,10 +21,11 @@ import { ModalDialogComponent } from './component/modal-dialog/modal-dialog.comp
 import { ChipsComponent } from './component/chips/chips.component';
 import { TableComponent } from './component/table/table.component';
 import { AppPaginationComponent } from './component/pagination/app-pagination.component';
+import { AuthCallbackComponent } from './component/auth-callback/auth-callback.component';
 
 
 const routes: Routes = [
-//  {path: 'auth-callback', component: AuthCallbackComponent},
+  {path: 'auth-callback', component: AuthCallbackComponent},
   {path: '', component: TestReactiveControlsComponent},
   {path: 'input', component: InputComponent},
   {path: 'auto-complete', component: AutoCompleteComponent},
