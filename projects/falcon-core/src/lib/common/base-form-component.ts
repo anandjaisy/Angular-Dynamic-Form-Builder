@@ -20,9 +20,6 @@ import { IMeta, IComponentConfig } from '../view-models/imeta';
  *    ngOnInit(): void {
  *      this.form = this.createControls();
  *    }
- *    protected getDatasource(): Observable<any> {
- *      return of();
- *    }
  *    protected submitDatasource(model: any): Observable<any> {
  *      console.log(model);
  *      return of(model);
@@ -32,7 +29,6 @@ import { IMeta, IComponentConfig } from '../view-models/imeta';
 export abstract class BaseFormComponent<T>{
   public form: FormGroup;
   protected abstract defineForm(): void;
-  protected abstract getDatasource(): Observable<T>;
   protected abstract submitDatasource(model: T): Observable<T>;
   public dataSource: T = null;
   public controlsConfig: IMeta;
