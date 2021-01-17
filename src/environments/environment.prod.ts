@@ -1,16 +1,19 @@
 import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/view-models/environment-view-model';
 
 class EnvironmentImpl implements EnvironmentViewModel {
-  production = true;
+  production = false;
   openID = {
-    authority: "https://monashunidev.oktapreview.com/oauth2/auspadhq6vhMx4wbe0h7",
-    clientId: "0oap8o3sb89sI1GrX0h7",
-    redirectUri: "https://localhost:44307/auth-callback",
-    silentRedirectUri: "https://localhost:44307/assets/silent-renew.html",
-    responseType: "code",
-    scope: "openid profile email"
+    authority: 'https://falconidentityserver.azurewebsites.net',
+    client_id: 'Fete_Bird_UI',
+    redirect_uri: 'http://localhost:4200/auth-callback',
+    silent_redirect_uri: 'http://localhost:4200/assets/silent-renew.html',
+    post_logout_redirect_uri: 'http://localhost:4200',
+    response_type: 'code',
+    scope: 'openid profile email',
+    automaticSilentRenew: true
   };
-  baseUrl= "https://raw.githubusercontent.com/anandjaisy/Angular-Dynamic-Form-Builder/master/src/app/component";
+  baseUrl = 'http://localhost:8080/api/v1';
+  snackBarEnable = true;
 }
 
 export const environment = new EnvironmentImpl();

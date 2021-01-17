@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTable, MatTableConfig } from '../../../../projects/falcon-core/src/lib/view-models/interface';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
 import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
+import { IGenericHttpClient } from 'projects/falcon-core/src/public-api';
 
 
 export interface PeriodicElement {
@@ -40,12 +41,16 @@ export class TableComponent implements OnInit {
     { columnDef: 'symbol', header: 'Symbol', cell: (element: any) => `${element.symbol}` }
   ];
   dataSource = ELEMENT_DATA;
-  constructor() { }
-
+  constructor(private iGenericHttpClient: IGenericHttpClient<any>) { }
+  
   ngOnInit(): void {
     this.matTableConfig.columns = this.columns;
     this.matTableConfig.filter = false;
     this.matTableConfig.dataSource = this.dataSource;
+
+    this.iGenericHttpClient.Get('/category').subscribe(item => {
+      console.log(item);
+    });
     
   }
 
