@@ -18,7 +18,7 @@ export class HttpFalconInterceptor implements HttpInterceptor {
         if (authToken) {
             request = request.clone({
                 setHeaders: {
-                    'Content-Type':  'application/json',
+                    'Content-Type': 'application/json',
                     Authorization: authToken
                 }
             });
@@ -27,10 +27,11 @@ export class HttpFalconInterceptor implements HttpInterceptor {
         /**
             * continues request execution
         */
-        return next.handle(request).pipe(catchError((error, caught) => {
-            //intercept the respons error and displace it to the console
-            this.logger.error(error);
-            return of(error);
-        }) as any);
+        return next.handle(request);
+        // return next.handle(request).pipe(catchError((error, caught) => {
+        //     //intercept the respons error and displace it to the console
+        //     this.logger.error(error);
+        //     return of(error);
+        // }) as any);
     }
 }

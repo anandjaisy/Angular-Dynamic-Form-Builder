@@ -1,7 +1,7 @@
 import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/view-models/environment-view-model';
 
 class EnvironmentImpl implements EnvironmentViewModel {
-  production = true;
+  production = false;
   openID = {
     authority: 'https://falconidentityserver.azurewebsites.net',
     client_id: 'Fete_Bird_UI',
@@ -12,7 +12,7 @@ class EnvironmentImpl implements EnvironmentViewModel {
     scope: 'openid profile email',
     automaticSilentRenew: true
   };
-  baseUrl = 'http://localhost:8080';
+  baseUrl = 'http://localhost:8080/api/v1';
   snackBarEnable = true;
 }
 
