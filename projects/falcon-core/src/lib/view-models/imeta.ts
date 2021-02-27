@@ -279,10 +279,10 @@ export declare interface ISliderProperty {
  * ```
  */
 export declare interface IOptions {
-  viewValue: string;
-  value: any;
-  icon: string;
-  class: string;
+  viewValue?: string;
+  value?: any;
+  icon?: string;
+  class?: string;
   disabled? : boolean;
 }
 
