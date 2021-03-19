@@ -3,13 +3,13 @@
         [formGroup]="group" [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
         <mat-label>{{field.componentProperty.label}}</mat-label>
         <mat-chip-list #chipList aria-label="item selection">
-            <mat-chip *ngFor="let option of field?.componentProperty?.options" [selectable]="selectable"
+            <mat-chip *ngFor="let option of chipsList" [selectable]="selectable"
                 [removable]="removable" (removed)="remove(option)">
                 {{option?.viewValue}}
                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>
 
-            <input matInput #chipInput [formControl]="autoCompleteControl" [formControlName]="field.formControlName"
+            <input matInput #chipInput [formControl]="autoCompleteControl" [formArrayName]="field.formControlName"
                 [placeholder]="field.componentProperty.placeHolder" [ngStyle]="field.componentProperty.componentStyle"
                 [ngClass]="field.componentProperty.componentCss" [matAutocomplete]="auto" [matChipInputFor]="chipList"
                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)"
@@ -27,7 +27,7 @@
         [formGroup]="group" [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
         <mat-label>{{field.componentProperty.label}}</mat-label>
         <mat-chip-list #chipList aria-label="item selection">
-            <mat-chip *ngFor="let option of field?.componentProperty?.options" [selectable]="selectable"
+            <mat-chip *ngFor="let option of chipsList" [selectable]="selectable"
                 [removable]="removable" (removed)="remove(option)">
                 {{option?.viewValue}}
                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>

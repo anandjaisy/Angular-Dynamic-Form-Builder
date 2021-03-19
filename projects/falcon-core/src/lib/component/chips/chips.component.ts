@@ -22,6 +22,7 @@ export class ChipsComponent implements OnInit {
   addOnBlur = true;
   filteredOptions: Observable<IOptions[]>;
   autoCompleteControl = new FormControl();
+  chipsList: IOptions[] = [];
 
   @ViewChild('chipInput') fruitInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
@@ -39,7 +40,7 @@ export class ChipsComponent implements OnInit {
     const value = event.value;
 
     if ((value || '').trim()) {
-      this.field.componentProperty.options.push(
+      this.chipsList.push(
         {
           viewValue: value.trim(),
           value: value.trim()
@@ -60,17 +61,19 @@ export class ChipsComponent implements OnInit {
     });
   }
 
-  remove(fruit: IOptions): void {
-    const index = this.field.componentProperty.options.indexOf(fruit);
+  remove(option: IOptions): void {
+    const index = this.chipsList.indexOf(option);
 
     if (index >= 0) {
-      this.field.componentProperty.options.splice(index, 1);
+      this.chipsList.splice(index, 1);
       this.items.removeAt(index)
     }
   }
 
   optionSelected(event: MatAutocompleteSelectedEvent): void {
-    this.field.componentProperty.options.push({ viewValue: event.option.value, value: event.option.value });
+    this.chipsList.push({ viewValue: event.option.value, value: event.option.value });
+    this.items = this.group.get(this.field.formControlName) as FormArray;
+    this.items.push(this.createItem(event.option.value));
   }
 
   private _filter(value: string): IOptions[] {
