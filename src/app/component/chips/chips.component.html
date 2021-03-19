@@ -18,7 +18,8 @@
                     </div>
                     <h2>Mat Chip </h2>
                     <p class="blurText">
-                        <strong class="text-format">mat-chip-list</strong> displays a list of values as individual, keyboard accessible, chips.
+                        <strong class="text-format">mat-chip-list</strong> displays a list of values as individual,
+                        keyboard accessible, chips.
                     </p>
                 </div>
                 <br><br>
@@ -29,5 +30,25 @@
 
         </mat-card-content>
 
+    </mat-card>
+    <br>
+    <mat-card>
+        <div>
+            <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                <h1>Auto complete chips</h1>
+                <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+            </div>
+        </div>
+        <app-chips-autocomplete></app-chips-autocomplete>
+    </mat-card>
+    <br>
+    <mat-card>
+        <div>
+            <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                <h1>Chips with input</h1>
+                <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
+            </div>
+        </div>
+        <app-chips-withinput></app-chips-withinput>
     </mat-card>
 </div>

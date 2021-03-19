@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { IComponentConfig } from '../../view-models/imeta';
+import { IComponentConfig } from '../../model/imeta';
 @Component({
   selector: 'falcon-checkbox',
   templateUrl: './checkbox.component.html',

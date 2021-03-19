@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IComponentConfig } from '../../view-models/imeta';
+import { IComponentConfig } from '../../model/imeta';
 import { FormGroup } from '@angular/forms';
 
 @Component({

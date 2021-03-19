@@ -22,6 +22,7 @@ import { ChipsComponent } from './component/chips/chips.component';
 import { TableComponent } from './component/table/table.component';
 import { AppPaginationComponent } from './component/pagination/app-pagination.component';
 import { AuthCallbackComponent } from './component/auth-callback/auth-callback.component';
+import { AngularEditorComponent } from './component/angular-editor/angular-editor.component';
 
 
 const routes: Routes = [
@@ -46,7 +47,8 @@ const routes: Routes = [
   {path: 'dialog', component: ModalDialogComponent},
   {path: 'chips', component: ChipsComponent},
   {path: 'tables', component: TableComponent},
-  {path: 'pagination', component: AppPaginationComponent}
+  {path: 'pagination', component: AppPaginationComponent},
+  {path: 'editor', component: AngularEditorComponent}
 ];
 
 @NgModule({

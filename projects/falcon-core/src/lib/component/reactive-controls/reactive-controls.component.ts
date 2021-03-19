@@ -1,7 +1,7 @@
 import { Component, OnInit,Input, ViewEncapsulation } from '@angular/core';
-import { IMeta } from '../../view-models/imeta';
+import { IMeta } from '../../model/imeta';
 import { FormGroup,Validators, FormBuilder } from '@angular/forms';
-import { ComponentType } from '../../view-models/component-type.enum';
+import { ComponentType } from '../../model/component-type.enum';
 import { BaseFormComponent } from '../../common/base-form-component';
 
 @Component({

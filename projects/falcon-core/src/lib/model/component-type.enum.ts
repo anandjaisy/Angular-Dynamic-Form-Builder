@@ -18,7 +18,8 @@ export const enum ComponentType {
     Slider = 8,
     ButtonToggle = 9,
     AutoComplete = 10,
-    Chip = 11
+    Chip = 11,
+    Editor = 12
 }
 /**
  * @description
@@ -60,7 +61,8 @@ export const enum InputTypes {
         * @usageNotes Should be only use for Buttom
     */
     Button = "button",
-    Submit = "submit"
+    Submit = "submit",
+    DragDrop = "dragDrop"
 }
 /**
  * @description

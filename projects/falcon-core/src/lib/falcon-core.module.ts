@@ -25,25 +25,26 @@ import { BottomSheetComponent } from './component/bottom-sheet/bottom-sheet.comp
 import { DeleteDialogComponent } from './component/delete-dialog/delete-dialog.component';
 import { AutoCompleteComponent } from './component/auto-complete/auto-complete.component';
 import { authServiceFactory, AuthService } from './service/open-id/auth.service';
-import { EnvironmentViewModel } from './view-models/environment-view-model';
+import { EnvironmentViewModel } from './model/environment-view-model';
 import { loggerServiceFactory, LoggerService } from './service/logger.service';
 import { SnackBarComponent } from './component/snack-bar/snack-bar.component';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { ChipsComponent } from './component/chips/chips.component';
 import { TableComponent } from './component/table/table.component';
 import { PaginationComponent } from './component/pagination/pagination.component';
+import { EditorComponent } from './component/editor/editor.component';
 @NgModule({
   declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent,
     SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,
     ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DeleteDialogComponent,
-    AutoCompleteComponent, SnackBarComponent, ChipsComponent, TableComponent, PaginationComponent],
+    AutoCompleteComponent, SnackBarComponent, ChipsComponent, TableComponent, PaginationComponent, EditorComponent],
   imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule],
   exports: [
     AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule,
     ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent,
     CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ProgressBarComponent, ProgressSpinnerComponent,
     BottomSheetComponent, DeleteDialogComponent, SnackBarComponent, ChipsComponent, TableComponent,
-    ButtonToggleComponent, AutoCompleteComponent, PaginationComponent
+    ButtonToggleComponent, AutoCompleteComponent, PaginationComponent,EditorComponent
   ],
   entryComponents: [
     BottomSheetComponent, DeleteDialogComponent

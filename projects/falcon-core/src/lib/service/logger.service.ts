@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { LoggingLevel } from '../view-models/LoggingLevel';
+import { LoggingLevel } from '../model/LoggingLevel';
 import { AppSettingService } from './appsetting.service';
-import { IAppSettingViewModel } from '../view-models/iappsetting-view-model';
+import { IAppSettingViewModel } from '../model/iappsetting-view-model';
 
 @Injectable({
   providedIn: 'root'

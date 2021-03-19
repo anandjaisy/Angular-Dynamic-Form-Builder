@@ -10,11 +10,13 @@ import { SliderComponent } from '../component/slider/slider.component';
 import { ButtonToggleComponent } from '../component/button-toggle/button-toggle.component';
 import { AutoCompleteComponent } from '../component/auto-complete/auto-complete.component';
 import { ChipsComponent } from '../component/chips/chips.component';
+import { EditorComponent } from '../component/editor/editor.component';
 
 export class ConstantValues {
     public static ComponentMapper = 
     [
         TextboxComponent, TextAreaComponent, SelectComponent, DatePickerComponent, RadioComponent, CheckboxComponent, 
-        ButtonComponent, SlideToggleComponent, SliderComponent, ButtonToggleComponent, AutoCompleteComponent, ChipsComponent
+        ButtonComponent, SlideToggleComponent, SliderComponent, ButtonToggleComponent, AutoCompleteComponent, ChipsComponent,
+        EditorComponent
     ];
 }

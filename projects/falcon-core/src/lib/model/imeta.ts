@@ -48,6 +48,7 @@ export declare interface IComponentProperty {
   sliderProperty?: ISliderProperty;
   selectProperty?: ISelectOptions;
   fxFlexChildLayout?: IfxFlexChildLayout;
+  isFormArray?: boolean;
 }
 /**
  * @description

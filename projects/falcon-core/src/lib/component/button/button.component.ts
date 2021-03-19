@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { IComponentConfig } from '../../view-models/imeta';
-import { Appearance } from '../../view-models/component-type.enum';
+import { IComponentConfig } from '../../model/imeta';
+import { Appearance } from '../../model/component-type.enum';
 
 @Component({
   selector: 'falcon-button',

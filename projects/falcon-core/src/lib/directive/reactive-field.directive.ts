@@ -1,8 +1,8 @@
 import { Directive } from '@angular/core';
 import {ComponentFactoryResolver,Input,OnInit,ViewContainerRef} from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import {IComponentConfig } from '../view-models/imeta';
-import { ConstantValues } from '../view-models/constant-values';
+import {IComponentConfig } from '../model/imeta';
+import { ConstantValues } from '../model/constant-values';
 
 @Directive({
   selector: "[reactiveField]"

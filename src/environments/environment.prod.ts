@@ -1,4 +1,4 @@
-import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/view-models/environment-view-model';
+import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/model/environment-view-model';
 
 class EnvironmentImpl implements EnvironmentViewModel {
   production = false;

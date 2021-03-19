@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BaseFormComponent } from '../../../../projects/falcon-core/src/lib/common/base-form-component';
 import { FormBuilder } from '@angular/forms';
 import { AngularCodeTemplateViewModel } from '../../../../src/app/common/angularCodeTemplateViewModel';
-import { ComponentType, InputTypes, FxLayout, AlignmentLayoutDirection, Appearance } from '../../../../projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, FxLayout, AlignmentLayoutDirection, Appearance } from '../../../../projects/falcon-core/src/lib/model/component-type.enum';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplate } from '../../../../src/app/common/angularCodeTemplate';
 

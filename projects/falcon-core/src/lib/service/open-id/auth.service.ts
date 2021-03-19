@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User, UserManager, UserManagerSettings } from 'oidc-client';
 import { AppSettingService } from '../appsetting.service';
-import { EnvironmentViewModel } from '../../view-models/environment-view-model';
+import { EnvironmentViewModel } from '../../model/environment-view-model';
 import { Observable, Subject, from, timer } from 'rxjs';
 import { LoggerService } from '../logger.service';
 import { BehaviorSubject } from 'rxjs';

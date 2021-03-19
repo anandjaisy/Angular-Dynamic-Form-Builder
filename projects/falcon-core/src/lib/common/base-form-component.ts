@@ -1,7 +1,7 @@
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { ComponentType } from '../view-models/component-type.enum';
-import { IMeta, IComponentConfig } from '../view-models/imeta';
+import { ComponentType } from '../model/component-type.enum';
+import { IMeta, IComponentConfig } from '../model/imeta';
 /**
  * @description
  * Base form component initialized to create form controls, set validation, submit.
@@ -33,7 +33,7 @@ export abstract class BaseFormComponent<T>{
   public dataSource: T = null;
   public controlsConfig: IMeta;
   public showLoading: boolean = false;
-  constructor(private fb: FormBuilder) {
+  constructor(protected fb: FormBuilder) {
   }
   /**
     * @description
@@ -80,12 +80,11 @@ export abstract class BaseFormComponent<T>{
       * @param field field to bind.
       * @param group group to add.
   */
-  private bindControl(field, group) {
+  private bindControl(field: IComponentConfig, group) {
     if (field.componentType === ComponentType.Button) return;
-    const control = this.fb.control(
-      { value: field.componentProperty.value, disabled: field.componentProperty.disabled },
-      this.bindValidations(field.validations || [])
-    );
+    const control = field.componentProperty.isFormArray ? this.fb.array([], this.bindValidations(field.validations || [])) :
+      this.fb.control({ value: field.componentProperty.value, disabled: field.componentProperty.disabled },
+        this.bindValidations(field.validations || []));
     group.addControl(field.formControlName, control);
   }
 
@@ -199,8 +198,8 @@ export abstract class BaseFormComponent<T>{
    * ```
    */
   protected removeControl(index: number) {
-      this.form.removeControl(this.controlsConfig.componentConfig[index].formControlName);
-      this.controlsConfig.componentConfig.splice(index, 1);
+    this.form.removeControl(this.controlsConfig.componentConfig[index].formControlName);
+    this.controlsConfig.componentConfig.splice(index, 1);
   }
   /**
    * @description
