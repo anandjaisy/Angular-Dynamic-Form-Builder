@@ -47,6 +47,7 @@ import { AuthCallbackComponent } from './component/auth-callback/auth-callback.c
 import { ChipsAutocompleteComponent } from './component/chips/chips-autocomplete/chips-autocomplete.component';
 import { ChipsWithinputComponent } from './component/chips/chips-withinput/chips-withinput.component';
 import { AngularEditorComponent } from './component/angular-editor/angular-editor.component';
+import { ChipsDragDropComponent } from './component/chips/chips-drag-drop/chips-drag-drop.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { AngularEditorComponent } from './component/angular-editor/angular-edito
     AuthCallbackComponent,
     ChipsAutocompleteComponent,
     ChipsWithinputComponent,
-    AngularEditorComponent
+    AngularEditorComponent,
+    ChipsDragDropComponent
   ],
   imports: [
     BrowserModule,

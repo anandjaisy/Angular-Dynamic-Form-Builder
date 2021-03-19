@@ -3,8 +3,8 @@
         [formGroup]="group" [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
         <mat-label>{{field.componentProperty.label}}</mat-label>
         <mat-chip-list #chipList aria-label="item selection">
-            <mat-chip *ngFor="let option of chipsList" [selectable]="selectable"
-                [removable]="removable" (removed)="remove(option)">
+            <mat-chip *ngFor="let option of chipsList" [selectable]="selectable" [removable]="removable"
+                (removed)="remove(option)">
                 {{option?.viewValue}}
                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>
@@ -27,8 +27,8 @@
         [formGroup]="group" [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
         <mat-label>{{field.componentProperty.label}}</mat-label>
         <mat-chip-list #chipList aria-label="item selection">
-            <mat-chip *ngFor="let option of chipsList" [selectable]="selectable"
-                [removable]="removable" (removed)="remove(option)">
+            <mat-chip *ngFor="let option of chipsList" [selectable]="selectable" [removable]="removable"
+                (removed)="remove(option)">
                 {{option?.viewValue}}
                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>
@@ -43,8 +43,16 @@
         </mat-chip-list>
     </mat-form-field>
 
-    <mat-chip-list aria-label="Fish selection" *ngSwitchDefault>
+    <mat-chip-list aria-label="Chips selection" *ngSwitchDefault>
         <mat-chip color="{{field.componentProperty.color}}" selected>{{field.componentProperty.label}}</mat-chip>
+    </mat-chip-list>
+
+
+    <mat-chip-list class="chip-list" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)"
+        *ngSwitchCase="'dragDrop'">
+        <mat-chip class="example-box" cdkDrag *ngFor="let option of field?.componentProperty?.options">
+            {{option?.viewValue}}
+        </mat-chip>
     </mat-chip-list>
 
 </ng-container>

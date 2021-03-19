@@ -7,6 +7,7 @@ import { IOptions } from '../../model/imeta';
 import { Observable, from } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'falcon-chip',
@@ -81,5 +82,9 @@ export class ChipsComponent implements OnInit {
       const filterValue = value.toLowerCase();
       return this.field.componentProperty.options.filter(option => option.value.toLowerCase().includes(filterValue));
     }
+  }
+
+  drop(event: CdkDragDrop<IOptions[]>) {
+    moveItemInArray(this.field.componentProperty.options, event.previousIndex, event.currentIndex);
   }
 }
