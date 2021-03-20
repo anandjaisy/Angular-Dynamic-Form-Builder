@@ -23,6 +23,7 @@ import { TableComponent } from './component/table/table.component';
 import { AppPaginationComponent } from './component/pagination/app-pagination.component';
 import { AuthCallbackComponent } from './component/auth-callback/auth-callback.component';
 import { AngularEditorComponent } from './component/angular-editor/angular-editor.component';
+import { FormComponent } from './component/form/form.component';
 
 
 const routes: Routes = [
@@ -48,7 +49,8 @@ const routes: Routes = [
   {path: 'chips', component: ChipsComponent},
   {path: 'tables', component: TableComponent},
   {path: 'pagination', component: AppPaginationComponent},
-  {path: 'editor', component: AngularEditorComponent}
+  {path: 'editor', component: AngularEditorComponent},
+  {path: 'form', component: FormComponent}
 ];
 
 @NgModule({

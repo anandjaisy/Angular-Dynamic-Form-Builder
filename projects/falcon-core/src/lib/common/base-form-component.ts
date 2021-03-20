@@ -233,7 +233,7 @@ export abstract class BaseFormComponent<T>{
     configToAdd.forEach(configToAdd => {
       this.form.addControl(configToAdd.formControlName,
         new FormControl({ value: configToAdd.componentProperty.value, disabled: configToAdd.componentProperty.disabled },
-          this.bindValidations(configToAdd.validations)));
+          this.bindValidations(configToAdd.validations || [])));
       this.controlsConfig.componentConfig.push(configToAdd);
     });
   }

@@ -48,6 +48,8 @@ import { ChipsAutocompleteComponent } from './component/chips/chips-autocomplete
 import { ChipsWithinputComponent } from './component/chips/chips-withinput/chips-withinput.component';
 import { AngularEditorComponent } from './component/angular-editor/angular-editor.component';
 import { ChipsDragDropComponent } from './component/chips/chips-drag-drop/chips-drag-drop.component';
+import { FormComponent } from './component/form/form.component';
+import { FormChildComponent } from './component/form/form-child/form-child.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +92,9 @@ import { ChipsDragDropComponent } from './component/chips/chips-drag-drop/chips-
     ChipsAutocompleteComponent,
     ChipsWithinputComponent,
     AngularEditorComponent,
-    ChipsDragDropComponent
+    ChipsDragDropComponent,
+    FormComponent,
+    FormChildComponent
   ],
   imports: [
     BrowserModule,
