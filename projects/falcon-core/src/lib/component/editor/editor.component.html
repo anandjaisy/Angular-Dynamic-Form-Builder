@@ -1,1 +1,7 @@
-<!-- <angular-editor formControlName="htmlContent" [config]="editorConfig"></angular-editor> -->
+<ng-container [formGroup]="group">
+    <angular-editor 
+    [config]="field?.componentProperty?.editorProperty" 
+    [formControlName]="field?.formControlName">
+
+    </angular-editor>
+</ng-container>

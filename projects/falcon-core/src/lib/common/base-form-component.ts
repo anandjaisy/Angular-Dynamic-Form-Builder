@@ -82,7 +82,8 @@ export abstract class BaseFormComponent<T>{
   */
   private bindControl(field: IComponentConfig, group) {
     if (field.componentType === ComponentType.Button) return;
-    const control = field.componentProperty.isFormArray ? this.fb.array([], this.bindValidations(field.validations || [])) :
+    const control = field.componentProperty.isFormArray
+      ? this.fb.array([], this.bindValidations(field.validations || [])) :
       this.fb.control({ value: field.componentProperty.value, disabled: field.componentProperty.disabled },
         this.bindValidations(field.validations || []));
     group.addControl(field.formControlName, control);

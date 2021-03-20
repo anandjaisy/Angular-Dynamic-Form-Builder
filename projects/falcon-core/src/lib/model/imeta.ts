@@ -1,5 +1,7 @@
 import { IValidator } from './ivalidator';
 import { ComponentType, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel, InputTypes } from './component-type.enum';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
+
 /**
  * @description
  * Interface use for setting the component meta.
@@ -44,11 +46,12 @@ export declare interface IComponentProperty {
   value?: string | any;
   disabled?: boolean;
   color?: string;
+  fxFlexChildLayout?: IfxFlexChildLayout;
+  isFormArray?: boolean;
   textAreaProperty?: ITextAreaProperty;
   sliderProperty?: ISliderProperty;
   selectProperty?: ISelectOptions;
-  fxFlexChildLayout?: IfxFlexChildLayout;
-  isFormArray?: boolean;
+  editorProperty?: AngularEditorConfig;
 }
 /**
  * @description

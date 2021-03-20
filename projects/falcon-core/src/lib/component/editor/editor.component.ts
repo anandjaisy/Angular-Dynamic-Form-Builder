@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IComponentConfig } from '../../model/imeta';
 import { FormGroup } from '@angular/forms';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
   selector: 'lib-editor',

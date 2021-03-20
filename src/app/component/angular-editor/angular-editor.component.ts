@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
-import { BaseFormComponent } from 'projects/falcon-core/src/public-api';
 import { FormBuilder } from '@angular/forms';
 import { Observable, of } from 'rxjs';
+import { BaseFormComponent, AlignmentLayoutDirection, FxLayout, Appearance, ComponentType, InputTypes } from 'projects/falcon-core/src/public-api';
 
 @Component({
   selector: 'app-angular-editor',
@@ -11,7 +11,7 @@ import { Observable, of } from 'rxjs';
 })
 export class AngularEditorComponent extends BaseFormComponent<any> implements OnInit {
   public codeGeneratorEnable: boolean = false;
-  public angularCodeTemplateViewModel : AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
 
   constructor(fb: FormBuilder) {
     super(fb);
@@ -19,9 +19,71 @@ export class AngularEditorComponent extends BaseFormComponent<any> implements On
   }
 
   ngOnInit(): void {
+    this.form = this.createControls();
   }
 
-  protected defineForm(): void {}
+  protected defineForm(): void {
+    this.controlsConfig =
+    {
+      layoutConfig: {
+        fxLayout: FxLayout.Row,
+        fxLayoutGap: "10px",
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
+      },
+      componentConfig: [{
+        componentProperty: {
+          editorProperty: {
+            editable: true,
+            spellcheck: true,
+            height: 'auto',
+            minHeight: '420px',
+            maxHeight: 'auto',
+            width: 'auto',
+            minWidth: '0',
+            translate: 'yes',
+            enableToolbar: true,
+            showToolbar: true,
+            placeholder: 'Enter text here...',
+            defaultParagraphSeparator: '',
+            defaultFontName: '',
+            defaultFontSize: '',
+            fonts: [
+              { class: 'arial', name: 'Arial' },
+              { class: 'times-new-roman', name: 'Times New Roman' },
+              { class: 'calibri', name: 'Calibri' },
+              { class: 'comic-sans-ms', name: 'Comic Sans MS' }
+            ],
+            customClasses: [
+              {
+                name: 'quote',
+                class: 'quote',
+              },
+              {
+                name: 'redText',
+                class: 'redText'
+              },
+              {
+                name: 'titleText',
+                class: 'titleText',
+                tag: 'h1',
+              },
+            ],
+            uploadUrl: 'v1/image',
+            uploadWithCredentials: false,
+            sanitize: true,
+            toolbarPosition: 'top',
+            toolbarHiddenButtons: [
+              ['bold', 'italic'],
+              ['fontSize']
+            ]
+          }
+        },
+        componentType: ComponentType.Editor,
+        formControlName: "editor",
+      }]
+    }
+  }
 
   protected getDatasource(): Observable<any> {
     return of();

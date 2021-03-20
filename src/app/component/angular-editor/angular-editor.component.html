@@ -4,7 +4,7 @@
             <a mat-mini-fab color="accent" routerLink="..">
                 <mat-icon>arrow_back</mat-icon>
             </a>
-            <h2>Chips</h2>
+            <h2>Angular editor</h2>
             <h2></h2>
         </div>
 
@@ -15,6 +15,10 @@
                     <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
                 </form>                
             </div>
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <pre><code [highlight]="form?.value | json"></code></pre>
+            </div>
+            
             <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
                 [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
 
