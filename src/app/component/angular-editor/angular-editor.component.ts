@@ -3,6 +3,7 @@ import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplate
 import { FormBuilder } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { BaseFormComponent, AlignmentLayoutDirection, FxLayout, Appearance, ComponentType, InputTypes } from 'projects/falcon-core/src/public-api';
+import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 
 @Component({
   selector: 'app-angular-editor',
@@ -91,6 +92,12 @@ export class AngularEditorComponent extends BaseFormComponent<any> implements On
   protected submitDatasource(model: any): Observable<any> {
     console.log(model);
     return of(model);
+  }
+
+  buttonClickEvent() {
+    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.ANGULAR_EDITOR_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.ANGULAR_EDITOR_HTML_KEY;
+    this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
 
 }

@@ -53,9 +53,20 @@ export class AngularCodeTemplate {
     public static Button_TS_KEY: string = "/button-indicator/button-indicator.component.ts";
     public static Button_HTML_KEY: string = "/button-indicator/button-indicator.component.html"
 
-    // Button
+    // chips
     public static Chips_TS_KEY: string = "/chips/chips.component.ts";
     public static Chips_HTML_KEY: string = "/chips/chips.component.html"
+    public static Chips_AUTO_COMPLETE_TS_KEY: string = "/chips/chips-autocomplete/chips-autocomplete.component.ts";
+    public static Chips_AUTO_COMPLETE_HTML_KEY: string = "/chips/chips-autocomplete/chips-autocomplete.component.html"
+    public static Chips_INPUT_TS_KEY: string = "/chips/chips-withinput/chips-withinput.component.ts";
+    public static Chips_INPUT_HTML_KEY: string = "/chips/chips-withinput/chips-withinput.component.html"
+    public static Chips_DRAGDROP_TS_KEY: string = "/chips/chips-drag-drop/chips-drag-drop.component.ts";
+    public static Chips_DRAGDROP_HTML_KEY: string = "/chips/chips-drag-drop/chips-drag-drop.component.html"
+
+    // Angular editor
+    public static ANGULAR_EDITOR_TS_KEY: string = "/angular-editor/angular-editor.component.ts";
+    public static ANGULAR_EDITOR_HTML_KEY: string = "/angular-editor/angular-editor.component.html"
+
 
     public static Button_Toggle_TS_KEY: string = "/button-toggle/button-toggle.component.ts";
     public static Button_Toggle_HTML_KEY: string = "/button-toggle/button-toggle.component.html"
