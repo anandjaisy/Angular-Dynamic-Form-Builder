@@ -10,6 +10,10 @@ Run `ng build @falcon-ng/core` to build the project. The build artifacts will be
 
 Run `ng test @falcon-ng/core` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+## Layout design
+
+![alt text](../../src/assets/layout.png)
+
 ## Angular Dynamic Forms
 
 * Check the [Demo](https://anandjaisy.github.io/Angular-Dynamic-Form-Builder/). 

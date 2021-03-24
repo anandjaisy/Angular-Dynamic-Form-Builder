@@ -179,7 +179,24 @@ export class ChildLayoutComponent extends BaseFormComponent<any> implements OnIn
             componentProperty: {
               label: "Body Type 4",
               appearance: Appearance.Outline,
-              placeHolder: "Body Type 1",
+              placeHolder: "Body Type 4",
+              attrType: InputTypes.Text,
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "BodyType7"
+          },
+          {
+            componentProperty: {
+              label: "Body Type 4",
+              appearance: Appearance.Outline,
+              placeHolder: "Body Type 4",
               attrType: InputTypes.Text,
               options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
               { value: 'Bellsprout', viewValue: 'Bellsprout' },

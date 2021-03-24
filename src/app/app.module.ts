@@ -50,6 +50,7 @@ import { AngularEditorComponent } from './component/angular-editor/angular-edito
 import { ChipsDragDropComponent } from './component/chips/chips-drag-drop/chips-drag-drop.component';
 import { FormComponent } from './component/form/form.component';
 import { FormChildComponent } from './component/form/form-child/form-child.component';
+import { FormNextedChildComponent } from './component/form-field/form-nexted-child/form-nexted-child.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { FormChildComponent } from './component/form/form-child/form-child.compo
     AngularEditorComponent,
     ChipsDragDropComponent,
     FormComponent,
-    FormChildComponent
+    FormChildComponent,
+    FormNextedChildComponent
   ],
   imports: [
     BrowserModule,
