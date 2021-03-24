@@ -23,57 +23,57 @@ export class InputPrefixSuffixComponent extends BaseFormComponent<any> implement
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Prefix Icon",
-          appearance: Appearance.Legacy,
-          placeHolder: "Required Validation *",
-          attrType: InputTypes.Text,
-          prefix : {
-            isIcon: true,
-            text: "sentiment_satisfied_alt"
-          }
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "prefixIcon"
-      },
-      {
-        componentProperty: {
-          label: "Suffix Number",
-          appearance: Appearance.Standard,
-          placeHolder: "Suffix Icon",
-          attrType: InputTypes.Text,
-          suffix: {
-            isIcon : false,
-            text : ".00"
-          }
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "suffixIcon"
-      },
-      {
-        componentProperty: {
-          label: "Prefix & Suffix icon",
-          appearance: Appearance.Outline,
-          placeHolder: "Prefix & Suffix icon",
-          attrType: InputTypes.Text,
-          prefix : {
-            isIcon : true,
-            text : "euro"
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+        componentConfig: [{
+          componentProperty: {
+            label: "Prefix Icon",
+            appearance: Appearance.Legacy,
+            placeHolder: "Required Validation *",
+            attrType: InputTypes.Text,
+            prefix: {
+              isIcon: true,
+              text: "sentiment_satisfied_alt"
+            }
           },
-          suffix : {
-            isIcon: true,
-            text : "done"
-          }
+          componentType: ComponentType.TextBox,
+          formControlName: "prefixIcon"
         },
-        componentType: ComponentType.TextBox,
-        formControlName: "prefixandSuffixIcon"
+        {
+          componentProperty: {
+            label: "Suffix Number",
+            appearance: Appearance.Standard,
+            placeHolder: "Suffix Icon",
+            attrType: InputTypes.Text,
+            suffix: {
+              isIcon: false,
+              text: ".00"
+            }
+          },
+          componentType: ComponentType.TextBox,
+          formControlName: "suffixIcon"
+        },
+        {
+          componentProperty: {
+            label: "Prefix & Suffix icon",
+            appearance: Appearance.Outline,
+            placeHolder: "Prefix & Suffix icon",
+            attrType: InputTypes.Text,
+            prefix: {
+              isIcon: true,
+              text: "euro"
+            },
+            suffix: {
+              isIcon: true,
+              text: "done"
+            }
+          },
+          componentType: ComponentType.TextBox,
+          formControlName: "prefixandSuffixIcon"
+        }]
       }]
     }
   }

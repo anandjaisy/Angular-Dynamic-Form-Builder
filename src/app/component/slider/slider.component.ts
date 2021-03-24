@@ -22,109 +22,109 @@ export class SliderComponent extends BaseFormComponent<any> implements OnInit {
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Value",
-          appearance : Appearance.Standard,
-          attrType: InputTypes.Number,
-          value : 0
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+        componentConfig: [{
+          componentProperty: {
+            label: "Value",
+            appearance: Appearance.Standard,
+            attrType: InputTypes.Number,
+            value: 0
+          },
+          componentType: ComponentType.TextBox,
+          formControlName: "value"
         },
-        componentType: ComponentType.TextBox,
-        formControlName: "value"
-      },
-      {
-        componentProperty: {
-          label: "Min Value",
-          appearance : Appearance.Standard,
-          attrType: InputTypes.Number,
-          value : 0
+        {
+          componentProperty: {
+            label: "Min Value",
+            appearance: Appearance.Standard,
+            attrType: InputTypes.Number,
+            value: 0
+          },
+          componentType: ComponentType.TextBox,
+          formControlName: "minValue"
         },
-        componentType: ComponentType.TextBox,
-        formControlName: "minValue"
-      },
-      {
-        componentProperty: {
-          label: "Max value",
-          appearance : Appearance.Standard,
-          attrType: InputTypes.Number,
-          value : 100
+        {
+          componentProperty: {
+            label: "Max value",
+            appearance: Appearance.Standard,
+            attrType: InputTypes.Number,
+            value: 100
+          },
+          componentType: ComponentType.TextBox,
+          formControlName: "maxvalue"
         },
-        componentType: ComponentType.TextBox,
-        formControlName: "maxvalue"
-      },
-      {
-        componentProperty: {
-          label: "Step size",
-          appearance : Appearance.Standard,
-          attrType: InputTypes.Number,
-          value : 1
+        {
+          componentProperty: {
+            label: "Step size",
+            appearance: Appearance.Standard,
+            attrType: InputTypes.Number,
+            value: 1
+          },
+          componentType: ComponentType.TextBox,
+          formControlName: "stepSize"
         },
-        componentType: ComponentType.TextBox,
-        formControlName: "stepSize"
-      },
-      {
-        componentProperty: {
-          label: "Show ticks",
-          groupStyle : {'margin-top': '40px'}
+        {
+          componentProperty: {
+            label: "Show ticks",
+            groupStyle: { 'margin-top': '40px' }
+          },
+          componentType: ComponentType.Checkbox,
+          formControlName: "showTicks"
         },
-        componentType: ComponentType.Checkbox,
-        formControlName: "showTicks"
-      },
-      {
-        componentProperty: {
-          label: "Show thumb label",
-          groupStyle : {'margin-top': '40px'}
+        {
+          componentProperty: {
+            label: "Show thumb label",
+            groupStyle: { 'margin-top': '40px' }
+          },
+          componentType: ComponentType.Checkbox,
+          formControlName: "showThumbLabel"
         },
-        componentType: ComponentType.Checkbox,
-        formControlName: "showThumbLabel"
-      },
-      {
-        componentProperty: {
-          label: "Vertical",
-          groupStyle : {'margin-top': '40px'}
+        {
+          componentProperty: {
+            label: "Vertical",
+            groupStyle: { 'margin-top': '40px' }
+          },
+          componentType: ComponentType.Checkbox,
+          formControlName: "vertical"
         },
-        componentType: ComponentType.Checkbox,
-        formControlName: "vertical"
-      },
-      {
-        componentProperty: {
-          label: "Inverted",
-          groupStyle : {'margin-top': '40px'}
+        {
+          componentProperty: {
+            label: "Inverted",
+            groupStyle: { 'margin-top': '40px' }
+          },
+          componentType: ComponentType.Checkbox,
+          formControlName: "inverted"
         },
-        componentType: ComponentType.Checkbox,
-        formControlName: "inverted"
-      },
-      {
-        componentProperty: {
-          label: "Disabled",
-          groupStyle : {'margin-top': '40px'}
+        {
+          componentProperty: {
+            label: "Disabled",
+            groupStyle: { 'margin-top': '40px' }
+          },
+          componentType: ComponentType.Checkbox,
+          formControlName: "disabled"
         },
-        componentType: ComponentType.Checkbox,
-        formControlName: "disabled"
-      },
-      {
-        componentProperty: {
-          color : "primary",
-          groupStyle : {'margin-top': '40px', 'width':'30em'},
-          componentStyle : {'width':'100%'},
-          sliderProperty: {
-            invert : false,
-            thumbLabel : false,
-            vertical : false,
-            min : 0,
-            max : 100,
-            step : 1,
-            tickInterval : 4
-          }
-        },
-        componentType: ComponentType.Slider,
-        formControlName: "slider"
+        {
+          componentProperty: {
+            color: "primary",
+            groupStyle: { 'margin-top': '40px', 'width': '30em' },
+            componentStyle: { 'width': '100%' },
+            sliderProperty: {
+              invert: false,
+              thumbLabel: false,
+              vertical: false,
+              min: 0,
+              max: 100,
+              step: 1,
+              tickInterval: 4
+            }
+          },
+          componentType: ComponentType.Slider,
+          formControlName: "slider"
+        }]
       }]
     }
   }

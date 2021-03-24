@@ -24,35 +24,35 @@ export class FormComponent extends BaseFormComponent<any> implements OnInit {
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Legacy form field",
-          appearance: Appearance.Legacy,
-          placeHolder: "Legacy form field",
-          attrType: InputTypes.Text
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+        componentConfig: [{
+          componentProperty: {
+            label: "Legacy form field",
+            appearance: Appearance.Legacy,
+            placeHolder: "Legacy form field",
+            attrType: InputTypes.Text
+          },
+          validations: [
+            {
+              name: "required",
+              validator: Validators.required,
+              message: "Required Field"
+            }],
+          componentType: ComponentType.TextBox,
+          formControlName: "LegacyFormField"
         },
-        validations: [
-          {
-            name: "required",
-            validator: Validators.required,
-            message: "Required Field"
-          }],
-        componentType: ComponentType.TextBox,
-        formControlName: "LegacyFormField"
-      },
-      {
-        componentProperty: {
-          label: "Submit",
-          appearance: Appearance.Raised,
-          color: 'primary',
-        },
-        componentType: ComponentType.Button,
+        {
+          componentProperty: {
+            label: "Submit",
+            appearance: Appearance.Raised,
+            color: 'primary',
+          },
+          componentType: ComponentType.Button,
+        }]
       }]
     }
 

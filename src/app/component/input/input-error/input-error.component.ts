@@ -23,92 +23,92 @@ export class InputErrorComponent extends BaseFormComponent<any> implements OnIni
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Required Validation *",
-          appearance: Appearance.Legacy,
-          placeHolder: "Required Validation *",
-          attrType: InputTypes.Text
-        },
-        validations: [
-          {
-            name: "required",
-            validator: Validators.required,
-            message: "Required Field"
-          }],
-        componentType: ComponentType.TextBox,
-        formControlName: "Required Validation"
-      },
-      {
-        componentProperty: {
-          label: "Pattern Validation *",
-          appearance: Appearance.Outline,
-          placeHolder: "Pattern Validation *",
-          attrType: InputTypes.Text
-        },
-        validations: [
-          {
-            name: "pattern",
-            validator: Validators.pattern(
-              "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
-            ),
-            message: "Invalid email"
-          }
-        ],
-        componentType: ComponentType.TextBox,
-        formControlName: "patternValidation"
-      },
-      {
-        componentProperty: {
-          label: "Required & Pattern Validation *",
-          appearance: Appearance.Outline,
-          placeHolder: "Required & Pattern Validation *",
-          attrType: InputTypes.Text
-        },
-        validations: [
-          {
-            name: "required",
-            validator: Validators.required,
-            message: "Required Field"
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+        componentConfig: [{
+          componentProperty: {
+            label: "Required Validation *",
+            appearance: Appearance.Legacy,
+            placeHolder: "Required Validation *",
+            attrType: InputTypes.Text
           },
-          {
-            name: "pattern",
-            validator: Validators.pattern(
-              "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
-            ),
-            message: "Invalid email"
-          },
-          {
-            name: "cannotContainSpace",
-            validator: CustomValidator.cannotContainSpace,
-            message: "can not Contain Space"
-          }
-        ],
-        componentType: ComponentType.TextBox,
-        formControlName: "Required&PatternValidation"
-      },
-      {
-        componentProperty: {
-          label: "Custom Validation *",
-          appearance: Appearance.Outline,
-          placeHolder: "Custom Validation",
-          attrType: InputTypes.Text
+          validations: [
+            {
+              name: "required",
+              validator: Validators.required,
+              message: "Required Field"
+            }],
+          componentType: ComponentType.TextBox,
+          formControlName: "Required Validation"
         },
-        validations: [
-          {
-            name: "cannotContainSpace",
-            validator: CustomValidator.cannotContainSpace,
-            message: "can not Contain Space"
-          }
-        ],
-        componentType: ComponentType.TextBox,
-        formControlName: "customValidation"
+        {
+          componentProperty: {
+            label: "Pattern Validation *",
+            appearance: Appearance.Outline,
+            placeHolder: "Pattern Validation *",
+            attrType: InputTypes.Text
+          },
+          validations: [
+            {
+              name: "pattern",
+              validator: Validators.pattern(
+                "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
+              ),
+              message: "Invalid email"
+            }
+          ],
+          componentType: ComponentType.TextBox,
+          formControlName: "patternValidation"
+        },
+        {
+          componentProperty: {
+            label: "Required & Pattern Validation *",
+            appearance: Appearance.Outline,
+            placeHolder: "Required & Pattern Validation *",
+            attrType: InputTypes.Text
+          },
+          validations: [
+            {
+              name: "required",
+              validator: Validators.required,
+              message: "Required Field"
+            },
+            {
+              name: "pattern",
+              validator: Validators.pattern(
+                "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
+              ),
+              message: "Invalid email"
+            },
+            {
+              name: "cannotContainSpace",
+              validator: CustomValidator.cannotContainSpace,
+              message: "can not Contain Space"
+            }
+          ],
+          componentType: ComponentType.TextBox,
+          formControlName: "Required&PatternValidation"
+        },
+        {
+          componentProperty: {
+            label: "Custom Validation *",
+            appearance: Appearance.Outline,
+            placeHolder: "Custom Validation",
+            attrType: InputTypes.Text
+          },
+          validations: [
+            {
+              name: "cannotContainSpace",
+              validator: CustomValidator.cannotContainSpace,
+              message: "can not Contain Space"
+            }
+          ],
+          componentType: ComponentType.TextBox,
+          formControlName: "customValidation"
+        }]
       }]
     }
   }

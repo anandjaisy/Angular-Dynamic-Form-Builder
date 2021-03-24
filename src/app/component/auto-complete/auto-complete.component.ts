@@ -22,59 +22,59 @@ export class AutoCompleteComponent extends BaseFormComponent<any> implements OnI
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Basic Auto complete",
-          options: [{ value: 'Sydney', viewValue: 'Sydney' },
-          { value: 'Melbourne', viewValue: 'Melbourne' },
-          { value: 'Brisbane', viewValue: 'Brisbane' },
-          { value: 'NewYork', viewValue: 'New York' },
-          { value: 'Kathmandu', viewValue: 'Kathmandu' }],
-          appearance: Appearance.Standard
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+        componentConfig: [{
+          componentProperty: {
+            label: "Basic Auto complete",
+            options: [{ value: 'Sydney', viewValue: 'Sydney' },
+            { value: 'Melbourne', viewValue: 'Melbourne' },
+            { value: 'Brisbane', viewValue: 'Brisbane' },
+            { value: 'NewYork', viewValue: 'New York' },
+            { value: 'Kathmandu', viewValue: 'Kathmandu' }],
+            appearance: Appearance.Standard
+          },
+          componentType: ComponentType.AutoComplete,
+          formControlName: "basicAutoComplete",
         },
-        componentType: ComponentType.AutoComplete,
-        formControlName: "basicAutoComplete",
-      },
-      {
-        componentProperty: {
-          label: "Outline Auto complete",
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }],
-          appearance: Appearance.Outline,
-          color: 'accent'
+        {
+          componentProperty: {
+            label: "Outline Auto complete",
+            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+            { value: 'Bellsprout', viewValue: 'Bellsprout' },
+            { value: 'Mushroom', viewValue: 'Mushroom' },
+            { value: 'Onion', viewValue: 'Onion' },
+            { value: 'Pepperoni', viewValue: 'Pepperoni' },
+            { value: 'Sausage', viewValue: 'Sausage' },
+            { value: 'Tomato', viewValue: 'Tomato' }],
+            appearance: Appearance.Outline,
+            color: 'accent'
+          },
+          componentType: ComponentType.AutoComplete,
+          formControlName: "OutlineAutoComplete"
         },
-        componentType: ComponentType.AutoComplete,
-        formControlName: "OutlineAutoComplete"
-      },
-      {
-        componentProperty: {
-          label: "Plain input autocomplete",
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }],
-          appearance: Appearance.Plain,
-          color: 'accent',
-          placeHolder : "Plan text"
-        },
-        componentType: ComponentType.AutoComplete,
-        formControlName: "plaininputautocomplete"
-      }
-      ]
+        {
+          componentProperty: {
+            label: "Plain input autocomplete",
+            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+            { value: 'Bellsprout', viewValue: 'Bellsprout' },
+            { value: 'Mushroom', viewValue: 'Mushroom' },
+            { value: 'Onion', viewValue: 'Onion' },
+            { value: 'Pepperoni', viewValue: 'Pepperoni' },
+            { value: 'Sausage', viewValue: 'Sausage' },
+            { value: 'Tomato', viewValue: 'Tomato' }],
+            appearance: Appearance.Plain,
+            color: 'accent',
+            placeHolder: "Plan text"
+          },
+          componentType: ComponentType.AutoComplete,
+          formControlName: "plaininputautocomplete"
+        }
+        ]
+      }]
     }
   }
 

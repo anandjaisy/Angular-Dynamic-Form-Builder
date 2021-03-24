@@ -1,7 +1,7 @@
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ComponentType } from '../model/component-type.enum';
-import { IMeta, IComponentConfig } from '../model/imeta';
+import { IMeta, IComponentConfig, ILayoutConfig } from '../model/imeta';
 /**
  * @description
  * Base form component initialized to create form controls, set validation, submit.
@@ -66,11 +66,16 @@ export abstract class BaseFormComponent<T>{
   */
   protected createControls() {
     const group = this.fb.group({});
-    this.controlsConfig.componentConfig.forEach(field => {
-      this.bindControl(field, group);
-      field.nextedLayoutConfig?.componentConfig.forEach(field => {
-        this.bindControl(field, group);
-      });
+    // this.controlsConfig.componentConfig.forEach(field => {
+    //   this.bindControl(field, group);
+    //   field.nextedLayoutConfig?.componentConfig.forEach(field => {
+    //     this.bindControl(field, group);
+    //   });
+    // });
+    this.controlsConfig.layoutConfig.forEach(layout => {
+      layout.componentConfig.forEach(controls => {
+        this.bindControl(controls, group)
+      })
     });
     return group;
   }
@@ -198,9 +203,9 @@ export abstract class BaseFormComponent<T>{
    *    removeControl(1);
    * ```
    */
-  protected removeControl(index: number) {
-    this.form.removeControl(this.controlsConfig.componentConfig[index].formControlName);
-    this.controlsConfig.componentConfig.splice(index, 1);
+  protected removeControl(layoutIndex: number, index: number) {
+    this.form.removeControl(this.controlsConfig.layoutConfig[layoutIndex].componentConfig[index].formControlName);
+    this.controlsConfig.layoutConfig[layoutIndex].componentConfig.splice(index, 1);
   }
   /**
    * @description
@@ -229,12 +234,14 @@ export abstract class BaseFormComponent<T>{
    *  this.addControl(configToadd);
    * ```
    */
-  protected addControl(configToAdd: IComponentConfig[]) {
-    configToAdd.forEach(configToAdd => {
-      this.form.addControl(configToAdd.formControlName,
-        new FormControl({ value: configToAdd.componentProperty.value, disabled: configToAdd.componentProperty.disabled },
-          this.bindValidations(configToAdd.validations || [])));
-      this.controlsConfig.componentConfig.push(configToAdd);
+  protected addControl(layoutToAdd: ILayoutConfig[]) {
+    layoutToAdd.forEach(layout => {
+      layout.componentConfig.forEach(control => {
+        this.form.addControl(control.formControlName,
+          new FormControl({ value: control.componentProperty.value, disabled: control.componentProperty.disabled },
+            this.bindValidations(control.validations || [])));
+      })
+      this.controlsConfig.layoutConfig.push(layout);
     });
   }
 }

@@ -22,46 +22,46 @@ export class TextAreaComponent extends BaseFormComponent<any> implements OnInit 
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Text Area with Auto Size Enable",
-          appearance: Appearance.Outline,
-          placeHolder: "Text Area with Auto Size Enable",
-          textAreaProperty: {
-            cdkTextareaAutosize: true,
-            cdkAutosizeMinRows: 1,
-            cdkAutosizeMaxRows: 5
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+        componentConfig: [{
+          componentProperty: {
+            label: "Text Area with Auto Size Enable",
+            appearance: Appearance.Outline,
+            placeHolder: "Text Area with Auto Size Enable",
+            textAreaProperty: {
+              cdkTextareaAutosize: true,
+              cdkAutosizeMinRows: 1,
+              cdkAutosizeMaxRows: 5
+            },
+            suffix: {
+              isIcon: true,
+              text: "lock_open"
+            }
           },
-          suffix : {
-            isIcon: true,
-            text : "lock_open"
-          }
+          componentType: ComponentType.TextArea,
+          formControlName: "textAreaAutoSizeEnable"
         },
-        componentType: ComponentType.TextArea,
-        formControlName: "textAreaAutoSizeEnable"
-      },
-      {
-        componentProperty: {
-          label: "Text Area with static row and column",
-          appearance: Appearance.Fill,
-          placeHolder: "Text Area with static row and column",
-          textAreaProperty: {
-            rows: 10,
-            cols: 40
+        {
+          componentProperty: {
+            label: "Text Area with static row and column",
+            appearance: Appearance.Fill,
+            placeHolder: "Text Area with static row and column",
+            textAreaProperty: {
+              rows: 10,
+              cols: 40
+            },
+            suffix: {
+              isIcon: true,
+              text: "power_settings_new"
+            }
           },
-          suffix : {
-            isIcon: true,
-            text : "power_settings_new"
-          }
-        },
-        componentType: ComponentType.TextArea,
-        formControlName: "textAreaStaticRowColumn"
+          componentType: ComponentType.TextArea,
+          formControlName: "textAreaStaticRowColumn"
+        }]
       }]
     }
   }

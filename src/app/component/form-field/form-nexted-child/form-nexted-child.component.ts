@@ -27,100 +27,166 @@ export class FormNextedChildComponent extends BaseFormComponent<any> implements 
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
+        fxLayout: FxLayout.Row,
+        fxLayoutGap: "10px",
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
+        componentConfig: [
+          {
+            componentProperty: {
+              label: "Body Type",
+              appearance: Appearance.Outline,
+              placeHolder: "Body Type",
+              attrType: InputTypes.Text,
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "BodyType",
+          }, {
+            componentProperty: {
+              label: "Body Type",
+              appearance: Appearance.Outline,
+              placeHolder: "Body Type",
+              attrType: InputTypes.Text,
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "BodyType"
+          }]
+      },
+      {
         fxLayout: FxLayout.Column,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.Center
+        fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
+        componentConfig: [
+          {
+            componentProperty: {
+              label: "Body Type",
+              appearance: Appearance.Outline,
+              placeHolder: "Body Type",
+              attrType: InputTypes.Text,
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "BodyType",
+          }, {
+            componentProperty: {
+              label: "Body Type",
+              appearance: Appearance.Outline,
+              placeHolder: "Body Type",
+              attrType: InputTypes.Text,
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "BodyType"
+          }]
       },
-      componentConfig: [
-        {
-          componentProperty: {
-            label: "Body Type",
-            appearance: Appearance.Outline,
-            placeHolder: "Body Type",
-            attrType: InputTypes.Text,
-            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-            { value: 'Bellsprout', viewValue: 'Bellsprout' },
-            { value: 'Mushroom', viewValue: 'Mushroom' },
-            { value: 'Onion', viewValue: 'Onion' },
-            { value: 'Pepperoni', viewValue: 'Pepperoni' },
-            { value: 'Sausage', viewValue: 'Sausage' },
-            { value: 'Tomato', viewValue: 'Tomato' }]
-          },
-          componentType: ComponentType.Select,
-          formControlName: "BodyType",
-        }, {
-          componentProperty: {
-            label: "Body Type",
-            appearance: Appearance.Outline,
-            placeHolder: "Body Type",
-            attrType: InputTypes.Text,
-            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-            { value: 'Bellsprout', viewValue: 'Bellsprout' },
-            { value: 'Mushroom', viewValue: 'Mushroom' },
-            { value: 'Onion', viewValue: 'Onion' },
-            { value: 'Pepperoni', viewValue: 'Pepperoni' },
-            { value: 'Sausage', viewValue: 'Sausage' },
-            { value: 'Tomato', viewValue: 'Tomato' }]
-          },
-          componentType: ComponentType.Select,
-          formControlName: "BodyType"
-        },
-        {
-          componentProperty: {
-            label: "Body Type",
-            appearance: Appearance.Outline,
-            placeHolder: "Body Type",
-            attrType: InputTypes.Text,
-            fxFlexChildLayout: { fxFlex: "49", fxFlex_xs: "100" },
-            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-            { value: 'Bellsprout', viewValue: 'Bellsprout' },
-            { value: 'Mushroom', viewValue: 'Mushroom' },
-            { value: 'Onion', viewValue: 'Onion' },
-            { value: 'Pepperoni', viewValue: 'Pepperoni' },
-            { value: 'Sausage', viewValue: 'Sausage' },
-            { value: 'Tomato', viewValue: 'Tomato' }]
-          },
-          componentType: ComponentType.Select,
-          formControlName: "BodyType"
-        },
-        {
-          componentProperty: {
-            label: "Body Type",
-            appearance: Appearance.Outline,
-            placeHolder: "Body Type",
-            attrType: InputTypes.Text,
-            fxFlexChildLayout: { fxFlex: "49", fxFlex_xs: "100" },
-            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-            { value: 'Bellsprout', viewValue: 'Bellsprout' },
-            { value: 'Mushroom', viewValue: 'Mushroom' },
-            { value: 'Onion', viewValue: 'Onion' },
-            { value: 'Pepperoni', viewValue: 'Pepperoni' },
-            { value: 'Sausage', viewValue: 'Sausage' },
-            { value: 'Tomato', viewValue: 'Tomato' }]
-          },
-          componentType: ComponentType.Select,
-          formControlName: "BodyType"
-        },
-        {
-          componentProperty: {
-            label: "Body Type",
-            appearance: Appearance.Outline,
-            placeHolder: "Body Type",
-            attrType: InputTypes.Text,
-            fxFlexChildLayout: { fxFlex: "49", fxFlex_xs: "100" },
-            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-            { value: 'Bellsprout', viewValue: 'Bellsprout' },
-            { value: 'Mushroom', viewValue: 'Mushroom' },
-            { value: 'Onion', viewValue: 'Onion' },
-            { value: 'Pepperoni', viewValue: 'Pepperoni' },
-            { value: 'Sausage', viewValue: 'Sausage' },
-            { value: 'Tomato', viewValue: 'Tomato' }]
-          },
-          componentType: ComponentType.Select,
-          formControlName: "BodyType"
-        }]
+      {
+        fxLayout: FxLayout.Row,
+        fxLayoutGap: "10px",
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
+        componentConfig: [
+          {
+            componentProperty: {
+              label: "Body Type",
+              appearance: Appearance.Outline,
+              placeHolder: "Body Type",
+              attrType: InputTypes.Text,
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "BodyType",
+          }, {
+            componentProperty: {
+              label: "Body Type",
+              appearance: Appearance.Outline,
+              placeHolder: "Body Type",
+              attrType: InputTypes.Text,
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "BodyType"
+          }]
+      },
+      {
+        fxLayout: FxLayout.Row,
+        fxLayoutGap: "10px",
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
+        componentConfig: [
+          {
+            componentProperty: {
+              label: "Body Type",
+              appearance: Appearance.Outline,
+              placeHolder: "Body Type",
+              attrType: InputTypes.Text,
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "BodyType",
+          }, {
+            componentProperty: {
+              label: "Body Type",
+              appearance: Appearance.Outline,
+              placeHolder: "Body Type",
+              attrType: InputTypes.Text,
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "BodyType"
+          }]
+      }]
     }
   }
 

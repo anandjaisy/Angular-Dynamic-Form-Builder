@@ -22,73 +22,73 @@ export class SelectComponent extends BaseFormComponent<any> implements OnInit {
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Basic mat-select",
-          options: [{ value: 'bulbasaur-0', viewValue: 'Bulbasaur' },
-          { value: 'oddish-1', viewValue: 'Oddish' },
-          { value: 'bellsprout-2', viewValue: 'Bellsprout' }],
-          appearance: Appearance.Standard
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+        componentConfig: [{
+          componentProperty: {
+            label: "Basic mat-select",
+            options: [{ value: 'bulbasaur-0', viewValue: 'Bulbasaur' },
+            { value: 'oddish-1', viewValue: 'Oddish' },
+            { value: 'bellsprout-2', viewValue: 'Bellsprout' }],
+            appearance: Appearance.Standard
+          },
+          componentType: ComponentType.Select,
+          formControlName: "basicMatSelect",
         },
-        componentType: ComponentType.Select,
-        formControlName: "basicMatSelect",
-      },
-      {
-        componentProperty: {
-          label: "Multiple selection",
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion', disabled: true },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato', disabled: false }],
-          appearance: Appearance.Outline,
-          selectProperty: { multiple: true },
-          color: 'accent'
+        {
+          componentProperty: {
+            label: "Multiple selection",
+            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+            { value: 'Bellsprout', viewValue: 'Bellsprout' },
+            { value: 'Mushroom', viewValue: 'Mushroom' },
+            { value: 'Onion', viewValue: 'Onion', disabled: true },
+            { value: 'Pepperoni', viewValue: 'Pepperoni' },
+            { value: 'Sausage', viewValue: 'Sausage' },
+            { value: 'Tomato', viewValue: 'Tomato', disabled: false }],
+            appearance: Appearance.Outline,
+            selectProperty: { multiple: true },
+            color: 'accent'
+          },
+          componentType: ComponentType.Select,
+          formControlName: "multipleMatSelect"
         },
-        componentType: ComponentType.Select,
-        formControlName: "multipleMatSelect"
-      },
-      {
-        componentProperty: {
-          label: "Disable select component",
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion', disabled: true },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato', disabled: false }],
-          appearance: Appearance.Outline,
-          color: 'accent'
+        {
+          componentProperty: {
+            label: "Disable select component",
+            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+            { value: 'Bellsprout', viewValue: 'Bellsprout' },
+            { value: 'Mushroom', viewValue: 'Mushroom' },
+            { value: 'Onion', viewValue: 'Onion', disabled: true },
+            { value: 'Pepperoni', viewValue: 'Pepperoni' },
+            { value: 'Sausage', viewValue: 'Sausage' },
+            { value: 'Tomato', viewValue: 'Tomato', disabled: false }],
+            appearance: Appearance.Outline,
+            color: 'accent'
+          },
+          componentType: ComponentType.Select,
+          formControlName: "disableMatSelect"
         },
-        componentType: ComponentType.Select,
-        formControlName: "disableMatSelect"
-      },
-      {
-        componentProperty: {
-          label: "Default value in component",
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion', disabled: true },
-          { value: 'pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato', disabled: false }],
-          appearance: Appearance.Outline,
-          color: 'accent'
-        },
-        componentType: ComponentType.Select,
-        formControlName: "defaultValueMatSelect"
-      }
-      ]
+        {
+          componentProperty: {
+            label: "Default value in component",
+            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+            { value: 'Bellsprout', viewValue: 'Bellsprout' },
+            { value: 'Mushroom', viewValue: 'Mushroom' },
+            { value: 'Onion', viewValue: 'Onion', disabled: true },
+            { value: 'pepperoni', viewValue: 'Pepperoni' },
+            { value: 'Sausage', viewValue: 'Sausage' },
+            { value: 'Tomato', viewValue: 'Tomato', disabled: false }],
+            appearance: Appearance.Outline,
+            color: 'accent'
+          },
+          componentType: ComponentType.Select,
+          formControlName: "defaultValueMatSelect"
+        }
+        ]
+      }]
     }
   }
 
@@ -97,9 +97,9 @@ export class SelectComponent extends BaseFormComponent<any> implements OnInit {
     setTimeout(() => {
       this.patchValue(
         {
-          multipleMatSelect: [this.controlsConfig.componentConfig[1].componentProperty.options[6].disabled = true],
-          disableMatSelect: this.controlsConfig.componentConfig[2].componentProperty.disabled = true,
-          defaultValueMatSelect: this.controlsConfig.componentConfig[3].componentProperty.value = 'pepperoni'
+          multipleMatSelect: [this.controlsConfig.layoutConfig[0].componentConfig[1].componentProperty.options[6].disabled = true],
+          disableMatSelect: this.controlsConfig.layoutConfig[0].componentConfig[2].componentProperty.disabled = true,
+          defaultValueMatSelect: this.controlsConfig.layoutConfig[0].componentConfig[3].componentProperty.value = 'pepperoni'
         }
       )
       console.log('Compile successfully');

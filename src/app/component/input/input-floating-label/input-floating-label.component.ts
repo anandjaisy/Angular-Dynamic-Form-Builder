@@ -13,7 +13,7 @@ import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 })
 export class InputFloatingLabelComponent extends BaseFormComponent<any> implements OnInit {
   codeGeneratorEnable: boolean = false;
-  public angularCodeTemplateViewModel : AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
   constructor(fb: FormBuilder) {
     super(fb);
     this.defineForm();
@@ -22,33 +22,33 @@ export class InputFloatingLabelComponent extends BaseFormComponent<any> implemen
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Floating label ALWAYS",
-          appearance: Appearance.Legacy,
-          placeHolder: "Floating label ALWAYS",
-          attrType: InputTypes.Text,
-          floatLabel: Floatinglabel.Always
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+        componentConfig: [{
+          componentProperty: {
+            label: "Floating label ALWAYS",
+            appearance: Appearance.Legacy,
+            placeHolder: "Floating label ALWAYS",
+            attrType: InputTypes.Text,
+            floatLabel: Floatinglabel.Always
+          },
+          componentType: ComponentType.TextBox,
+          formControlName: "floatingLabelAlways"
         },
-        componentType: ComponentType.TextBox,
-        formControlName: "floatingLabelAlways"
-      },
-      {
-        componentProperty: {
-          label: "Floating label AUTO",
-          appearance: Appearance.Outline,
-          placeHolder: "Floating label AUTO",
-          attrType: InputTypes.Text,
-          floatLabel: Floatinglabel.Auto
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "floatingLabelAuto"
+        {
+          componentProperty: {
+            label: "Floating label AUTO",
+            appearance: Appearance.Outline,
+            placeHolder: "Floating label AUTO",
+            attrType: InputTypes.Text,
+            floatLabel: Floatinglabel.Auto
+          },
+          componentType: ComponentType.TextBox,
+          formControlName: "floatingLabelAuto"
+        }]
       }]
     }
   }

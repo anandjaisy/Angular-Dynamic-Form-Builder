@@ -30,65 +30,68 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
         fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
-        fxLayoutAlign_lt_sm: AlignmentLayoutDirection.Start
-      },
-      componentConfig: [
-        {
-          componentProperty: {
-            label: "Select Component",
-            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-            { value: 'Bellsprout', viewValue: 'Bellsprout' },
-            { value: 'Mushroom', viewValue: 'Mushroom' },
-            { value: 'Onion', viewValue: 'Onion' },
-            { value: 'Pepperoni', viewValue: 'Pepperoni' },
-            { value: 'Sausage', viewValue: 'Sausage' },
-            { value: 'Tomato', viewValue: 'Tomato' }],
-            appearance: Appearance.Outline,
-            color: 'accent',
-          },
-          componentType: ComponentType.Select,
-          formControlName: `selectComponent${this.counter}`
-        }]
-    }
-  }
+        fxLayoutAlign_lt_sm: AlignmentLayoutDirection.Start,
+        componentConfig: [
+          {
+            componentProperty: {
+              label: "Select Component",
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }],
+              appearance: Appearance.Outline,
+              color: 'accent',
+            },
+            componentType: ComponentType.Select,
+            formControlName: `selectComponent${this.counter}`
+          }]
+      }]
+    }}
 
-  ngOnInit(): void {
-    this.form = this.createControls();
-  }
+    ngOnInit(): void {
+      this.form = this.createControls();
+    }
 
   protected getDatasource(): Observable<any> {
     return of();
   }
   protected submitDatasource(model: any): Observable<any> {
     ++this.counter;
-    var configToadd = [{
-      componentProperty: {
-        label: "Select Component",
-        options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-        { value: 'Bellsprout', viewValue: 'Bellsprout' },
-        { value: 'Mushroom', viewValue: 'Mushroom' },
-        { value: 'Onion', viewValue: 'Onion' },
-        { value: 'Pepperoni', viewValue: 'Pepperoni' },
-        { value: 'Sausage', viewValue: 'Sausage' },
-        { value: 'Tomato', viewValue: 'Tomato' }],
-        appearance: Appearance.Outline,
-        color: 'accent',
-
-      },
-      componentType: ComponentType.Select,
-      formControlName: `selectComponent${this.counter}`,
-      validations: []
-    }];
+    const configToadd = [{
+      fxLayout: FxLayout.Row,
+      fxLayoutGap: "10px",
+      fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+      fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+      componentConfig: [{
+        componentProperty: {
+          label: "Select Component",
+          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+          { value: 'Bellsprout', viewValue: 'Bellsprout' },
+          { value: 'Mushroom', viewValue: 'Mushroom' },
+          { value: 'Onion', viewValue: 'Onion' },
+          { value: 'Pepperoni', viewValue: 'Pepperoni' },
+          { value: 'Sausage', viewValue: 'Sausage' },
+          { value: 'Tomato', viewValue: 'Tomato' }],
+          appearance: Appearance.Outline,
+          color: 'accent'
+        },
+        componentType: ComponentType.Select,
+        formControlName: 'ChildLegacyFormField'
+      }]
+    }]
     this.addControl(configToadd);
     return of(model);
   }
   RemoveComponentclick($event) {
-    this.removeControl(this.counter);
+    this.removeControl(this.counter,0);
     this.counter = this.counter - 1;
   }
 

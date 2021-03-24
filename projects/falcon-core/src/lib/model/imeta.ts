@@ -11,8 +11,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
  * ```
  */
 export declare interface IMeta {
-  layoutConfig?: ILayoutConfig;
-  componentConfig?: IComponentConfig[];
+  layoutConfig?: ILayoutConfig[];
 }
 /**
  * @description
@@ -93,7 +92,6 @@ export declare interface IComponentConfig {
   formControlName?: string;
   componentType?: ComponentType;
   validations?: IValidator[];
-  nextedLayoutConfig?: IMeta;
 }
 /**
  * @description
@@ -154,6 +152,7 @@ export declare interface ILayoutConfig {
   gdColumns?: string;
   gdRows?: string;
   gdGap?: string;
+  componentConfig?: IComponentConfig[];
 }
 
 /**

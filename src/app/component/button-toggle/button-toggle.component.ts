@@ -22,39 +22,39 @@ export class ButtonToggleComponent extends BaseFormComponent<any> implements OnI
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Column,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          options: [{ value: 'Bold', viewValue: 'Bold' },
-          { value: 'Italic', viewValue: 'Italic' },
-          { value: 'Underline', viewValue: 'Underline' }],
-          appearance: Appearance.Standard
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+        componentConfig: [{
+          componentProperty: {
+            options: [{ value: 'Bold', viewValue: 'Bold' },
+            { value: 'Italic', viewValue: 'Italic' },
+            { value: 'Underline', viewValue: 'Underline' }],
+            appearance: Appearance.Standard
+          },
+          componentType: ComponentType.ButtonToggle,
+          formControlName: "basicButtonToggle",
         },
-        componentType: ComponentType.ButtonToggle,
-        formControlName: "basicButtonToggle",
-      },
-      {
-        componentProperty: {
-          label: "Multiple selection",
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }],
-          appearance: Appearance.Legacy,
-          groupStyle : {'margin-top': '20px'}
-        },
-        componentType: ComponentType.ButtonToggle,
-        formControlName: "legecyButtonToggle"
-      }
-      ]
+        {
+          componentProperty: {
+            label: "Multiple selection",
+            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+            { value: 'Bellsprout', viewValue: 'Bellsprout' },
+            { value: 'Mushroom', viewValue: 'Mushroom' },
+            { value: 'Onion', viewValue: 'Onion' },
+            { value: 'Pepperoni', viewValue: 'Pepperoni' },
+            { value: 'Sausage', viewValue: 'Sausage' },
+            { value: 'Tomato', viewValue: 'Tomato' }],
+            appearance: Appearance.Legacy,
+            groupStyle: { 'margin-top': '20px' }
+          },
+          componentType: ComponentType.ButtonToggle,
+          formControlName: "legecyButtonToggle"
+        }
+        ]
+      }]
     }
   }
 

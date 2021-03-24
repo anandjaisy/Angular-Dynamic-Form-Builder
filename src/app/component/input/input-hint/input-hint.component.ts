@@ -13,7 +13,7 @@ import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 })
 export class InputHintComponent extends BaseFormComponent<any> implements OnInit {
   codeGeneratorEnable: boolean = false;
-  public angularCodeTemplateViewModel : AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
   constructor(fb: FormBuilder) {
     super(fb);
     this.defineForm();
@@ -22,33 +22,33 @@ export class InputHintComponent extends BaseFormComponent<any> implements OnInit
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Legacy form field HINT",
-          appearance: Appearance.Legacy,
-          placeHolder: "Form field HINT",
-          attrType: InputTypes.Text,
-          hint :"Legacy form field HINT"
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+        componentConfig: [{
+          componentProperty: {
+            label: "Legacy form field HINT",
+            appearance: Appearance.Legacy,
+            placeHolder: "Form field HINT",
+            attrType: InputTypes.Text,
+            hint: "Legacy form field HINT"
+          },
+          componentType: ComponentType.TextBox,
+          formControlName: "legacyFormFieldHint"
         },
-        componentType: ComponentType.TextBox,
-        formControlName: "legacyFormFieldHint"
-      },
-      {
-        componentProperty: {
-          label: "Outline form field HINT",
-          appearance: Appearance.Outline,
-          placeHolder: "Outline form field HINT",
-          attrType: InputTypes.Text,
-          hint: "Outline form field HINT"
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "OutlineFormFieldHINT"
+        {
+          componentProperty: {
+            label: "Outline form field HINT",
+            appearance: Appearance.Outline,
+            placeHolder: "Outline form field HINT",
+            attrType: InputTypes.Text,
+            hint: "Outline form field HINT"
+          },
+          componentType: ComponentType.TextBox,
+          formControlName: "OutlineFormFieldHINT"
+        }]
       }]
     }
   }

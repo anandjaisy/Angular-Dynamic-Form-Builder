@@ -26,26 +26,26 @@ export class ChipsDragDropComponent extends BaseFormComponent<any> implements On
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Basic Auto complete",
-          options: [{ value: 'Sydney', viewValue: 'Sydney' },
-          { value: 'Melbourne', viewValue: 'Melbourne' },
-          { value: 'Brisbane', viewValue: 'Brisbane' },
-          { value: 'NewYork', viewValue: 'New York' },
-          { value: 'Kathmandu', viewValue: 'Kathmandu' }],
-          attrType: InputTypes.DragDrop,
-          appearance: Appearance.Outline,
-          isFormArray: true
-        },
-        componentType: ComponentType.Chip,
-        formControlName: "chipsWithAutoComplete",
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+        componentConfig: [{
+          componentProperty: {
+            label: "Basic Auto complete",
+            options: [{ value: 'Sydney', viewValue: 'Sydney' },
+            { value: 'Melbourne', viewValue: 'Melbourne' },
+            { value: 'Brisbane', viewValue: 'Brisbane' },
+            { value: 'NewYork', viewValue: 'New York' },
+            { value: 'Kathmandu', viewValue: 'Kathmandu' }],
+            attrType: InputTypes.DragDrop,
+            appearance: Appearance.Outline,
+            isFormArray: true
+          },
+          componentType: ComponentType.Chip,
+          formControlName: "chipsWithAutoComplete",
+        }]
       }]
     }
   }

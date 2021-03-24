@@ -22,36 +22,36 @@ export class RadioComponent extends BaseFormComponent<any> implements OnInit {
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Positon BEFORE (css=radio-group-column) (with prefilled value)",
-          options : ['Option 1', 'Option 2'],
-          groupCss: "radio-group-column",
-          componentCss : "radio-button",
-          appearance : Appearance.Before,
-          value : 'Option 1'
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+        componentConfig: [{
+          componentProperty: {
+            label: "Positon BEFORE (css=radio-group-column) (with prefilled value)",
+            options: ['Option 1', 'Option 2'],
+            groupCss: "radio-group-column",
+            componentCss: "radio-button",
+            appearance: Appearance.Before,
+            value: 'Option 1'
+          },
+          componentType: ComponentType.Radio,
+          formControlName: "basicRadios",
         },
-        componentType: ComponentType.Radio,
-        formControlName: "basicRadios",
-      },
-      {
-        componentProperty: {
-          label: "Pick your favorite season (with positon AFTER & css=radio-group-column)",
-          options : ['Winter', 'Spring', 'Summer', 'Autumn'],
-          groupCss: "radio-group-column",
-          componentCss : "radio-button",
-          appearance : Appearance.After
-        },
-        componentType: ComponentType.Radio,
-        formControlName: "radiosWithLabel"
-      }
-    ]
+        {
+          componentProperty: {
+            label: "Pick your favorite season (with positon AFTER & css=radio-group-column)",
+            options: ['Winter', 'Spring', 'Summer', 'Autumn'],
+            groupCss: "radio-group-column",
+            componentCss: "radio-button",
+            appearance: Appearance.After
+          },
+          componentType: ComponentType.Radio,
+          formControlName: "radiosWithLabel"
+        }
+        ]
+      }]
     }
   }
 

@@ -22,31 +22,31 @@ export class CheckboxComponent extends BaseFormComponent<any> implements OnInit 
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      layoutConfig: [{
         fxLayout: FxLayout.Row,
         fxLayoutGap: "10px",
         fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Basic checkboxes BEFORE (with checked)",
-          appearance: Appearance.Before,
-          value: true
+        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+        componentConfig: [{
+          componentProperty: {
+            label: "Basic checkboxes BEFORE (with checked)",
+            appearance: Appearance.Before,
+            value: true
+          },
+          componentType: ComponentType.Checkbox,
+          formControlName: "basicCheckboxesBEFORE",
         },
-        componentType: ComponentType.Checkbox,
-        formControlName: "basicCheckboxesBEFORE",
-      },
-      {
-        componentProperty: {
-          label: "Basic checkboxes AFTER",
-          appearance: Appearance.After,
-          value: false
-        },
-        componentType: ComponentType.Checkbox,
-        formControlName: "basicCheckboxesAFTER"
-      }
-      ]
+        {
+          componentProperty: {
+            label: "Basic checkboxes AFTER",
+            appearance: Appearance.After,
+            value: false
+          },
+          componentType: ComponentType.Checkbox,
+          formControlName: "basicCheckboxesAFTER"
+        }
+        ]
+      }]
     }
   }
 
