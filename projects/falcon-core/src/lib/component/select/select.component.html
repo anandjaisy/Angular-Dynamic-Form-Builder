@@ -12,5 +12,20 @@
             {{item.viewValue}}
         </mat-option>
     </mat-select>
-    <mat-hint [innerHTML]="field?.componentProperty?.hint"></mat-hint>
+
+    <mat-hint *ngIf="field?.componentProperty?.hint?.link?.isLink; else elseBlock">
+        <mat-hint *ngIf="field?.componentProperty?.hint?.link?.queryParams !== undefined; else withoutQueryBlock">
+            <a [routerLink]="[field?.componentProperty?.hint?.link?.routerLink]"
+                [queryParams]="{ query: field?.componentProperty?.hint?.link?.queryParams }"
+                routerLinkActive="router-link-active">{{field?.componentProperty?.hint?.text}}</a>
+        </mat-hint>
+    </mat-hint>
+    <ng-template #elseBlock>
+        <mat-hint>{{field?.componentProperty?.hint?.text}}</mat-hint>
+    </ng-template>
+    <ng-template #withoutQueryBlock>
+        <a [routerLink]="[field?.componentProperty?.hint?.link?.routerLink]"
+            routerLinkActive="router-link-active">{{field?.componentProperty?.hint?.text}}</a>
+    </ng-template>
+
 </mat-form-field>

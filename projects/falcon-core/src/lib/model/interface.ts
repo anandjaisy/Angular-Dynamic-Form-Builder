@@ -85,3 +85,22 @@ export declare interface TableButtonAction {
   edit?: boolean;
   delete?: boolean;
 }
+
+/**
+ * @description
+ * Interface use for material hint component.
+ */
+export declare interface IMatHint {
+  text?: string;
+  link?: IRouteLink;
+}
+
+/**
+ * @description
+ * Interface for routerLink
+ */
+export declare interface IRouteLink {
+  routerLink: string;
+  queryParams?: string;
+  isLink?: boolean;
+}

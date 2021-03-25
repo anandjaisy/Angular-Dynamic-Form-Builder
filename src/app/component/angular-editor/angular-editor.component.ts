@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { BaseFormComponent, AlignmentLayoutDirection, FxLayout, Appearance, ComponentType, InputTypes } from 'projects/falcon-core/src/public-api';
 import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
@@ -79,9 +79,16 @@ export class AngularEditorComponent extends BaseFormComponent<any> implements On
               ]
             }
           },
+          validations: [
+            {
+              name: "required",
+              validator: Validators.required,
+              message: "Required Field"
+            }],
           componentType: ComponentType.Editor,
           formControlName: "editor",
-        }]
+        }], 
+        
       }]
     }
   }

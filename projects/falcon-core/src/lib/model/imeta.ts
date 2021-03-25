@@ -1,6 +1,7 @@
 import { IValidator } from './ivalidator';
 import { ComponentType, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel, InputTypes } from './component-type.enum';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { IMatHint } from './interface';
 
 /**
  * @description
@@ -33,7 +34,7 @@ export declare interface IComponentProperty {
   placeHolder?: string;
   suffix?: ISuffixPrefixConfig;
   prefix?: ISuffixPrefixConfig;
-  hint?: string;
+  hint?: IMatHint;
   componentCss?: string;
   componentStyle?: any;
   labelStyle?: any;
@@ -286,7 +287,7 @@ export declare interface IOptions {
   value?: any;
   icon?: string;
   class?: string;
-  disabled? : boolean;
+  disabled?: boolean;
 }
 
 /**

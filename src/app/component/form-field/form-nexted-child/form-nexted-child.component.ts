@@ -186,6 +186,22 @@ export class FormNextedChildComponent extends BaseFormComponent<any> implements 
             componentType: ComponentType.Select,
             formControlName: "BodyType"
           }]
+      },
+      {
+        fxLayout: FxLayout.Column,
+        fxLayoutGap: "10px",
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.End,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.End,
+        componentConfig: [
+          {
+            componentProperty: {
+              label: "Check",
+              appearance: Appearance.Before,
+              color: "accent"
+            },
+            componentType: ComponentType.SlideToggle,
+            formControlName: "slideMeBEFORE"
+          }]
       }]
     }
   }

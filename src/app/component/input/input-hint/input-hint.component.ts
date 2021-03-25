@@ -33,7 +33,7 @@ export class InputHintComponent extends BaseFormComponent<any> implements OnInit
             appearance: Appearance.Legacy,
             placeHolder: "Form field HINT",
             attrType: InputTypes.Text,
-            hint: "Legacy form field HINT"
+            hint: { text: "Legacy form field HINT", link: {routerLink: '../hello', queryParams: 'value', isLink: true} }
           },
           componentType: ComponentType.TextBox,
           formControlName: "legacyFormFieldHint"
@@ -44,7 +44,7 @@ export class InputHintComponent extends BaseFormComponent<any> implements OnInit
             appearance: Appearance.Outline,
             placeHolder: "Outline form field HINT",
             attrType: InputTypes.Text,
-            hint: "Outline form field HINT"
+            hint: { text: "Outline form field HINT" }
           },
           componentType: ComponentType.TextBox,
           formControlName: "OutlineFormFieldHINT"
