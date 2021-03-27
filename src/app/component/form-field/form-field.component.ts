@@ -30,35 +30,41 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: [{
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
-        fxLayoutAlign_lt_sm: AlignmentLayoutDirection.Start,
-        componentConfig: [
-          {
-            componentProperty: {
-              label: "Select Component",
-              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-              { value: 'Bellsprout', viewValue: 'Bellsprout' },
-              { value: 'Mushroom', viewValue: 'Mushroom' },
-              { value: 'Onion', viewValue: 'Onion' },
-              { value: 'Pepperoni', viewValue: 'Pepperoni' },
-              { value: 'Sausage', viewValue: 'Sausage' },
-              { value: 'Tomato', viewValue: 'Tomato' }],
-              appearance: Appearance.Outline,
-              color: 'accent',
-            },
-            componentType: ComponentType.Select,
-            formControlName: `selectComponent${this.counter}`
-          }]
-      }]
-    }}
-
-    ngOnInit(): void {
-      this.form = this.createControls();
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
+          fxLayoutAlign_lt_sm: AlignmentLayoutDirection.Start,
+          componentConfig: [
+            {
+              componentProperty: {
+                label: "Select Component",
+                options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+                { value: 'Bellsprout', viewValue: 'Bellsprout' },
+                { value: 'Mushroom', viewValue: 'Mushroom' },
+                { value: 'Onion', viewValue: 'Onion' },
+                { value: 'Pepperoni', viewValue: 'Pepperoni' },
+                { value: 'Sausage', viewValue: 'Sausage' },
+                { value: 'Tomato', viewValue: 'Tomato' }],
+                appearance: Appearance.Outline,
+                color: 'accent',
+              },
+              componentType: ComponentType.Select,
+              formControlName: `selectComponent${this.counter}`
+            }]
+        }]
+      }
     }
+  }
+
+  ngOnInit(): void {
+    this.form = this.createControls();
+  }
 
   protected getDatasource(): Observable<any> {
     return of();
@@ -91,7 +97,7 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
     return of(model);
   }
   RemoveComponentclick($event) {
-    this.removeControl(this.counter,0);
+    this.removeControl(this.counter, 0);
     this.counter = this.counter - 1;
   }
 

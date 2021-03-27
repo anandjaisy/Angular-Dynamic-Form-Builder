@@ -31,83 +31,88 @@ export class ButtonIndicatorComponent extends BaseFormComponent<any> implements 
 
     this.controlsConfig =
     {
-      layoutConfig: [{
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
-        componentConfig: [{
-          componentProperty: {
-            label: "Basic",
-            appearance: Appearance.Basic
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              label: "Basic",
+              appearance: Appearance.Basic
+            },
+            componentType: ComponentType.Button,
+            formControlName: "Basic",
           },
-          componentType: ComponentType.Button,
-          formControlName: "Basic",
-        },
-        {
-          componentProperty: {
-            label: "Raised",
-            appearance: Appearance.Raised,
-            color: 'accent'
+          {
+            componentProperty: {
+              label: "Raised",
+              appearance: Appearance.Raised,
+              color: 'accent'
+            },
+            componentType: ComponentType.Button,
+            formControlName: "Raised"
           },
-          componentType: ComponentType.Button,
-          formControlName: "Raised"
-        },
-        {
-          componentProperty: {
-            label: "Stroked",
-            appearance: Appearance.Stroked,
-            color: 'primary'
+          {
+            componentProperty: {
+              label: "Stroked",
+              appearance: Appearance.Stroked,
+              color: 'primary'
+            },
+            componentType: ComponentType.Button,
+            formControlName: "Stroked"
           },
-          componentType: ComponentType.Button,
-          formControlName: "Stroked"
-        },
-        {
-          componentProperty: {
-            label: "explore",
-            appearance: Appearance.Icon,
-            disabled: true
+          {
+            componentProperty: {
+              label: "explore",
+              appearance: Appearance.Icon,
+              disabled: true
+            },
+            componentType: ComponentType.Button,
+            formControlName: "Icon"
           },
-          componentType: ComponentType.Button,
-          formControlName: "Icon"
-        },
-        {
-          componentProperty: {
-            label: "delete",
-            appearance: Appearance.FAB,
-            color: 'warn'
+          {
+            componentProperty: {
+              label: "delete",
+              appearance: Appearance.FAB,
+              color: 'warn'
+            },
+            componentType: ComponentType.Button,
+            formControlName: "FAB"
           },
-          componentType: ComponentType.Button,
-          formControlName: "FAB"
-        },
-        {
-          componentProperty: {
-            label: "thumb_up",
-            appearance: Appearance.MiniFAB,
-            color: 'primary'
+          {
+            componentProperty: {
+              label: "thumb_up",
+              appearance: Appearance.MiniFAB,
+              color: 'primary'
+            },
+            componentType: ComponentType.Button,
+            formControlName: "miniFAB"
           },
-          componentType: ComponentType.Button,
-          formControlName: "miniFAB"
-        },
-        {
-          componentProperty: {
-            label: "Link",
-            appearance: Appearance.routeLink
+          {
+            componentProperty: {
+              label: "Link",
+              appearance: Appearance.routeLink
+            },
+            componentType: ComponentType.Button,
+            formControlName: "link"
           },
-          componentType: ComponentType.Button,
-          formControlName: "link"
-        },
-        {
-          componentProperty: {
-            label: "href",
-            appearance: Appearance.routeHref,
-            value: '/Account/Login'
-          },
-          componentType: ComponentType.Button,
-          formControlName: "linkHref"
-        }
-        ]
-      }]
+          {
+            componentProperty: {
+              label: "href",
+              appearance: Appearance.routeHref,
+              value: '/Account/Login'
+            },
+            componentType: ComponentType.Button,
+            formControlName: "linkHref"
+          }
+          ]
+        }]
+      }
     }
   }
 

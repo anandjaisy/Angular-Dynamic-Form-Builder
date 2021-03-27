@@ -66,13 +66,7 @@ export abstract class BaseFormComponent<T>{
   */
   protected createControls() {
     const group = this.fb.group({});
-    // this.controlsConfig.componentConfig.forEach(field => {
-    //   this.bindControl(field, group);
-    //   field.nextedLayoutConfig?.componentConfig.forEach(field => {
-    //     this.bindControl(field, group);
-    //   });
-    // });
-    this.controlsConfig.layoutConfig.forEach(layout => {
+    this.controlsConfig.container.layoutConfig.forEach(layout => {
       layout.componentConfig.forEach(controls => {
         this.bindControl(controls, group)
       })
@@ -204,8 +198,8 @@ export abstract class BaseFormComponent<T>{
    * ```
    */
   protected removeControl(layoutIndex: number, index: number) {
-    this.form.removeControl(this.controlsConfig.layoutConfig[layoutIndex].componentConfig[index].formControlName);
-    this.controlsConfig.layoutConfig[layoutIndex].componentConfig.splice(index, 1);
+    this.form.removeControl(this.controlsConfig.container.layoutConfig[layoutIndex].componentConfig[index].formControlName);
+    this.controlsConfig.container.layoutConfig[layoutIndex].componentConfig.splice(index, 1);
   }
   /**
    * @description
@@ -241,7 +235,7 @@ export abstract class BaseFormComponent<T>{
           new FormControl({ value: control.componentProperty.value, disabled: control.componentProperty.disabled },
             this.bindValidations(control.validations || [])));
       })
-      this.controlsConfig.layoutConfig.push(layout);
+      this.controlsConfig.container.layoutConfig.push(layout);
     });
   }
 }

@@ -26,70 +26,75 @@ export class AngularEditorComponent extends BaseFormComponent<any> implements On
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: [{
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
-        componentConfig: [{
-          componentProperty: {
-            editorProperty: {
-              editable: true,
-              spellcheck: true,
-              height: 'auto',
-              minHeight: '420px',
-              maxHeight: 'auto',
-              width: 'auto',
-              minWidth: '0',
-              translate: 'yes',
-              enableToolbar: true,
-              showToolbar: true,
-              placeholder: 'Enter text here...',
-              defaultParagraphSeparator: '',
-              defaultFontName: '',
-              defaultFontSize: '',
-              fonts: [
-                { class: 'arial', name: 'Arial' },
-                { class: 'times-new-roman', name: 'Times New Roman' },
-                { class: 'calibri', name: 'Calibri' },
-                { class: 'comic-sans-ms', name: 'Comic Sans MS' }
-              ],
-              customClasses: [
-                {
-                  name: 'quote',
-                  class: 'quote',
-                },
-                {
-                  name: 'redText',
-                  class: 'redText'
-                },
-                {
-                  name: 'titleText',
-                  class: 'titleText',
-                  tag: 'h1',
-                },
-              ],
-              uploadUrl: 'v1/image',
-              uploadWithCredentials: false,
-              sanitize: true,
-              toolbarPosition: 'top',
-              toolbarHiddenButtons: [
-                ['bold', 'italic'],
-                ['fontSize']
-              ]
-            }
-          },
-          validations: [
-            {
-              name: "required",
-              validator: Validators.required,
-              message: "Required Field"
-            }],
-          componentType: ComponentType.Editor,
-          formControlName: "editor",
-        }], 
-        
-      }]
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              editorProperty: {
+                editable: true,
+                spellcheck: true,
+                height: 'auto',
+                minHeight: '420px',
+                maxHeight: 'auto',
+                width: 'auto',
+                minWidth: '0',
+                translate: 'yes',
+                enableToolbar: true,
+                showToolbar: true,
+                placeholder: 'Enter text here...',
+                defaultParagraphSeparator: '',
+                defaultFontName: '',
+                defaultFontSize: '',
+                fonts: [
+                  { class: 'arial', name: 'Arial' },
+                  { class: 'times-new-roman', name: 'Times New Roman' },
+                  { class: 'calibri', name: 'Calibri' },
+                  { class: 'comic-sans-ms', name: 'Comic Sans MS' }
+                ],
+                customClasses: [
+                  {
+                    name: 'quote',
+                    class: 'quote',
+                  },
+                  {
+                    name: 'redText',
+                    class: 'redText'
+                  },
+                  {
+                    name: 'titleText',
+                    class: 'titleText',
+                    tag: 'h1',
+                  },
+                ],
+                uploadUrl: 'v1/image',
+                uploadWithCredentials: false,
+                sanitize: true,
+                toolbarPosition: 'top',
+                toolbarHiddenButtons: [
+                  ['bold', 'italic'],
+                  ['fontSize']
+                ]
+              }
+            },
+            validations: [
+              {
+                name: "required",
+                validator: Validators.required,
+                message: "Required Field"
+              }],
+            componentType: ComponentType.Editor,
+            formControlName: "editor",
+          }],
+
+        }]
+      }
     }
   }
 

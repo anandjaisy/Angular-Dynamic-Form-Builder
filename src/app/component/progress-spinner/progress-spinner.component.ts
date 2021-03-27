@@ -23,29 +23,34 @@ export class ProgressSpinnerComponent extends BaseFormComponent<any> implements 
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: [{
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
-        componentConfig: [{
-          componentProperty: {
-            label: "Progress :   ",
-            color: "primary",
-            sliderProperty: {
-              invert: false,
-              thumbLabel: false,
-              vertical: false,
-              min: 0,
-              max: 100,
-              step: 1,
-              tickInterval: 4
-            }
-          },
-          componentType: ComponentType.Slider,
-          formControlName: "slider"
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              label: "Progress :   ",
+              color: "primary",
+              sliderProperty: {
+                invert: false,
+                thumbLabel: false,
+                vertical: false,
+                min: 0,
+                max: 100,
+                step: 1,
+                tickInterval: 4
+              }
+            },
+            componentType: ComponentType.Slider,
+            formControlName: "slider"
+          }]
         }]
-      }]
+      }
     }
   }
 

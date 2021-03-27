@@ -14,4 +14,8 @@ export class CheckboxComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  change($event) {
+    if (this.field.componentProperty.event !== undefined)
+      this.field.componentProperty.event.change.emit($event);
+  }
 }

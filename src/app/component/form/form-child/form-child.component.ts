@@ -21,15 +21,17 @@ export class FormChildComponent extends BaseFormComponent<any> implements OnInit
   }
 
   ngOnInit(): void {
-    this.controlsConfig = [{
-      layoutConfig: [{
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
-        componentConfig: []
-      }]
-    }] as IMeta;
+    this.controlsConfig = {
+      container: {
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: []
+        }]
+      }
+    } as IMeta;
     this.addControl(this.controls);
   }
 

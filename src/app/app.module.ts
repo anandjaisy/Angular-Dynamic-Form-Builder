@@ -51,6 +51,7 @@ import { ChipsDragDropComponent } from './component/chips/chips-drag-drop/chips-
 import { FormComponent } from './component/form/form.component';
 import { FormChildComponent } from './component/form/form-child/form-child.component';
 import { FormNextedChildComponent } from './component/form-field/form-nexted-child/form-nexted-child.component';
+import { FormLayoutComponent } from './component/form/form-layout/form-layout.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { FormNextedChildComponent } from './component/form-field/form-nexted-chi
     ChipsDragDropComponent,
     FormComponent,
     FormChildComponent,
-    FormNextedChildComponent
+    FormNextedChildComponent,
+    FormLayoutComponent
   ],
   imports: [
     BrowserModule,

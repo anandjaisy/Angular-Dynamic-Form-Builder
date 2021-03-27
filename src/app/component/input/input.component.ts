@@ -22,52 +22,57 @@ export class InputComponent extends BaseFormComponent<any> implements OnInit {
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: [{
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
-        componentConfig: [{
-          componentProperty: {
-            label: "Legacy form field",
-            appearance: Appearance.Legacy,
-            placeHolder: "Legacy form field",
-            attrType: InputTypes.Text
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              label: "Legacy form field",
+              appearance: Appearance.Legacy,
+              placeHolder: "Legacy form field",
+              attrType: InputTypes.Text
+            },
+            componentType: ComponentType.TextBox,
+            formControlName: "LegacyFormField"
           },
-          componentType: ComponentType.TextBox,
-          formControlName: "LegacyFormField"
-        },
-        {
-          componentProperty: {
-            label: "Standard form field",
-            appearance: Appearance.Standard,
-            placeHolder: "Standard form field",
-            attrType: InputTypes.Text
+          {
+            componentProperty: {
+              label: "Standard form field",
+              appearance: Appearance.Standard,
+              placeHolder: "Standard form field",
+              attrType: InputTypes.Text
+            },
+            componentType: ComponentType.TextBox,
+            formControlName: "standardFormField"
           },
-          componentType: ComponentType.TextBox,
-          formControlName: "standardFormField"
-        },
-        {
-          componentProperty: {
-            label: "Fill form field",
-            appearance: Appearance.Fill,
-            placeHolder: "Fill form field",
-            attrType: InputTypes.Text
+          {
+            componentProperty: {
+              label: "Fill form field",
+              appearance: Appearance.Fill,
+              placeHolder: "Fill form field",
+              attrType: InputTypes.Text
+            },
+            componentType: ComponentType.TextBox,
+            formControlName: "fillFormField"
           },
-          componentType: ComponentType.TextBox,
-          formControlName: "fillFormField"
-        },
-        {
-          componentProperty: {
-            label: "Outline form field",
-            appearance: Appearance.Outline,
-            placeHolder: "Outline form field",
-            attrType: InputTypes.Text
-          },
-          componentType: ComponentType.TextBox,
-          formControlName: "outlineFormField"
+          {
+            componentProperty: {
+              label: "Outline form field",
+              appearance: Appearance.Outline,
+              placeHolder: "Outline form field",
+              attrType: InputTypes.Text
+            },
+            componentType: ComponentType.TextBox,
+            formControlName: "outlineFormField"
+          }]
         }]
-      }]
+      }
     }
   }
 

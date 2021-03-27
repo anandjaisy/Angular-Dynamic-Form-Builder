@@ -28,23 +28,28 @@ export class ChipsWithinputComponent extends BaseFormComponent<any> implements O
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: [{
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
-        componentConfig: [{
-          componentProperty: {
-            label: "Basic Auto complete",
-            options: [],
-            attrType: InputTypes.Text,
-            appearance: Appearance.Outline,
-            isFormArray: true
-          },
-          componentType: ComponentType.Chip,
-          formControlName: "chipsWithInput",
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              label: "Basic Auto complete",
+              options: [],
+              attrType: InputTypes.Text,
+              appearance: Appearance.Outline,
+              isFormArray: true
+            },
+            componentType: ComponentType.Chip,
+            formControlName: "chipsWithInput",
+          }]
         }]
-      }]
+      }
     }
   }
 

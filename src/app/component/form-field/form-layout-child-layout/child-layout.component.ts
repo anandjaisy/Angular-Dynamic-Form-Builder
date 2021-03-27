@@ -23,63 +23,68 @@ export class ChildLayoutComponent extends BaseFormComponent<any> implements OnIn
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: [{
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
-        componentConfig: [{
-          componentProperty: {
-            label: "Max Price",
-            appearance: Appearance.Outline,
-            placeHolder: "Max Price",
-            attrType: InputTypes.Text,
-            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-            { value: 'Bellsprout', viewValue: 'Bellsprout' },
-            { value: 'Mushroom', viewValue: 'Mushroom' },
-            { value: 'Onion', viewValue: 'Onion' },
-            { value: 'Pepperoni', viewValue: 'Pepperoni' },
-            { value: 'Sausage', viewValue: 'Sausage' },
-            { value: 'Tomato', viewValue: 'Tomato' }]
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
+          componentConfig: [{
+            componentProperty: {
+              label: "Max Price",
+              appearance: Appearance.Outline,
+              placeHolder: "Max Price",
+              attrType: InputTypes.Text,
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "MaxPrice"
           },
-          componentType: ComponentType.Select,
-          formControlName: "MaxPrice"
-        },
-        {
-          componentProperty: {
-            label: "Body Type",
-            appearance: Appearance.Outline,
-            placeHolder: "Body Type",
-            attrType: InputTypes.Text,
-            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-            { value: 'Bellsprout', viewValue: 'Bellsprout' },
-            { value: 'Mushroom', viewValue: 'Mushroom' },
-            { value: 'Onion', viewValue: 'Onion' },
-            { value: 'Pepperoni', viewValue: 'Pepperoni' },
-            { value: 'Sausage', viewValue: 'Sausage' },
-            { value: 'Tomato', viewValue: 'Tomato' }]
+          {
+            componentProperty: {
+              label: "Body Type",
+              appearance: Appearance.Outline,
+              placeHolder: "Body Type",
+              attrType: InputTypes.Text,
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "BodyType"
           },
-          componentType: ComponentType.Select,
-          formControlName: "BodyType"
-        },
-        {
-          componentProperty: {
-            label: "Max Price 2",
-            appearance: Appearance.Outline,
-            placeHolder: "Max Price",
-            attrType: InputTypes.Text,
-            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-            { value: 'Bellsprout', viewValue: 'Bellsprout' },
-            { value: 'Mushroom', viewValue: 'Mushroom' },
-            { value: 'Onion', viewValue: 'Onion' },
-            { value: 'Pepperoni', viewValue: 'Pepperoni' },
-            { value: 'Sausage', viewValue: 'Sausage' },
-            { value: 'Tomato', viewValue: 'Tomato' }]
-          },
-          componentType: ComponentType.Select,
-          formControlName: "MaxPrice2"
+          {
+            componentProperty: {
+              label: "Max Price 2",
+              appearance: Appearance.Outline,
+              placeHolder: "Max Price",
+              attrType: InputTypes.Text,
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "MaxPrice2"
+          }]
         }]
-      }]
+      }
     }
   }
 

@@ -1,6 +1,6 @@
-import { Component, OnInit,Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { IMeta } from '../../model/imeta';
-import { FormGroup,Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ComponentType } from '../../model/component-type.enum';
 import { BaseFormComponent } from '../../common/base-form-component';
 
@@ -10,10 +10,10 @@ import { BaseFormComponent } from '../../common/base-form-component';
   styleUrls: ['./reactive-controls.component.css']
 })
 export class ReactiveControlsComponent implements OnInit {
-  
+
   @Input() form: FormGroup;
   @Input() fields: IMeta;
-  constructor() { 
+  constructor() {
   }
   ngOnInit(): void {
   }

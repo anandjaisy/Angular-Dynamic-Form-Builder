@@ -22,30 +22,35 @@ export class SlideToggleComponent extends BaseFormComponent<any> implements OnIn
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: [{
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
-        componentConfig: [{
-          componentProperty: {
-            label: "Slide me! BEFORE text color=accent",
-            appearance: Appearance.Before,
-            color: "accent"
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              label: "Slide me! BEFORE text color=accent",
+              appearance: Appearance.Before,
+              color: "accent"
+            },
+            componentType: ComponentType.SlideToggle,
+            formControlName: "slideMeBEFORE"
           },
-          componentType: ComponentType.SlideToggle,
-          formControlName: "slideMeBEFORE"
-        },
-        {
-          componentProperty: {
-            label: "Slide me! AFTER text color=primary",
-            appearance: Appearance.After,
-            color: "primary"
-          },
-          componentType: ComponentType.SlideToggle,
-          formControlName: "slideMeAFTERText"
+          {
+            componentProperty: {
+              label: "Slide me! AFTER text color=primary",
+              appearance: Appearance.After,
+              color: "primary"
+            },
+            componentType: ComponentType.SlideToggle,
+            formControlName: "slideMeAFTERText"
+          }]
         }]
-      }]
+      }
     }
   }
 

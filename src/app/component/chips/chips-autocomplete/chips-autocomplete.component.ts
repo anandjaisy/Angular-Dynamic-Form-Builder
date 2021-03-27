@@ -27,27 +27,32 @@ export class ChipsAutocompleteComponent extends BaseFormComponent<any> implement
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: [{
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
-        componentConfig: [{
-          componentProperty: {
-            label: "Basic Auto complete",
-            options: [{ value: 'Sydney', viewValue: 'Sydney' },
-            { value: 'Melbourne', viewValue: 'Melbourne' },
-            { value: 'Brisbane', viewValue: 'Brisbane' },
-            { value: 'NewYork', viewValue: 'New York' },
-            { value: 'Kathmandu', viewValue: 'Kathmandu' }],
-            attrType: InputTypes.Search,
-            appearance: Appearance.Outline,
-            isFormArray: true
-          },
-          componentType: ComponentType.Chip,
-          formControlName: "chipsWithAutoComplete",
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              label: "Basic Auto complete",
+              options: [{ value: 'Sydney', viewValue: 'Sydney' },
+              { value: 'Melbourne', viewValue: 'Melbourne' },
+              { value: 'Brisbane', viewValue: 'Brisbane' },
+              { value: 'NewYork', viewValue: 'New York' },
+              { value: 'Kathmandu', viewValue: 'Kathmandu' }],
+              attrType: InputTypes.Search,
+              appearance: Appearance.Outline,
+              isFormArray: true
+            },
+            componentType: ComponentType.Chip,
+            formControlName: "chipsWithAutoComplete",
+          }]
         }]
-      }]
+      }
     }
   }
 

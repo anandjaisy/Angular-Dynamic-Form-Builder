@@ -1,15 +1,18 @@
-<ng-container *ngFor="let layout of fields?.layoutConfig">
-    <div [fxLayout]="layout?.fxLayout + ' wrap'"
-        fxLayout.xs="start + layout?.fxLayout_xs != undefined ? layout?.fxLayout_xs : 'column'"
-        [fxLayoutGap.gt-xs]="layout?.fxLayoutGap != undefined ? layout?.fxLayoutGap : '0'"
-        [fxLayoutAlign]="layout?.fxLayoutAlignHorizontal + ' ' + layout?.fxLayoutAlignVertical">
-        <div *ngFor="let control of layout.componentConfig;"
-            [fxFlex]="control?.componentProperty?.fxFlexChildLayout?.fxFlex != undefined ? control?.componentProperty?.fxFlexChildLayout?.fxFlex:''"
-            [fxFlex.xs]="control?.componentProperty?.fxFlexChildLayout?.fxFlex_xs"
-            [fxFlexAlign]="control?.componentProperty?.fxFlexChildLayout?.fxFlexAlign"
-            [fxFlex.xs]="control?.componentProperty?.fxFlexChildLayout?.fxFlex_xs"
-            [fxFlex.sm]="control?.componentProperty?.fxFlexChildLayout?.fxFlex_sm">
-            <ng-container reactiveField [field]="control" [group]="form"></ng-container>
+<div [fxLayout]="fields?.container?.fxLayout" [fxLayoutGap.gt-xs]="fields?.container?.fxLayoutGap"
+    [fxLayoutAlign]="fields?.container?.fxLayoutAlignHorizontal + ' ' + fields?.container?.fxLayoutAlignVertical">
+    <ng-container *ngFor="let layout of fields?.container?.layoutConfig">
+        <div [fxLayout]="layout?.fxLayout + ' wrap'"
+            fxLayout.xs="start + layout?.fxLayout_xs != undefined ? layout?.fxLayout_xs : 'column'"
+            [fxLayoutGap.gt-xs]="layout?.fxLayoutGap != undefined ? layout?.fxLayoutGap : '0'"
+            [fxLayoutAlign]="layout?.fxLayoutAlignHorizontal + ' ' + layout?.fxLayoutAlignVertical">
+            <div *ngFor="let control of layout.componentConfig;"
+                [fxFlex]="control?.componentProperty?.fxFlexLayout?.fxFlex != undefined ? control?.componentProperty?.fxFlexLayout?.fxFlex:'none'"
+                [fxFlex.xs]="control?.componentProperty?.fxFlexLayout?.fxFlex_xs"
+                [fxFlexAlign]="control?.componentProperty?.fxFlexLayout?.fxFlexAlign"
+                [fxFlex.xs]="control?.componentProperty?.fxFlexLayout?.fxFlex_xs"
+                [fxFlex.sm]="control?.componentProperty?.fxFlexLayout?.fxFlex_sm">
+                <ng-container reactiveField [field]="control" [group]="form"></ng-container>
+            </div>
         </div>
-    </div>
-</ng-container>
+    </ng-container>
+</div>

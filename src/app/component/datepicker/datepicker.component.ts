@@ -22,43 +22,48 @@ export class DatepickerComponent extends BaseFormComponent<any> implements OnIni
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: [{
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
-        componentConfig: [{
-          componentProperty: {
-            label: "Legacy custom icon datepicker",
-            appearance: Appearance.Legacy,
-            placeHolder: "Legacy Basic datepicker",
-            attrType: InputTypes.Text,
-            groupStyle: { 'width': '125%' },
-            suffix: {
-              isIcon: true,
-              text: "keyboard_arrow_down"
-            }
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              label: "Legacy custom icon datepicker",
+              appearance: Appearance.Legacy,
+              placeHolder: "Legacy Basic datepicker",
+              attrType: InputTypes.Text,
+              groupStyle: { 'width': '125%' },
+              suffix: {
+                isIcon: true,
+                text: "keyboard_arrow_down"
+              }
+            },
+            validations: [
+              {
+                name: "required",
+                validator: Validators.required,
+                message: "Required Field"
+              }],
+            componentType: ComponentType.DatePicker,
+            formControlName: "legacyBasicDatePicker"
           },
-          validations: [
-            {
-              name: "required",
-              validator: Validators.required,
-              message: "Required Field"
-            }],
-          componentType: ComponentType.DatePicker,
-          formControlName: "legacyBasicDatePicker"
-        },
-        {
-          componentProperty: {
-            label: "Outline Basic datepicker",
-            appearance: Appearance.Outline,
-            placeHolder: "Outline Basic datepicker",
-            attrType: InputTypes.Text
-          },
-          componentType: ComponentType.DatePicker,
-          formControlName: "outlineDatepicker"
+          {
+            componentProperty: {
+              label: "Outline Basic datepicker",
+              appearance: Appearance.Outline,
+              placeHolder: "Outline Basic datepicker",
+              attrType: InputTypes.Text
+            },
+            componentType: ComponentType.DatePicker,
+            formControlName: "outlineDatepicker"
+          }]
         }]
-      }]
+      }
     }
   }
 

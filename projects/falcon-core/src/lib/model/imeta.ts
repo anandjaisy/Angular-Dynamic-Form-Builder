@@ -2,18 +2,46 @@ import { IValidator } from './ivalidator';
 import { ComponentType, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel, InputTypes } from './component-type.enum';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { IMatHint } from './interface';
+import { EventEmitter } from '@angular/core';
 
 /**
  * @description
  * Interface use for setting the component meta.
+ * @param mainLayout Define the main container for the layout.
  * @usageNotes
  * ```ts
  *       this.controlsConfig = { }
  * ```
  */
 export declare interface IMeta {
+  container: IContainer
+}
+
+/**
+ * Container to hold sub layout
+ * @param alignmentLayoutDirectionHorizontal Defines how flexbox items are aligned according to both the main-axis and the cross-axis, within a flexbox container.
+ * @param alignmentLayoutDirectionVertical Defines how flexbox items are aligned according to both the main-axis and the cross-axis, within a flexbox container.
+ * @param fxLayout Defines the flow order of child items within a flexbox container.
+ * @param fxLayoutGap Defines if child items within a flexbox container should have a gap.
+ * @usageNotes
+ * ```ts
+ *       layoutConfig: {
+ *        fxLayout: FxLayout.Row,
+ *        fxLayoutGap: "10px",
+ *        textAreaProperty: AlignmentLayoutDirection.SpaceAround,
+ *        alignmentLayoutDirectionVertical: AlignmentLayoutDirection.SpaceAround,
+ *        layoutConfig: {}
+ *    }
+ * ```
+ */
+export declare interface IContainer {
+  fxLayout?: FxLayout,
+  fxLayoutAlignHorizontal?: AlignmentLayoutDirection;
+  fxLayoutAlignVertical?: AlignmentLayoutDirection;
+  fxLayoutGap?: string;
   layoutConfig?: ILayoutConfig[];
 }
+
 /**
  * @description
  * Interface use for setting the component property.
@@ -46,12 +74,13 @@ export declare interface IComponentProperty {
   value?: string | any;
   disabled?: boolean;
   color?: string;
-  fxFlexChildLayout?: IfxFlexChildLayout;
+  fxFlexLayout?: IfxFlexLayout;
   isFormArray?: boolean;
   textAreaProperty?: ITextAreaProperty;
   sliderProperty?: ISliderProperty;
   selectProperty?: ISelectOptions;
   editorProperty?: AngularEditorConfig;
+  event?: IComponentEvent<unknown>;
 }
 /**
  * @description
@@ -196,7 +225,7 @@ export declare interface ILayoutConfig {
  *    }
  * ```
  */
-export declare interface IfxFlexChildLayout {
+export declare interface IfxFlexLayout {
   fxFlex?: string | any;
   fxFlexOrder?: string;
   fxFlexOffset?: string;
@@ -220,7 +249,6 @@ export declare interface IfxFlexChildLayout {
   fxFlex_gt_md?: string;
   fxFlex_gt_lg?: string;
 }
-
 
 /**
  * @description
@@ -303,4 +331,15 @@ export declare interface IOptions {
 export declare interface ISelectOptions {
   single?: boolean;
   multiple?: boolean;
+}
+
+/**
+ * @description
+ * @param change change event for the control
+ * @param click click event for the control
+ * Events for controls
+ */
+export declare interface IComponentEvent<T> {
+  change?: EventEmitter<T>;
+  click?: EventEmitter<T>;
 }
