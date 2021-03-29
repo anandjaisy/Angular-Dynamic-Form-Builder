@@ -75,7 +75,6 @@ export declare interface IComponentProperty {
   disabled?: boolean;
   color?: string;
   fxFlexLayout?: IfxFlexLayout;
-  formArray?: ILayoutConfig[];
   textAreaProperty?: ITextAreaProperty;
   sliderProperty?: ISliderProperty;
   selectProperty?: ISelectOptions;
@@ -122,6 +121,7 @@ export declare interface IComponentConfig {
   formControlName?: string;
   componentType?: ComponentType;
   validations?: IValidator[];
+  formArray?: ILayoutConfig[];
 }
 /**
  * @description

@@ -42,9 +42,9 @@ export class ChipsWithinputComponent extends BaseFormComponent<any> implements O
               label: "Basic Auto complete",
               options: [],
               attrType: InputTypes.Text,
-              appearance: Appearance.Outline,
-              formArray: []
+              appearance: Appearance.Outline
             },
+            formArray: [],
             componentType: ComponentType.Chip,
             formControlName: "chipsWithInput",
           }]

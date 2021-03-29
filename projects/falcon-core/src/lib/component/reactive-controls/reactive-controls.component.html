@@ -11,14 +11,16 @@
                 [fxFlexAlign]="control?.componentProperty?.fxFlexLayout?.fxFlexAlign"
                 [fxFlex.xs]="control?.componentProperty?.fxFlexLayout?.fxFlex_xs"
                 [fxFlex.sm]="control?.componentProperty?.fxFlexLayout?.fxFlex_sm">
-                <ng-container *ngIf="control?.componentProperty?.formArray !== undefined; else elseBlock">
-                    <ng-container [ngTemplateOutlet]="controlArrayContainer" [ngTemplateOutletContext]="
+                <ng-container *ngIf="control?.formArray !== undefined; else elseBlock">
+                    <ng-container *ngIf="control?.formArray.length > 0; else elseBlock">
+                        <ng-container [ngTemplateOutlet]="controlArrayContainer" [ngTemplateOutletContext]="
                         {
-                            controls:control?.componentProperty?.formArray,
+                            controls:control?.formArray,
                             formControlName: control?.formControlName,
                             formGroupName: formGroup
                         }
                         ">
+                        </ng-container>
                     </ng-container>
                 </ng-container>
                 <ng-template #elseBlock>
@@ -31,7 +33,6 @@
 
 <ng-template #controlArrayContainer let-controls="controls" let-formControlName="formControlName"
     let-formGroupName="formGroupName">
-    {{formControlName}}
     <ng-container *ngFor="let layout of controls; let i = index;">
         <div [fxLayout]="layout?.fxLayout + ' wrap'" [formGroup]="formGroupName"
             fxLayout.xs="start + layout?.fxLayout_xs != undefined ? layout?.fxLayout_xs : 'column'"
@@ -43,10 +44,11 @@
                 [fxFlexAlign]="control?.componentProperty?.fxFlexLayout?.fxFlexAlign"
                 [fxFlex.xs]="control?.componentProperty?.fxFlexLayout?.fxFlex_xs"
                 [fxFlex.sm]="control?.componentProperty?.fxFlexLayout?.fxFlex_sm">
-                <ng-container *ngIf="control?.componentProperty?.formArray !== undefined; else elseBlock">
+                <ng-container *ngIf="control?.formArray !== undefined; else elseBlock">
+                    <ng-container *ngIf="control?.formArray.length > 0; else elseBlock">
                         <ng-container [ngTemplateOutlet]="controlArrayContainer" [ngTemplateOutletContext]="
                         {
-                            controls:control?.componentProperty?.formArray,
+                            controls:control?.formArray,
                             formControlName: control?.formControlName,
                             formGroupName: formGroupName.get(formControlName)['controls'][i]
                         }
@@ -54,6 +56,7 @@
                             <ng-container reactiveField [field]="control"
                                 [group]="formGroupName.get(formControlName)['controls'][i]"></ng-container>
                         </ng-container>
+                    </ng-container>
                 </ng-container>
                 <ng-template #elseBlock>
                     <ng-container reactiveField [field]="control"

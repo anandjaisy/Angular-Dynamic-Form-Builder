@@ -80,9 +80,9 @@ export abstract class BaseFormComponent<T>{
   private bindControl(componentConfig: IComponentConfig, group, index: number) {
     if (componentConfig.componentType === ComponentType.Button) return;
     var control = null;
-    if (componentConfig.componentProperty.formArray !== undefined) {
-      control = (componentConfig.componentProperty.formArray.length > 0)
-        ? this.fb.array([this.createFormArrayGroup(componentConfig.componentProperty.formArray[index].componentConfig)]) :
+    if (componentConfig.formArray !== undefined) {
+      control = (componentConfig.formArray.length > 0)
+        ? this.fb.array([this.createFormArrayGroup(componentConfig.formArray[componentConfig.formArray.length - 1].componentConfig)]) :
         this.fb.array([], this.bindValidations(componentConfig.validations || []))
     } else {
       control = this.fb.control({ value: componentConfig.componentProperty.value, disabled: componentConfig.componentProperty.disabled },
@@ -117,9 +117,9 @@ export abstract class BaseFormComponent<T>{
     var formGroup: FormGroup = this.fb.group({});
     componentConfig.forEach((item, index) => {
       var control = null;
-      if (item.componentProperty.formArray !== undefined) {
-        control = item.componentProperty.formArray.length > 0
-          ? this.fb.array([this.createFormArrayGroup(item.componentProperty.formArray[index].componentConfig)], this.bindValidations(item.validations || [])) :
+      if (item.formArray !== undefined) {
+        control = item.formArray.length > 0
+          ? this.fb.array([this.createFormArrayGroup(item.formArray[item.formArray.length - 1].componentConfig)], this.bindValidations(item.validations || [])) :
           this.fb.array([], this.bindValidations(item.validations || []))
       } else {
         control = this.fb.control({ value: item.componentProperty.value, disabled: item.componentProperty.disabled },
