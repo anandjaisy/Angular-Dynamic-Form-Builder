@@ -75,7 +75,7 @@ export declare interface IComponentProperty {
   disabled?: boolean;
   color?: string;
   fxFlexLayout?: IfxFlexLayout;
-  isFormArray?: boolean;
+  formArray?: ILayoutConfig[];
   textAreaProperty?: ITextAreaProperty;
   sliderProperty?: ISliderProperty;
   selectProperty?: ISelectOptions;

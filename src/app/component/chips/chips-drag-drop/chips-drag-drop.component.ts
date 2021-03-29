@@ -45,7 +45,7 @@ export class ChipsDragDropComponent extends BaseFormComponent<any> implements On
               { value: 'Kathmandu', viewValue: 'Kathmandu' }],
               attrType: InputTypes.DragDrop,
               appearance: Appearance.Outline,
-              isFormArray: true
+              formArray: []
             },
             componentType: ComponentType.Chip,
             formControlName: "chipsWithAutoComplete",

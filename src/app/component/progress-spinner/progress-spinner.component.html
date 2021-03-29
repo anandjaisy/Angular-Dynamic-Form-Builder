@@ -25,7 +25,7 @@
                 <h3> Determinate</h3>
                 <p class="blurText">Standard progress indicator, fills from 0% to 100%</p>
                 <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-                    <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
+                    <reactive-controls [fields]="controlsConfig" [formGroup]="form"></reactive-controls>
                     <falcon-progress-spinner [mode]="'determinate'" [value]="progressSpinnerValue"></falcon-progress-spinner>
                 </form>
                 <br>

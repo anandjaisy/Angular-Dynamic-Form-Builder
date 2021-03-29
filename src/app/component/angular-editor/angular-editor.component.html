@@ -12,7 +12,7 @@
         <mat-card-content>
             <div style="margin-top: 40px">
                 <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-                    <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
+                    <reactive-controls [fields]="controlsConfig" [formGroup]="form"></reactive-controls>
                 </form>                
             </div>
             <div fxLayout="row" fxLayoutAlign="center center">

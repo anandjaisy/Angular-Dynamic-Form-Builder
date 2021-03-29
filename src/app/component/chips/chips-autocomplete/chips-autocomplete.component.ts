@@ -46,7 +46,7 @@ export class ChipsAutocompleteComponent extends BaseFormComponent<any> implement
               { value: 'Kathmandu', viewValue: 'Kathmandu' }],
               attrType: InputTypes.Search,
               appearance: Appearance.Outline,
-              isFormArray: true
+              formArray: []
             },
             componentType: ComponentType.Chip,
             formControlName: "chipsWithAutoComplete",

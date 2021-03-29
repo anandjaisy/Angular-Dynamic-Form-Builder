@@ -11,7 +11,7 @@ import { BaseFormComponent } from '../../common/base-form-component';
 })
 export class ReactiveControlsComponent implements OnInit {
 
-  @Input() form: FormGroup;
+  @Input() formGroup: FormGroup;
   @Input() fields: IMeta;
   constructor() {
   }

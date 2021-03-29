@@ -43,7 +43,7 @@ export class ChipsWithinputComponent extends BaseFormComponent<any> implements O
               options: [],
               attrType: InputTypes.Text,
               appearance: Appearance.Outline,
-              isFormArray: true
+              formArray: []
             },
             componentType: ComponentType.Chip,
             formControlName: "chipsWithInput",

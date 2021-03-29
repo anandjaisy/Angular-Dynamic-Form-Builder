@@ -18,8 +18,8 @@
                     </div>
                 </div>
                 <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-                    <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
-                     <app-form-child [form]="form"></app-form-child> 
+                    <reactive-controls [fields]="controlsConfig" [formGroup]="form"></reactive-controls>
+                    <app-form-child [form]="form"></app-form-child>
                 </form>
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <pre><code [highlight]="form?.value | json"></code></pre>
@@ -39,6 +39,15 @@
     <mat-card>
         <mat-card-content>
             <app-form-layout></app-form-layout>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+            <app-nextedform-array></app-nextedform-array>
         </mat-card-content>
     </mat-card>
 </div>

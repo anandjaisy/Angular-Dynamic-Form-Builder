@@ -24,7 +24,7 @@
                 </div>
                 <br><br>
                 <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-                    <reactive-controls [fields]="controlsConfig" [form]="form"></reactive-controls>
+                    <reactive-controls [fields]="controlsConfig" [formGroup]="form"></reactive-controls>
                 </form>
 
                 <h1>Button in HTML</h1>
