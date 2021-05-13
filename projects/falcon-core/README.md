@@ -78,4 +78,3 @@ Run `ng test @falcon-ng/core` to execute the unit tests via [Karma](https://karm
 
         Example --> ng build --prod --output-path docs --base-href /Angular-Dynamic-Form-Builder/
 * Reference - https://angular.io/guide/deployment
-        

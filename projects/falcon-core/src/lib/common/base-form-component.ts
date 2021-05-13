@@ -256,13 +256,21 @@ export abstract class BaseFormComponent<T>{
    * ```
    */
   protected addControl(layoutToAdd?: ILayoutConfig[], index?: number) {
-    layoutToAdd.forEach(layout => {
-      layout.componentConfig.forEach(control => {
-        this.form.addControl(control.formControlName,
-          new FormControl({ value: control.componentProperty.value, disabled: control.componentProperty.disabled },
-            this.bindValidations(control.validations || [])));
+    layoutToAdd.forEach((layout, layoutIndex) => {
+      layout.componentConfig.forEach((componentConfig, componentIndex) => {
+        if (componentConfig.formArray !== undefined) {
+          componentConfig.formArray.forEach(control => {
+            this.form.setControl("productOption", this.createFormArrayGroup(control.componentConfig));
+            this.controlsConfig.container.layoutConfig[1].componentConfig[0].formArray.push(layout)
+          })
+        } else {
+          this.form.addControl(componentConfig.formControlName,
+            new FormControl({ value: componentConfig.componentProperty.value, disabled: componentConfig.componentProperty.disabled },
+              this.bindValidations(componentConfig.validations || [])));
+          index !== null ? this.controlsConfig.container.layoutConfig.splice(index, 0, layout) :
+            this.controlsConfig.container.layoutConfig.push(layout);
+        }
       })
-      index !== null ? this.controlsConfig.container.layoutConfig.splice(index, 0, layout) : this.controlsConfig.container.layoutConfig.push(layout);
     });
   }
 }

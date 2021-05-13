@@ -16,5 +16,6 @@ export class ReactiveControlsComponent implements OnInit {
   constructor() {
   }
   ngOnInit(): void {
+    console.log(this.formGroup);
   }
 }

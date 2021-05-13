@@ -4,15 +4,15 @@
 
 import { from } from 'rxjs';
 
- /*
- * Public API Surface of falcon-core-module
- */
+/*
+* Public API Surface of falcon-core-module
+*/
 export * from './lib/falcon-core.module';
 export * from './lib/module/angular-material/angular-material.module';
 
- /*
- * Public API Surface of falcon core module service
- */
+/*
+* Public API Surface of falcon core module service
+*/
 export * from './lib/service/http/igeneric-http-client';
 export * from './lib/service/logger.service';
 export * from './lib/service/open-id/auth.service';
@@ -20,9 +20,9 @@ export * from './lib/service/open-id/auth-guard.service';
 export * from './lib/service/http/httpInterceptor';
 export * from './lib/service/appsetting.service';
 
- /*
- * Public API Surface of falcon core module component
- */
+/*
+* Public API Surface of falcon core module component
+*/
 export * from './lib/component/reactive-controls/reactive-controls.component';
 export * from './lib/component/textbox/textbox.component';
 export * from './lib/component/text-area/text-area.component';
@@ -43,9 +43,10 @@ export * from './lib/component/snack-bar/snack-bar.component';
 export * from './lib/component/chips/chips.component';
 export * from './lib/component/table/table.component';
 export * from './lib/component/pagination/pagination.component';
- /*
- * Public API Surface of falcon core module directive
- */
+export * from './lib/component/divider/divider.component';
+/*
+* Public API Surface of falcon core module directive
+*/
 export * from './lib/directive/reactive-field.directive';
 export * from './lib/module/angular-material/angular-material.module'
 

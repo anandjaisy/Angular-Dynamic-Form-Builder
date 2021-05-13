@@ -12,7 +12,7 @@ class EnvironmentImpl implements EnvironmentViewModel {
     scope: 'openid profile email',
     automaticSilentRenew: true
   };
-  baseUrl = 'http://localhost:8080/api/v1';
+  baseUrl = 'https://raw.githubusercontent.com/anandjaisy/Angular-Dynamic-Form-Builder/master/src/app/component/';
   snackBarEnable = true;
 }
 

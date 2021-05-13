@@ -35,11 +35,13 @@ import { PaginationComponent } from './component/pagination/pagination.component
 import { EditorComponent } from './component/editor/editor.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { RouterModule } from '@angular/router';
+import { DividerComponent } from './component/divider/divider.component';
 @NgModule({
   declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent,
     SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,
     ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DeleteDialogComponent,
-    AutoCompleteComponent, SnackBarComponent, ChipsComponent, TableComponent, PaginationComponent, EditorComponent],
+    AutoCompleteComponent, SnackBarComponent, ChipsComponent, TableComponent, PaginationComponent, EditorComponent,
+    DividerComponent],
   imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule,
     RouterModule, AngularEditorModule],
   exports: [
@@ -47,7 +49,8 @@ import { RouterModule } from '@angular/router';
     ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent,
     CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ProgressBarComponent, ProgressSpinnerComponent,
     BottomSheetComponent, DeleteDialogComponent, SnackBarComponent, ChipsComponent, TableComponent,
-    ButtonToggleComponent, AutoCompleteComponent, PaginationComponent, EditorComponent, AngularEditorModule
+    ButtonToggleComponent, AutoCompleteComponent, PaginationComponent, EditorComponent, AngularEditorModule,
+    DividerComponent
   ],
   entryComponents: [
     BottomSheetComponent, DeleteDialogComponent

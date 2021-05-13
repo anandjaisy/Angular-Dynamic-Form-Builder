@@ -19,7 +19,8 @@ export const enum ComponentType {
     ButtonToggle = 9,
     AutoComplete = 10,
     Chip = 11,
-    Editor = 12
+    Editor = 12,
+    Divider = 13
 }
 /**
  * @description
