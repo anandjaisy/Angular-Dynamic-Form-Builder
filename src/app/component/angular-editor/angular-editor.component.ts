@@ -38,49 +38,45 @@ export class AngularEditorComponent extends BaseFormComponent<any> implements On
           componentConfig: [{
             componentProperty: {
               editorProperty: {
-                editable: true,
-                spellcheck: true,
-                height: 'auto',
-                minHeight: '420px',
-                maxHeight: 'auto',
-                width: 'auto',
-                minWidth: '0',
-                translate: 'yes',
-                enableToolbar: true,
-                showToolbar: true,
-                placeholder: 'Enter text here...',
-                defaultParagraphSeparator: '',
-                defaultFontName: '',
-                defaultFontSize: '',
-                fonts: [
-                  { class: 'arial', name: 'Arial' },
-                  { class: 'times-new-roman', name: 'Times New Roman' },
-                  { class: 'calibri', name: 'Calibri' },
-                  { class: 'comic-sans-ms', name: 'Comic Sans MS' }
+                toolbar: [
+                  'undo',
+                  'redo',
+                  '|',
+                  'heading',
+                  'fontFamily',
+                  'fontSize',
+                  '|',
+                  'bold',
+                  'italic',
+                  'underline',
+                  'fontColor',
+                  'fontBackgroundColor',
+                  'highlight',
+                  '|',
+                  'link',
+                  'CKFinder',
+                  'imageUpload',
+                  'mediaEmbed',
+                  '|',
+                  'alignment',
+                  'bulletedList',
+                  'numberedList',
+                  '|',
+                  'indent',
+                  'outdent',
+                  '|',
+                  'insertTable',
+                  'blockQuote',
+                  'specialCharacters'
                 ],
-                customClasses: [
-                  {
-                    name: 'quote',
-                    class: 'quote',
-                  },
-                  {
-                    name: 'redText',
-                    class: 'redText'
-                  },
-                  {
-                    name: 'titleText',
-                    class: 'titleText',
-                    tag: 'h1',
-                  },
-                ],
-                uploadUrl: 'v1/image',
-                uploadWithCredentials: false,
-                sanitize: true,
-                toolbarPosition: 'top',
-                toolbarHiddenButtons: [
-                  ['bold', 'italic'],
-                  ['fontSize']
-                ]
+                language: 'id',
+                image: {
+                  toolbar: [
+                    'imageTextAlternative',
+                    'imageStyle:full',
+                    'imageStyle:side'
+                  ]
+                }
               }
             },
             validations: [

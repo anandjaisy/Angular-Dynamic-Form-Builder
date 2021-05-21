@@ -1,6 +1,5 @@
 import { IValidator } from './ivalidator';
 import { ComponentType, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel, InputTypes } from './component-type.enum';
-import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { IMatHint } from './interface';
 import { EventEmitter } from '@angular/core';
 
@@ -78,7 +77,7 @@ export declare interface IComponentProperty {
   textAreaProperty?: ITextAreaProperty;
   sliderProperty?: ISliderProperty;
   selectProperty?: ISelectOptions;
-  editorProperty?: AngularEditorConfig;
+  editorProperty?: any;
   event?: IComponentEvent<unknown>;
 }
 /**

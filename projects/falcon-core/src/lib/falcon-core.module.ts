@@ -33,9 +33,9 @@ import { ChipsComponent } from './component/chips/chips.component';
 import { TableComponent } from './component/table/table.component';
 import { PaginationComponent } from './component/pagination/pagination.component';
 import { EditorComponent } from './component/editor/editor.component';
-import { AngularEditorModule } from '@kolkov/angular-editor';
 import { RouterModule } from '@angular/router';
 import { DividerComponent } from './component/divider/divider.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 @NgModule({
   declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent,
     SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,
@@ -43,13 +43,13 @@ import { DividerComponent } from './component/divider/divider.component';
     AutoCompleteComponent, SnackBarComponent, ChipsComponent, TableComponent, PaginationComponent, EditorComponent,
     DividerComponent],
   imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule,
-    RouterModule, AngularEditorModule],
+    RouterModule, CKEditorModule],
   exports: [
     AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule,
     ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent,
     CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ProgressBarComponent, ProgressSpinnerComponent,
     BottomSheetComponent, DeleteDialogComponent, SnackBarComponent, ChipsComponent, TableComponent,
-    ButtonToggleComponent, AutoCompleteComponent, PaginationComponent, EditorComponent, AngularEditorModule,
+    ButtonToggleComponent, AutoCompleteComponent, PaginationComponent, EditorComponent,CKEditorModule,
     DividerComponent
   ],
   entryComponents: [
