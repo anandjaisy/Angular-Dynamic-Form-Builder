@@ -32,7 +32,7 @@ import { SnackbarComponent } from './component/snackbar/snackbar.component';
 import { ModalDialogComponent } from './component/modal-dialog/modal-dialog.component';
 import { FormFieldExampleComponent } from './component/form-field/form-field-example/form-field-example.component';
 import { environment } from 'src/environments/environment';
-import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/view-models/environment-view-model';
+import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/model/environment-view-model';
 import { ChipsComponent } from './component/chips/chips.component';
 import { ChildLayoutComponent } from './component/form-field/form-layout-child-layout/child-layout.component';
 import { TableComponent } from './component/table/table.component';
@@ -44,6 +44,16 @@ import { SelectHtmlComponent } from './component/select/select-html/select-html.
 import { AppPaginationComponent } from './component/pagination/app-pagination.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthCallbackComponent } from './component/auth-callback/auth-callback.component';
+import { ChipsAutocompleteComponent } from './component/chips/chips-autocomplete/chips-autocomplete.component';
+import { ChipsWithinputComponent } from './component/chips/chips-withinput/chips-withinput.component';
+import { AngularEditorComponent } from './component/angular-editor/angular-editor.component';
+import { ChipsDragDropComponent } from './component/chips/chips-drag-drop/chips-drag-drop.component';
+import { FormComponent } from './component/form/form.component';
+import { FormChildComponent } from './component/form/form-child/form-child.component';
+import { FormNextedChildComponent } from './component/form-field/form-nexted-child/form-nexted-child.component';
+import { FormLayoutComponent } from './component/form/form-layout/form-layout.component';
+import { NextedformArrayComponent } from './component/form/nextedform-array/nextedform-array.component';
+import { DynamicFormComponent } from './component/form/dynamic-form/dynamic-form.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +92,17 @@ import { AuthCallbackComponent } from './component/auth-callback/auth-callback.c
     RadioHtmlComponent,
     SelectHtmlComponent,
     AppPaginationComponent,
-    AuthCallbackComponent
+    AuthCallbackComponent,
+    ChipsAutocompleteComponent,
+    ChipsWithinputComponent,
+    AngularEditorComponent,
+    ChipsDragDropComponent,
+    FormComponent,
+    FormChildComponent,
+    FormNextedChildComponent,
+    FormLayoutComponent,
+    NextedformArrayComponent,
+    DynamicFormComponent
   ],
   imports: [
     BrowserModule,

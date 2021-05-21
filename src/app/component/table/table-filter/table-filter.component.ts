@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularCodeTemplateViewModel } from '../../../common/angularCodeTemplateViewModel';
 
-import { MatTableConfig, MatTable } from '../../../../../projects/falcon-core/src/lib/view-models/interface';
+import { MatTableConfig, MatTable } from '../../../../../projects/falcon-core/src/lib/model/interface';
 import { AngularCodeTemplate } from '../../../common/angularCodeTemplate';
 
 

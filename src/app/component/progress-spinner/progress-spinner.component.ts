@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/model/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
@@ -12,9 +12,9 @@ import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
   styleUrls: ['./progress-spinner.component.scss']
 })
 export class ProgressSpinnerComponent extends BaseFormComponent<any> implements OnInit {
-  progressSpinnerValue : number = 10;
+  progressSpinnerValue: number = 10;
   public codeGeneratorEnable: boolean = false;
-  public angularCodeTemplateViewModel : AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
   constructor(fb: FormBuilder) {
     super(fb);
     this.defineForm();
@@ -23,29 +23,34 @@ export class ProgressSpinnerComponent extends BaseFormComponent<any> implements 
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Progress :   ",
-          color : "primary",
-          sliderProperty: {
-            invert : false,
-            thumbLabel : false,
-            vertical : false,
-            min : 0,
-            max : 100,
-            step : 1,
-            tickInterval : 4
-          }
-        },
-        componentType: ComponentType.Slider,
-        formControlName: "slider"
-      }]
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              label: "Progress :   ",
+              color: "primary",
+              sliderProperty: {
+                invert: false,
+                thumbLabel: false,
+                vertical: false,
+                min: 0,
+                max: 100,
+                step: 1,
+                tickInterval: 4
+              }
+            },
+            componentType: ComponentType.Slider,
+            formControlName: "slider"
+          }]
+        }]
+      }
     }
   }
 

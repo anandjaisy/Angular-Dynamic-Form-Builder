@@ -1,0 +1,11 @@
+<mat-card>
+    <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+        <h2>Layout at the end</h2>
+    </div>
+    <mat-card-content>
+        <form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+            <reactive-controls [fields]="controlsConfig" [formGroup]="form"></reactive-controls>
+        </form>
+    </mat-card-content>
+
+</mat-card>

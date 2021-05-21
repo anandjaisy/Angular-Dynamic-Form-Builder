@@ -1,21 +1,69 @@
-<div [fxLayout]="fields?.layoutConfig?.fxLayout + ' wrap'"
-    fxLayout.xs="start + fields?.layoutConfig?.fxLayout_xs != undefined ? fields?.layoutConfig?.fxLayout_xs : 'column'"
-    [fxLayoutGap.gt-xs]="fields.layoutConfig.fxLayoutGap != undefined ? fields.layoutConfig.fxLayoutGap : '0'"
-    [fxLayoutAlign]="fields.layoutConfig.fxLayoutAlignHorizontal + ' ' + fields.layoutConfig.fxLayoutAlignVertical">
-    <div *ngFor="let field of fields.componentConfig;"
-        [fxFlex]="field?.componentProperty?.fxFlexChildLayout?.fxFlex != undefined ? field?.componentProperty?.fxFlexChildLayout?.fxFlex:''"
-        [fxFlex.xs]="field?.componentProperty?.fxFlexChildLayout?.fxFlex_xs"
-        [fxFlexAlign]="field?.componentProperty?.fxFlexChildLayout?.fxFlexAlign"
-        [fxFlex.xs]="field?.componentProperty?.fxFlexChildLayout?.fxFlex_xs"
-        [fxFlex.sm]="field?.componentProperty?.fxFlexChildLayout?.fxFlex_sm">
-        <ng-container reactiveField [field]="field" [group]="form"></ng-container>
-
-        <div [fxLayout]="field?.nextedLayoutConfig?.layoutConfig?.fxLayout + ' wrap'" fxLayout.xs="start column"
-            [fxLayoutGap.gt-xs]="field?.nextedLayoutConfig?.layoutConfig.fxLayoutGap != undefined ? field?.nextedLayoutConfig?.layoutConfig.fxLayoutGap : '0'"
-            [fxLayoutAlign]="field?.nextedLayoutConfig?.layoutConfig.fxLayoutAlignHorizontal + ' ' + field?.nextedLayoutConfig?.layoutConfig.fxLayoutAlignVertical">
-            <div fxFlex *ngFor="let field of field?.nextedLayoutConfig?.componentConfig;">
-                <ng-container reactiveField [field]="field" [group]="form"></ng-container>
+<div [fxLayout]="fields?.container?.fxLayout" [fxLayoutGap.gt-xs]="fields?.container?.fxLayoutGap"
+    [fxLayoutAlign]="fields?.container?.fxLayoutAlignHorizontal + ' ' + fields?.container?.fxLayoutAlignVertical">
+    <ng-container *ngFor="let layout of fields?.container?.layoutConfig; let i = index">
+        <div [fxLayout]="layout?.fxLayout + ' wrap'"
+            fxLayout.xs="start + layout?.fxLayout_xs != undefined ? layout?.fxLayout_xs : 'column'"
+            [fxLayoutGap.gt-xs]="layout?.fxLayoutGap != undefined ? layout?.fxLayoutGap : '0'"
+            [fxLayoutAlign]="layout?.fxLayoutAlignHorizontal + ' ' + layout?.fxLayoutAlignVertical">
+            <div *ngFor="let control of layout.componentConfig;"
+                [fxFlex]="control?.componentProperty?.fxFlexLayout?.fxFlex != undefined ? control?.componentProperty?.fxFlexLayout?.fxFlex:'none'"
+                [fxFlex.xs]="control?.componentProperty?.fxFlexLayout?.fxFlex_xs"
+                [fxFlexAlign]="control?.componentProperty?.fxFlexLayout?.fxFlexAlign"
+                [fxFlex.xs]="control?.componentProperty?.fxFlexLayout?.fxFlex_xs"
+                [fxFlex.sm]="control?.componentProperty?.fxFlexLayout?.fxFlex_sm">
+                <ng-container *ngIf="control?.formArray !== undefined; else elseBlock">
+                    <ng-container *ngIf="control?.formArray.length > 0; else elseBlock">
+                        <ng-container [ngTemplateOutlet]="controlArrayContainer" [ngTemplateOutletContext]="
+                        {
+                            controls:control?.formArray,
+                            formControlName: control?.formControlName,
+                            formGroupName: formGroup
+                        }
+                        ">
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+                <ng-template #elseBlock>
+                    <ng-container reactiveField [field]="control" [group]="formGroup"></ng-container>
+                </ng-template>
             </div>
         </div>
-    </div>
+    </ng-container>
 </div>
+
+<ng-template #controlArrayContainer let-controls="controls" let-formControlName="formControlName"
+    let-formGroupName="formGroupName">
+    <ng-container *ngFor="let layout of controls; let i = index;">
+        <div [fxLayout]="layout?.fxLayout + ' wrap'" [formGroup]="formGroupName"
+            fxLayout.xs="start + layout?.fxLayout_xs != undefined ? layout?.fxLayout_xs : 'column'"
+            [fxLayoutGap.gt-xs]="layout?.fxLayoutGap != undefined ? layout?.fxLayoutGap : '0'"
+            [fxLayoutAlign]="layout?.fxLayoutAlignHorizontal + ' ' + layout?.fxLayoutAlignVertical">
+            <div *ngFor="let control of layout.componentConfig" [formArrayName]="formControlName"
+                [fxFlex]="control?.componentProperty?.fxFlexLayout?.fxFlex != undefined ? control?.componentProperty?.fxFlexLayout?.fxFlex:'none'"
+                [fxFlex.xs]="control?.componentProperty?.fxFlexLayout?.fxFlex_xs"
+                [fxFlexAlign]="control?.componentProperty?.fxFlexLayout?.fxFlexAlign"
+                [fxFlex.xs]="control?.componentProperty?.fxFlexLayout?.fxFlex_xs"
+                [fxFlex.sm]="control?.componentProperty?.fxFlexLayout?.fxFlex_sm">
+                <ng-container *ngIf="control?.formArray !== undefined; else elseBlock">
+                    <ng-container *ngIf="control?.formArray.length > 0; else elseBlock">
+                        <ng-container [ngTemplateOutlet]="controlArrayContainer" [ngTemplateOutletContext]="
+                        {
+                            controls:control?.formArray,
+                            formControlName: control?.formControlName,
+                            formGroupName: formGroupName.get(formControlName)['controls'][i]
+                        }
+                        ">
+                            <ng-container reactiveField [field]="control"
+                                [group]="formGroupName.get(formControlName)['controls'][i]"></ng-container>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+                <ng-template #elseBlock>
+                    <ng-container reactiveField [field]="control"
+                        [group]="formGroupName.get(formControlName)['controls'][i]">
+                    </ng-container>
+                </ng-template>
+            </div>
+        </div>
+    </ng-container>
+</ng-template>

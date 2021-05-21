@@ -1,4 +1,4 @@
-import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/view-models/environment-view-model';
+import { EnvironmentViewModel } from 'projects/falcon-core/src/lib/model/environment-view-model';
 
 class EnvironmentImpl implements EnvironmentViewModel {
   production = false;
@@ -12,7 +12,7 @@ class EnvironmentImpl implements EnvironmentViewModel {
     scope: 'openid profile email',
     automaticSilentRenew: true
   };
-  baseUrl = 'http://localhost:8080/api/v1';
+  baseUrl = 'https://raw.githubusercontent.com/anandjaisy/Angular-Dynamic-Form-Builder/master/src/app/component/';
   snackBarEnable = true;
 }
 

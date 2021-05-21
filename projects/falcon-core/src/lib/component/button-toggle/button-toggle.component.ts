@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { IComponentConfig } from '../../view-models/imeta';
+import { IComponentConfig } from '../../model/imeta';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
 
 @Component({

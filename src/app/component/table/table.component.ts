@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTable, MatTableConfig } from '../../../../projects/falcon-core/src/lib/view-models/interface';
+import { MatTable, MatTableConfig } from '../../../../projects/falcon-core/src/lib/model/interface';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
 import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 import { IGenericHttpClient } from 'projects/falcon-core/src/public-api';

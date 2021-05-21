@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/model/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
@@ -22,39 +22,44 @@ export class ButtonToggleComponent extends BaseFormComponent<any> implements OnI
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      container: {
         fxLayout: FxLayout.Column,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          options: [{ value: 'Bold', viewValue: 'Bold' },
-          { value: 'Italic', viewValue: 'Italic' },
-          { value: 'Underline', viewValue: 'Underline' }],
-          appearance: Appearance.Standard
-        },
-        componentType: ComponentType.ButtonToggle,
-        formControlName: "basicButtonToggle",
-      },
-      {
-        componentProperty: {
-          label: "Multiple selection",
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }],
-          appearance: Appearance.Legacy,
-          groupStyle : {'margin-top': '20px'}
-        },
-        componentType: ComponentType.ButtonToggle,
-        formControlName: "legecyButtonToggle"
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Column,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              options: [{ value: 'Bold', viewValue: 'Bold' },
+              { value: 'Italic', viewValue: 'Italic' },
+              { value: 'Underline', viewValue: 'Underline' }],
+              appearance: Appearance.Standard
+            },
+            componentType: ComponentType.ButtonToggle,
+            formControlName: "basicButtonToggle",
+          },
+          {
+            componentProperty: {
+              label: "Multiple selection",
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }],
+              appearance: Appearance.Legacy,
+              groupStyle: { 'margin-top': '20px' }
+            },
+            componentType: ComponentType.ButtonToggle,
+            formControlName: "legecyButtonToggle"
+          }
+          ]
+        }]
       }
-      ]
     }
   }
 

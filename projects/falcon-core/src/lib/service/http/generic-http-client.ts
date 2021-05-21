@@ -2,14 +2,14 @@ import { HttpClient, HttpHeaders, HttpRequest, HttpEventType, HttpEvent, HttpRes
 import { Observable, from } from 'rxjs';
 import { IGenericHttpClient } from './igeneric-http-client';
 import { Injectable } from '@angular/core';
-import { HttpMethod } from '../../view-models/component-type.enum';
-import { IRequestOptions } from '../../view-models/interface';
-import { EnvironmentViewModel } from '../../view-models/environment-view-model';
+import { HttpMethod } from '../../model/component-type.enum';
+import { IRequestOptions } from '../../model/interface';
+import { EnvironmentViewModel } from '../../model/environment-view-model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoggerService } from '../logger.service';
-import { ComponentType } from '../../view-models/component-type.enum';
-import { HttpStatusCode } from '../../view-models/HttpStatusCodeEnum';
-import { SnackbarViewModel } from '../../view-models/snack-bar-viewmodel';
+import { ComponentType } from '../../model/component-type.enum';
+import { HttpStatusCode } from '../../model/HttpStatusCodeEnum';
+import { SnackbarViewModel } from '../../model/snack-bar-viewmodel';
 @Injectable({
   providedIn: 'root'
 })

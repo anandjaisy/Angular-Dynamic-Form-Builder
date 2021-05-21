@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/model/component-type.enum';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
 import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
@@ -23,55 +23,20 @@ export class ChildLayoutComponent extends BaseFormComponent<any> implements OnIn
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
+      container: {
         fxLayout: FxLayout.Column,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.Center
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Max Price",
-          appearance: Appearance.Outline,
-          placeHolder: "Max Price",
-          attrType: InputTypes.Text,
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }]
-        },
-        componentType: ComponentType.Select,
-        formControlName: "MaxPrice"
-      },
-      {
-        componentProperty: {
-          label: "Body Type",
-          appearance: Appearance.Outline,
-          placeHolder: "Body Type",
-          attrType: InputTypes.Text,
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }]
-        },
-        componentType: ComponentType.Select,
-        formControlName: "BodyType",
-        nextedLayoutConfig: {
-          layoutConfig: {
-            fxLayout: FxLayout.Row,
-            fxLayoutGap: "10px"
-          },
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
           componentConfig: [{
             componentProperty: {
-              label: "Max Price 1",
+              label: "Max Price",
               appearance: Appearance.Outline,
-              placeHolder: "Max Price 1",
+              placeHolder: "Max Price",
               attrType: InputTypes.Text,
               options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
               { value: 'Bellsprout', viewValue: 'Bellsprout' },
@@ -82,13 +47,13 @@ export class ChildLayoutComponent extends BaseFormComponent<any> implements OnIn
               { value: 'Tomato', viewValue: 'Tomato' }]
             },
             componentType: ComponentType.Select,
-            formControlName: "MaxPrice1"
+            formControlName: "MaxPrice"
           },
           {
             componentProperty: {
-              label: "Body Type 1",
+              label: "Body Type",
               appearance: Appearance.Outline,
-              placeHolder: "Body Type 1",
+              placeHolder: "Body Type",
               attrType: InputTypes.Text,
               options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
               { value: 'Bellsprout', viewValue: 'Bellsprout' },
@@ -99,13 +64,13 @@ export class ChildLayoutComponent extends BaseFormComponent<any> implements OnIn
               { value: 'Tomato', viewValue: 'Tomato' }]
             },
             componentType: ComponentType.Select,
-            formControlName: "BodyType1"
+            formControlName: "BodyType"
           },
           {
             componentProperty: {
-              label: "Body Type 4",
+              label: "Max Price 2",
               appearance: Appearance.Outline,
-              placeHolder: "Body Type 1",
+              placeHolder: "Max Price",
               attrType: InputTypes.Text,
               options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
               { value: 'Bellsprout', viewValue: 'Bellsprout' },
@@ -116,84 +81,10 @@ export class ChildLayoutComponent extends BaseFormComponent<any> implements OnIn
               { value: 'Tomato', viewValue: 'Tomato' }]
             },
             componentType: ComponentType.Select,
-            formControlName: "BodyType4"
+            formControlName: "MaxPrice2"
           }]
-        }
-      },
-      {
-        componentProperty: {
-          label: "Max Price 2",
-          appearance: Appearance.Outline,
-          placeHolder: "Max Price",
-          attrType: InputTypes.Text,
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }]
-        },
-        componentType: ComponentType.Select,
-        formControlName: "MaxPrice2",
-        nextedLayoutConfig: {
-          layoutConfig: {
-            fxLayout: FxLayout.Row,
-            fxLayoutGap: "10px"
-          },
-          componentConfig: [{
-            componentProperty: {
-              label: "Max Price 1",
-              appearance: Appearance.Outline,
-              placeHolder: "Max Price 1",
-              attrType: InputTypes.Text,
-              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-              { value: 'Bellsprout', viewValue: 'Bellsprout' },
-              { value: 'Mushroom', viewValue: 'Mushroom' },
-              { value: 'Onion', viewValue: 'Onion' },
-              { value: 'Pepperoni', viewValue: 'Pepperoni' },
-              { value: 'Sausage', viewValue: 'Sausage' },
-              { value: 'Tomato', viewValue: 'Tomato' }]
-            },
-            componentType: ComponentType.Select,
-            formControlName: "MaxPrice5"
-          },
-          {
-            componentProperty: {
-              label: "Body Type 1",
-              appearance: Appearance.Outline,
-              placeHolder: "Body Type 1",
-              attrType: InputTypes.Text,
-              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-              { value: 'Bellsprout', viewValue: 'Bellsprout' },
-              { value: 'Mushroom', viewValue: 'Mushroom' },
-              { value: 'Onion', viewValue: 'Onion' },
-              { value: 'Pepperoni', viewValue: 'Pepperoni' },
-              { value: 'Sausage', viewValue: 'Sausage' },
-              { value: 'Tomato', viewValue: 'Tomato' }]
-            },
-            componentType: ComponentType.Select,
-            formControlName: "BodyType6"
-          },
-          {
-            componentProperty: {
-              label: "Body Type 4",
-              appearance: Appearance.Outline,
-              placeHolder: "Body Type 1",
-              attrType: InputTypes.Text,
-              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-              { value: 'Bellsprout', viewValue: 'Bellsprout' },
-              { value: 'Mushroom', viewValue: 'Mushroom' },
-              { value: 'Onion', viewValue: 'Onion' },
-              { value: 'Pepperoni', viewValue: 'Pepperoni' },
-              { value: 'Sausage', viewValue: 'Sausage' },
-              { value: 'Tomato', viewValue: 'Tomato' }]
-            },
-            componentType: ComponentType.Select,
-            formControlName: "BodyType7"
-          }]
-        }
-      }]
+        }]
+      }
     }
   }
 

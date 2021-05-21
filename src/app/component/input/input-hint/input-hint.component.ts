@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/model/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
@@ -13,7 +13,7 @@ import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 })
 export class InputHintComponent extends BaseFormComponent<any> implements OnInit {
   codeGeneratorEnable: boolean = false;
-  public angularCodeTemplateViewModel : AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
   constructor(fb: FormBuilder) {
     super(fb);
     this.defineForm();
@@ -22,34 +22,39 @@ export class InputHintComponent extends BaseFormComponent<any> implements OnInit
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Legacy form field HINT",
-          appearance: Appearance.Legacy,
-          placeHolder: "Form field HINT",
-          attrType: InputTypes.Text,
-          hint :"Legacy form field HINT"
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "legacyFormFieldHint"
-      },
-      {
-        componentProperty: {
-          label: "Outline form field HINT",
-          appearance: Appearance.Outline,
-          placeHolder: "Outline form field HINT",
-          attrType: InputTypes.Text,
-          hint: "Outline form field HINT"
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "OutlineFormFieldHINT"
-      }]
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              label: "Legacy form field HINT",
+              appearance: Appearance.Legacy,
+              placeHolder: "Form field HINT",
+              attrType: InputTypes.Text,
+              hint: { text: "Legacy form field HINT", link: { routerLink: '../hello', queryParams: 'value', isLink: true } }
+            },
+            componentType: ComponentType.TextBox,
+            formControlName: "legacyFormFieldHint"
+          },
+          {
+            componentProperty: {
+              label: "Outline form field HINT",
+              appearance: Appearance.Outline,
+              placeHolder: "Outline form field HINT",
+              attrType: InputTypes.Text,
+              hint: { text: "Outline form field HINT" }
+            },
+            componentType: ComponentType.TextBox,
+            formControlName: "OutlineFormFieldHINT"
+          }]
+        }]
+      }
     }
   }
 

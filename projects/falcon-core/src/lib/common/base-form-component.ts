@@ -1,7 +1,7 @@
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { ComponentType } from '../view-models/component-type.enum';
-import { IMeta, IComponentConfig } from '../view-models/imeta';
+import { ComponentType } from '../model/component-type.enum';
+import { IMeta, IComponentConfig, ILayoutConfig } from '../model/imeta';
 /**
  * @description
  * Base form component initialized to create form controls, set validation, submit.
@@ -33,7 +33,7 @@ export abstract class BaseFormComponent<T>{
   public dataSource: T = null;
   public controlsConfig: IMeta;
   public showLoading: boolean = false;
-  constructor(private fb: FormBuilder) {
+  constructor(protected fb: FormBuilder) {
   }
   /**
     * @description
@@ -54,10 +54,7 @@ export abstract class BaseFormComponent<T>{
     * @returns Groups of controls added to the form builder.
   */
   private validateAllFormFields(formGroup: FormGroup) {
-    Object.keys(formGroup.controls).forEach(field => {
-      const control = formGroup.get(field);
-      control.markAsTouched({ onlySelf: true });
-    });
+    this.form.markAllAsTouched();
   }
   /**
     * @description
@@ -66,11 +63,10 @@ export abstract class BaseFormComponent<T>{
   */
   protected createControls() {
     const group = this.fb.group({});
-    this.controlsConfig.componentConfig.forEach(field => {
-      this.bindControl(field, group);
-      field.nextedLayoutConfig?.componentConfig.forEach(field => {
-        this.bindControl(field, group);
-      });
+    this.controlsConfig.container.layoutConfig.forEach((layout, index) => {
+      layout.componentConfig.forEach(controls => {
+        this.bindControl(controls, group, index)
+      })
     });
     return group;
   }
@@ -79,14 +75,20 @@ export abstract class BaseFormComponent<T>{
       * Private method to bind the form control.
       * @param field field to bind.
       * @param group group to add.
+      * @param index index of the layout
   */
-  private bindControl(field, group) {
-    if (field.componentType === ComponentType.Button) return;
-    const control = this.fb.control(
-      { value: field.componentProperty.value, disabled: field.componentProperty.disabled },
-      this.bindValidations(field.validations || [])
-    );
-    group.addControl(field.formControlName, control);
+  private bindControl(componentConfig: IComponentConfig, group, index: number) {
+    if (componentConfig.componentType === ComponentType.Button) return;
+    var control = null;
+    if (componentConfig.formArray !== undefined) {
+      control = (componentConfig.formArray.length > 0)
+        ? this.fb.array([this.createFormArrayGroup(componentConfig.formArray[componentConfig.formArray.length - 1].componentConfig)]) :
+        this.fb.array([], this.bindValidations(componentConfig.validations || []))
+    } else {
+      control = this.fb.control({ value: componentConfig.componentProperty.value, disabled: componentConfig.componentProperty.disabled },
+        this.bindValidations(componentConfig.validations || []));
+    }
+    group.addControl(componentConfig.formControlName, control);
   }
 
   /**
@@ -105,6 +107,29 @@ export abstract class BaseFormComponent<T>{
     }
     return null;
   }
+
+  /**
+   * Create an form array element
+   * @param layoutConfig layout of form array
+   * @returns Form array group
+   */
+  private createFormArrayGroup(componentConfig: IComponentConfig[]): FormGroup {
+    var formGroup: FormGroup = this.fb.group({});
+    componentConfig.forEach((item, index) => {
+      var control = null;
+      if (item.formArray !== undefined) {
+        control = item.formArray.length > 0
+          ? this.fb.array([this.createFormArrayGroup(item.formArray[item.formArray.length - 1].componentConfig)], this.bindValidations(item.validations || [])) :
+          this.fb.array([], this.bindValidations(item.validations || []))
+      } else {
+        control = this.fb.control({ value: item.componentProperty.value, disabled: item.componentProperty.disabled },
+          this.bindValidations(item.validations || []));
+      }
+      formGroup.addControl(item.formControlName, control);
+    });
+    return formGroup;
+  }
+
   /**
     * @description
     * Reset fild values to default or specify some value.
@@ -198,15 +223,16 @@ export abstract class BaseFormComponent<T>{
    *    removeControl(1);
    * ```
    */
-  protected removeControl(index: number) {
-      this.form.removeControl(this.controlsConfig.componentConfig[index].formControlName);
-      this.controlsConfig.componentConfig.splice(index, 1);
+  protected removeControl(layoutIndex: number, index: number) {
+    this.form.removeControl(this.controlsConfig.container.layoutConfig[layoutIndex].componentConfig[index].formControlName);
+    this.controlsConfig.container.layoutConfig[layoutIndex].componentConfig.splice(index, 1);
   }
   /**
    * @description
    * Dynamically add the form control.
    * @param configToAdd Configuration of the form control.
-   *  @usageNotes
+   * @param index Add controls to the specific index.
+   * @usageNotes
    * The following snippet shows how a component can implement this abstract class to
    * define its own initialization method.
    * ```ts
@@ -226,15 +252,25 @@ export abstract class BaseFormComponent<T>{
    *    componentType: ComponentType.AutoComplete,
    *    formControlName: "test"
    *  };
-   *  this.addControl(configToadd);
+   *  this.addControl(configToadd); or this.addControl(configToadd,1);
    * ```
    */
-  protected addControl(configToAdd: IComponentConfig[]) {
-    configToAdd.forEach(configToAdd => {
-      this.form.addControl(configToAdd.formControlName,
-        new FormControl({ value: configToAdd.componentProperty.value, disabled: configToAdd.componentProperty.disabled },
-          this.bindValidations(configToAdd.validations)));
-      this.controlsConfig.componentConfig.push(configToAdd);
+  protected addControl(layoutToAdd?: ILayoutConfig[], index?: number) {
+    layoutToAdd.forEach((layout, layoutIndex) => {
+      layout.componentConfig.forEach((componentConfig, componentIndex) => {
+        if (componentConfig.formArray !== undefined) {
+          componentConfig.formArray.forEach(control => {
+            this.form.setControl("productOption", this.createFormArrayGroup(control.componentConfig));
+            this.controlsConfig.container.layoutConfig[1].componentConfig[0].formArray.push(layout)
+          })
+        } else {
+          this.form.addControl(componentConfig.formControlName,
+            new FormControl({ value: componentConfig.componentProperty.value, disabled: componentConfig.componentProperty.disabled },
+              this.bindValidations(componentConfig.validations || [])));
+          index !== null ? this.controlsConfig.container.layoutConfig.splice(index, 0, layout) :
+            this.controlsConfig.container.layoutConfig.push(layout);
+        }
+      })
     });
   }
 }

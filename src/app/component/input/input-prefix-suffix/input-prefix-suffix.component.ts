@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/model/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
@@ -23,58 +23,63 @@ export class InputPrefixSuffixComponent extends BaseFormComponent<any> implement
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Prefix Icon",
-          appearance: Appearance.Legacy,
-          placeHolder: "Required Validation *",
-          attrType: InputTypes.Text,
-          prefix : {
-            isIcon: true,
-            text: "sentiment_satisfied_alt"
-          }
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "prefixIcon"
-      },
-      {
-        componentProperty: {
-          label: "Suffix Number",
-          appearance: Appearance.Standard,
-          placeHolder: "Suffix Icon",
-          attrType: InputTypes.Text,
-          suffix: {
-            isIcon : false,
-            text : ".00"
-          }
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "suffixIcon"
-      },
-      {
-        componentProperty: {
-          label: "Prefix & Suffix icon",
-          appearance: Appearance.Outline,
-          placeHolder: "Prefix & Suffix icon",
-          attrType: InputTypes.Text,
-          prefix : {
-            isIcon : true,
-            text : "euro"
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              label: "Prefix Icon",
+              appearance: Appearance.Legacy,
+              placeHolder: "Required Validation *",
+              attrType: InputTypes.Text,
+              prefix: {
+                isIcon: true,
+                text: "sentiment_satisfied_alt"
+              }
+            },
+            componentType: ComponentType.TextBox,
+            formControlName: "prefixIcon"
           },
-          suffix : {
-            isIcon: true,
-            text : "done"
-          }
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "prefixandSuffixIcon"
-      }]
+          {
+            componentProperty: {
+              label: "Suffix Number",
+              appearance: Appearance.Standard,
+              placeHolder: "Suffix Icon",
+              attrType: InputTypes.Text,
+              suffix: {
+                isIcon: false,
+                text: ".00"
+              }
+            },
+            componentType: ComponentType.TextBox,
+            formControlName: "suffixIcon"
+          },
+          {
+            componentProperty: {
+              label: "Prefix & Suffix icon",
+              appearance: Appearance.Outline,
+              placeHolder: "Prefix & Suffix icon",
+              attrType: InputTypes.Text,
+              prefix: {
+                isIcon: true,
+                text: "euro"
+              },
+              suffix: {
+                isIcon: true,
+                text: "done"
+              }
+            },
+            componentType: ComponentType.TextBox,
+            formControlName: "prefixandSuffixIcon"
+          }]
+        }]
+      }
     }
   }
 

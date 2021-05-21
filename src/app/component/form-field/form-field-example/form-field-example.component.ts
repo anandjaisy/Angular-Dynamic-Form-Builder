@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/model/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
@@ -24,175 +24,180 @@ export class FormFieldExampleComponent extends BaseFormComponent<any> implements
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.Center
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Find your next car",
-          options: [{ value: 'All', viewValue: 'All' },
-          { value: 'New', viewValue: 'New' },
-          { value: 'Old', viewValue: 'Old' }],
-          value: "All",
-          appearance: Appearance.Standard,
-          fxFlexChildLayout: { fxFlex: "100", fxFlexAlign:"center" },
-          labelStyle: { 'font-size': '24px' },
-          groupStyle : {'text-align': 'center'}
-        },
-        componentType: ComponentType.ButtonToggle,
-        formControlName: "findNextCar",
-      },
-      {
-        componentProperty: {
-          label: "Make",
-          appearance: Appearance.Outline,
-          placeHolder: "Make",
-          attrType: InputTypes.Text,
-          fxFlexChildLayout: { fxFlex: "24", fxFlex_xs: "100" },
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }]
-        },
-        componentType: ComponentType.Select,
-        formControlName: "Make"
-      },
-      {
-        componentProperty: {
-          label: "Model",
-          appearance: Appearance.Outline,
-          placeHolder: "Required & Pattern Validation *",
-          attrType: InputTypes.Text,
-          fxFlexChildLayout: { fxFlex: "24", fxFlex_xs: "100" },
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }],
-        },
-        componentType: ComponentType.Select,
-        formControlName: "Model"
-      },
-      {
-        componentProperty: {
-          label: "Location",
-          appearance: Appearance.Outline,
-          placeHolder: "Location",
-          attrType: InputTypes.Text,
-          fxFlexChildLayout: { fxFlex: "24", fxFlex_xs: "100" },
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }]
-        },
-        componentType: ComponentType.Select,
-        formControlName: "Location"
-      },
-      {
-        componentProperty: {
-          label: "Year",
-          appearance: Appearance.Outline,
-          placeHolder: "Year",
-          attrType: InputTypes.Text,
-          fxFlexChildLayout: { fxFlex: "24", fxFlex_xs: "100" },
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }]
-        },
-        componentType: ComponentType.Select,
-        formControlName: "Year"
-      },
-      {
-        componentProperty: {
-          label: "Min Price",
-          appearance: Appearance.Outline,
-          placeHolder: "Min Price",
-          attrType: InputTypes.Text,
-          fxFlexChildLayout: { fxFlex: "24", fxFlex_xs: "100" },
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }]
-        },
-        componentType: ComponentType.Select,
-        formControlName: "MinPrice"
-      },
-      {
-        componentProperty: {
-          label: "Max Price",
-          appearance: Appearance.Outline,
-          placeHolder: "Max Price",
-          attrType: InputTypes.Text,
-          fxFlexChildLayout: { fxFlex: "24", fxFlex_xs: "100" },
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }]
-        },
-        componentType: ComponentType.Select,
-        formControlName: "MaxPrice"
-      },
-      {
-        componentProperty: {
-          label: "Body Type",
-          appearance: Appearance.Outline,
-          placeHolder: "Body Type",
-          attrType: InputTypes.Text,
-          fxFlexChildLayout: { fxFlex: "24", fxFlex_xs: "100" },
-          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-          { value: 'Bellsprout', viewValue: 'Bellsprout' },
-          { value: 'Mushroom', viewValue: 'Mushroom' },
-          { value: 'Onion', viewValue: 'Onion' },
-          { value: 'Pepperoni', viewValue: 'Pepperoni' },
-          { value: 'Sausage', viewValue: 'Sausage' },
-          { value: 'Tomato', viewValue: 'Tomato' }]
-        },
-        componentType: ComponentType.Select,
-        formControlName: "BodyType"
-      },
-      {
-        componentProperty: {
-          label: "Keyword",
-          appearance: Appearance.Outline,
-          placeHolder: "Keyword",
-          attrType: InputTypes.Text,
-          fxFlexChildLayout: { fxFlex: "24", fxFlex_xs: "100" }
-        },
-        componentType: ComponentType.TextBox,
-        formControlName: "Keyword"
-      },
-      {
-        componentProperty: {
-          label: "Show me 23455 cars",
-          appearance: Appearance.Raised,
-          color: 'primary',
-          suffix : {isIcon: true, text: "navigate_next"},
-          fxFlexChildLayout : {fxFlexAlign : "center"}
-        },
-        componentType: ComponentType.Button,
-        formControlName: "Raised"
-      },]
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
+          componentConfig: [{
+            componentProperty: {
+              label: "Find your next car",
+              options: [{ value: 'All', viewValue: 'All' },
+              { value: 'New', viewValue: 'New' },
+              { value: 'Old', viewValue: 'Old' }],
+              value: "All",
+              appearance: Appearance.Standard,
+              fxFlexLayout: { fxFlex: "100", fxFlexAlign: "center" },
+              labelStyle: { 'font-size': '24px' },
+              groupStyle: { 'text-align': 'center' }
+            },
+            componentType: ComponentType.ButtonToggle,
+            formControlName: "findNextCar",
+          },
+          {
+            componentProperty: {
+              label: "Make",
+              appearance: Appearance.Outline,
+              placeHolder: "Make",
+              attrType: InputTypes.Text,
+              fxFlexLayout: { fxFlex: "24", fxFlex_xs: "100" },
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "Make"
+          },
+          {
+            componentProperty: {
+              label: "Model",
+              appearance: Appearance.Outline,
+              placeHolder: "Required & Pattern Validation *",
+              attrType: InputTypes.Text,
+              fxFlexLayout: { fxFlex: "24", fxFlex_xs: "100" },
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }],
+            },
+            componentType: ComponentType.Select,
+            formControlName: "Model"
+          },
+          {
+            componentProperty: {
+              label: "Location",
+              appearance: Appearance.Outline,
+              placeHolder: "Location",
+              attrType: InputTypes.Text,
+              fxFlexLayout: { fxFlex: "24", fxFlex_xs: "100" },
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "Location"
+          },
+          {
+            componentProperty: {
+              label: "Year",
+              appearance: Appearance.Outline,
+              placeHolder: "Year",
+              attrType: InputTypes.Text,
+              fxFlexLayout: { fxFlex: "24", fxFlex_xs: "100" },
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "Year"
+          },
+          {
+            componentProperty: {
+              label: "Min Price",
+              appearance: Appearance.Outline,
+              placeHolder: "Min Price",
+              attrType: InputTypes.Text,
+              fxFlexLayout: { fxFlex: "24", fxFlex_xs: "100" },
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "MinPrice"
+          },
+          {
+            componentProperty: {
+              label: "Max Price",
+              appearance: Appearance.Outline,
+              placeHolder: "Max Price",
+              attrType: InputTypes.Text,
+              fxFlexLayout: { fxFlex: "24", fxFlex_xs: "100" },
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "MaxPrice"
+          },
+          {
+            componentProperty: {
+              label: "Body Type",
+              appearance: Appearance.Outline,
+              placeHolder: "Body Type",
+              attrType: InputTypes.Text,
+              fxFlexLayout: { fxFlex: "24", fxFlex_xs: "100" },
+              options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+              { value: 'Bellsprout', viewValue: 'Bellsprout' },
+              { value: 'Mushroom', viewValue: 'Mushroom' },
+              { value: 'Onion', viewValue: 'Onion' },
+              { value: 'Pepperoni', viewValue: 'Pepperoni' },
+              { value: 'Sausage', viewValue: 'Sausage' },
+              { value: 'Tomato', viewValue: 'Tomato' }]
+            },
+            componentType: ComponentType.Select,
+            formControlName: "BodyType"
+          },
+          {
+            componentProperty: {
+              label: "Keyword",
+              appearance: Appearance.Outline,
+              placeHolder: "Keyword",
+              attrType: InputTypes.Text,
+              fxFlexLayout: { fxFlex: "24", fxFlex_xs: "100" }
+            },
+            componentType: ComponentType.TextBox,
+            formControlName: "Keyword"
+          },
+          {
+            componentProperty: {
+              label: "Show me 23455 cars",
+              appearance: Appearance.Raised,
+              color: 'primary',
+              suffix: { isIcon: true, text: "navigate_next" },
+              fxFlexLayout: { fxFlexAlign: "center" }
+            },
+            componentType: ComponentType.Button,
+            formControlName: "Raised"
+          },]
+        }]
+      }
     }
   }
 

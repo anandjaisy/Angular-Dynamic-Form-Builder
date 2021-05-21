@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/model/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
@@ -22,47 +22,52 @@ export class TextAreaComponent extends BaseFormComponent<any> implements OnInit 
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Text Area with Auto Size Enable",
-          appearance: Appearance.Outline,
-          placeHolder: "Text Area with Auto Size Enable",
-          textAreaProperty: {
-            cdkTextareaAutosize: true,
-            cdkAutosizeMinRows: 1,
-            cdkAutosizeMaxRows: 5
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              label: "Text Area with Auto Size Enable",
+              appearance: Appearance.Outline,
+              placeHolder: "Text Area with Auto Size Enable",
+              textAreaProperty: {
+                cdkTextareaAutosize: true,
+                cdkAutosizeMinRows: 1,
+                cdkAutosizeMaxRows: 5
+              },
+              suffix: {
+                isIcon: true,
+                text: "lock_open"
+              }
+            },
+            componentType: ComponentType.TextArea,
+            formControlName: "textAreaAutoSizeEnable"
           },
-          suffix : {
-            isIcon: true,
-            text : "lock_open"
-          }
-        },
-        componentType: ComponentType.TextArea,
-        formControlName: "textAreaAutoSizeEnable"
-      },
-      {
-        componentProperty: {
-          label: "Text Area with static row and column",
-          appearance: Appearance.Fill,
-          placeHolder: "Text Area with static row and column",
-          textAreaProperty: {
-            rows: 10,
-            cols: 40
-          },
-          suffix : {
-            isIcon: true,
-            text : "power_settings_new"
-          }
-        },
-        componentType: ComponentType.TextArea,
-        formControlName: "textAreaStaticRowColumn"
-      }]
+          {
+            componentProperty: {
+              label: "Text Area with static row and column",
+              appearance: Appearance.Fill,
+              placeHolder: "Text Area with static row and column",
+              textAreaProperty: {
+                rows: 10,
+                cols: 40
+              },
+              suffix: {
+                isIcon: true,
+                text: "power_settings_new"
+              }
+            },
+            componentType: ComponentType.TextArea,
+            formControlName: "textAreaStaticRowColumn"
+          }]
+        }]
+      }
     }
   }
 

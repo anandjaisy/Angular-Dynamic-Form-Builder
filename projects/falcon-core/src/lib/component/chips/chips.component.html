@@ -1,5 +1,58 @@
-<ng-container>
-    <mat-chip-list aria-label="Fish selection">
+<ng-container [ngSwitch]="field?.componentProperty?.attrType">
+    <mat-form-field class="chip-list" *ngSwitchCase="'search'" [appearance]="field.componentProperty.appearance"
+        [formGroup]="group" [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
+        <mat-label>{{field.componentProperty.label}}</mat-label>
+        <mat-chip-list #chipList aria-label="item selection">
+            <mat-chip *ngFor="let option of chipsList" [selectable]="selectable" [removable]="removable"
+                (removed)="remove(option)">
+                {{option?.viewValue}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+
+            <input matInput #chipInput [formControl]="autoCompleteControl" [formArrayName]="field.formControlName"
+                [placeholder]="field.componentProperty.placeHolder" [ngStyle]="field.componentProperty.componentStyle"
+                [ngClass]="field.componentProperty.componentCss" [matAutocomplete]="auto" [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)"
+                [required]="group.get(field.formControlName).errors !== null && group.get(field.formControlName).errors.required">
+
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelected($event)">
+            <mat-option *ngFor="let item of filteredOptions | async" [value]="item.value">
+                {{item.viewValue}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field class="chip-list" *ngSwitchCase="'text'" [appearance]="field.componentProperty.appearance"
+        [formGroup]="group" [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
+        <mat-label>{{field.componentProperty.label}}</mat-label>
+        <mat-chip-list #chipList aria-label="item selection">
+            <mat-chip *ngFor="let option of chipsList" [selectable]="selectable" [removable]="removable"
+                (removed)="remove(option)">
+                {{option?.viewValue}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+
+            <input matInput [formArrayName]="field.formControlName" multiple
+                [placeholder]="field.componentProperty.placeHolder" [matChipInputFor]="chipList"
+                [ngStyle]="field.componentProperty.componentStyle" [ngClass]="field.componentProperty.componentCss"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)"
+                [required]="group.get(field.formControlName).errors !== null && group.get(field.formControlName).errors.required">
+
+        </mat-chip-list>
+    </mat-form-field>
+
+    <mat-chip-list aria-label="Chips selection" *ngSwitchDefault>
         <mat-chip color="{{field.componentProperty.color}}" selected>{{field.componentProperty.label}}</mat-chip>
     </mat-chip-list>
+
+
+    <mat-chip-list class="chip-list" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)"
+        *ngSwitchCase="'dragDrop'">
+        <mat-chip class="example-box" cdkDrag *ngFor="let option of field?.componentProperty?.options">
+            {{option?.viewValue}}
+        </mat-chip>
+    </mat-chip-list>
+
 </ng-container>

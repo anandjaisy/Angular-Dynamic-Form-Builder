@@ -1,0 +1,8 @@
+<form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <reactive-controls [fields]="controlsConfig" [formGroup]="form"></reactive-controls>
+</form>
+
+
+<div fxLayout="row" fxLayoutAlign="center center">
+    <pre><code [highlight]="form?.value | json"></code></pre>
+</div>

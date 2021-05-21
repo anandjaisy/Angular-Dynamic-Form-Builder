@@ -10,7 +10,7 @@
         <mat-icon matDatepickerToggleIcon *ngIf="field?.componentProperty?.suffix?.isIcon">keyboard_arrow_down</mat-icon>
     </mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
-    <mat-hint>{{field.componentProperty.hint}}</mat-hint>
+    <mat-hint>{{field?.componentProperty?.hint?.text}}</mat-hint>
     <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
         <mat-error *ngIf="group.get(field.formControlName).hasError(validation.name)">{{validation.message}}</mat-error>
     </ng-container>

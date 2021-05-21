@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef, TemplateRef } from '@a
 import { IGenericHttpClient } from 'projects/falcon-core/src/public-api';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { HttpClient } from '@angular/common/http';
-import { IRequestOptions } from 'projects/falcon-core/src/lib/view-models/interface';
+import { IRequestOptions } from 'projects/falcon-core/src/lib/model/interface';
 @Component({
   selector: 'app-code-generator',
   templateUrl: './code-generator.component.html',

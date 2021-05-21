@@ -8,9 +8,9 @@ Run `ng serve --hmr -o` for a dev server. Navigate to `http://localhost:4200/`. 
 
 For library link go to the library README.md file
 
-## Code scaffolding
+## Layout design
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![alt text](src/assets/layout.png)
 
 ## Build 
 Run `ng build @falcon-ng/core` to build the falcon library.

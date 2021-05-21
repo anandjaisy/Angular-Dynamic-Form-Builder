@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/model/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
@@ -22,30 +22,35 @@ export class SlideToggleComponent extends BaseFormComponent<any> implements OnIn
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Slide me! BEFORE text color=accent",
-          appearance : Appearance.Before,
-          color : "accent"
-        },
-        componentType: ComponentType.SlideToggle,
-        formControlName: "slideMeBEFORE"
-      },
-      {
-        componentProperty: {
-          label: "Slide me! AFTER text color=primary",
-          appearance : Appearance.After,
-          color : "primary"
-        },
-        componentType: ComponentType.SlideToggle,
-        formControlName: "slideMeAFTERText"
-      }]
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              label: "Slide me! BEFORE text color=accent",
+              appearance: Appearance.Before,
+              color: "accent"
+            },
+            componentType: ComponentType.SlideToggle,
+            formControlName: "slideMeBEFORE"
+          },
+          {
+            componentProperty: {
+              label: "Slide me! AFTER text color=primary",
+              appearance: Appearance.After,
+              color: "primary"
+            },
+            componentType: ComponentType.SlideToggle,
+            formControlName: "slideMeAFTERText"
+          }]
+        }]
+      }
     }
   }
 

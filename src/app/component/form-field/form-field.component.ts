@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection } from 'projects/falcon-core/src/lib/model/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
@@ -30,30 +30,35 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
-        fxLayoutAlign_lt_sm: AlignmentLayoutDirection.Start
-      },
-      componentConfig: [
-        {
-          componentProperty: {
-            label: "Select Component",
-            options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-            { value: 'Bellsprout', viewValue: 'Bellsprout' },
-            { value: 'Mushroom', viewValue: 'Mushroom' },
-            { value: 'Onion', viewValue: 'Onion' },
-            { value: 'Pepperoni', viewValue: 'Pepperoni' },
-            { value: 'Sausage', viewValue: 'Sausage' },
-            { value: 'Tomato', viewValue: 'Tomato' }],
-            appearance: Appearance.Outline,
-            color: 'accent',
-          },
-          componentType: ComponentType.Select,
-          formControlName: `selectComponent${this.counter}`
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.Center,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
+          fxLayoutAlign_lt_sm: AlignmentLayoutDirection.Start,
+          componentConfig: [
+            {
+              componentProperty: {
+                label: "Select Component",
+                options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+                { value: 'Bellsprout', viewValue: 'Bellsprout' },
+                { value: 'Mushroom', viewValue: 'Mushroom' },
+                { value: 'Onion', viewValue: 'Onion' },
+                { value: 'Pepperoni', viewValue: 'Pepperoni' },
+                { value: 'Sausage', viewValue: 'Sausage' },
+                { value: 'Tomato', viewValue: 'Tomato' }],
+                appearance: Appearance.Outline,
+                color: 'accent',
+              },
+              componentType: ComponentType.Select,
+              formControlName: `selectComponent${this.counter}`
+            }]
         }]
+      }
     }
   }
 
@@ -66,29 +71,33 @@ export class FormFieldComponent extends BaseFormComponent<any> implements OnInit
   }
   protected submitDatasource(model: any): Observable<any> {
     ++this.counter;
-    var configToadd = [{
-      componentProperty: {
-        label: "Select Component",
-        options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
-        { value: 'Bellsprout', viewValue: 'Bellsprout' },
-        { value: 'Mushroom', viewValue: 'Mushroom' },
-        { value: 'Onion', viewValue: 'Onion' },
-        { value: 'Pepperoni', viewValue: 'Pepperoni' },
-        { value: 'Sausage', viewValue: 'Sausage' },
-        { value: 'Tomato', viewValue: 'Tomato' }],
-        appearance: Appearance.Outline,
-        color: 'accent',
-
-      },
-      componentType: ComponentType.Select,
-      formControlName: `selectComponent${this.counter}`,
-      validations: []
-    }];
+    const configToadd = [{
+      fxLayout: FxLayout.Row,
+      fxLayoutGap: "10px",
+      fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+      fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+      componentConfig: [{
+        componentProperty: {
+          label: "Select Component",
+          options: [{ value: 'Extra-cheese', viewValue: 'Extra cheese' },
+          { value: 'Bellsprout', viewValue: 'Bellsprout' },
+          { value: 'Mushroom', viewValue: 'Mushroom' },
+          { value: 'Onion', viewValue: 'Onion' },
+          { value: 'Pepperoni', viewValue: 'Pepperoni' },
+          { value: 'Sausage', viewValue: 'Sausage' },
+          { value: 'Tomato', viewValue: 'Tomato' }],
+          appearance: Appearance.Outline,
+          color: 'accent'
+        },
+        componentType: ComponentType.Select,
+        formControlName: 'ChildLegacyFormField'
+      }]
+    }]
     this.addControl(configToadd);
     return of(model);
   }
   RemoveComponentclick($event) {
-    this.removeControl(this.counter);
+    this.removeControl(this.counter, 0);
     this.counter = this.counter - 1;
   }
 

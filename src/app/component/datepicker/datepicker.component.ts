@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/view-models/component-type.enum';
+import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/model/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
@@ -13,7 +13,7 @@ import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 })
 export class DatepickerComponent extends BaseFormComponent<any> implements OnInit {
   codeGeneratorEnable: boolean = false;
-  public angularCodeTemplateViewModel : AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
   constructor(fb: FormBuilder) {
     super(fb);
     this.defineForm();
@@ -22,43 +22,48 @@ export class DatepickerComponent extends BaseFormComponent<any> implements OnIni
   protected defineForm(): void {
     this.controlsConfig =
     {
-      layoutConfig: {
-        fxLayout: FxLayout.Row,
-        fxLayoutGap: "10px",
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-        fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround
-      },
-      componentConfig: [{
-        componentProperty: {
-          label: "Legacy custom icon datepicker",
-          appearance: Appearance.Legacy,
-          placeHolder: "Legacy Basic datepicker",
-          attrType: InputTypes.Text,
-          groupStyle : {'width': '125%'},
-          suffix : {
-            isIcon : true,
-            text : "keyboard_arrow_down"
-          }
-        },
-        validations: [
+      container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
+        layoutConfig: [{
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
+          componentConfig: [{
+            componentProperty: {
+              label: "Legacy custom icon datepicker",
+              appearance: Appearance.Legacy,
+              placeHolder: "Legacy Basic datepicker",
+              attrType: InputTypes.Text,
+              groupStyle: { 'width': '125%' },
+              suffix: {
+                isIcon: true,
+                text: "keyboard_arrow_down"
+              }
+            },
+            validations: [
+              {
+                name: "required",
+                validator: Validators.required,
+                message: "Required Field"
+              }],
+            componentType: ComponentType.DatePicker,
+            formControlName: "legacyBasicDatePicker"
+          },
           {
-            name: "required",
-            validator: Validators.required,
-            message: "Required Field"
-          }],
-        componentType: ComponentType.DatePicker,
-        formControlName: "legacyBasicDatePicker"
-      },
-      {
-        componentProperty: {
-          label: "Outline Basic datepicker",
-          appearance: Appearance.Outline,
-          placeHolder: "Outline Basic datepicker",
-          attrType: InputTypes.Text
-        },
-        componentType: ComponentType.DatePicker,
-        formControlName: "outlineDatepicker"
-      }]
+            componentProperty: {
+              label: "Outline Basic datepicker",
+              appearance: Appearance.Outline,
+              placeHolder: "Outline Basic datepicker",
+              attrType: InputTypes.Text
+            },
+            componentType: ComponentType.DatePicker,
+            formControlName: "outlineDatepicker"
+          }]
+        }]
+      }
     }
   }
 
