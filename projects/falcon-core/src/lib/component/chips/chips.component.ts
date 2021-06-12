@@ -24,10 +24,10 @@ export class ChipsComponent implements OnInit {
   filteredOptions: Observable<IOptions[]>;
   autoCompleteControl = new FormControl();
   chipsList: IOptions[] = [];
+  private items: FormArray;
 
   @ViewChild('chipInput') fruitInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
-  items: FormArray;
   constructor(private fb: FormBuilder) {
   }
 

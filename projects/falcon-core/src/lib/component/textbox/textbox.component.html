@@ -10,8 +10,9 @@
 
 
     <span matPrefix
+        [matTooltip]="field?.componentProperty?.prefix?.toolTipText"
         [ngClass]="{'material-icons': field?.componentProperty?.prefix?.isIcon}">{{field?.componentProperty?.prefix?.text}}</span>
-    <span matSuffix
+    <span matSuffix [matTooltip]="field?.componentProperty?.suffix?.toolTipText"
         [ngClass]="{'material-icons': field?.componentProperty?.suffix?.isIcon}">{{field?.componentProperty?.suffix?.text}}</span>
 
     <mat-hint *ngIf="field?.componentProperty?.hint?.link?.isLink; else elseBlock">

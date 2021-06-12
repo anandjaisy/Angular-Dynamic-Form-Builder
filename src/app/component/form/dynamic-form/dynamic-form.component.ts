@@ -49,18 +49,10 @@ export class DynamicFormComponent extends BaseFormComponent<any> implements OnIn
             componentProperty: {
               label: 'Add option',
               appearance: Appearance.Raised,
+              visible: false
             },
             componentType: ComponentType.Button,
             formControlName: 'Raised'
-          }]
-        },
-        {
-          fxLayout: FxLayout.Row,
-          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
-          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceBetween,
-          componentConfig: [{
-            formControlName: 'productOption',
-            formArray: []
           }]
         }
       ]
@@ -75,48 +67,10 @@ export class DynamicFormComponent extends BaseFormComponent<any> implements OnIn
 
 
   private addControls(): void {
-    const configToadd = [{
-      componentConfig: [{
-        formArray: [{
-          componentConfig: [{
-            componentProperty: {
-              label: 'Option',
-              options: [{ value: 'size', viewValue: 'Size' },
-              { value: 'material', viewValue: 'Material' },
-              { value: 'color', viewValue: 'Color' }
-              ],
-              appearance: Appearance.Outline
-            },
-            componentType: ComponentType.Select,
-            formControlName: 'Option'
-          },
-          {
-            componentProperty: {
-              label: 'Separate options with a comma',
-              appearance: Appearance.Outline,
-              color: 'accent',
-              placeHolder: 'Eg color - XS,SM,M,L,XL',
-              fxFlexLayout: { fxFlex: 'auto', fxFlex_gt_xs: '100%', fxFlex_gt_sm: '69%' }
-            },
-            componentType: ComponentType.TextBox,
-            formControlName: 'optionValues'
-          },
-          {
-            componentProperty: {
-              label: 'delete',
-              appearance: Appearance.MiniFAB,
-              color: 'warn',
-              componentStyle: { 'margin-top': '9px' }
-            },
-            componentType: ComponentType.Button
-          }]
-        }]
-      }]
-    }];
-    this.addControl(configToadd, 1);
+    this.controlsConfig.container.layoutConfig[0].componentConfig[1].componentProperty.visible = true;
   }
 
   private removeControls(): void {
-
+    this.controlsConfig.container.layoutConfig[0].componentConfig[1].componentProperty.visible = false;
   }
 }

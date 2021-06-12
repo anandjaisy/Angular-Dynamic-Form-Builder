@@ -12,6 +12,12 @@
             {{item.viewValue}}
         </mat-option>
     </mat-autocomplete>
+
+    <span matPrefix [matTooltip]="field?.componentProperty?.prefix?.toolTipText"
+        [ngClass]="{'material-icons': field?.componentProperty?.prefix?.isIcon}">{{field?.componentProperty?.prefix?.text}}</span>
+    <span matSuffix [matTooltip]="field?.componentProperty?.suffix?.toolTipText"
+        [ngClass]="{'material-icons': field?.componentProperty?.suffix?.isIcon}">{{field?.componentProperty?.suffix?.text}}</span>
+
     <mat-hint>{{field?.componentProperty?.hint?.text}}</mat-hint>
     <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
         <mat-error *ngIf="group.get(field.formControlName).hasError(validation.name)">{{validation.message}}</mat-error>

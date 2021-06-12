@@ -47,6 +47,40 @@ export class FormLayoutComponent extends BaseFormComponent<any> implements OnIni
               },
               componentType: ComponentType.Button,
             }]
+        },
+        {
+          fxLayout: FxLayout.Row,
+          fxLayoutGap: "10px",
+          fxLayoutAlignHorizontal: AlignmentLayoutDirection.Start,
+          fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
+          componentConfig: [
+            {
+              componentProperty: {
+                label: "Submit",
+                appearance: Appearance.Raised,
+                color: 'primary',
+                fxFlexLayout: { fxFlex: '49%' }
+              },
+              componentType: ComponentType.Button,
+            },
+            {
+              componentProperty: {
+                label: "Submit",
+                appearance: Appearance.Raised,
+                color: 'primary',
+                fxFlexLayout: { fxFlex: '24%' }
+              },
+              componentType: ComponentType.Button,
+            },
+            {
+              componentProperty: {
+                label: "Submit",
+                appearance: Appearance.Raised,
+                color: 'primary',
+                fxFlexLayout: { fxFlex: '24%' }
+              },
+              componentType: ComponentType.Button,
+            }]
         }]
       }
     }

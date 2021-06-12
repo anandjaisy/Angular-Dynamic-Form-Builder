@@ -68,11 +68,13 @@ export class InputPrefixSuffixComponent extends BaseFormComponent<any> implement
               attrType: InputTypes.Text,
               prefix: {
                 isIcon: true,
-                text: "euro"
+                text: "euro",
+                toolTipText: 'Euro dollar'
               },
               suffix: {
                 isIcon: true,
-                text: "done"
+                text: "done",
+                toolTipText: 'Done icon'
               }
             },
             componentType: ComponentType.TextBox,

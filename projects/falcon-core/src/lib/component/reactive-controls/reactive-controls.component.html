@@ -11,21 +11,23 @@
                 [fxFlexAlign]="control?.componentProperty?.fxFlexLayout?.fxFlexAlign"
                 [fxFlex.xs]="control?.componentProperty?.fxFlexLayout?.fxFlex_xs"
                 [fxFlex.sm]="control?.componentProperty?.fxFlexLayout?.fxFlex_sm">
-                <ng-container *ngIf="control?.formArray !== undefined; else elseBlock">
-                    <ng-container *ngIf="control?.formArray.length > 0; else elseBlock">
-                        <ng-container [ngTemplateOutlet]="controlArrayContainer" [ngTemplateOutletContext]="
+                <ng-container *ngIf="control?.componentProperty?.visible ??  true">
+                    <ng-container *ngIf="control?.formArray !== undefined; else elseBlock">
+                        <ng-container *ngIf="control?.formArray.length > 0; else elseBlock">
+                            <ng-container [ngTemplateOutlet]="controlArrayContainer" [ngTemplateOutletContext]="
                         {
                             controls:control?.formArray,
                             formControlName: control?.formControlName,
                             formGroupName: formGroup
                         }
                         ">
+                            </ng-container>
                         </ng-container>
                     </ng-container>
+                    <ng-template #elseBlock>
+                        <ng-container reactiveField [field]="control" [group]="formGroup"></ng-container>
+                    </ng-template>
                 </ng-container>
-                <ng-template #elseBlock>
-                    <ng-container reactiveField [field]="control" [group]="formGroup"></ng-container>
-                </ng-template>
             </div>
         </div>
     </ng-container>
@@ -44,25 +46,27 @@
                 [fxFlexAlign]="control?.componentProperty?.fxFlexLayout?.fxFlexAlign"
                 [fxFlex.xs]="control?.componentProperty?.fxFlexLayout?.fxFlex_xs"
                 [fxFlex.sm]="control?.componentProperty?.fxFlexLayout?.fxFlex_sm">
-                <ng-container *ngIf="control?.formArray !== undefined; else elseBlock">
-                    <ng-container *ngIf="control?.formArray.length > 0; else elseBlock">
-                        <ng-container [ngTemplateOutlet]="controlArrayContainer" [ngTemplateOutletContext]="
+                <ng-container *ngIf="control?.componentProperty?.visible ??  true">
+                    <ng-container *ngIf="control?.formArray !== undefined; else elseBlock">
+                        <ng-container *ngIf="control?.formArray.length > 0; else elseBlock">
+                            <ng-container [ngTemplateOutlet]="controlArrayContainer" [ngTemplateOutletContext]="
                         {
                             controls:control?.formArray,
                             formControlName: control?.formControlName,
                             formGroupName: formGroupName.get(formControlName)['controls'][i]
                         }
                         ">
-                            <ng-container reactiveField [field]="control"
-                                [group]="formGroupName.get(formControlName)['controls'][i]"></ng-container>
+                                <ng-container reactiveField [field]="control"
+                                    [group]="formGroupName.get(formControlName)['controls'][i]"></ng-container>
+                            </ng-container>
                         </ng-container>
                     </ng-container>
+                    <ng-template #elseBlock>
+                        <ng-container reactiveField [field]="control"
+                            [group]="formGroupName.get(formControlName)['controls'][i]">
+                        </ng-container>
+                    </ng-template>
                 </ng-container>
-                <ng-template #elseBlock>
-                    <ng-container reactiveField [field]="control"
-                        [group]="formGroupName.get(formControlName)['controls'][i]">
-                    </ng-container>
-                </ng-template>
             </div>
         </div>
     </ng-container>
