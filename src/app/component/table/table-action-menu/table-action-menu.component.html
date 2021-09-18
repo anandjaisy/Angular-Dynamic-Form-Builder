@@ -1,17 +1,15 @@
-<div class="container">
+<br><br>
     <mat-card>
-        <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
-            <a mat-mini-fab color="accent" routerLink="..">
-                <mat-icon>arrow_back</mat-icon>
-            </a>
-        </div>
-
-        <mat-divider></mat-divider>
         <mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
+                <a mat-mini-fab color="accent" routerLink="..">
+                    <mat-icon>arrow_back</mat-icon>
+                </a>
+            </div>
             <div style="margin-top: 40px">
                 <div>
                     <div fxLayout="row" fxLayoutAlign="space-between" style="margin-bottom: 18px;">
-                        <h1>Mat table</h1>
+                        <h1>Mat table with menu action</h1>
                         <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
                     </div>
                     <p class="blurText">
@@ -26,14 +24,9 @@
                     </p>
                 </div>
                 <br>
-                <falcon-table [matTableConfig]="matTableConfig" [displayedColumns]="displayedColumns">
-                </falcon-table>
+                <falcon-table [matTableConfig]="matTableConfig" [displayedColumns]="displayedColumns" (editRowEvent)="editRowEvent($event)" (deleteRowEvent)="deleteRowEvent($event)"></falcon-table>
             </div>
             <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
                 [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
         </mat-card-content>
     </mat-card>
-    <app-table-filter></app-table-filter>
-    <app-table-pagination></app-table-pagination>
-    <app-table-action-menu></app-table-action-menu>
-</div>

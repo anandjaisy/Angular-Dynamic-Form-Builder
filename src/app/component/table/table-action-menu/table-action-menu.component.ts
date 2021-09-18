@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { AngularCodeTemplateViewModel } from '../../../common/angularCodeTemplateViewModel';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableConfig, MatTable } from '../../../../../projects/falcon-core/src/lib/model/interface';
 import { AngularCodeTemplate } from '../../../common/angularCodeTemplate';
-
 
 export interface PeriodicElement {
   name: string;
@@ -36,19 +34,21 @@ const ELEMENT_DATA: PeriodicElement[] = [
   { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
 
+
 @Component({
-  selector: 'app-table-pagination',
-  templateUrl: './table-pagination.component.html',
-  styleUrls: ['./table-pagination.component.scss']
+  selector: 'app-table-action-menu',
+  templateUrl: './table-action-menu.component.html',
+  styleUrls: ['./table-action-menu.component.scss']
 })
-export class TablePaginationComponent implements OnInit {
+export class TableActionMenuComponent implements OnInit {
+
   public displayedColumns = ['action'];
   public codeGeneratorEnable: boolean = false;
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
   matTableConfig: MatTableConfig = {};
   columns: MatTable[] = [
     { columnDef: 'position', header: 'No.', cell: (element: any) => `${element.position}` },
-    { columnDef: 'name', header: 'Name', cell: (element: any) => `${element.name}` },
+    { columnDef: 'name', header: 'Name', cell: (element: any) => `${element.name}`, link: { routerLink: '../', isLink: true } },
     { columnDef: 'weight', header: 'Weight', cell: (element: any) => `${element.weight}` },
     { columnDef: 'symbol', header: 'Symbol', cell: (element: any) => `${element.symbol}` }
   ];
@@ -60,7 +60,13 @@ export class TablePaginationComponent implements OnInit {
     this.matTableConfig.filter = true;
     this.matTableConfig.paginationConfig = { pagination: true, pageSizeOptions: [10, 50, 100] };
     this.matTableConfig.dataSource = this.dataSource;
-    this.matTableConfig.action = { edit: true, delete: true, isMenu: false };
+    this.matTableConfig.action = {
+      isMenu: true, menu: [
+        { text: 'Redial', isIcon: true, icon: 'dialpad', link: { routerLink: './dialpad' }, disabled: false },
+        { text: 'Check voice mail', isIcon: true, icon: 'voicemail', link: { routerLink: './voicemail' }, disabled: true },
+        { text: 'Disable alerts', isIcon: true, icon: 'notifications_off', link: { routerLink: './notification' }, disabled: false }
+      ]
+    };
   }
   buttonClickEvent() {
     this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Table_PAGINATION_TS_KEY;
@@ -76,7 +82,7 @@ export class TablePaginationComponent implements OnInit {
 
     setTimeout(() => {
       this.matTableConfig.progressBar = false;
-  }, 1000);
+    }, 1000);
   }
 
   editRowEvent($event) {
@@ -87,4 +93,5 @@ export class TablePaginationComponent implements OnInit {
     console.log('Event from parent edit');
     console.log($event);
   }
+
 }

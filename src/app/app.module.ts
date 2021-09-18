@@ -54,6 +54,7 @@ import { FormNextedChildComponent } from './component/form-field/form-nexted-chi
 import { FormLayoutComponent } from './component/form/form-layout/form-layout.component';
 import { NextedformArrayComponent } from './component/form/nextedform-array/nextedform-array.component';
 import { DynamicFormComponent } from './component/form/dynamic-form/dynamic-form.component';
+import { TableActionMenuComponent } from './component/table/table-action-menu/table-action-menu.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { DynamicFormComponent } from './component/form/dynamic-form/dynamic-form
     FormNextedChildComponent,
     FormLayoutComponent,
     NextedformArrayComponent,
-    DynamicFormComponent
+    DynamicFormComponent,
+    TableActionMenuComponent
   ],
   imports: [
     BrowserModule,

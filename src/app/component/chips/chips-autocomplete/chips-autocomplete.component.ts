@@ -22,6 +22,7 @@ export class ChipsAutocompleteComponent extends BaseFormComponent<any> implement
 
   ngOnInit(): void {
     this.form = this.createControls();
+    this.controlsConfig.container.layoutConfig[0].componentConfig[0].componentProperty.chipSelectedOptions = [{ value: 'Kathmandu', viewValue: 'Kathmandu' }]
   }
 
   protected defineForm(): void {
@@ -46,6 +47,7 @@ export class ChipsAutocompleteComponent extends BaseFormComponent<any> implement
               { value: 'Kathmandu', viewValue: 'Kathmandu' }],
               attrType: InputTypes.Search,
               appearance: Appearance.Outline,
+              chipSelectedOptions: []
             },
             formArray: [],
             componentType: ComponentType.Chip,

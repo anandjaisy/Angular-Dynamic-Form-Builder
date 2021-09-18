@@ -41,7 +41,7 @@ export class CodeGeneratorComponent implements OnInit {
 
   private loadHtmlFromServer() {
     this.templateToLoad = this.lazyLoadingTemplate;
-    this.igenericHttpClient.Get(this.htmlConfig, { responseType: 'text' }).subscribe(data => {
+    this.igenericHttpClient.get(this.htmlConfig, { responseType: 'text' }).subscribe(data => {
       this.code = `${data}`;
       this.templateToLoad = this.codeTemplate;
     }, error => {
@@ -52,7 +52,7 @@ export class CodeGeneratorComponent implements OnInit {
   private loadTSFromServer() {
     this.templateToLoad = this.lazyLoadingTemplate;
 
-    this.igenericHttpClient.Get(this.tsConfig, { responseType: 'text' }).subscribe(data => {
+    this.igenericHttpClient.get(this.tsConfig, { responseType: 'text' }).subscribe(data => {
       this.code = `${data}`;
       this.templateToLoad = this.codeTemplate;
     }, error => {
@@ -62,7 +62,7 @@ export class CodeGeneratorComponent implements OnInit {
   }
   private loadCSSFromServer() {
     this.templateToLoad = this.lazyLoadingTemplate;
-    this.igenericHttpClient.Get(this.cssConfig).subscribe(data => {
+    this.igenericHttpClient.get(this.cssConfig).subscribe(data => {
       this.code = data;
       this.templateToLoad = this.codeTemplate;
     }, error => {

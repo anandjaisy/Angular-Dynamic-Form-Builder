@@ -77,6 +77,7 @@ export declare interface IComponentProperty {
   textAreaProperty?: ITextAreaProperty;
   sliderProperty?: ISliderProperty;
   selectProperty?: ISelectOptions;
+  chipSelectedOptions?: IOptions[] | any;
   editorProperty?: any;
   event?: IComponentEvent<unknown>;
   visible?: boolean;

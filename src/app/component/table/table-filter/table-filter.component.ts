@@ -47,7 +47,7 @@ export class TableFilterComponent implements OnInit {
     this.matTableConfig.columns = this.columns;
     this.matTableConfig.filter = true;
     this.matTableConfig.dataSource = this.dataSource;
-    this.matTableConfig.actionButton = { edit: false, delete: true };
+    this.matTableConfig.action = { edit: false, delete: true, isMenu: false};
   }
   buttonClickEvent() {
     this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Table_FILTER_TS_KEY;
