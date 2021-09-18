@@ -19,6 +19,28 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
 
   constructor(private httpClient: HttpClient, private environment: EnvironmentViewModel,
     private _snackBar: MatSnackBar, private logger: LoggerService) { }
+
+
+  /**
+  * @description
+  * Generic Http GET method to Get the response and bind to the view model
+  * @param {string} destinationUrl endPoint it doesn't need / in front of the end point.
+  * @param {IRequestOptions} options options of the request like headers, body, etc.
+  * @returns {Observable<T>}
+  * @usageNotes
+  * The following snippet shows how to use this method
+  * ```ts
+  *    this.genericHttpService.Get("get_url").subscribe(data => {
+  *        console.log('success');
+  *      }, error => {
+  *      console.log(error);
+  *      });
+  * ```
+*/
+  public get(destinationUrl: string, options?: IRequestOptions | any): Observable<T> {
+    return this.request<T>(HttpMethod.Get, destinationUrl, options);
+  }
+
   /**
     * @description
     * Generic Http post method to post the view model and bind the return view model
@@ -36,9 +58,10 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
     *      });
     * ```
   */
-  public Post(destinationUrl: string, options?: IRequestOptions | any): Observable<T> {
+  public post(destinationUrl: string, options?: IRequestOptions | any): Observable<T> {
     return this.request<T>(HttpMethod.Post, destinationUrl, options);
   }
+
   /**
     * @description
     * Generic Http Put method to post the view model and bind the return view model
@@ -56,28 +79,31 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
     *      });
     * ```
   */
-  public Put(destinationUrl: string, options?: IRequestOptions | any): Observable<T> {
+  public put(destinationUrl: string, options?: IRequestOptions | any): Observable<T> {
     return this.request<T>(HttpMethod.Put, destinationUrl, options);
   }
+
   /**
-    * @description
-    * Generic Http GET method to Get the response and bind to the view model
-    * @param {string} destinationUrl endPoint it doesn't need / in front of the end point.
-    * @param {IRequestOptions} options options of the request like headers, body, etc.
-    * @returns {Observable<T>}
-    * @usageNotes
-    * The following snippet shows how to use this method
-    * ```ts
-    *    this.genericHttpService.Get("get_url").subscribe(data => {
-    *        console.log('success');
-    *      }, error => {
-    *      console.log(error);
-    *      });
-    * ```
-  */
-  public Get(destinationUrl: string, options?: IRequestOptions | any): Observable<T> {
-    return this.request<T>(HttpMethod.Get, destinationUrl, options);
+      * @description
+      * Generic Http post method to post the view model and bind the return view model
+      * @param {string} destinationUrl endPoint it doesn't need / in front of the end point.
+      * @param {IRequestOptions} options options of the request like headers, body, etc.
+      * @returns {Observable<T>}
+      * @usageNotes
+      * The following snippet shows how to use this method
+      * ```ts
+      *    this.genericHttpClientService.Post(post-url,post-view-model).subscribe(item => {
+      *        console.log(item);
+      *      },
+      *      err => {
+      *        console.log(err);
+      *      });
+      * ```
+    */
+  public patch(destinationUrl: string, options?: IRequestOptions | any): Observable<T> {
+    return this.request<T>(HttpMethod.Patch, destinationUrl, options);
   }
+
   /**
     * @description
     * Generic Http Delete method to Delete the item and bind the return view model
@@ -94,9 +120,10 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
     *      });
     * ```
   */
-  public Delete(destinationUrl: string, options?: IRequestOptions | any): Observable<T> {
+  public delete(destinationUrl: string, options?: IRequestOptions | any): Observable<T> {
     return this.request<T>(HttpMethod.Delete, destinationUrl, options);
   }
+  
   /**
       * @description
       * Http request method to accept different method type and params
@@ -157,6 +184,11 @@ export class GenericHttpClient<T> implements IGenericHttpClient<T>{
             case HttpStatusCode.INTERNAL_SERVER_ERROR:
               this.snackBarViewModel.messageText = 'Server encountered an unexpected condition.';
               this.snackBarViewModel.actionText = 'Internal server error';
+              this.isHttpError = true;
+              break;
+            case 0:
+              this.snackBarViewModel.messageText = 'Not connected to the service.';
+              this.snackBarViewModel.actionText = 'Service not available';
               this.isHttpError = true;
               break;
           }

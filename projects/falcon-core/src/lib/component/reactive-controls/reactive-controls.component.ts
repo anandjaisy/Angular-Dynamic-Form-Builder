@@ -15,7 +15,5 @@ export class ReactiveControlsComponent implements OnInit {
   @Input() fields: IMeta;
   constructor() {
   }
-  ngOnInit(): void {
-    console.log(this.formGroup);
-  }
+  ngOnInit(): void {}
 }

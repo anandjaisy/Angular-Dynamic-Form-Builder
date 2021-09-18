@@ -23,16 +23,23 @@ export class ChipsComponent implements OnInit {
   addOnBlur = true;
   filteredOptions: Observable<IOptions[]>;
   autoCompleteControl = new FormControl();
-  chipsList: IOptions[] = [];
+  private items: FormArray;
 
-  @ViewChild('chipInput') fruitInput: ElementRef<HTMLInputElement>;
+  @ViewChild('chipInput') matChipInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
-  items: FormArray;
   constructor(private fb: FormBuilder) {
   }
 
   ngOnInit() {
     this.filteredOptions = this.autoCompleteControl.valueChanges.pipe(startWith(''), map(value => this._filter(value)));
+    setTimeout(() => {
+      if (this.field.componentProperty.chipSelectedOptions.length > 0) {
+        this.items = this.group.get(this.field.formControlName) as FormArray;
+        this.field.componentProperty.chipSelectedOptions.forEach(value => {
+          this.items.push(this.createItem(value.value));
+        });
+      }
+    });
   }
 
 
@@ -41,7 +48,7 @@ export class ChipsComponent implements OnInit {
     const value = event.value;
 
     if ((value || '').trim()) {
-      this.chipsList.push(
+      this.field.componentProperty.chipSelectedOptions.push(
         {
           viewValue: value.trim(),
           value: value.trim()
@@ -63,16 +70,16 @@ export class ChipsComponent implements OnInit {
   }
 
   remove(option: IOptions): void {
-    const index = this.chipsList.indexOf(option);
+    const index = this.field.componentProperty.chipSelectedOptions.indexOf(option);
 
     if (index >= 0) {
-      this.chipsList.splice(index, 1);
+      this.field.componentProperty.chipSelectedOptions.splice(index, 1);
       this.items.removeAt(index)
     }
   }
 
   optionSelected(event: MatAutocompleteSelectedEvent): void {
-    this.chipsList.push({ viewValue: event.option.value, value: event.option.value });
+    this.field.componentProperty.chipSelectedOptions.push({ viewValue: event.option.value, value: event.option.value });
     this.items = this.group.get(this.field.formControlName) as FormArray;
     this.items.push(this.createItem(event.option.value));
   }

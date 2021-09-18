@@ -3,7 +3,7 @@
         [formGroup]="group" [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
         <mat-label>{{field.componentProperty.label}}</mat-label>
         <mat-chip-list #chipList aria-label="item selection">
-            <mat-chip *ngFor="let option of chipsList" [selectable]="selectable" [removable]="removable"
+            <mat-chip *ngFor="let option of field?.componentProperty?.chipSelectedOptions" [selectable]="selectable" [removable]="removable"
                 (removed)="remove(option)">
                 {{option?.viewValue}}
                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
@@ -21,13 +21,30 @@
                 {{item.viewValue}}
             </mat-option>
         </mat-autocomplete>
+        <mat-hint>
+            <ng-container *ngIf="field?.componentProperty?.hint?.link?.isLink; else elseBlock">
+                <ng-container
+                    *ngIf="field?.componentProperty?.hint?.link?.queryParams !== undefined; else withoutQueryBlock">
+                    <a [routerLink]="[field?.componentProperty?.hint?.link?.routerLink]"
+                        [queryParams]="{ query: field?.componentProperty?.hint?.link?.queryParams }"
+                        routerLinkActive="router-link-active">{{field?.componentProperty?.hint?.text}}</a>
+                </ng-container>
+            </ng-container>
+            <ng-template #elseBlock>
+                <span>{{field?.componentProperty?.hint?.text}}</span>
+            </ng-template>
+            <ng-template #withoutQueryBlock>
+                <a [routerLink]="[field?.componentProperty?.hint?.link?.routerLink]"
+                    routerLinkActive="router-link-active">{{field?.componentProperty?.hint?.text}}</a>
+            </ng-template>
+        </mat-hint>
     </mat-form-field>
 
     <mat-form-field class="chip-list" *ngSwitchCase="'text'" [appearance]="field.componentProperty.appearance"
         [formGroup]="group" [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
         <mat-label>{{field.componentProperty.label}}</mat-label>
         <mat-chip-list #chipList aria-label="item selection">
-            <mat-chip *ngFor="let option of chipsList" [selectable]="selectable" [removable]="removable"
+            <mat-chip *ngFor="let option of field?.componentProperty?.chipSelectedOptions" [selectable]="selectable" [removable]="removable"
                 (removed)="remove(option)">
                 {{option?.viewValue}}
                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>

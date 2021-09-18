@@ -210,7 +210,7 @@ export class FormFieldExampleComponent extends BaseFormComponent<any> implements
   }
   protected submitDatasource(model: any): Observable<any> {
     console.log(model);
-    this.iGenericHttpClient.Post("/api/v1/category", model).subscribe();
+    this.iGenericHttpClient.post("/api/v1/category", model).subscribe();
     return of(model);
   }
   buttonClickEvent() {

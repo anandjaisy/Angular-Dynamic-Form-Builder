@@ -24,6 +24,8 @@ export class SelectComponent implements OnInit {
 
   selectChange($event) {
     this.selectionChange.emit($event.value);
+    if (this.field.componentProperty.event !== undefined)
+      this.field.componentProperty.event.change.emit($event);
   }
 
 }

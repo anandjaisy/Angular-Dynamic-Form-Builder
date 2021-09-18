@@ -41,6 +41,7 @@ export class ChipsWithinputComponent extends BaseFormComponent<any> implements O
             componentProperty: {
               label: "Basic Auto complete",
               options: [],
+              chipSelectedOptions: [],
               attrType: InputTypes.Text,
               appearance: Appearance.Outline
             },

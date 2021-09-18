@@ -31,7 +31,7 @@ export * from './lib/component/select/select.component';
 export * from './lib/component/slide-toggle/slide-toggle.component';
 export * from './lib/component/slider/slider.component';
 export * from './lib/component/date-picker/date-picker.component';
-export * from './lib/component/delete-dialog/delete-dialog.component';
+export * from './lib/component/dialog/dialog.component';
 export * from './lib/component/checkbox/checkbox.component';
 export * from './lib/component/progress-bar/progress-bar.component';
 export * from './lib/component/progress-spinner/progress-spinner.component';

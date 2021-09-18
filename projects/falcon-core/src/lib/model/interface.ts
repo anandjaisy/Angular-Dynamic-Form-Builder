@@ -1,19 +1,4 @@
 import { HttpHeaders, HttpParams } from '@angular/common/http';
-import { AutoCompleteComponent } from '../component/auto-complete/auto-complete.component';
-import { ButtonToggleComponent } from '../component/button-toggle/button-toggle.component';
-import { ButtonComponent } from '../component/button/button.component';
-import { CheckboxComponent } from '../component/checkbox/checkbox.component';
-import { ChipsComponent } from '../component/chips/chips.component';
-import { DatePickerComponent } from '../component/date-picker/date-picker.component';
-import { DividerComponent } from '../component/divider/divider.component';
-import { EditorComponent } from '../component/editor/editor.component';
-import { RadioComponent } from '../component/radio/radio.component';
-import { SelectComponent } from '../component/select/select.component';
-import { SlideToggleComponent } from '../component/slide-toggle/slide-toggle.component';
-import { SliderComponent } from '../component/slider/slider.component';
-import { TextAreaComponent } from '../component/text-area/text-area.component';
-import { TextboxComponent } from '../component/textbox/textbox.component';
-
 /**
  * @description
  * Interface use for IRequestOptions.
@@ -58,6 +43,7 @@ export declare interface MatTable {
   columnDef?: string;
   header?: string;
   cell?: any;
+  link?: IRouteLink;
 }
 
 /**
@@ -81,7 +67,7 @@ export declare interface MatTableConfig {
   filter?: boolean;
   paginationConfig?: MatTablePaginationConfig;
   progressBar?: boolean;
-  actionButton?: TableButtonAction;
+  action?: ITableAction;
 }
 /**
  * @description
@@ -94,10 +80,17 @@ export declare interface MatTablePaginationConfig {
 /**
  * @description
  * Interface use for mat table action button configuration.
+ * view - action for view only
+ * edit - action for edit the row
+ * delete - action for delete the row
+ * menu - context menu for more action
  */
-export declare interface TableButtonAction {
+export declare interface ITableAction {
+  view?: boolean;
   edit?: boolean;
   delete?: boolean;
+  isMenu: boolean;
+  menu?: IMatHint[];
 }
 
 /**
@@ -105,8 +98,11 @@ export declare interface TableButtonAction {
  * Interface use for material hint component.
  */
 export declare interface IMatHint {
+  isIcon: boolean;
+  icon?: string;
   text?: string;
   link?: IRouteLink;
+  disabled?: boolean;
 }
 
 /**
@@ -117,4 +113,15 @@ export declare interface IRouteLink {
   routerLink: string;
   queryParams?: string;
   isLink?: boolean;
+}
+
+/**
+ * @description
+ * Interface for Dialog Data
+ */
+export declare interface IDialogData {
+  title: string;
+  cancelBtnText: string;
+  mainbtnText?: string;
+  bodyMessage?: string;
 }

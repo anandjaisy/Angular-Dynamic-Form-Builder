@@ -1,13 +1,13 @@
-<h1 mat-dialog-title>Delete</h1>
+<h1 mat-dialog-title>{{data?.title}}</h1>
 <mat-divider></mat-divider>
 <div mat-dialog-content class="margin-top-bottom">
-  <span class="mat-h3">Are you sure you want to delete ?</span>
+  <span class="mat-h3">{{data?.bodyMessage}}</span>
 </div>
 <mat-divider></mat-divider>
 <br>
 <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
-  <button mat-raised-button [mat-dialog-close]="" cdkFocusInitial>Cancel</button>
+  <button mat-raised-button [mat-dialog-close]="" cdkFocusInitial>{{data?.cancelBtnText}}</button>
   <button mat-raised-button [color]="'warn'" [mat-dialog-close]="data">
-    Delete
+    {{data?.mainbtnText}}
   </button>
 </div>

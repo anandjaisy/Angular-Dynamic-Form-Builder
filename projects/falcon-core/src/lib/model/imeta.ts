@@ -77,8 +77,10 @@ export declare interface IComponentProperty {
   textAreaProperty?: ITextAreaProperty;
   sliderProperty?: ISliderProperty;
   selectProperty?: ISelectOptions;
+  chipSelectedOptions?: IOptions[] | any;
   editorProperty?: any;
   event?: IComponentEvent<unknown>;
+  visible?: boolean;
 }
 /**
  * @description
@@ -102,8 +104,9 @@ export declare interface IComponentProperty {
  * ```
  */
 export declare interface ISuffixPrefixConfig {
-  isIcon: boolean;
-  text: string;
+  isIcon?: boolean;
+  text?: string;
+  toolTipText?: string
 }
 /**
  * @description

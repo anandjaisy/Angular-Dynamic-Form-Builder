@@ -41,7 +41,7 @@ export abstract class BaseFormComponent<T>{
     * @returns submitDatasource() method with form data if valid otherwise form invalid.
   */
   public onSubmit() {
-    if (this.form.valid) {
+    if (this.form !== undefined && this.form.valid) {
       this.submitDatasource(this.form.value);
     } else {
       this.validateAllFormFields(this.form);
@@ -54,7 +54,8 @@ export abstract class BaseFormComponent<T>{
     * @returns Groups of controls added to the form builder.
   */
   private validateAllFormFields(formGroup: FormGroup) {
-    this.form.markAllAsTouched();
+    if (this.form !== undefined)
+      this.form.markAllAsTouched();
   }
   /**
     * @description
