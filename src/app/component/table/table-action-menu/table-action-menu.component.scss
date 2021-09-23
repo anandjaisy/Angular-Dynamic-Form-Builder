@@ -1,0 +1,17 @@
+:host ::ng-deep {
+    .mat-column-symbol {
+        color: red;
+    }
+    table {
+        text-align: left !important;
+        width: 100%;
+    }
+    .mat-form-field {
+        font-size: 14px;
+    }
+
+    .mat-sort-header-container {
+        display: flex;
+        justify-content: left;
+    }
+}

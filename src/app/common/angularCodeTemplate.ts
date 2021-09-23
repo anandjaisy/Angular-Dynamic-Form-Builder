@@ -99,6 +99,9 @@ export class AngularCodeTemplate {
     public static Table_PAGINATION_TS_KEY: string = "/table/table-pagination/table-pagination.component.ts";
     public static Table_PAGINATION_HTML_KEY: string = "/table/table-pagination/table-pagination.component.html"
 
+    public static Table_ACTION_MENU_TS_KEY: string = "/table/table-action-menu/table-action-menu.component.ts";
+    public static Table_ACTION_MENU_HTML_KEY: string = "/table/table-action-menu.component/table-action-menu.component.html"
+
     public static Delete_Dialog_TS_KEY: string = "/modal-dialog/modal-dialog.component.ts";
     public static Delete_Dialog_HTML_KEY: string = "/modal-dialog/modal-dialog.component.html"
     //End of Modal snak bar

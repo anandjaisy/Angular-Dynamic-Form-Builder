@@ -48,7 +48,7 @@ export class TableActionMenuComponent implements OnInit {
   matTableConfig: MatTableConfig = {};
   columns: MatTable[] = [
     { columnDef: 'position', header: 'No.', cell: (element: any) => `${element.position}` },
-    { columnDef: 'name', header: 'Name', cell: (element: any) => `${element.name}`, link: { routerLink: '../', isLink: true } },
+    { columnDef: 'name', header: 'Name', cell: (element: any) => `${element.name}`, link: { routerLink: (element: any) => `${element.position}`, isLink: true } },
     { columnDef: 'weight', header: 'Weight', cell: (element: any) => `${element.weight}` },
     { columnDef: 'symbol', header: 'Symbol', cell: (element: any) => `${element.symbol}` }
   ];
@@ -62,15 +62,15 @@ export class TableActionMenuComponent implements OnInit {
     this.matTableConfig.dataSource = this.dataSource;
     this.matTableConfig.action = {
       isMenu: true, menu: [
-        { text: 'Redial', isIcon: true, icon: 'dialpad', link: { routerLink: './dialpad' }, disabled: false },
-        { text: 'Check voice mail', isIcon: true, icon: 'voicemail', link: { routerLink: './voicemail' }, disabled: true },
-        { text: 'Disable alerts', isIcon: true, icon: 'notifications_off', link: { routerLink: './notification' }, disabled: false }
+        { text: 'Redial', isIcon: true, icon: { iconText: 'dialpad' }, link: { routerLink: './dialpad' }, disabled: false },
+        { text: 'Check voice mail', isIcon: true, icon: { iconText: 'voicemail' }, link: { routerLink: './voicemail' }, disabled: true },
+        { text: 'Disable alerts', isIcon: true, icon: { iconText: 'notifications_off', iconColor: 'warn' }, link: { routerLink: './notification' }, disabled: false }
       ]
     };
   }
   buttonClickEvent() {
-    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Table_PAGINATION_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Table_PAGINATION_HTML_KEY;
+    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Table_ACTION_MENU_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Table_ACTION_MENU_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
   page($event) {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User, UserManager, UserManagerSettings } from 'oidc-client';
+import { Profile, User, UserManager, UserManagerSettings } from 'oidc-client';
 import { AppSettingService } from '../appsetting.service';
 import { EnvironmentViewModel } from '../../model/environment-view-model';
 import { Observable, Subject, from, timer } from 'rxjs';
@@ -77,11 +77,11 @@ export class AuthService {
     return this.userManager.getUser();
   }
 
-  public getProfile(): any {
+  public getProfile(): Profile {
     return this.user.profile;
   }
 
-  public getClaims(): any {
+  public getClaims(): Profile {
     return this.user.profile;
   }
 
