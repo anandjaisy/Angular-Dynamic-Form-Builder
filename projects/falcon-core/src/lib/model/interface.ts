@@ -68,7 +68,18 @@ export declare interface MatTableConfig {
   paginationConfig?: MatTablePaginationConfig;
   progressBar?: boolean;
   action?: ITableAction;
+  property?: IMatTableStyle;
 }
+
+/**
+ * @description
+ * Interface use for mat table style
+ */
+export declare interface IMatTableStyle {
+  css?: string;
+  style?: string;
+}
+
 /**
  * @description
  * Interface use for mat table pagination configuration.
@@ -99,7 +110,7 @@ export declare interface ITableAction {
  */
 export declare interface IMatHint {
   isIcon: boolean;
-  icon?: string;
+  icon?: IIcon;
   text?: string;
   link?: IRouteLink;
   disabled?: boolean;
@@ -107,10 +118,19 @@ export declare interface IMatHint {
 
 /**
  * @description
+ * Interface for icons
+ */
+export declare interface IIcon {
+  iconText?: string;
+  iconColor?: string;
+}
+
+/**
+ * @description
  * Interface for routerLink
  */
 export declare interface IRouteLink {
-  routerLink: string;
+  routerLink: string | any;
   queryParams?: string;
   isLink?: boolean;
 }

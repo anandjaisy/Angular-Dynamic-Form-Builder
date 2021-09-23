@@ -1,7 +1,5 @@
 # FalconCore
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
-
 ## Build
 
 Run `ng build @falcon-ng/core` to build the project. The build artifacts will be stored in the `dist/` directory.
