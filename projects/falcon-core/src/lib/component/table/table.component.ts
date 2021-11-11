@@ -3,7 +3,7 @@ import { MatTableConfig } from '../../model/interface';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { MatButtonModule } from '@angular/material/button';
+import { TableAction } from 'projects/falcon-core/src/public-api';
 
 @Component({
   selector: 'falcon-table',
@@ -16,9 +16,7 @@ export class TableComponent implements OnInit {
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @Output() pageEvent = new EventEmitter<PageEvent>();
   @Input() displayedColumns: string[];
-  @Output() editRowEvent = new EventEmitter<any>();
-  @Output() deleteRowEvent = new EventEmitter<any>();
-
+  @Output() tableActionRowEvent = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit(): void {
@@ -48,12 +46,9 @@ export class TableComponent implements OnInit {
     this.pageEvent.emit(e);
   }
 
-  public editRow($item: any) {
-    this.editRowEvent.next($item);
-  }
-
-  public deleteRow($item: any) {
-    this.deleteRowEvent.next($item);
+  public tableAction($item, action: TableAction) {
+    const item = Object.assign($item, { action: action });
+    this.tableActionRowEvent.next(item);
   }
 
 }

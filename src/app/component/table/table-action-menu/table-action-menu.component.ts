@@ -85,11 +85,7 @@ export class TableActionMenuComponent implements OnInit {
     }, 1000);
   }
 
-  editRowEvent($event) {
-    console.log('Event from parent edit');
-    console.log($event);
-  }
-  deleteRowEvent($event) {
+  tableActionRowEvent($event) {
     console.log('Event from parent edit');
     console.log($event);
   }

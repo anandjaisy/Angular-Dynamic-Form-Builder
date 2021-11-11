@@ -7,7 +7,7 @@
         [ngStyle]="field.componentProperty.componentStyle" [ngClass]="field.componentProperty.componentCss"
         [matAutocomplete]="auto"
         [required]="group.get(field.formControlName).errors !== null && group.get(field.formControlName).errors.required">
-    <mat-autocomplete #auto="matAutocomplete" (optionSelected)='optionSelected($event.option.value)'>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)='optionSelected($event.option.viewValue)'>
         <mat-option *ngFor="let item of filteredOptions | async" [value]="item.value">
             {{item.viewValue}}
         </mat-option>
@@ -33,7 +33,7 @@
             [matAutocomplete]="auto"
             [required]="group.get(field.formControlName).errors !== null && group.get(field.formControlName).errors.required">
     </div>
-    <mat-autocomplete #auto="matAutocomplete" (optionSelected)='optionSelected($event.option.value)'>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)='optionSelected($event.option.viewValue)'>
         <mat-option *ngFor="let item of filteredOptions | async" [value]="item.value">
             {{item.viewValue}}
         </mat-option>

@@ -167,3 +167,13 @@ export const enum HttpMethod {
     Patch = "PATCH",
     Delete = "DELETE",
 }
+
+/**
+ * @description
+ * Enum use for Table actions
+ */
+export const enum TableAction {
+    View,
+    Edit,
+    Delete
+}

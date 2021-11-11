@@ -54,11 +54,7 @@ export class TableFilterComponent implements OnInit {
     this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Table_FILTER_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
-  editRowEvent($event) {
-    console.log('Event from parent edit');
-    console.log($event);
-  }
-  deleteRowEvent($event) {
+  tableActionRowEvent($event) {
     console.log('Event from parent edit');
     console.log($event);
   }

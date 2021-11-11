@@ -30,6 +30,10 @@ Run `ng test @falcon-ng/core` to execute the unit tests via [Karma](https://karm
         npm unpublish --force @falcon-ng/core@0.0.1
         npm publish --force --access public
         ```
+    * To update the version of the library
+        ```
+        npm version <new_Version_No>
+        ```
 
 ## In Development
 * During development the best way to consume library is using `npm link`
