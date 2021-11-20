@@ -8,9 +8,8 @@ describe('SelectHtmlComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SelectHtmlComponent ]
-    })
-    .compileComponents();
+      declarations: [SelectHtmlComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

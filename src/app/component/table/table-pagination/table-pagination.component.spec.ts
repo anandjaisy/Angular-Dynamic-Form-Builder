@@ -1,4 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 
 import { TablePaginationComponent } from './table-pagination.component';
 
@@ -8,9 +12,8 @@ describe('TablePaginationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TablePaginationComponent ]
-    })
-    .compileComponents();
+      declarations: [TablePaginationComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

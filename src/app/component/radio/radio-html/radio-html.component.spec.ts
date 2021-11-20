@@ -8,9 +8,8 @@ describe('RadioHtmlComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RadioHtmlComponent ]
-    })
-    .compileComponents();
+      declarations: [RadioHtmlComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

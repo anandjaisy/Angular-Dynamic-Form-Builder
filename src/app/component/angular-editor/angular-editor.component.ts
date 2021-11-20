@@ -2,17 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Observable, of } from 'rxjs';
-import { BaseFormComponent, AlignmentLayoutDirection, FxLayout, Appearance, ComponentType, InputTypes } from 'projects/falcon-core/src/public-api';
+import {
+  BaseFormComponent,
+  AlignmentLayoutDirection,
+  FxLayout,
+  ComponentType,
+} from 'projects/falcon-core/src/public-api';
 import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 
 @Component({
   selector: 'app-angular-editor',
   templateUrl: './angular-editor.component.html',
-  styleUrls: ['./angular-editor.component.scss']
+  styleUrls: ['./angular-editor.component.scss'],
 })
-export class AngularEditorComponent extends BaseFormComponent<any> implements OnInit {
+export class AngularEditorComponent
+  extends BaseFormComponent<any>
+  implements OnInit
+{
   public codeGeneratorEnable: boolean = false;
-  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel =
+    new AngularCodeTemplateViewModel();
 
   constructor(fb: FormBuilder) {
     super(fb);
@@ -24,74 +33,80 @@ export class AngularEditorComponent extends BaseFormComponent<any> implements On
   }
 
   protected defineForm(): void {
-    this.controlsConfig =
-    {
+    this.controlsConfig = {
       container: {
         fxLayout: FxLayout.Column,
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignHorizontal:
+          AlignmentLayoutDirection.SpaceBetween,
         fxLayoutAlignVertical: AlignmentLayoutDirection.None,
-        layoutConfig: [{
-          fxLayout: FxLayout.Row,
-          fxLayoutGap: "10px",
-          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
-          componentConfig: [{
-            componentProperty: {
-              editorProperty: {
-                toolbar: [
-                  'undo',
-                  'redo',
-                  '|',
-                  'heading',
-                  'fontFamily',
-                  'fontSize',
-                  '|',
-                  'bold',
-                  'italic',
-                  'underline',
-                  'fontColor',
-                  'fontBackgroundColor',
-                  'highlight',
-                  '|',
-                  'link',
-                  'CKFinder',
-                  'imageUpload',
-                  'mediaEmbed',
-                  '|',
-                  'alignment',
-                  'bulletedList',
-                  'numberedList',
-                  '|',
-                  'indent',
-                  'outdent',
-                  '|',
-                  'insertTable',
-                  'blockQuote',
-                  'specialCharacters'
-                ],
-                language: 'id',
-                image: {
-                  toolbar: [
-                    'imageTextAlternative',
-                    'imageStyle:full',
-                    'imageStyle:side'
-                  ]
-                }
-              }
-            },
-            validations: [
+        layoutConfig: [
+          {
+            fxLayout: FxLayout.Row,
+            fxLayoutGap: '10px',
+            fxLayoutAlignHorizontal:
+              AlignmentLayoutDirection.SpaceAround,
+            fxLayoutAlignVertical:
+              AlignmentLayoutDirection.SpaceAround,
+            componentConfig: [
               {
-                name: "required",
-                validator: Validators.required,
-                message: "Required Field"
-              }],
-            componentType: ComponentType.Editor,
-            formControlName: "editor",
-          }],
-
-        }]
-      }
-    }
+                componentProperty: {
+                  editorProperty: {
+                    toolbar: [
+                      'undo',
+                      'redo',
+                      '|',
+                      'heading',
+                      'fontFamily',
+                      'fontSize',
+                      '|',
+                      'bold',
+                      'italic',
+                      'underline',
+                      'fontColor',
+                      'fontBackgroundColor',
+                      'highlight',
+                      '|',
+                      'link',
+                      'CKFinder',
+                      'imageUpload',
+                      'mediaEmbed',
+                      '|',
+                      'alignment',
+                      'bulletedList',
+                      'numberedList',
+                      '|',
+                      'indent',
+                      'outdent',
+                      '|',
+                      'insertTable',
+                      'blockQuote',
+                      'specialCharacters',
+                    ],
+                    language: 'id',
+                    image: {
+                      toolbar: [
+                        'imageTextAlternative',
+                        'imageStyle:full',
+                        'imageStyle:side',
+                      ],
+                    },
+                  },
+                },
+                validations: [
+                  {
+                    name: 'required',
+                    validator: Validators.required,
+                    message: 'Required Field',
+                  },
+                ],
+                componentType: ComponentType.Editor,
+                formControlName: 'editor',
+              },
+            ],
+          },
+        ],
+      },
+    };
   }
 
   protected getDatasource(): Observable<any> {
@@ -103,9 +118,10 @@ export class AngularEditorComponent extends BaseFormComponent<any> implements On
   }
 
   buttonClickEvent() {
-    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.ANGULAR_EDITOR_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.ANGULAR_EDITOR_HTML_KEY;
+    this.angularCodeTemplateViewModel.tsConfig =
+      AngularCodeTemplate.ANGULAR_EDITOR_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig =
+      AngularCodeTemplate.ANGULAR_EDITOR_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
-
 }

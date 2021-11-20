@@ -1,4 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 
 import { InputHintComponent } from './input-hint.component';
 
@@ -8,9 +12,8 @@ describe('InputHintComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputHintComponent ]
-    })
-    .compileComponents();
+      declarations: [InputHintComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

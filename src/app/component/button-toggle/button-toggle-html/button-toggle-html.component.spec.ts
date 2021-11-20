@@ -8,9 +8,8 @@ describe('ButtonToggleHtmlComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ButtonToggleHtmlComponent ]
-    })
-    .compileComponents();
+      declarations: [ButtonToggleHtmlComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

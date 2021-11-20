@@ -8,9 +8,8 @@ describe('AuthCallbackComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthCallbackComponent ]
-    })
-    .compileComponents();
+      declarations: [AuthCallbackComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

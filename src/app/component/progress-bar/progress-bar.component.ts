@@ -5,19 +5,19 @@ import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 @Component({
   selector: 'app-progress-bar',
   templateUrl: './progress-bar.component.html',
-  styleUrls: ['./progress-bar.component.scss']
+  styleUrls: ['./progress-bar.component.scss'],
 })
-export class ProgressBarComponent implements OnInit {
+export class ProgressBarComponent {
   public codeGeneratorEnable: boolean = false;
-  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
-  constructor() { }
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel =
+    new AngularCodeTemplateViewModel();
+  constructor() {}
 
-  ngOnInit(): void {
-  }
   buttonClickEvent() {
-    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.ProgressBar_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.ProgressBar_HTML_KEY;
+    this.angularCodeTemplateViewModel.tsConfig =
+      AngularCodeTemplate.ProgressBar_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig =
+      AngularCodeTemplate.ProgressBar_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
-
 }

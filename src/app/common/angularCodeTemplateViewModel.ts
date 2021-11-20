@@ -1,5 +1,5 @@
 export class AngularCodeTemplateViewModel {
-    htmlConfig : string = null;
-    tsConfig : string = null;
-    cssConfig : string = null;
+  htmlConfig: string = null;
+  tsConfig: string = null;
+  cssConfig: string = null;
 }

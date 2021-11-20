@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { AlignmentLayoutDirection, Appearance, BaseFormComponent, ComponentType, FxLayout, InputTypes } from 'projects/falcon-core/src/public-api';
+import {
+  AlignmentLayoutDirection,
+  Appearance,
+  BaseFormComponent,
+  ComponentType,
+  FxLayout,
+  InputTypes,
+} from 'projects/falcon-core/src/public-api';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-layout',
   templateUrl: './form-layout.component.html',
-  styleUrls: ['./form-layout.component.scss']
+  styleUrls: ['./form-layout.component.scss'],
 })
-export class FormLayoutComponent extends BaseFormComponent<any> implements OnInit {
-
+export class FormLayoutComponent
+  extends BaseFormComponent<any>
+  implements OnInit
+{
   constructor(fb: FormBuilder) {
     super(fb);
     this.defineForm();
@@ -19,71 +28,75 @@ export class FormLayoutComponent extends BaseFormComponent<any> implements OnIni
     this.form = this.createControls();
   }
   protected defineForm(): void {
-    this.controlsConfig =
-    {
+    this.controlsConfig = {
       container: {
         fxLayout: FxLayout.Column,
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignHorizontal:
+          AlignmentLayoutDirection.SpaceBetween,
         fxLayoutAlignVertical: AlignmentLayoutDirection.None,
-        layoutConfig: [{
-          fxLayout: FxLayout.Row,
-          fxLayoutGap: "10px",
-          fxLayoutAlignHorizontal: AlignmentLayoutDirection.End,
-          fxLayoutAlignVertical: AlignmentLayoutDirection.End,
-          componentConfig: [
-            {
-              componentProperty: {
-                label: "Submit",
-                appearance: Appearance.Raised,
-                color: 'primary',
+        layoutConfig: [
+          {
+            fxLayout: FxLayout.Row,
+            fxLayoutGap: '10px',
+            fxLayoutAlignHorizontal: AlignmentLayoutDirection.End,
+            fxLayoutAlignVertical: AlignmentLayoutDirection.End,
+            componentConfig: [
+              {
+                componentProperty: {
+                  label: 'Submit',
+                  appearance: Appearance.Raised,
+                  color: 'primary',
+                },
+                componentType: ComponentType.Button,
               },
-              componentType: ComponentType.Button,
-            },
-            {
-              componentProperty: {
-                label: "Submit",
-                appearance: Appearance.Raised,
-                color: 'primary',
+              {
+                componentProperty: {
+                  label: 'Submit',
+                  appearance: Appearance.Raised,
+                  color: 'primary',
+                },
+                componentType: ComponentType.Button,
               },
-              componentType: ComponentType.Button,
-            }]
-        },
-        {
-          fxLayout: FxLayout.Row,
-          fxLayoutGap: "10px",
-          fxLayoutAlignHorizontal: AlignmentLayoutDirection.Start,
-          fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
-          componentConfig: [
-            {
-              componentProperty: {
-                label: "Submit",
-                appearance: Appearance.Raised,
-                color: 'primary',
-                fxFlexLayout: { fxFlex: '49%' }
+            ],
+          },
+          {
+            fxLayout: FxLayout.Row,
+            fxLayoutGap: '10px',
+            fxLayoutAlignHorizontal: AlignmentLayoutDirection.Start,
+            fxLayoutAlignVertical: AlignmentLayoutDirection.Center,
+            componentConfig: [
+              {
+                componentProperty: {
+                  label: 'Submit',
+                  appearance: Appearance.Raised,
+                  color: 'primary',
+                  fxFlexLayout: { fxFlex: '49%' },
+                },
+                componentType: ComponentType.Button,
               },
-              componentType: ComponentType.Button,
-            },
-            {
-              componentProperty: {
-                label: "Submit",
-                appearance: Appearance.Raised,
-                color: 'primary',
-                fxFlexLayout: { fxFlex: '24%' }
+              {
+                componentProperty: {
+                  label: 'Submit',
+                  appearance: Appearance.Raised,
+                  color: 'primary',
+                  fxFlexLayout: { fxFlex: '24%' },
+                },
+                componentType: ComponentType.Button,
               },
-              componentType: ComponentType.Button,
-            },
-            {
-              componentProperty: {
-                label: "Submit",
-                appearance: Appearance.Raised,
-                color: 'primary',
-                fxFlexLayout: { fxFlex: '24%' }
+              {
+                componentProperty: {
+                  label: 'Submit',
+                  appearance: Appearance.Raised,
+                  color: 'primary',
+                  fxFlexLayout: { fxFlex: '24%' },
+                },
+                componentType: ComponentType.Button,
               },
-              componentType: ComponentType.Button,
-            }]
-        }]
-      }
-    }
+            ],
+          },
+        ],
+      },
+    };
   }
 
   protected submitDatasource(model: any): Observable<any> {

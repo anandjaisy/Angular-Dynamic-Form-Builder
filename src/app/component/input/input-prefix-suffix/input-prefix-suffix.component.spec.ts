@@ -1,4 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 
 import { InputPrefixSuffixComponent } from './input-prefix-suffix.component';
 
@@ -8,9 +12,8 @@ describe('InputPrefixSuffixComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputPrefixSuffixComponent ]
-    })
-    .compileComponents();
+      declarations: [InputPrefixSuffixComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,4 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 
 import { ExampleBottomSheetComponent } from './bottom-sheet.component';
 
@@ -8,9 +12,8 @@ describe('BottomSheetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExampleBottomSheetComponent ]
-    })
-    .compileComponents();
+      declarations: [ExampleBottomSheetComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

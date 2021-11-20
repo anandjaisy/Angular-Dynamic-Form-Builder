@@ -1,4 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 
 import { InputFloatingLabelComponent } from './input-floating-label.component';
 
@@ -8,9 +12,8 @@ describe('InputFloatingLabelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputFloatingLabelComponent ]
-    })
-    .compileComponents();
+      declarations: [InputFloatingLabelComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

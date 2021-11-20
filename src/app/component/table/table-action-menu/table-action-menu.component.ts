@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularCodeTemplateViewModel } from '../../../common/angularCodeTemplateViewModel';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatTableConfig, MatTable } from '../../../../../projects/falcon-core/src/lib/model/interface';
+import {
+  MatTableConfig,
+  MatTable,
+} from '../../../../../projects/falcon-core/src/lib/model/interface';
 import { AngularCodeTemplate } from '../../../common/angularCodeTemplate';
 
 export interface PeriodicElement {
@@ -34,49 +37,92 @@ const ELEMENT_DATA: PeriodicElement[] = [
   { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
 
-
 @Component({
   selector: 'app-table-action-menu',
   templateUrl: './table-action-menu.component.html',
-  styleUrls: ['./table-action-menu.component.scss']
+  styleUrls: ['./table-action-menu.component.scss'],
 })
 export class TableActionMenuComponent implements OnInit {
-
   public displayedColumns = ['action'];
   public codeGeneratorEnable: boolean = false;
-  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel =
+    new AngularCodeTemplateViewModel();
   matTableConfig: MatTableConfig = {};
   columns: MatTable[] = [
-    { columnDef: 'position', header: 'No.', cell: (element: any) => `${element.position}` },
-    { columnDef: 'name', header: 'Name', cell: (element: any) => `${element.name}`, link: { routerLink: (element: any) => `${element.position}`, isLink: true } },
-    { columnDef: 'weight', header: 'Weight', cell: (element: any) => `${element.weight}` },
-    { columnDef: 'symbol', header: 'Symbol', cell: (element: any) => `${element.symbol}` }
+    {
+      columnDef: 'position',
+      header: 'No.',
+      cell: (element: any) => `${element.position}`,
+    },
+    {
+      columnDef: 'name',
+      header: 'Name',
+      cell: (element: any) => `${element.name}`,
+      link: {
+        routerLink: (element: any) => `${element.position}`,
+        isLink: true,
+      },
+    },
+    {
+      columnDef: 'weight',
+      header: 'Weight',
+      cell: (element: any) => `${element.weight}`,
+    },
+    {
+      columnDef: 'symbol',
+      header: 'Symbol',
+      cell: (element: any) => `${element.symbol}`,
+    },
   ];
   dataSource = ELEMENT_DATA;
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.matTableConfig.columns = this.columns;
     this.matTableConfig.filter = true;
-    this.matTableConfig.paginationConfig = { pagination: true, pageSizeOptions: [10, 50, 100] };
+    this.matTableConfig.paginationConfig = {
+      pagination: true,
+      pageSizeOptions: [10, 50, 100],
+    };
     this.matTableConfig.dataSource = this.dataSource;
     this.matTableConfig.action = {
-      isMenu: true, menu: [
-        { text: 'Redial', isIcon: true, icon: { iconText: 'dialpad' }, link: { routerLink: './dialpad' }, disabled: false },
-        { text: 'Check voice mail', isIcon: true, icon: { iconText: 'voicemail' }, link: { routerLink: './voicemail' }, disabled: true },
-        { text: 'Disable alerts', isIcon: true, icon: { iconText: 'notifications_off', iconColor: 'warn' }, link: { routerLink: './notification' }, disabled: false }
-      ]
+      isMenu: true,
+      menu: [
+        {
+          text: 'Redial',
+          isIcon: true,
+          icon: { iconText: 'dialpad' },
+          link: { routerLink: './dialpad' },
+          disabled: false,
+        },
+        {
+          text: 'Check voice mail',
+          isIcon: true,
+          icon: { iconText: 'voicemail' },
+          link: { routerLink: './voicemail' },
+          disabled: true,
+        },
+        {
+          text: 'Disable alerts',
+          isIcon: true,
+          icon: { iconText: 'notifications_off', iconColor: 'warn' },
+          link: { routerLink: './notification' },
+          disabled: false,
+        },
+      ],
     };
   }
   buttonClickEvent() {
-    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Table_ACTION_MENU_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Table_ACTION_MENU_HTML_KEY;
+    this.angularCodeTemplateViewModel.tsConfig =
+      AngularCodeTemplate.Table_ACTION_MENU_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig =
+      AngularCodeTemplate.Table_ACTION_MENU_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
   page($event) {
     this.matTableConfig.progressBar = true;
     console.log($event);
-    this._snackBar.open(JSON.stringify($event), "", {
+    this._snackBar.open(JSON.stringify($event), '', {
       duration: 5000,
     });
 
@@ -89,5 +135,4 @@ export class TableActionMenuComponent implements OnInit {
     console.log('Event from parent edit');
     console.log($event);
   }
-
 }

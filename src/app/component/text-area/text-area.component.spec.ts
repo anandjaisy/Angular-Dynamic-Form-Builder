@@ -1,4 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 
 import { TextAreaComponent } from './text-area.component';
 
@@ -8,9 +12,8 @@ describe('TextAreaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TextAreaComponent ]
-    })
-    .compileComponents();
+      declarations: [TextAreaComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

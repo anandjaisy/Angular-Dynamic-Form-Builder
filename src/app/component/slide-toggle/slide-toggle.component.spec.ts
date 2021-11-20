@@ -1,4 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 
 import { SlideToggleComponent } from './slide-toggle.component';
 
@@ -8,9 +12,8 @@ describe('SlideToggleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SlideToggleComponent ]
-    })
-    .compileComponents();
+      declarations: [SlideToggleComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

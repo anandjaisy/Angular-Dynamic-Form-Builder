@@ -1,4 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 
 import { ModalDialogComponent } from './modal-dialog.component';
 
@@ -8,9 +12,8 @@ describe('ModalDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalDialogComponent ]
-    })
-    .compileComponents();
+      declarations: [ModalDialogComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

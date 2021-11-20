@@ -1,4 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 
 import { SnackbarComponent } from './snackbar.component';
 
@@ -8,9 +12,8 @@ describe('SnackbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SnackbarComponent ]
-    })
-    .compileComponents();
+      declarations: [SnackbarComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
