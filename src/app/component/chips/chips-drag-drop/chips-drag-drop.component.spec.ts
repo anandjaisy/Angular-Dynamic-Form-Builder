@@ -8,9 +8,8 @@ describe('ChipsDragDropComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChipsDragDropComponent ]
-    })
-    .compileComponents();
+      declarations: [ChipsDragDropComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

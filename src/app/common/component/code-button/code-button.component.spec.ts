@@ -1,4 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 
 import { CodeButtonComponent } from './code-button.component';
 
@@ -8,9 +12,8 @@ describe('CodeButtonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CodeButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [CodeButtonComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,4 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 
 import { ButtonIndicatorComponent } from './button-indicator.component';
 
@@ -8,9 +12,8 @@ describe('ButtonIndicatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ButtonIndicatorComponent ]
-    })
-    .compileComponents();
+      declarations: [ButtonIndicatorComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

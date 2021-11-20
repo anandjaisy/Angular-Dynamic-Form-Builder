@@ -8,9 +8,8 @@ describe('NextedformArrayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NextedformArrayComponent ]
-    })
-    .compileComponents();
+      declarations: [NextedformArrayComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

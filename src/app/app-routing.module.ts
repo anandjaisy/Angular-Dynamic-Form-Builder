@@ -25,36 +25,35 @@ import { AuthCallbackComponent } from './component/auth-callback/auth-callback.c
 import { AngularEditorComponent } from './component/angular-editor/angular-editor.component';
 import { FormComponent } from './component/form/form.component';
 
-
 const routes: Routes = [
-  {path: 'auth-callback', component: AuthCallbackComponent},
-  {path: '', component: TestReactiveControlsComponent},
-  {path: 'input', component: InputComponent},
-  {path: 'auto-complete', component: AutoCompleteComponent},
-  {path: 'checkbox', component: CheckboxComponent},
-  {path: 'datepicker', component: DatepickerComponent},
-  {path: 'form-field', component: FormFieldComponent},
-  {path: 'radio', component: RadioComponent},
-  {path: 'select', component: SelectComponent},
-  {path: 'slider', component: SliderComponent},
-  {path: 'slide-toggle', component: SlideToggleComponent},
-  {path: 'button-indicator', component: ButtonIndicatorComponent},
-  {path: 'text-area', component: TextAreaComponent},
-  {path: 'button-toggle', component: ButtonToggleComponent},
-  {path: 'progress-spinner', component: ProgressSpinnerComponent},
-  {path: 'progress-bar', component: ProgressBarComponent},
-  {path: 'bottom-sheet', component: ExampleBottomSheetComponent},
-  {path: 'snackbar', component: SnackbarComponent},
-  {path: 'dialog', component: ModalDialogComponent},
-  {path: 'chips', component: ChipsComponent},
-  {path: 'tables', component: TableComponent},
-  {path: 'pagination', component: AppPaginationComponent},
-  {path: 'editor', component: AngularEditorComponent},
-  {path: 'form', component: FormComponent}
+  { path: 'auth-callback', component: AuthCallbackComponent },
+  { path: '', component: TestReactiveControlsComponent },
+  { path: 'input', component: InputComponent },
+  { path: 'auto-complete', component: AutoCompleteComponent },
+  { path: 'checkbox', component: CheckboxComponent },
+  { path: 'datepicker', component: DatepickerComponent },
+  { path: 'form-field', component: FormFieldComponent },
+  { path: 'radio', component: RadioComponent },
+  { path: 'select', component: SelectComponent },
+  { path: 'slider', component: SliderComponent },
+  { path: 'slide-toggle', component: SlideToggleComponent },
+  { path: 'button-indicator', component: ButtonIndicatorComponent },
+  { path: 'text-area', component: TextAreaComponent },
+  { path: 'button-toggle', component: ButtonToggleComponent },
+  { path: 'progress-spinner', component: ProgressSpinnerComponent },
+  { path: 'progress-bar', component: ProgressBarComponent },
+  { path: 'bottom-sheet', component: ExampleBottomSheetComponent },
+  { path: 'snackbar', component: SnackbarComponent },
+  { path: 'dialog', component: ModalDialogComponent },
+  { path: 'chips', component: ChipsComponent },
+  { path: 'tables', component: TableComponent },
+  { path: 'pagination', component: AppPaginationComponent },
+  { path: 'editor', component: AngularEditorComponent },
+  { path: 'form', component: FormComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

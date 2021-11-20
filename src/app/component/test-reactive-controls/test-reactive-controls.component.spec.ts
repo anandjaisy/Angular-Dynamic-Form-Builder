@@ -1,4 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 
 import { TestReactiveControlsComponent } from './test-reactive-controls.component';
 
@@ -8,9 +12,8 @@ describe('TestReactiveControlsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestReactiveControlsComponent ]
-    })
-    .compileComponents();
+      declarations: [TestReactiveControlsComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

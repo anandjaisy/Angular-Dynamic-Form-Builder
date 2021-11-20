@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularCodeTemplateViewModel } from '../../../common/angularCodeTemplateViewModel';
 
-import { MatTableConfig, MatTable } from '../../../../../projects/falcon-core/src/lib/model/interface';
+import {
+  MatTableConfig,
+  MatTable,
+} from '../../../../../projects/falcon-core/src/lib/model/interface';
 import { AngularCodeTemplate } from '../../../common/angularCodeTemplate';
-
 
 export interface PeriodicElement {
   name: string;
@@ -27,31 +29,54 @@ const ELEMENT_DATA: PeriodicElement[] = [
 @Component({
   selector: 'app-table-filter',
   templateUrl: './table-filter.component.html',
-  styleUrls: ['./table-filter.component.scss']
+  styleUrls: ['./table-filter.component.scss'],
 })
 export class TableFilterComponent implements OnInit {
   public displayedColumns = ['action'];
   public codeGeneratorEnable: boolean = false;
-  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel =
+    new AngularCodeTemplateViewModel();
   matTableConfig: MatTableConfig = {};
   columns: MatTable[] = [
-    { columnDef: 'position', header: 'No.', cell: (element: any) => `${element.position}` },
-    { columnDef: 'name', header: 'Name', cell: (element: any) => `${element.name}` },
-    { columnDef: 'weight', header: 'Weight', cell: (element: any) => `${element.weight}` },
-    { columnDef: 'symbol', header: 'Symbol', cell: (element: any) => `${element.symbol}` }
+    {
+      columnDef: 'position',
+      header: 'No.',
+      cell: (element: any) => `${element.position}`,
+    },
+    {
+      columnDef: 'name',
+      header: 'Name',
+      cell: (element: any) => `${element.name}`,
+    },
+    {
+      columnDef: 'weight',
+      header: 'Weight',
+      cell: (element: any) => `${element.weight}`,
+    },
+    {
+      columnDef: 'symbol',
+      header: 'Symbol',
+      cell: (element: any) => `${element.symbol}`,
+    },
   ];
   dataSource = ELEMENT_DATA;
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.matTableConfig.columns = this.columns;
     this.matTableConfig.filter = true;
     this.matTableConfig.dataSource = this.dataSource;
-    this.matTableConfig.action = { edit: false, delete: true, isMenu: false};
+    this.matTableConfig.action = {
+      edit: false,
+      delete: true,
+      isMenu: false,
+    };
   }
   buttonClickEvent() {
-    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Table_FILTER_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Table_FILTER_HTML_KEY;
+    this.angularCodeTemplateViewModel.tsConfig =
+      AngularCodeTemplate.Table_FILTER_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig =
+      AngularCodeTemplate.Table_FILTER_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
   tableActionRowEvent($event) {

@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, TemplateRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewChild,
+  ElementRef,
+  TemplateRef,
+} from '@angular/core';
 import { IGenericHttpClient } from 'projects/falcon-core/src/public-api';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { HttpClient } from '@angular/common/http';
@@ -6,7 +13,7 @@ import { IRequestOptions } from 'projects/falcon-core/src/lib/model/interface';
 @Component({
   selector: 'app-code-generator',
   templateUrl: './code-generator.component.html',
-  styleUrls: ['./code-generator.component.scss']
+  styleUrls: ['./code-generator.component.scss'],
 })
 export class CodeGeneratorComponent implements OnInit {
   @Input() tsConfig: string;
@@ -15,10 +22,15 @@ export class CodeGeneratorComponent implements OnInit {
   code: string;
 
   templateToLoad: TemplateRef<any>;
-  @ViewChild('lazyLoadingTemplate', { static: true }) lazyLoadingTemplate: TemplateRef<any>;
-  @ViewChild('codeTemplate', { static: true }) codeTemplate: TemplateRef<any>;
+  @ViewChild('lazyLoadingTemplate', { static: true })
+  lazyLoadingTemplate: TemplateRef<any>;
+  @ViewChild('codeTemplate', { static: true })
+  codeTemplate: TemplateRef<any>;
 
-  constructor(private igenericHttpClient: IGenericHttpClient<any>, private httpClient: HttpClient) { }
+  constructor(
+    private igenericHttpClient: IGenericHttpClient<any>,
+    private httpClient: HttpClient,
+  ) {}
 
   ngOnInit(): void {
     this.loadHtmlFromServer();
@@ -41,34 +53,46 @@ export class CodeGeneratorComponent implements OnInit {
 
   private loadHtmlFromServer() {
     this.templateToLoad = this.lazyLoadingTemplate;
-    this.igenericHttpClient.get(this.htmlConfig, { responseType: 'text' }).subscribe(data => {
-      this.code = `${data}`;
-      this.templateToLoad = this.codeTemplate;
-    }, error => {
-      console.log(error);
-      this.templateToLoad = this.codeTemplate;
-    });
+    this.igenericHttpClient
+      .get(this.htmlConfig, { responseType: 'text' })
+      .subscribe(
+        (data) => {
+          this.code = `${data}`;
+          this.templateToLoad = this.codeTemplate;
+        },
+        (error) => {
+          console.log(error);
+          this.templateToLoad = this.codeTemplate;
+        },
+      );
   }
   private loadTSFromServer() {
     this.templateToLoad = this.lazyLoadingTemplate;
 
-    this.igenericHttpClient.get(this.tsConfig, { responseType: 'text' }).subscribe(data => {
-      this.code = `${data}`;
-      this.templateToLoad = this.codeTemplate;
-    }, error => {
-      console.log(error);
-      this.templateToLoad = this.codeTemplate;
-    });
+    this.igenericHttpClient
+      .get(this.tsConfig, { responseType: 'text' })
+      .subscribe(
+        (data) => {
+          this.code = `${data}`;
+          this.templateToLoad = this.codeTemplate;
+        },
+        (error) => {
+          console.log(error);
+          this.templateToLoad = this.codeTemplate;
+        },
+      );
   }
   private loadCSSFromServer() {
     this.templateToLoad = this.lazyLoadingTemplate;
-    this.igenericHttpClient.get(this.cssConfig).subscribe(data => {
-      this.code = data;
-      this.templateToLoad = this.codeTemplate;
-    }, error => {
-      console.log(error);
-      this.templateToLoad = this.codeTemplate;
-    })
+    this.igenericHttpClient.get(this.cssConfig).subscribe(
+      (data) => {
+        this.code = data;
+        this.templateToLoad = this.codeTemplate;
+      },
+      (error) => {
+        console.log(error);
+        this.templateToLoad = this.codeTemplate;
+      },
+    );
   }
-
 }

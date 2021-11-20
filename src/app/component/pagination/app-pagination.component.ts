@@ -6,29 +6,25 @@ import { MatButtonToggleAppearance } from '@angular/material/button-toggle';
 @Component({
   selector: 'app-pagination',
   templateUrl: './app-pagination.component.html',
-  styleUrls: ['./app-pagination.component.scss']
+  styleUrls: ['./app-pagination.component.scss'],
 })
-export class AppPaginationComponent implements OnInit {
+export class AppPaginationComponent {
   pageSize: Number = 10;
   totalPage: Number = 27;
   codeGeneratorEnable: boolean = false;
-  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
-  constructor() { }
-
-  ngOnInit(): void {
-
-  }
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel =
+    new AngularCodeTemplateViewModel();
+  constructor() {}
 
   paginationEvent($event) {
     //console.log($event);
   }
 
   buttonClickEvent() {
-    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.Pagination_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.Pagination_HTML_KEY;
+    this.angularCodeTemplateViewModel.tsConfig =
+      AngularCodeTemplate.Pagination_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig =
+      AngularCodeTemplate.Pagination_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
-
-
-
 }

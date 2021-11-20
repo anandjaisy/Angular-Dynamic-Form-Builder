@@ -1,6 +1,13 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { ComponentType, InputTypes, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel } from 'projects/falcon-core/src/lib/model/component-type.enum';
+import {
+  ComponentType,
+  InputTypes,
+  Appearance,
+  FxLayout,
+  AlignmentLayoutDirection,
+  Floatinglabel,
+} from 'projects/falcon-core/src/lib/model/component-type.enum';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
@@ -9,49 +16,59 @@ import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
 @Component({
   selector: 'app-progress-spinner',
   templateUrl: './progress-spinner.component.html',
-  styleUrls: ['./progress-spinner.component.scss']
+  styleUrls: ['./progress-spinner.component.scss'],
 })
-export class ProgressSpinnerComponent extends BaseFormComponent<any> implements OnInit {
+export class ProgressSpinnerComponent
+  extends BaseFormComponent<any>
+  implements OnInit
+{
   progressSpinnerValue: number = 10;
   public codeGeneratorEnable: boolean = false;
-  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel = new AngularCodeTemplateViewModel();
+  public angularCodeTemplateViewModel: AngularCodeTemplateViewModel =
+    new AngularCodeTemplateViewModel();
   constructor(fb: FormBuilder) {
     super(fb);
     this.defineForm();
   }
 
   protected defineForm(): void {
-    this.controlsConfig =
-    {
+    this.controlsConfig = {
       container: {
         fxLayout: FxLayout.Column,
-        fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignHorizontal:
+          AlignmentLayoutDirection.SpaceBetween,
         fxLayoutAlignVertical: AlignmentLayoutDirection.None,
-        layoutConfig: [{
-          fxLayout: FxLayout.Row,
-          fxLayoutGap: "10px",
-          fxLayoutAlignHorizontal: AlignmentLayoutDirection.SpaceAround,
-          fxLayoutAlignVertical: AlignmentLayoutDirection.SpaceAround,
-          componentConfig: [{
-            componentProperty: {
-              label: "Progress :   ",
-              color: "primary",
-              sliderProperty: {
-                invert: false,
-                thumbLabel: false,
-                vertical: false,
-                min: 0,
-                max: 100,
-                step: 1,
-                tickInterval: 4
-              }
-            },
-            componentType: ComponentType.Slider,
-            formControlName: "slider"
-          }]
-        }]
-      }
-    }
+        layoutConfig: [
+          {
+            fxLayout: FxLayout.Row,
+            fxLayoutGap: '10px',
+            fxLayoutAlignHorizontal:
+              AlignmentLayoutDirection.SpaceAround,
+            fxLayoutAlignVertical:
+              AlignmentLayoutDirection.SpaceAround,
+            componentConfig: [
+              {
+                componentProperty: {
+                  label: 'Progress :   ',
+                  color: 'primary',
+                  sliderProperty: {
+                    invert: false,
+                    thumbLabel: false,
+                    vertical: false,
+                    min: 0,
+                    max: 100,
+                    step: 1,
+                    tickInterval: 4,
+                  },
+                },
+                componentType: ComponentType.Slider,
+                formControlName: 'slider',
+              },
+            ],
+          },
+        ],
+      },
+    };
   }
 
   ngOnInit(): void {
@@ -60,7 +77,7 @@ export class ProgressSpinnerComponent extends BaseFormComponent<any> implements 
   }
 
   onChanges(): void {
-    this.form.get('slider').valueChanges.subscribe(val => {
+    this.form.get('slider').valueChanges.subscribe((val) => {
       this.progressSpinnerValue = val;
     });
   }
@@ -72,9 +89,10 @@ export class ProgressSpinnerComponent extends BaseFormComponent<any> implements 
     return of(model);
   }
   buttonClickEvent() {
-    this.angularCodeTemplateViewModel.tsConfig = AngularCodeTemplate.ProgressSpinner_TS_KEY;
-    this.angularCodeTemplateViewModel.htmlConfig = AngularCodeTemplate.ProgressSpinner_HTML_KEY;
+    this.angularCodeTemplateViewModel.tsConfig =
+      AngularCodeTemplate.ProgressSpinner_TS_KEY;
+    this.angularCodeTemplateViewModel.htmlConfig =
+      AngularCodeTemplate.ProgressSpinner_HTML_KEY;
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
-
 }
