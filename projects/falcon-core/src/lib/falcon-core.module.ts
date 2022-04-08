@@ -37,31 +37,28 @@ import { RouterModule } from '@angular/router';
 import { DividerComponent } from './component/divider/divider.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 @NgModule({
-  declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent,
-    SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,
-    ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DialogComponent,
-    AutoCompleteComponent, SnackBarComponent, ChipsComponent, TableComponent, PaginationComponent, EditorComponent,
-    DividerComponent],
-  imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule,
-    RouterModule, CKEditorModule],
-  exports: [
-    AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule,
-    ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent,
-    CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ProgressBarComponent, ProgressSpinnerComponent,
-    BottomSheetComponent, DialogComponent, SnackBarComponent, ChipsComponent, TableComponent,
-    ButtonToggleComponent, AutoCompleteComponent, PaginationComponent, EditorComponent,CKEditorModule,
-    DividerComponent
-  ],
-  entryComponents: [
-    BottomSheetComponent, DialogComponent
-  ],
-  providers: [
-    { provide: IGenericHttpClient, useClass: GenericHttpClient },
-    { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingService], multi: true },
-    { provide: APP_INITIALIZER, useFactory: authServiceFactory, deps: [AuthService, AppSettingService, EnvironmentViewModel], multi: true },
-    { provide: APP_INITIALIZER, useFactory: loggerServiceFactory, deps: [LoggerService, AppSettingService], multi: true },
-    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 5000 } }
-  ]
+    declarations: [ReactiveFieldDirective, TextboxComponent, ReactiveControlsComponent, RadioComponent, TextAreaComponent,
+        SelectComponent, DatePickerComponent, CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent,
+        ButtonToggleComponent, ProgressBarComponent, ProgressSpinnerComponent, BottomSheetComponent, DialogComponent,
+        AutoCompleteComponent, SnackBarComponent, ChipsComponent, TableComponent, PaginationComponent, EditorComponent,
+        DividerComponent],
+    imports: [AngularMaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HttpClientModule,
+        RouterModule, CKEditorModule],
+    exports: [
+        AngularMaterialModule, ReactiveControlsComponent, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule,
+        ReactiveFieldDirective, TextboxComponent, RadioComponent, TextAreaComponent, SelectComponent, DatePickerComponent,
+        CheckboxComponent, ButtonComponent, SlideToggleComponent, SliderComponent, ProgressBarComponent, ProgressSpinnerComponent,
+        BottomSheetComponent, DialogComponent, SnackBarComponent, ChipsComponent, TableComponent,
+        ButtonToggleComponent, AutoCompleteComponent, PaginationComponent, EditorComponent, CKEditorModule,
+        DividerComponent
+    ],
+    providers: [
+        { provide: IGenericHttpClient, useClass: GenericHttpClient },
+        { provide: APP_INITIALIZER, useFactory: appSettingsFactory, deps: [AppSettingService], multi: true },
+        { provide: APP_INITIALIZER, useFactory: authServiceFactory, deps: [AuthService, AppSettingService, EnvironmentViewModel], multi: true },
+        { provide: APP_INITIALIZER, useFactory: loggerServiceFactory, deps: [LoggerService, AppSettingService], multi: true },
+        { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 5000 } }
+    ]
 })
 export class FalconCoreModule {
   public static forRoot(environment: any): ModuleWithProviders<FalconCoreModule> {
