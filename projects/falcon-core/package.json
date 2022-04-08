@@ -2,12 +2,12 @@
   "name": "@falcon-ng/core",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^13.0.1",
-    "@angular/core": "^13.0.1",
-    "@angular/material": "^13.0.0",
-    "@angular/animations": "^13.0.1",
-    "@angular/cdk": "^13.0.0",
-    "@angular/flex-layout": "^12.0.0-beta.34",
+    "@angular/common": "^13.3.2",
+    "@angular/core": "^13.3.2",
+    "@angular/material": "^13.3.2",
+    "@angular/animations": "^13.3.2",
+    "@angular/cdk": "^13.3.2",
+    "@angular/flex-layout": "^13.0.0-beta.38",
     "oidc-client": "^1.11.5",
     "babel-polyfill": "6.26.0"
   },
