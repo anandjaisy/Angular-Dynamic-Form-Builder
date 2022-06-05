@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { IComponentConfig } from '../../model/imeta';
 
 @Component({
@@ -9,7 +9,7 @@ import { IComponentConfig } from '../../model/imeta';
 })
 export class DividerComponent implements OnInit {
   @Input() field: IComponentConfig;
-  @Input() group: FormGroup;
+  @Input() group: UntypedFormGroup;
   constructor() { }
 
   ngOnInit(): void {

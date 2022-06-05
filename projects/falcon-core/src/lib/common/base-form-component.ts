@@ -1,4 +1,4 @@
-import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormControl, FormArray } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ComponentType } from '../model/component-type.enum';
 import { IMeta, IComponentConfig, ILayoutConfig } from '../model/imeta';
@@ -27,13 +27,13 @@ import { IMeta, IComponentConfig, ILayoutConfig } from '../model/imeta';
  * ```
  */
 export abstract class BaseFormComponent<T>{
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   protected abstract defineForm(): void;
   protected abstract submitDatasource(model: T): Observable<T>;
   public dataSource: T = null;
   public controlsConfig: IMeta;
   public showLoading: boolean = false;
-  constructor(protected fb: FormBuilder) {
+  constructor(protected fb: UntypedFormBuilder) {
   }
   /**
     * @description
@@ -53,7 +53,7 @@ export abstract class BaseFormComponent<T>{
     * @param formGroup Validate form group.
     * @returns Groups of controls added to the form builder.
   */
-  private validateAllFormFields(formGroup: FormGroup) {
+  private validateAllFormFields(formGroup: UntypedFormGroup) {
     if (this.form !== undefined)
       this.form.markAllAsTouched();
   }
@@ -114,8 +114,8 @@ export abstract class BaseFormComponent<T>{
    * @param layoutConfig layout of form array
    * @returns Form array group
    */
-  private createFormArrayGroup(componentConfig: IComponentConfig[]): FormGroup {
-    var formGroup: FormGroup = this.fb.group({});
+  private createFormArrayGroup(componentConfig: IComponentConfig[]): UntypedFormGroup {
+    var formGroup: UntypedFormGroup = this.fb.group({});
     componentConfig.forEach((item, index) => {
       var control = null;
       if (item.formArray !== undefined) {
@@ -266,7 +266,7 @@ export abstract class BaseFormComponent<T>{
           })
         } else {
           this.form.addControl(componentConfig.formControlName,
-            new FormControl({ value: componentConfig.componentProperty.value, disabled: componentConfig.componentProperty.disabled },
+            new UntypedFormControl({ value: componentConfig.componentProperty.value, disabled: componentConfig.componentProperty.disabled },
               this.bindValidations(componentConfig.validations || [])));
           index !== null ? this.controlsConfig.container.layoutConfig.splice(index, 0, layout) :
             this.controlsConfig.container.layoutConfig.push(layout);

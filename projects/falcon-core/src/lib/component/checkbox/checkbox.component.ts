@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { IComponentConfig } from '../../model/imeta';
 @Component({
   selector: 'falcon-checkbox',
@@ -8,7 +8,7 @@ import { IComponentConfig } from '../../model/imeta';
 })
 export class CheckboxComponent implements OnInit {
   field: IComponentConfig;
-  group: FormGroup;
+  group: UntypedFormGroup;
   constructor() { }
 
   ngOnInit(): void {

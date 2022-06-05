@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IComponentConfig } from '../../model/imeta';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'lib-text-area',
@@ -9,7 +9,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class TextAreaComponent implements OnInit {
   field: IComponentConfig;
-  group: FormGroup;
+  group: UntypedFormGroup;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import {
   ComponentType,
   InputTypes,
@@ -28,7 +28,7 @@ export class CheckboxComponent
     new AngularCodeTemplateViewModel();
   private changeEvent: EventEmitter<MatCheckboxChange> =
     new EventEmitter<MatCheckboxChange>();
-  constructor(fb: FormBuilder) {
+  constructor(fb: UntypedFormBuilder) {
     super(fb);
     this.defineForm();
   }

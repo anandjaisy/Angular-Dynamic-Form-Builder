@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { IComponentConfig } from '../../model/imeta';
 
 @Component({
@@ -9,7 +9,7 @@ import { IComponentConfig } from '../../model/imeta';
 })
 export class SlideToggleComponent implements OnInit {
   field: IComponentConfig;
-  group: FormGroup;
+  group: UntypedFormGroup;
   constructor() { }
 
   ngOnInit(): void {

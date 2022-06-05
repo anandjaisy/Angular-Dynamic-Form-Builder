@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IComponentConfig } from '../../model/imeta';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
@@ -10,7 +10,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 })
 export class EditorComponent implements OnInit {
   @Input() field: IComponentConfig;
-  @Input() group: FormGroup;
+  @Input() group: UntypedFormGroup;
   editor = ClassicEditor;
   constructor() { }
 

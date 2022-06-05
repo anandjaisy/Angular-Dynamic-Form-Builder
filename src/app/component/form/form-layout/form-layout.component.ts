@@ -8,7 +8,7 @@ import {
   FxLayout,
   InputTypes,
 } from 'projects/falcon-core/src/public-api';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-layout',
@@ -19,7 +19,7 @@ export class FormLayoutComponent
   extends BaseFormComponent<any>
   implements OnInit
 {
-  constructor(fb: FormBuilder) {
+  constructor(fb: UntypedFormBuilder) {
     super(fb);
     this.defineForm();
   }

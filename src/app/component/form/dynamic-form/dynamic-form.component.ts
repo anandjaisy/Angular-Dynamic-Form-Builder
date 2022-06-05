@@ -4,7 +4,7 @@ import {
   Input,
   EventEmitter,
 } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import {
   AlignmentLayoutDirection,
@@ -26,7 +26,7 @@ export class DynamicFormComponent
 {
   private productOptionEventEmitter: EventEmitter<MatCheckboxChange> =
     new EventEmitter<MatCheckboxChange>();
-  constructor(fb: FormBuilder) {
+  constructor(fb: UntypedFormBuilder) {
     super(fb);
     this.defineForm();
   }

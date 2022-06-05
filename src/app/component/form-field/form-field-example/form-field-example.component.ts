@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import {
   ComponentType,
   InputTypes,
@@ -28,7 +28,7 @@ export class FormFieldExampleComponent
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel =
     new AngularCodeTemplateViewModel();
   constructor(
-    fb: FormBuilder,
+    fb: UntypedFormBuilder,
     private iGenericHttpClient: IGenericHttpClient<any>,
   ) {
     super(fb);
