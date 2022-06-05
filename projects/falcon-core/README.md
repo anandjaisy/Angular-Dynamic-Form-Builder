@@ -31,7 +31,7 @@ Run `ng test @falcon-ng/core` to execute the unit tests via [Karma](https://karm
     npm unpublish --force @falcon-ng/core@0.0.1
     npm publish --force --access public
     ```
-  - To update the version of the library
+  - To update the version of the library, cd into the library project
     ```
     npm version <new_Version_No>
     ```
