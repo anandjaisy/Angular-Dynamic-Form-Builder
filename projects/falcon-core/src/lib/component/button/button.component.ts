@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { IComponentConfig } from '../../model/imeta';
 import { Appearance } from '../../model/component-type.enum';
 
@@ -10,7 +10,7 @@ import { Appearance } from '../../model/component-type.enum';
 })
 export class ButtonComponent implements OnInit {
   @Input() field: IComponentConfig;
-  @Input() group: FormGroup;
+  @Input() group: UntypedFormGroup;
   @Output() btnClick = new EventEmitter<string>();
   constructor() { }
 

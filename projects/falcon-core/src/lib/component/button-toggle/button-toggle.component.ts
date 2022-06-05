@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { IComponentConfig } from '../../model/imeta';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
 
@@ -10,14 +10,14 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
 })
 export class ButtonToggleComponent implements OnInit {
   @Input() field: IComponentConfig;
-  @Input() group: FormGroup;
+  @Input() group: UntypedFormGroup;
   @Output() toggleGroupChange: EventEmitter<MatButtonToggleChange> = new EventEmitter<MatButtonToggleChange>();
   constructor() { }
 
   ngOnInit(): void {
     if (this.group === undefined) {
-      this.group = new FormGroup({
-        default: new FormControl()
+      this.group = new UntypedFormGroup({
+        default: new UntypedFormControl()
       });
     }
   }

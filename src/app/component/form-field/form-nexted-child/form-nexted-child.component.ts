@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseFormComponent } from 'projects/falcon-core/src/lib/common/base-form-component';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
 import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
@@ -25,7 +25,7 @@ export class FormNextedChildComponent
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel =
     new AngularCodeTemplateViewModel();
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: UntypedFormBuilder) {
     super(fb);
     this.defineForm();
   }

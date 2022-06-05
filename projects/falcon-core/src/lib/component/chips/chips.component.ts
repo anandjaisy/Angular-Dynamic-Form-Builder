@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { IComponentConfig } from '../../model/imeta';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, UntypedFormArray, UntypedFormBuilder } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { IOptions } from '../../model/imeta';
 import { Observable, from } from 'rxjs';
@@ -16,25 +16,25 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 })
 export class ChipsComponent implements OnInit {
   @Input() field: IComponentConfig;
-  @Input() group: FormGroup;
+  @Input() group: UntypedFormGroup;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   selectable = true;
   removable = true;
   addOnBlur = true;
   filteredOptions: Observable<IOptions[]>;
-  autoCompleteControl = new FormControl();
-  private items: FormArray;
+  autoCompleteControl = new UntypedFormControl();
+  private items: UntypedFormArray;
 
   @ViewChild('chipInput') matChipInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: UntypedFormBuilder) {
   }
 
   ngOnInit() {
     this.filteredOptions = this.autoCompleteControl.valueChanges.pipe(startWith(''), map(value => this._filter(value)));
     setTimeout(() => {
       if (this.field.componentProperty.chipSelectedOptions.length > 0) {
-        this.items = this.group.get(this.field.formControlName) as FormArray;
+        this.items = this.group.get(this.field.formControlName) as UntypedFormArray;
         this.field.componentProperty.chipSelectedOptions.forEach(value => {
           this.items.push(this.createItem(value.value));
         });
@@ -53,7 +53,7 @@ export class ChipsComponent implements OnInit {
           viewValue: value.trim(),
           value: value.trim()
         });
-      this.items = this.group.get(this.field.formControlName) as FormArray;
+      this.items = this.group.get(this.field.formControlName) as UntypedFormArray;
       this.items.push(this.createItem(value));
     }
 
@@ -62,7 +62,7 @@ export class ChipsComponent implements OnInit {
     }
   }
 
-  createItem(value: String): FormGroup {
+  createItem(value: String): UntypedFormGroup {
     return this.fb.group({
       viewValue: value,
       value: value
@@ -80,7 +80,7 @@ export class ChipsComponent implements OnInit {
 
   optionSelected(event: MatAutocompleteSelectedEvent): void {
     this.field.componentProperty.chipSelectedOptions.push({ viewValue: event.option.value, value: event.option.value });
-    this.items = this.group.get(this.field.formControlName) as FormArray;
+    this.items = this.group.get(this.field.formControlName) as UntypedFormArray;
     this.items.push(this.createItem(event.option.value));
   }
 

@@ -1,6 +1,6 @@
 import { ComponentRef, Directive } from '@angular/core';
 import { Input, OnInit, ViewContainerRef } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { UntypedFormGroup } from "@angular/forms";
 import { IComponentConfig } from '../model/imeta';
 import { ConstantValues } from '../model/constant-values';
 
@@ -9,7 +9,7 @@ import { ConstantValues } from '../model/constant-values';
 })
 export class ReactiveFieldDirective implements OnInit {
   @Input() field: IComponentConfig;
-  @Input() group: FormGroup;
+  @Input() group: UntypedFormGroup;
   private componentRef: ComponentRef<any>;
   constructor(private viewContainerRef: ViewContainerRef) { }
   ngOnInit() {

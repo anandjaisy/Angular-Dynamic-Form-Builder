@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
 import {
-  FormGroup,
-  FormBuilder,
+  UntypedFormGroup,
+  UntypedFormBuilder,
   Validators,
   FormControl,
 } from '@angular/forms';
@@ -28,13 +28,13 @@ export class FormChildComponent
   extends BaseFormComponent<any>
   implements OnInit
 {
-  @Input() form: FormGroup;
+  @Input() form: UntypedFormGroup;
   public codeGeneratorEnable: boolean = false;
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel =
     new AngularCodeTemplateViewModel();
   private controls: ILayoutConfig[] = [];
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: UntypedFormBuilder) {
     super(fb);
     this.defineForm();
   }

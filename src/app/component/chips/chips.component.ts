@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseFormComponent } from '../../../../projects/falcon-core/src/lib/common/base-form-component';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { AngularCodeTemplateViewModel } from '../../../../src/app/common/angularCodeTemplateViewModel';
 import {
   ComponentType,
@@ -26,7 +26,7 @@ export class ChipsComponent extends BaseFormComponent<any> {
   };
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel =
     new AngularCodeTemplateViewModel();
-  constructor(fb: FormBuilder) {
+  constructor(fb: UntypedFormBuilder) {
     super(fb);
   }
 

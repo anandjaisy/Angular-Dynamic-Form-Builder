@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, Validators, FormControl } from '@angular/forms';
 import {
   ComponentType,
   InputTypes,
@@ -46,7 +46,7 @@ export class FormFieldComponent
     componentType: ComponentType.Button,
     formControlName: 'remove',
   };
-  constructor(fb: FormBuilder) {
+  constructor(fb: UntypedFormBuilder) {
     super(fb);
     this.defineForm();
   }

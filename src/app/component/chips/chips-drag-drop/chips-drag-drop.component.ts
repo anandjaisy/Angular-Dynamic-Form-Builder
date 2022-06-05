@@ -7,7 +7,7 @@ import {
   ComponentType,
   InputTypes,
 } from 'projects/falcon-core/src/public-api';
-import { FormBuilder, FormArray, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, FormArray, FormGroup } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
 import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
@@ -25,7 +25,7 @@ export class ChipsDragDropComponent
     new AngularCodeTemplateViewModel();
   public codeGeneratorEnable: boolean = false;
 
-  constructor(protected fb: FormBuilder) {
+  constructor(protected fb: UntypedFormBuilder) {
     super(fb);
     this.defineForm();
   }

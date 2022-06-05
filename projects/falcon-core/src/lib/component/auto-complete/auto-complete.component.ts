@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IComponentConfig } from '../../model/imeta';
-import { FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { Observable, from } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { IOptions } from '../../model/imeta'
@@ -11,8 +11,8 @@ import { IOptions } from '../../model/imeta'
 })
 export class AutoCompleteComponent implements OnInit {
   @Input() field: IComponentConfig;
-  @Input() group: FormGroup;
-  autoCompleteControl = new FormControl();
+  @Input() group: UntypedFormGroup;
+  autoCompleteControl = new UntypedFormControl();
   constructor() { }
   filteredOptions: Observable<IOptions[]>;
 
