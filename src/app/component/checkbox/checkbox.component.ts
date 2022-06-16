@@ -28,8 +28,8 @@ export class CheckboxComponent
     new AngularCodeTemplateViewModel();
   private changeEvent: EventEmitter<MatCheckboxChange> =
     new EventEmitter<MatCheckboxChange>();
-  constructor(fb: UntypedFormBuilder) {
-    super(fb);
+  constructor() {
+    super();
     this.defineForm();
   }
 

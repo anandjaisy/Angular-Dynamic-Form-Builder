@@ -34,8 +34,8 @@ export class FormChildComponent
     new AngularCodeTemplateViewModel();
   private controls: ILayoutConfig[] = [];
 
-  constructor(fb: UntypedFormBuilder) {
-    super(fb);
+  constructor() {
+    super();
     this.defineForm();
   }
 

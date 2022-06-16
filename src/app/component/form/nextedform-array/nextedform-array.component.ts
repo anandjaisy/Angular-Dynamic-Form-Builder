@@ -19,8 +19,8 @@ export class NextedformArrayComponent
   extends BaseFormComponent<any>
   implements OnInit
 {
-  constructor(fb: UntypedFormBuilder) {
-    super(fb);
+  constructor() {
+    super();
     this.defineForm();
   }
 

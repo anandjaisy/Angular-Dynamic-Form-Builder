@@ -26,8 +26,8 @@ export class DynamicFormComponent
 {
   private productOptionEventEmitter: EventEmitter<MatCheckboxChange> =
     new EventEmitter<MatCheckboxChange>();
-  constructor(fb: UntypedFormBuilder) {
-    super(fb);
+  constructor() {
+    super();
     this.defineForm();
   }
   ngOnInit(): void {
