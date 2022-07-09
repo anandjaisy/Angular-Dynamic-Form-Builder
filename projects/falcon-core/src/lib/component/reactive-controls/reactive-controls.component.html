@@ -1,4 +1,5 @@
-<div [fxLayout]="fields?.container?.fxLayout" [fxLayoutGap.gt-xs]="fields?.container?.fxLayoutGap"
+<div [fxLayout]="fields?.container?.fxLayout != undefined ? fields?.container?.fxLayout : 'row wrap'"
+    [fxLayoutGap.gt-xs]="fields?.container?.fxLayoutGap != undefined ? fields?.container?.fxLayoutGap : '0'"
     [fxLayoutAlign]="fields?.container?.fxLayoutAlignHorizontal + ' ' + fields?.container?.fxLayoutAlignVertical">
     <ng-container *ngFor="let layout of fields?.container?.layoutConfig; let i = index">
         <div [fxLayout]="layout?.fxLayout + ' wrap'"

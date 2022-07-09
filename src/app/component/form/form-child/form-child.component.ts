@@ -42,6 +42,11 @@ export class FormChildComponent
   ngOnInit(): void {
     this.controlsConfig = {
       container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutGap: '10px',
+        fxLayoutAlignHorizontal:
+          AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
         layoutConfig: [
           {
             fxLayout: FxLayout.Row,

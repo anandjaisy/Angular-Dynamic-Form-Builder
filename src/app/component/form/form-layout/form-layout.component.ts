@@ -31,6 +31,7 @@ export class FormLayoutComponent
     this.controlsConfig = {
       container: {
         fxLayout: FxLayout.Column,
+        fxLayoutGap: '10px',
         fxLayoutAlignHorizontal:
           AlignmentLayoutDirection.SpaceBetween,
         fxLayoutAlignVertical: AlignmentLayoutDirection.None,

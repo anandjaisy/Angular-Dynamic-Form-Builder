@@ -59,6 +59,7 @@ export class FormFieldComponent
     this.controlsConfig = {
       container: {
         fxLayout: FxLayout.Column,
+        fxLayoutGap: '0',
         fxLayoutAlignHorizontal:
           AlignmentLayoutDirection.SpaceBetween,
         fxLayoutAlignVertical: AlignmentLayoutDirection.None,
