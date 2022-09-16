@@ -86,6 +86,7 @@ export class TablePaginationComponent implements OnInit {
       edit: true,
       delete: true,
       isMenu: false,
+      arrowRight: true,
     };
   }
   buttonClickEvent() {

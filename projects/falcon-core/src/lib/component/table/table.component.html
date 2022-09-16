@@ -52,18 +52,26 @@
                     </mat-menu>
                 </div>
                 <ng-template #nonMenuBlock>
-                    <button *ngIf="matTableConfig?.action?.view" mat-icon-button aria-label="view button"
-                        color="primary" matTooltip="View" (click)="tableAction(element, 0)">
-                        <mat-icon>visibility</mat-icon>
-                    </button>
-                    <button *ngIf="matTableConfig?.action?.edit" mat-icon-button aria-label="edit button"
-                        color="primary" matTooltip="Edit" (click)="tableAction(element, 1)">
-                        <mat-icon>create</mat-icon>
-                    </button>
-                    <button *ngIf="matTableConfig?.action?.delete" mat-icon-button aria-label="Delete button"
-                        color="warn" matTooltip="Delete" (click)="tableAction(element, 2)">
-                        <mat-icon>delete</mat-icon>
-                    </button>
+                    <div fxLayout="row" fxLayoutAlign="space-around center">
+                        <div>
+                            <button *ngIf="matTableConfig?.action?.view" mat-icon-button aria-label="view button"
+                                color="primary" matTooltip="View" (click)="tableAction(element, 0)">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <button *ngIf="matTableConfig?.action?.edit" mat-icon-button aria-label="edit button"
+                                color="primary" matTooltip="Edit" (click)="tableAction(element, 1)">
+                                <mat-icon>create</mat-icon>
+                            </button>
+                            <button *ngIf="matTableConfig?.action?.delete" mat-icon-button aria-label="Delete button"
+                                color="warn" matTooltip="Delete" (click)="tableAction(element, 2)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                        <button *ngIf="matTableConfig?.action?.arrowRight" mat-icon-button aria-label="Arrow button"
+                            color="primary" matTooltip="Expand">
+                            <mat-icon>chevron_right</mat-icon>
+                        </button>
+                    </div>
                 </ng-template>
             </td>
         </ng-container>

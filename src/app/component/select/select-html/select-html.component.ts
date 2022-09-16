@@ -24,6 +24,7 @@ export class SelectHtmlComponent {
         { value: 'oddish-1', viewValue: 'Oddish' },
         { value: 'bellsprout-2', viewValue: 'Bellsprout' },
       ],
+      value: 'oddish-1',
       appearance: Appearance.Outline,
     },
   };
