@@ -25,8 +25,7 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="tableAction(row, 3)"
-            class="mat-row-element example-expanded-row"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="mat-row-element example-expanded-row"></tr>
 
         <!-- Row shown when there is no matching data. -->
         <tr class="mat-row" *matNoDataRow>
@@ -68,7 +67,7 @@
                             </button>
                         </div>
                         <button *ngIf="matTableConfig?.action?.arrowRight" mat-icon-button aria-label="Arrow button"
-                            color="primary" matTooltip="Expand">
+                            color="primary" matTooltip="Expand" (click)="tableAction(element, 3)">
                             <mat-icon>chevron_right</mat-icon>
                         </button>
                     </div>

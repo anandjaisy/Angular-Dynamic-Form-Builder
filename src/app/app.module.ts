@@ -62,6 +62,7 @@ import { FormLayoutComponent } from './component/form/form-layout/form-layout.co
 import { NextedformArrayComponent } from './component/form/nextedform-array/nextedform-array.component';
 import { DynamicFormComponent } from './component/form/dynamic-form/dynamic-form.component';
 import { TableActionMenuComponent } from './component/table/table-action-menu/table-action-menu.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [
@@ -119,6 +120,7 @@ import { TableActionMenuComponent } from './component/table/table-action-menu/ta
     BrowserAnimationsModule,
     FalconCoreModule.forRoot(environment),
     HighlightModule,
+    AngularEditorModule,
   ],
   providers: [
     {

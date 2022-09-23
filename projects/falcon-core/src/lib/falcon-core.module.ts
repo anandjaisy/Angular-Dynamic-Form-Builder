@@ -49,6 +49,7 @@ import { EditorComponent } from './component/editor/editor.component';
 import { RouterModule } from '@angular/router';
 import { DividerComponent } from './component/divider/divider.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { RichTextEditorComponent } from './component/rich-text-editor/rich-text-editor.component';
 @NgModule({
   declarations: [
     ReactiveFieldDirective,
@@ -74,6 +75,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     PaginationComponent,
     EditorComponent,
     DividerComponent,
+    RichTextEditorComponent,
   ],
   imports: [
     AngularMaterialModule,

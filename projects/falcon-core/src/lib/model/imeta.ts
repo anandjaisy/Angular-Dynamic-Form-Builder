@@ -1,5 +1,12 @@
 import { IValidator } from './ivalidator';
-import { ComponentType, Appearance, FxLayout, AlignmentLayoutDirection, Floatinglabel, InputTypes } from './component-type.enum';
+import {
+  ComponentType,
+  Appearance,
+  FxLayout,
+  AlignmentLayoutDirection,
+  Floatinglabel,
+  InputTypes,
+} from './component-type.enum';
 import { IMatHint } from './interface';
 import { EventEmitter } from '@angular/core';
 
@@ -13,7 +20,7 @@ import { EventEmitter } from '@angular/core';
  * ```
  */
 export declare interface IMeta {
-  container: IContainer
+  container: IContainer;
 }
 
 /**
@@ -34,7 +41,7 @@ export declare interface IMeta {
  * ```
  */
 export declare interface IContainer {
-  fxLayout?: FxLayout,
+  fxLayout?: FxLayout;
   fxLayoutAlignHorizontal?: AlignmentLayoutDirection;
   fxLayoutAlignVertical?: AlignmentLayoutDirection;
   fxLayoutGap?: string;
@@ -106,7 +113,7 @@ export declare interface IComponentProperty {
 export declare interface ISuffixPrefixConfig {
   isIcon?: boolean;
   text?: string;
-  toolTipText?: string
+  toolTipText?: string;
 }
 /**
  * @description
@@ -273,7 +280,7 @@ export declare interface ITextAreaProperty {
   cdkAutosizeMinRows?: number;
   cdkAutosizeMaxRows?: number;
   rows?: number;
-  cols?: number
+  cols?: number;
 }
 
 /**
@@ -296,10 +303,10 @@ export declare interface ISliderProperty {
   invert?: boolean;
   thumbLabel?: boolean;
   vertical?: boolean;
-  min?: number,
-  max?: number,
-  step?: number,
-  tickInterval?: string | number
+  min?: number;
+  max?: number;
+  step?: number;
+  tickInterval?: string | number;
 }
 /**
  * @description

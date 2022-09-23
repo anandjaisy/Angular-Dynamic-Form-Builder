@@ -176,5 +176,5 @@ export const enum TableAction {
   View,
   Edit,
   Delete,
-  TableRowClick,
+  RightArrow,
 }

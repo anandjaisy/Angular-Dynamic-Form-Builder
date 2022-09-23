@@ -5,14 +5,12 @@ import { IComponentConfig } from '../../model/imeta';
 @Component({
   selector: 'falcon-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.css']
+  styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements OnInit {
   field: IComponentConfig;
   group: UntypedFormGroup;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
