@@ -98,9 +98,9 @@ export class AngularCodeTemplate {
 
   // Angular editor
   public static ANGULAR_EDITOR_TS_KEY: string =
-    '/angular-editor/angular-editor.component.ts';
+    '/rich-text-editor/rich-text-editor.component.ts';
   public static ANGULAR_EDITOR_HTML_KEY: string =
-    '/angular-editor/angular-editor.component.html';
+    '/rich-text-editor/rich-text-editor.component.html';
 
   public static Button_Toggle_TS_KEY: string =
     '/button-toggle/button-toggle.component.ts';

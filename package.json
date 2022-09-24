@@ -22,8 +22,6 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
-    "@ckeditor/ckeditor5-angular": "^4.0.0",
-    "@ckeditor/ckeditor5-build-classic": "^34.2.0",
     "@kolkov/angular-editor": "^3.0.0-beta.0",
     "babel-polyfill": "^6.26.0",
     "ngx-highlightjs": "^4.1.0-beta",

@@ -24,7 +24,6 @@ export * from './lib/service/appsetting.service';
  * Public API Surface of falcon core module component
  */
 export * from './lib/component/auto-complete/auto-complete.component';
-export * from './lib/component/editor/editor.component';
 export * from './lib/component/reactive-controls/reactive-controls.component';
 export * from './lib/component/textbox/textbox.component';
 export * from './lib/component/text-area/text-area.component';

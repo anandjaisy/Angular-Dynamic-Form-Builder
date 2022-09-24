@@ -53,7 +53,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthCallbackComponent } from './component/auth-callback/auth-callback.component';
 import { ChipsAutocompleteComponent } from './component/chips/chips-autocomplete/chips-autocomplete.component';
 import { ChipsWithinputComponent } from './component/chips/chips-withinput/chips-withinput.component';
-import { AngularEditorComponent } from './component/angular-editor/angular-editor.component';
 import { ChipsDragDropComponent } from './component/chips/chips-drag-drop/chips-drag-drop.component';
 import { FormComponent } from './component/form/form.component';
 import { FormChildComponent } from './component/form/form-child/form-child.component';
@@ -62,7 +61,7 @@ import { FormLayoutComponent } from './component/form/form-layout/form-layout.co
 import { NextedformArrayComponent } from './component/form/nextedform-array/nextedform-array.component';
 import { DynamicFormComponent } from './component/form/dynamic-form/dynamic-form.component';
 import { TableActionMenuComponent } from './component/table/table-action-menu/table-action-menu.component';
-import { AngularEditorModule } from '@kolkov/angular-editor';
+import { AngularRichTextEditorComponent } from './component/rich-text-editor/rich-text-editor.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +103,6 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     AuthCallbackComponent,
     ChipsAutocompleteComponent,
     ChipsWithinputComponent,
-    AngularEditorComponent,
     ChipsDragDropComponent,
     FormComponent,
     FormChildComponent,
@@ -113,6 +111,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NextedformArrayComponent,
     DynamicFormComponent,
     TableActionMenuComponent,
+    AngularRichTextEditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -120,7 +119,6 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     BrowserAnimationsModule,
     FalconCoreModule.forRoot(environment),
     HighlightModule,
-    AngularEditorModule,
   ],
   providers: [
     {

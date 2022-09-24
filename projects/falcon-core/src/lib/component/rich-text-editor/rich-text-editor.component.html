@@ -1,8 +1,7 @@
 <ng-container [formGroup]="group">
-    <mat-label>{{field.componentProperty.label}}</mat-label>
+    <mat-label>{{field?.componentProperty?.label}}</mat-label>
     <angular-editor [formControlName]="field?.formControlName" [config]="field?.componentProperty?.editorProperty">
     </angular-editor>
-    </ckeditor>
     <mat-hint>{{field?.componentProperty?.hint?.text}}</mat-hint>
     <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
         <mat-error *ngIf="group.get(field.formControlName).hasError(validation.name)">{{validation.message}}</mat-error>

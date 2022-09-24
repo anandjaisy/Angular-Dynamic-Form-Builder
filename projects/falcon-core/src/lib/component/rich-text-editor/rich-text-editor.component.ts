@@ -12,5 +12,8 @@ export class RichTextEditorComponent implements OnInit {
   @Input() group: UntypedFormGroup;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.field);
+    console.log(this.group);
+  }
 }

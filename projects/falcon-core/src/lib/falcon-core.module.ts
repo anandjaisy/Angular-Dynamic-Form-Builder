@@ -45,11 +45,10 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { ChipsComponent } from './component/chips/chips.component';
 import { TableComponent } from './component/table/table.component';
 import { PaginationComponent } from './component/pagination/pagination.component';
-import { EditorComponent } from './component/editor/editor.component';
 import { RouterModule } from '@angular/router';
 import { DividerComponent } from './component/divider/divider.component';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { RichTextEditorComponent } from './component/rich-text-editor/rich-text-editor.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 @NgModule({
   declarations: [
     ReactiveFieldDirective,
@@ -73,7 +72,6 @@ import { RichTextEditorComponent } from './component/rich-text-editor/rich-text-
     ChipsComponent,
     TableComponent,
     PaginationComponent,
-    EditorComponent,
     DividerComponent,
     RichTextEditorComponent,
   ],
@@ -85,7 +83,7 @@ import { RichTextEditorComponent } from './component/rich-text-editor/rich-text-
     FlexLayoutModule,
     HttpClientModule,
     RouterModule,
-    CKEditorModule,
+    AngularEditorModule,
   ],
   exports: [
     AngularMaterialModule,
@@ -114,9 +112,9 @@ import { RichTextEditorComponent } from './component/rich-text-editor/rich-text-
     ButtonToggleComponent,
     AutoCompleteComponent,
     PaginationComponent,
-    EditorComponent,
-    CKEditorModule,
+    RichTextEditorComponent,
     DividerComponent,
+    AngularEditorModule,
   ],
   providers: [
     { provide: IGenericHttpClient, useClass: GenericHttpClient },
