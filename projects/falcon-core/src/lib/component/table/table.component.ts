@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, ViewChild, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewChild,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 import { MatTableConfig } from '../../model/interface';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -7,7 +14,7 @@ import { TableAction } from '../../model/component-type.enum';
 @Component({
   selector: 'falcon-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
   @Input() matTableConfig: MatTableConfig;
@@ -16,25 +23,28 @@ export class TableComponent implements OnInit {
   @Output() pageEvent = new EventEmitter<PageEvent>();
   @Input() displayedColumns: string[];
   @Output() tableActionRowEvent = new EventEmitter<any>();
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-    const cols = this.matTableConfig.columns.map(c => c.columnDef);
+    const cols = this.matTableConfig.columns.map((c) => c.columnDef);
     if (this.displayedColumns !== undefined)
       this.displayedColumns.unshift(...cols);
-    else
-      this.displayedColumns = cols;
+    else this.displayedColumns = cols;
   }
   ngAfterViewInit() {
     setTimeout(() => {
-      this.matTableConfig.dataSource = new MatTableDataSource(this.matTableConfig.dataSource);
+      this.matTableConfig.dataSource = new MatTableDataSource(
+        this.matTableConfig.dataSource,
+      );
       this.matTableConfig.dataSource.paginator = this.paginator;
       this.matTableConfig.dataSource.sort = this.sort;
     });
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.matTableConfig.dataSource.filter = filterValue.trim().toLowerCase();
+    this.matTableConfig.dataSource.filter = filterValue
+      .trim()
+      .toLowerCase();
 
     if (this.matTableConfig.dataSource.paginator) {
       this.matTableConfig.dataSource.paginator.firstPage();
@@ -49,5 +59,4 @@ export class TableComponent implements OnInit {
     const item = Object.assign($item, { action: action });
     this.tableActionRowEvent.next(item);
   }
-
 }

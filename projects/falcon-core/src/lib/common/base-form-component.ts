@@ -1,7 +1,18 @@
-import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormControl, FormArray } from '@angular/forms';
+import { inject } from '@angular/core';
+import {
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  Validators,
+  UntypedFormControl,
+  FormArray,
+} from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ComponentType } from '../model/component-type.enum';
-import { IMeta, IComponentConfig, ILayoutConfig } from '../model/imeta';
+import {
+  IMeta,
+  IComponentConfig,
+  ILayoutConfig,
+} from '../model/imeta';
 /**
  * @description
  * Base form component initialized to create form controls, set validation, submit.
@@ -15,7 +26,7 @@ import { IMeta, IComponentConfig, ILayoutConfig } from '../model/imeta';
  *        super(fb);
  *        this.defineForm();
  *    }
- *    protected defineForm(): void { 
+ *    protected defineForm(): void {
  *    }
  *    ngOnInit(): void {
  *      this.form = this.createControls();
@@ -26,20 +37,20 @@ import { IMeta, IComponentConfig, ILayoutConfig } from '../model/imeta';
  *    }
  * ```
  */
-export abstract class BaseFormComponent<T>{
+export abstract class BaseFormComponent<T> {
   public form: UntypedFormGroup;
   protected abstract defineForm(): void;
   protected abstract submitDatasource(model: T): Observable<T>;
   public dataSource: T = null;
   public controlsConfig: IMeta;
   public showLoading: boolean = false;
-  constructor(protected fb: UntypedFormBuilder) {
-  }
+  protected fb = inject(UntypedFormBuilder);
+  constructor() {}
   /**
-    * @description
-    * Method evoke on when the form is submitted.
-    * @returns submitDatasource() method with form data if valid otherwise form invalid.
-  */
+   * @description
+   * Method evoke on when the form is submitted.
+   * @returns submitDatasource() method with form data if valid otherwise form invalid.
+   */
   public onSubmit() {
     if (this.form !== undefined && this.form.valid) {
       this.submitDatasource(this.form.value);
@@ -48,60 +59,81 @@ export abstract class BaseFormComponent<T>{
     }
   }
   /**
-    * @description
-    * Private method to validate all form controls before is form submited.
-    * @param formGroup Validate form group.
-    * @returns Groups of controls added to the form builder.
-  */
+   * @description
+   * Private method to validate all form controls before is form submited.
+   * @param formGroup Validate form group.
+   * @returns Groups of controls added to the form builder.
+   */
   private validateAllFormFields(formGroup: UntypedFormGroup) {
-    if (this.form !== undefined)
-      this.form.markAllAsTouched();
+    if (this.form !== undefined) this.form.markAllAsTouched();
   }
   /**
-    * @description
-    * Create the reactive form controls
-    * @returns Groups of controls added to the form builder.
-  */
+   * @description
+   * Create the reactive form controls
+   * @returns Groups of controls added to the form builder.
+   */
   protected createControls() {
     const group = this.fb.group({});
-    this.controlsConfig.container.layoutConfig.forEach((layout, index) => {
-      layout.componentConfig.forEach(controls => {
-        this.bindControl(controls, group, index)
-      })
-    });
+    this.controlsConfig.container.layoutConfig.forEach(
+      (layout, index) => {
+        layout.componentConfig.forEach((controls) => {
+          this.bindControl(controls, group, index);
+        });
+      },
+    );
     return group;
   }
   /**
-      * @description
-      * Private method to bind the form control.
-      * @param field field to bind.
-      * @param group group to add.
-      * @param index index of the layout
-  */
-  private bindControl(componentConfig: IComponentConfig, group, index: number) {
-    if (componentConfig.componentType === ComponentType.Button) return;
+   * @description
+   * Private method to bind the form control.
+   * @param field field to bind.
+   * @param group group to add.
+   * @param index index of the layout
+   */
+  private bindControl(
+    componentConfig: IComponentConfig,
+    group,
+    index: number,
+  ) {
+    if (componentConfig.componentType === ComponentType.Button)
+      return;
     var control = null;
     if (componentConfig.formArray !== undefined) {
-      control = (componentConfig.formArray.length > 0)
-        ? this.fb.array([this.createFormArrayGroup(componentConfig.formArray[componentConfig.formArray.length - 1].componentConfig)]) :
-        this.fb.array([], this.bindValidations(componentConfig.validations || []))
+      control =
+        componentConfig.formArray.length > 0
+          ? this.fb.array([
+              this.createFormArrayGroup(
+                componentConfig.formArray[
+                  componentConfig.formArray.length - 1
+                ].componentConfig,
+              ),
+            ])
+          : this.fb.array(
+              [],
+              this.bindValidations(componentConfig.validations || []),
+            );
     } else {
-      control = this.fb.control({ value: componentConfig.componentProperty.value, disabled: componentConfig.componentProperty.disabled },
-        this.bindValidations(componentConfig.validations || []));
+      control = this.fb.control(
+        {
+          value: componentConfig.componentProperty.value,
+          disabled: componentConfig.componentProperty.disabled,
+        },
+        this.bindValidations(componentConfig.validations || []),
+      );
     }
     group.addControl(componentConfig.formControlName, control);
   }
 
   /**
-    * @description
-    * Private method to bind the validation to the form controls on form submit.
-    * @param validations Push the validation to the controls.
-    * @returns Validation.
-  */
+   * @description
+   * Private method to bind the validation to the form controls on form submit.
+   * @param validations Push the validation to the controls.
+   * @returns Validation.
+   */
   private bindValidations(validations: any) {
     if (validations.length > 0) {
       const validList = [];
-      validations.forEach(valid => {
+      validations.forEach((valid) => {
         validList.push(valid.validator);
       });
       return Validators.compose(validList);
@@ -114,17 +146,36 @@ export abstract class BaseFormComponent<T>{
    * @param layoutConfig layout of form array
    * @returns Form array group
    */
-  private createFormArrayGroup(componentConfig: IComponentConfig[]): UntypedFormGroup {
+  private createFormArrayGroup(
+    componentConfig: IComponentConfig[],
+  ): UntypedFormGroup {
     var formGroup: UntypedFormGroup = this.fb.group({});
     componentConfig.forEach((item, index) => {
       var control = null;
       if (item.formArray !== undefined) {
-        control = item.formArray.length > 0
-          ? this.fb.array([this.createFormArrayGroup(item.formArray[item.formArray.length - 1].componentConfig)], this.bindValidations(item.validations || [])) :
-          this.fb.array([], this.bindValidations(item.validations || []))
+        control =
+          item.formArray.length > 0
+            ? this.fb.array(
+                [
+                  this.createFormArrayGroup(
+                    item.formArray[item.formArray.length - 1]
+                      .componentConfig,
+                  ),
+                ],
+                this.bindValidations(item.validations || []),
+              )
+            : this.fb.array(
+                [],
+                this.bindValidations(item.validations || []),
+              );
       } else {
-        control = this.fb.control({ value: item.componentProperty.value, disabled: item.componentProperty.disabled },
-          this.bindValidations(item.validations || []));
+        control = this.fb.control(
+          {
+            value: item.componentProperty.value,
+            disabled: item.componentProperty.disabled,
+          },
+          this.bindValidations(item.validations || []),
+        );
       }
       formGroup.addControl(item.formControlName, control);
     });
@@ -132,86 +183,92 @@ export abstract class BaseFormComponent<T>{
   }
 
   /**
-    * @description
-    * Reset fild values to default or specify some value.
-    * @param defaultValues Specify the specific value to set to the controls.
-    * @returns void.
-  */
+   * @description
+   * Reset fild values to default or specify some value.
+   * @param defaultValues Specify the specific value to set to the controls.
+   * @returns void.
+   */
   public reset(defaultValues?: any): void {
     this.form.reset(defaultValues);
   }
   /**
-    * @description
-    * Reset specific fild Errors.
-    * @param name Name of the field to reset the error.
-    * @returns void.
-  */
+   * @description
+   * Reset specific fild Errors.
+   * @param name Name of the field to reset the error.
+   * @returns void.
+   */
   resetFieldErrors(name: string): void {
     this.form.get(name).setErrors(null);
   }
   /**
-    * @description
-    * Get the controls value from the form.
-    * @returns Form controls values.
-  */
+   * @description
+   * Get the controls value from the form.
+   * @returns Form controls values.
+   */
   get value() {
     return this.form.value;
   }
   /**
-    * @description
-    * Updating parts of the data model.
-    * Use the patchValue() method to replace any properties defined in the object that have changed in the form model.
-    * @returns Form controls values.
-    * @param value The object that matches the structure of the group.
-    * @param options Configuration options that determine how the control propagates changes and
-    * emits events after the value is patched.
-    * `onlySelf`: When true, each change only affects this control and not its parent. Default is
-    * true.
-    * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
-    * `valueChanges`
-    *  @usageNotes
-    * The following snippet shows how a component can implement this abstract class to
-    * define its own initialization method.
-    * ```ts
-    *   this.form.patchValue({
-    *     name: 'Todd Motto',
-    *     event: {
-    *       title: 'AngularCamp 2016',
-    *       location: 'Barcelona, Spain'
-    *     }
-    *   });
-    * ```
-    */
-  protected patchValue(value: { [key: string]: any; }, options?: { onlySelf?: boolean; emitEvent?: boolean; }) {
+   * @description
+   * Updating parts of the data model.
+   * Use the patchValue() method to replace any properties defined in the object that have changed in the form model.
+   * @returns Form controls values.
+   * @param value The object that matches the structure of the group.
+   * @param options Configuration options that determine how the control propagates changes and
+   * emits events after the value is patched.
+   * `onlySelf`: When true, each change only affects this control and not its parent. Default is
+   * true.
+   * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+   * `valueChanges`
+   *  @usageNotes
+   * The following snippet shows how a component can implement this abstract class to
+   * define its own initialization method.
+   * ```ts
+   *   this.form.patchValue({
+   *     name: 'Todd Motto',
+   *     event: {
+   *       title: 'AngularCamp 2016',
+   *       location: 'Barcelona, Spain'
+   *     }
+   *   });
+   * ```
+   */
+  protected patchValue(
+    value: { [key: string]: any },
+    options?: { onlySelf?: boolean; emitEvent?: boolean },
+  ) {
     return this.form.patchValue(value, options);
   }
 
   /**
-    * @description
-    * Updating parts of the data model.
-    * Use the setValue() method to set a new value for an individual control. The setValue() method strictly adheres to the structure of the form group and replaces the entire value for the control.
-    * @returns Form controls values.
-    * @param value The object that matches the structure of the group.
-    * @param options Configuration options that determine how the control propagates changes and
-    * emits events after the value is patched.
-    * `onlySelf`: When true, each change only affects this control and not its parent. Default is
-    * true.
-    * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
-    * `valueChanges`
-    *  @usageNotes
-    * The following snippet shows how a component can implement this abstract class to
-    * define its own initialization method.
-    * ```ts
-    *   this.form.setValue({
-    *     name: 'Todd Motto',
-    *     event: {
-    *       title: 'AngularCamp 2016',
-    *       location: 'Barcelona, Spain'
-    *     }
-    *   });
-    * ```
-    */
-  protected setValue(value: { [key: string]: any; }, options?: { onlySelf?: boolean; emitEvent?: boolean; }) {
+   * @description
+   * Updating parts of the data model.
+   * Use the setValue() method to set a new value for an individual control. The setValue() method strictly adheres to the structure of the form group and replaces the entire value for the control.
+   * @returns Form controls values.
+   * @param value The object that matches the structure of the group.
+   * @param options Configuration options that determine how the control propagates changes and
+   * emits events after the value is patched.
+   * `onlySelf`: When true, each change only affects this control and not its parent. Default is
+   * true.
+   * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+   * `valueChanges`
+   *  @usageNotes
+   * The following snippet shows how a component can implement this abstract class to
+   * define its own initialization method.
+   * ```ts
+   *   this.form.setValue({
+   *     name: 'Todd Motto',
+   *     event: {
+   *       title: 'AngularCamp 2016',
+   *       location: 'Barcelona, Spain'
+   *     }
+   *   });
+   * ```
+   */
+  protected setValue(
+    value: { [key: string]: any },
+    options?: { onlySelf?: boolean; emitEvent?: boolean },
+  ) {
     return this.form.setValue(value, options);
   }
   /**
@@ -225,8 +282,13 @@ export abstract class BaseFormComponent<T>{
    * ```
    */
   protected removeControl(layoutIndex: number, index: number) {
-    this.form.removeControl(this.controlsConfig.container.layoutConfig[layoutIndex].componentConfig[index].formControlName);
-    this.controlsConfig.container.layoutConfig[layoutIndex].componentConfig.splice(index, 1);
+    this.form.removeControl(
+      this.controlsConfig.container.layoutConfig[layoutIndex]
+        .componentConfig[index].formControlName,
+    );
+    this.controlsConfig.container.layoutConfig[
+      layoutIndex
+    ].componentConfig.splice(index, 1);
   }
   /**
    * @description
@@ -256,22 +318,49 @@ export abstract class BaseFormComponent<T>{
    *  this.addControl(configToadd); or this.addControl(configToadd,1);
    * ```
    */
-  protected addControl(layoutToAdd?: ILayoutConfig[], index?: number) {
+  protected addControl(
+    layoutToAdd?: ILayoutConfig[],
+    index?: number,
+  ) {
     layoutToAdd.forEach((layout, layoutIndex) => {
-      layout.componentConfig.forEach((componentConfig, componentIndex) => {
-        if (componentConfig.formArray !== undefined) {
-          componentConfig.formArray.forEach(control => {
-            this.form.setControl("productOption", this.createFormArrayGroup(control.componentConfig));
-            this.controlsConfig.container.layoutConfig[1].componentConfig[0].formArray.push(layout)
-          })
-        } else {
-          this.form.addControl(componentConfig.formControlName,
-            new UntypedFormControl({ value: componentConfig.componentProperty.value, disabled: componentConfig.componentProperty.disabled },
-              this.bindValidations(componentConfig.validations || [])));
-          index !== null ? this.controlsConfig.container.layoutConfig.splice(index, 0, layout) :
-            this.controlsConfig.container.layoutConfig.push(layout);
-        }
-      })
+      layout.componentConfig.forEach(
+        (componentConfig, componentIndex) => {
+          if (componentConfig.formArray !== undefined) {
+            componentConfig.formArray.forEach((control) => {
+              this.form.setControl(
+                'productOption',
+                this.createFormArrayGroup(control.componentConfig),
+              );
+              this.controlsConfig.container.layoutConfig[1].componentConfig[0].formArray.push(
+                layout,
+              );
+            });
+          } else {
+            this.form.addControl(
+              componentConfig.formControlName,
+              new UntypedFormControl(
+                {
+                  value: componentConfig.componentProperty.value,
+                  disabled:
+                    componentConfig.componentProperty.disabled,
+                },
+                this.bindValidations(
+                  componentConfig.validations || [],
+                ),
+              ),
+            );
+            index !== null
+              ? this.controlsConfig.container.layoutConfig.splice(
+                  index,
+                  0,
+                  layout,
+                )
+              : this.controlsConfig.container.layoutConfig.push(
+                  layout,
+                );
+          }
+        },
+      );
     });
   }
 }

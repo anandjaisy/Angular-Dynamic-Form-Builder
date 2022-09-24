@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, Validators, FormControl } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  Validators,
+  FormControl,
+} from '@angular/forms';
 import {
   ComponentType,
   InputTypes,
@@ -46,8 +50,8 @@ export class FormFieldComponent
     componentType: ComponentType.Button,
     formControlName: 'remove',
   };
-  constructor(fb: UntypedFormBuilder) {
-    super(fb);
+  constructor() {
+    super();
     this.defineForm();
   }
 
@@ -55,6 +59,7 @@ export class FormFieldComponent
     this.controlsConfig = {
       container: {
         fxLayout: FxLayout.Column,
+        fxLayoutGap: '0',
         fxLayoutAlignHorizontal:
           AlignmentLayoutDirection.SpaceBetween,
         fxLayoutAlignVertical: AlignmentLayoutDirection.None,

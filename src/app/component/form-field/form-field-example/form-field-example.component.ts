@@ -27,11 +27,8 @@ export class FormFieldExampleComponent
   codeGeneratorEnable: boolean = false;
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel =
     new AngularCodeTemplateViewModel();
-  constructor(
-    fb: UntypedFormBuilder,
-    private iGenericHttpClient: IGenericHttpClient<any>,
-  ) {
-    super(fb);
+  constructor(private iGenericHttpClient: IGenericHttpClient<any>) {
+    super();
     this.defineForm();
   }
 

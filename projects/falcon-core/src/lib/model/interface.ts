@@ -31,10 +31,10 @@ export declare interface IRequestOptions {
  * @usageNotes
  * ```ts
  *       columns: MatTable[] = [
- *        { 
- *          columnDef: 'position', 
- *          header: 'No.', 
- *          cell: (element: any) => `${element.position}` 
+ *        {
+ *          columnDef: 'position',
+ *          header: 'No.',
+ *          cell: (element: any) => `${element.position}`
  *          }
  *      ]
  * ```
@@ -54,8 +54,8 @@ export declare interface MatTable {
  *       {
  *          columns : MatTable[] = [{
  *            columnDef: 'position',
- *            header: 'No.', 
- *            cell: (element: any) => `${element.position}` 
+ *            header: 'No.',
+ *            cell: (element: any) => `${element.position}`
  *        }, filter : true,
  *           pagination : true
  *        ]}
@@ -100,6 +100,7 @@ export declare interface ITableAction {
   view?: boolean;
   edit?: boolean;
   delete?: boolean;
+  arrowRight?: boolean;
   isMenu: boolean;
   menu?: IMatHint[];
 }

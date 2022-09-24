@@ -22,8 +22,8 @@ import { ChipsComponent } from './component/chips/chips.component';
 import { TableComponent } from './component/table/table.component';
 import { AppPaginationComponent } from './component/pagination/app-pagination.component';
 import { AuthCallbackComponent } from './component/auth-callback/auth-callback.component';
-import { AngularEditorComponent } from './component/angular-editor/angular-editor.component';
 import { FormComponent } from './component/form/form.component';
+import { AngularRichTextEditorComponent } from './component/rich-text-editor/rich-text-editor.component';
 
 const routes: Routes = [
   { path: 'auth-callback', component: AuthCallbackComponent },
@@ -48,7 +48,7 @@ const routes: Routes = [
   { path: 'chips', component: ChipsComponent },
   { path: 'tables', component: TableComponent },
   { path: 'pagination', component: AppPaginationComponent },
-  { path: 'editor', component: AngularEditorComponent },
+  { path: 'editor', component: AngularRichTextEditorComponent },
   { path: 'form', component: FormComponent },
 ];
 

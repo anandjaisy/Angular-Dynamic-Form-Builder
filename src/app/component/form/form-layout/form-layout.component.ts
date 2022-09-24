@@ -19,8 +19,8 @@ export class FormLayoutComponent
   extends BaseFormComponent<any>
   implements OnInit
 {
-  constructor(fb: UntypedFormBuilder) {
-    super(fb);
+  constructor() {
+    super();
     this.defineForm();
   }
 
@@ -31,6 +31,7 @@ export class FormLayoutComponent
     this.controlsConfig = {
       container: {
         fxLayout: FxLayout.Column,
+        fxLayoutGap: '10px',
         fxLayoutAlignHorizontal:
           AlignmentLayoutDirection.SpaceBetween,
         fxLayoutAlignVertical: AlignmentLayoutDirection.None,

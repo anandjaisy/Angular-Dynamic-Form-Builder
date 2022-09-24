@@ -34,14 +34,19 @@ export class FormChildComponent
     new AngularCodeTemplateViewModel();
   private controls: ILayoutConfig[] = [];
 
-  constructor(fb: UntypedFormBuilder) {
-    super(fb);
+  constructor() {
+    super();
     this.defineForm();
   }
 
   ngOnInit(): void {
     this.controlsConfig = {
       container: {
+        fxLayout: FxLayout.Column,
+        fxLayoutGap: '10px',
+        fxLayoutAlignHorizontal:
+          AlignmentLayoutDirection.SpaceBetween,
+        fxLayoutAlignVertical: AlignmentLayoutDirection.None,
         layoutConfig: [
           {
             fxLayout: FxLayout.Row,

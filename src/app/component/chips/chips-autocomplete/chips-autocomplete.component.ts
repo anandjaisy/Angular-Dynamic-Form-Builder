@@ -7,7 +7,11 @@ import {
   ComponentType,
   InputTypes,
 } from 'projects/falcon-core/src/public-api';
-import { UntypedFormBuilder, FormArray, FormGroup } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  FormArray,
+  FormGroup,
+} from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
 import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
@@ -25,8 +29,8 @@ export class ChipsAutocompleteComponent
     new AngularCodeTemplateViewModel();
   public codeGeneratorEnable: boolean = false;
 
-  constructor(protected fb: UntypedFormBuilder) {
-    super(fb);
+  constructor() {
+    super();
     this.defineForm();
   }
 

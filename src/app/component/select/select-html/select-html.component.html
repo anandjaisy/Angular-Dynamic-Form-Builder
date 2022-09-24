@@ -6,7 +6,9 @@
                 <h1>Select on html</h1>
                 <app-code-button (buttonClickEvent)="buttonClickEvent()"></app-code-button>
             </div>
-            <falcon-select [field]="selectOnHtmlConfig" (selectionChange)="selectionChange($event)"></falcon-select>
+            <form #heroForm="ngForm">
+                <falcon-select [field]="selectOnHtmlConfig" (selectionChange)="selectionChange($event)"></falcon-select>
+            </form>
             <app-code-generator *ngIf="codeGeneratorEnable" [tsConfig]="angularCodeTemplateViewModel.tsConfig"
                 [htmlConfig]="angularCodeTemplateViewModel.htmlConfig"></app-code-generator>
 

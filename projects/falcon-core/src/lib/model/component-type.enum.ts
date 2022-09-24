@@ -7,20 +7,20 @@
  * ```
  */
 export const enum ComponentType {
-    TextBox = 0,
-    TextArea = 1,
-    Select = 2,
-    DatePicker = 3,
-    Radio = 4,
-    Checkbox = 5,
-    Button = 6,
-    SlideToggle = 7,
-    Slider = 8,
-    ButtonToggle = 9,
-    AutoComplete = 10,
-    Chip = 11,
-    Editor = 12,
-    Divider = 13
+  TextBox = 0,
+  TextArea = 1,
+  Select = 2,
+  DatePicker = 3,
+  Radio = 4,
+  Checkbox = 5,
+  Button = 6,
+  SlideToggle = 7,
+  Slider = 8,
+  ButtonToggle = 9,
+  AutoComplete = 10,
+  Chip = 11,
+  Editor = 12,
+  Divider = 13,
 }
 /**
  * @description
@@ -31,8 +31,8 @@ export const enum ComponentType {
  * ```
  */
 export const enum TrueFalse {
-    False,
-    True
+  False,
+  True,
 }
 /**
  * @description
@@ -45,25 +45,25 @@ export const enum TrueFalse {
  * ```
  */
 export const enum InputTypes {
-    Color = "color",
-    Date = "date",
-    DatetimeLocal = "datetime-local",
-    Email = "email",
-    Month = "month",
-    Number = "number",
-    Password = "password",
-    Search = "search",
-    Tel = "tel",
-    Text = "text",
-    Time = "time",
-    Url = "url",
-    Week = "week",
-    /**
-        * @usageNotes Should be only use for Buttom
-    */
-    Button = "button",
-    Submit = "submit",
-    DragDrop = "dragDrop"
+  Color = 'color',
+  Date = 'date',
+  DatetimeLocal = 'datetime-local',
+  Email = 'email',
+  Month = 'month',
+  Number = 'number',
+  Password = 'password',
+  Search = 'search',
+  Tel = 'tel',
+  Text = 'text',
+  Time = 'time',
+  Url = 'url',
+  Week = 'week',
+  /**
+   * @usageNotes Should be only use for Buttom
+   */
+  Button = 'button',
+  Submit = 'submit',
+  DragDrop = 'dragDrop',
 }
 /**
  * @description
@@ -76,36 +76,36 @@ export const enum InputTypes {
  * ```
  */
 export const enum Appearance {
-    /**
-        * @usageNotes Should be only use for input, textbox, and select
-    */
-    Plain = "plain",
-    Legacy = "legacy",
-    Standard = "standard",
-    Fill = "fill",
-    Outline = "outline",
-    /**
-        * @usageNotes Should be only use for label position
-    */
-    Before = "before",
-    After = "after",
-    /**
-        * @usageNotes Should be only use for select
-    */
-    Multiple = "true",
+  /**
+   * @usageNotes Should be only use for input, textbox, and select
+   */
+  Plain = 'plain',
+  Legacy = 'legacy',
+  Standard = 'standard',
+  Fill = 'fill',
+  Outline = 'outline',
+  /**
+   * @usageNotes Should be only use for label position
+   */
+  Before = 'before',
+  After = 'after',
+  /**
+   * @usageNotes Should be only use for select
+   */
+  Multiple = 'true',
 
-    /**
-        * @usageNotes Should be only use for Buttom
-    */
-    Basic = 0,
-    Raised = 1,
-    Stroked = 2,
-    Flat = 3,
-    Icon = 4,
-    FAB = 5,
-    MiniFAB = 6,
-    routeLink = 7,
-    routeHref = 8
+  /**
+   * @usageNotes Should be only use for Buttom
+   */
+  Basic = 0,
+  Raised = 1,
+  Stroked = 2,
+  Flat = 3,
+  Icon = 4,
+  FAB = 5,
+  MiniFAB = 6,
+  routeLink = 7,
+  routeHref = 8,
 }
 /**
  * @description
@@ -116,8 +116,8 @@ export const enum Appearance {
  * ```
  */
 export const enum FxLayout {
-    Row = "row",
-    Column = "column"
+  Row = 'row',
+  Column = 'column',
 }
 /**
  * @description
@@ -129,13 +129,13 @@ export const enum FxLayout {
  * ```
  */
 export const enum AlignmentLayoutDirection {
-    None = "none",
-    Start = "start",
-    Center = "center",
-    End = "end",
-    SpaceAround = "space-around",
-    SpaceBetween = "space-between",
-    SpaceEvenly = "space-evenly"
+  None = 'none',
+  Start = 'start',
+  Center = 'center',
+  End = 'end',
+  SpaceAround = 'space-around',
+  SpaceBetween = 'space-between',
+  SpaceEvenly = 'space-evenly',
 }
 /**
  * @description
@@ -148,8 +148,8 @@ export const enum AlignmentLayoutDirection {
  * ```
  */
 export const enum Floatinglabel {
-    Auto = "auto",
-    Always = "always"
+  Auto = 'auto',
+  Always = 'always',
 }
 
 /**
@@ -161,11 +161,11 @@ export const enum Floatinglabel {
  * ```
  */
 export const enum HttpMethod {
-    Get = "GET",
-    Post = "POST",
-    Put = "PUT",
-    Patch = "PATCH",
-    Delete = "DELETE",
+  Get = 'GET',
+  Post = 'POST',
+  Put = 'PUT',
+  Patch = 'PATCH',
+  Delete = 'DELETE',
 }
 
 /**
@@ -173,7 +173,8 @@ export const enum HttpMethod {
  * Enum use for Table actions
  */
 export const enum TableAction {
-    View,
-    Edit,
-    Delete
+  View,
+  Edit,
+  Delete,
+  RightArrow,
 }

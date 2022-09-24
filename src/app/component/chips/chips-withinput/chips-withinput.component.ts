@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormArray, FormGroup } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormArray,
+  FormGroup,
+} from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { AngularCodeTemplateViewModel } from 'src/app/common/angularCodeTemplateViewModel';
 import { AngularCodeTemplate } from 'src/app/common/angularCodeTemplate';
@@ -26,8 +30,8 @@ export class ChipsWithinputComponent
   public codeGeneratorEnable: boolean = false;
   items: UntypedFormArray;
 
-  constructor(fb: UntypedFormBuilder) {
-    super(fb);
+  constructor() {
+    super();
     this.defineForm();
   }
 

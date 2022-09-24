@@ -26,8 +26,8 @@ export class ChipsComponent extends BaseFormComponent<any> {
   };
   public angularCodeTemplateViewModel: AngularCodeTemplateViewModel =
     new AngularCodeTemplateViewModel();
-  constructor(fb: UntypedFormBuilder) {
-    super(fb);
+  constructor() {
+    super();
   }
 
   protected defineForm(): void {}
