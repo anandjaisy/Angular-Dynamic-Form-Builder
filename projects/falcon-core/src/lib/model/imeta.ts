@@ -86,7 +86,7 @@ export declare interface IComponentProperty {
   selectProperty?: ISelectOptions;
   chipSelectedOptions?: IOptions[] | any;
   editorProperty?: any;
-  event?: IComponentEvent<unknown>;
+  event?: IComponentEvent<any>;
   visible?: boolean;
 }
 /**
