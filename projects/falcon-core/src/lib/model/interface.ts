@@ -115,6 +115,7 @@ export declare interface IMatHint {
   text?: string;
   link?: IRouteLink;
   disabled?: boolean;
+  show?: boolean;
 }
 
 /**

@@ -351,4 +351,5 @@ export declare interface ISelectOptions {
 export declare interface IComponentEvent<T> {
   change?: EventEmitter<T>;
   click?: EventEmitter<T>;
+  keyboardEnter?: EventEmitter<T>;
 }

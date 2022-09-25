@@ -3,8 +3,8 @@
         [formGroup]="group" [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
         <mat-label>{{field.componentProperty.label}}</mat-label>
         <mat-chip-list #chipList aria-label="item selection">
-            <mat-chip *ngFor="let option of field?.componentProperty?.chipSelectedOptions" [selectable]="selectable" [removable]="removable"
-                (removed)="remove(option)">
+            <mat-chip *ngFor="let option of field?.componentProperty?.chipSelectedOptions" [selectable]="selectable"
+                [removable]="removable" (removed)="remove(option)">
                 {{option?.viewValue}}
                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>
@@ -13,7 +13,8 @@
                 [placeholder]="field.componentProperty.placeHolder" [ngStyle]="field.componentProperty.componentStyle"
                 [ngClass]="field.componentProperty.componentCss" [matAutocomplete]="auto" [matChipInputFor]="chipList"
                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)"
-                [required]="group.get(field.formControlName).errors !== null && group.get(field.formControlName).errors.required">
+                [required]="group.get(field.formControlName).errors !== null && group.get(field.formControlName).errors.required"
+                (keyup.enter)="keyboardEnterEvent($event)">
 
         </mat-chip-list>
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelected($event)">
@@ -44,8 +45,8 @@
         [formGroup]="group" [ngStyle]="field.componentProperty.groupStyle" [ngClass]="field.componentProperty.groupCss">
         <mat-label>{{field.componentProperty.label}}</mat-label>
         <mat-chip-list #chipList aria-label="item selection">
-            <mat-chip *ngFor="let option of field?.componentProperty?.chipSelectedOptions" [selectable]="selectable" [removable]="removable"
-                (removed)="remove(option)">
+            <mat-chip *ngFor="let option of field?.componentProperty?.chipSelectedOptions" [selectable]="selectable"
+                [removable]="removable" (removed)="remove(option)">
                 {{option?.viewValue}}
                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>

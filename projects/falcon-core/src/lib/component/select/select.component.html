@@ -5,14 +5,13 @@
     <mat-select [multiple]="field?.componentProperty?.selectProperty?.multiple" (selectionChange)="selectChange($event)"
         [formControlName]="field?.formControlName != undefined ? field?.formControlName : 'default'"
         [placeholder]="field?.componentProperty?.placeHolder" [ngStyle]="field?.componentProperty?.componentStyle"
-        [ngClass]="field?.componentProperty?.componentCss" [(value)]="field.componentProperty.value"
-        [disabled]="field?.componentProperty?.disabled">
+        [ngClass]="field?.componentProperty?.componentCss" [(value)]="field.componentProperty.value">
         <mat-option *ngFor="let item of field?.componentProperty?.options" [value]="item.value"
             [disabled]="item.disabled">
             {{item.viewValue}}
         </mat-option>
     </mat-select>
-    <mat-hint>
+    <mat-hint *ngIf="field?.componentProperty?.hint?.show">
         <ng-container *ngIf="field?.componentProperty?.hint?.link?.isLink; else elseBlock">
             <ng-container
                 *ngIf="field?.componentProperty?.hint?.link?.queryParams !== undefined; else withoutQueryBlock">
