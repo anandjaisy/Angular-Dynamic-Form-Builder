@@ -16,9 +16,7 @@ export class AppPaginationComponent {
     new AngularCodeTemplateViewModel();
   constructor() {}
 
-  paginationEvent($event) {
-    //console.log($event);
-  }
+  paginationEvent($event) {}
 
   buttonClickEvent() {
     this.angularCodeTemplateViewModel.tsConfig =

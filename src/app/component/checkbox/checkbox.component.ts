@@ -77,16 +77,13 @@ export class CheckboxComponent
 
   ngOnInit(): void {
     this.form = this.createControls();
-    this.changeEvent.subscribe(($event) => {
-      console.log('From component' + $event.checked);
-    });
+    this.changeEvent.subscribe(($event) => {});
   }
 
   protected getDatasource(): Observable<any> {
     return of();
   }
   protected submitDatasource(model: any): Observable<any> {
-    console.log(model);
     return of(model);
   }
 

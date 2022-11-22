@@ -121,7 +121,6 @@ export class TableActionMenuComponent implements OnInit {
   }
   page($event) {
     this.matTableConfig.progressBar = true;
-    console.log($event);
     this._snackBar.open(JSON.stringify($event), '', {
       duration: 5000,
     });
@@ -131,8 +130,5 @@ export class TableActionMenuComponent implements OnInit {
     }, 1000);
   }
 
-  tableActionRowEvent($event) {
-    console.log('Event from parent edit');
-    console.log($event);
-  }
+  tableActionRowEvent($event) {}
 }

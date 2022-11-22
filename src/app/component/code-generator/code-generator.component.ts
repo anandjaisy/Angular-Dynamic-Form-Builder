@@ -61,7 +61,6 @@ export class CodeGeneratorComponent implements OnInit {
           this.templateToLoad = this.codeTemplate;
         },
         (error) => {
-          console.log(error);
           this.templateToLoad = this.codeTemplate;
         },
       );
@@ -77,7 +76,6 @@ export class CodeGeneratorComponent implements OnInit {
           this.templateToLoad = this.codeTemplate;
         },
         (error) => {
-          console.log(error);
           this.templateToLoad = this.codeTemplate;
         },
       );
@@ -90,7 +88,6 @@ export class CodeGeneratorComponent implements OnInit {
         this.templateToLoad = this.codeTemplate;
       },
       (error) => {
-        console.log(error);
         this.templateToLoad = this.codeTemplate;
       },
     );

@@ -102,7 +102,6 @@ export class FormChildComponent
   }
 
   protected submitDatasource(model: any): Observable<any> {
-    console.log(model);
     return of(model);
   }
 }

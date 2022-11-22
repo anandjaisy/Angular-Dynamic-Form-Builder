@@ -31,9 +31,7 @@ export class SelectHtmlComponent {
 
   constructor() {}
 
-  selectionChange($event) {
-    console.log($event);
-  }
+  selectionChange($event) {}
 
   buttonClickEvent() {
     this.angularCodeTemplateViewModel.tsConfig =

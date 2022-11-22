@@ -96,7 +96,6 @@ export class TextAreaComponent
     return of();
   }
   protected submitDatasource(model: any): Observable<any> {
-    console.log(model);
     return of(model);
   }
 

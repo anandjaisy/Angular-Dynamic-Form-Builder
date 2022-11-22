@@ -28,9 +28,7 @@ export class ModalDialogComponent {
       width: '350px',
       data: this.iDialogData,
     });
-    await dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-    });
+    await dialogRef.afterClosed().subscribe((result) => {});
   }
   buttonClickEvent() {
     this.angularCodeTemplateViewModel.tsConfig =

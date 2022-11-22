@@ -54,7 +54,6 @@ export class ExampleBottomSheetComponent {
       { data },
     );
     bottomSheetRef.afterDismissed().subscribe((data) => {
-      console.log(data);
       this.response = data;
     });
   }

@@ -35,7 +35,5 @@ export class RadioHtmlComponent {
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
 
-  radioGroupChangeEvent($event) {
-    console.log($event);
-  }
+  radioGroupChangeEvent($event) {}
 }

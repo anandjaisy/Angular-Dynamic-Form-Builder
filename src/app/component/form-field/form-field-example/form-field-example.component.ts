@@ -264,7 +264,6 @@ export class FormFieldExampleComponent
     return of();
   }
   protected submitDatasource(model: any): Observable<any> {
-    console.log(model);
     this.iGenericHttpClient
       .post('/api/v1/category', model)
       .subscribe();

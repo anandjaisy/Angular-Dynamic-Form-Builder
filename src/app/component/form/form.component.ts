@@ -81,7 +81,6 @@ export class FormComponent
   }
 
   protected submitDatasource(model: any): Observable<any> {
-    console.log(model);
     return of(model);
   }
 

@@ -36,7 +36,6 @@ export class ChipsComponent extends BaseFormComponent<any> {
     return of();
   }
   protected submitDatasource(model: any): Observable<any> {
-    console.log(model);
     return of(model);
   }
 

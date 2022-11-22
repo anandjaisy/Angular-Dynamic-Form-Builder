@@ -172,7 +172,6 @@ export class SelectComponent
           (this.controlsConfig.container.layoutConfig[0].componentConfig[3].componentProperty.value =
             'pepperoni'),
       });
-      console.log('Compile successfully');
     }, 10000);
   }
 
@@ -180,7 +179,6 @@ export class SelectComponent
     return of();
   }
   protected submitDatasource(model: any): Observable<any> {
-    console.log(model);
     return of(model);
   }
 

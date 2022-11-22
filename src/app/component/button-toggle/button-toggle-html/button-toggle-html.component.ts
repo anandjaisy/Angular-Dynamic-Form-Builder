@@ -47,7 +47,5 @@ export class ButtonToggleHtmlComponent {
     this.codeGeneratorEnable = !this.codeGeneratorEnable;
   }
 
-  toggleChange($event) {
-    console.log($event);
-  }
+  toggleChange($event) {}
 }

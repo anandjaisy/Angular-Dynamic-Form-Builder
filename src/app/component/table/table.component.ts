@@ -67,9 +67,7 @@ export class TableComponent implements OnInit {
     this.matTableConfig.filter = false;
     this.matTableConfig.dataSource = this.dataSource;
 
-    this.iGenericHttpClient.get('/category').subscribe((item) => {
-      console.log(item);
-    });
+    this.iGenericHttpClient.get('/category').subscribe((item) => {});
   }
 
   buttonClickEvent() {

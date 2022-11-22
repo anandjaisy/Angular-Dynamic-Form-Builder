@@ -98,7 +98,6 @@ export class TablePaginationComponent implements OnInit {
   }
   page($event) {
     this.matTableConfig.progressBar = true;
-    console.log($event);
     this._snackBar.open(JSON.stringify($event), '', {
       duration: 5000,
     });
@@ -108,8 +107,5 @@ export class TablePaginationComponent implements OnInit {
     }, 1000);
   }
 
-  tableActionRowEvent($event) {
-    console.log('Event from parent edit');
-    console.log($event);
-  }
+  tableActionRowEvent($event) {}
 }
